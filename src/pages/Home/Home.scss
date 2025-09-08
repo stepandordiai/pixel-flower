@@ -13,6 +13,7 @@
 	align-items: center;
 	width: 100%;
 	color: var(--brown-clr);
+	overflow: hidden;
 }
 
 .home__top-inner {
@@ -26,6 +27,7 @@
 	align-items: center;
 	flex-direction: column;
 	border-radius: 25px;
+	z-index: 1;
 	overflow: hidden;
 	border: 1px solid rgba(211, 201, 87, 0.5);
 }

@@ -239,19 +239,6 @@ const EnvelopeBronze = () => {
 					})}
 				</div>
 			</div>
-			{/* <div className="colors-container">
-				<p className="page-title">Дрес-код</p>
-				<div>
-					<p className="pepe">
-						Будемо раді, якщо Ви підтримаєте кольорову гаму нашого весілля
-					</p>
-					<div className="colors">
-						<div></div>
-						<div></div>
-						<div></div>
-					</div>
-				</div>
-			</div> */}
 			<div className="gallery">
 				<p className="page-title">Галерея</p>
 				<Swiper
