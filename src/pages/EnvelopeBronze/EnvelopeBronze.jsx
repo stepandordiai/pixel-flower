@@ -17,6 +17,7 @@ import { EffectCards } from "swiper/modules";
 import { useParams } from "react-router-dom";
 
 import "./EnvelopeBronze.scss";
+import Header from "../../components/Header/Header";
 
 const EnvelopeBronze = () => {
 	const { id } = useParams();
@@ -29,6 +30,7 @@ const EnvelopeBronze = () => {
 	const [hours, setHours] = useState("0");
 	const [minutes, setMinutes] = useState("0");
 	const [seconds, setSeconds] = useState("0");
+	const [showHeader, setShowHeader] = useState(false);
 
 	useEffect(() => {
 		let interval = setInterval(() => {
@@ -46,6 +48,7 @@ const EnvelopeBronze = () => {
 				setMinutes(0);
 				setSeconds(0);
 				handleClick();
+				setShowHeader(true);
 			}
 		}, 1000);
 	}, []);
@@ -148,138 +151,141 @@ const EnvelopeBronze = () => {
 			break;
 	}
 	return (
-		<main className="home">
-			<div className="home__top">
-				<img className="home__top-img-bg" src={img} alt="" />
-				<div className="home__top-inner">
-					<div className="home__top-logo">
-						А<span>&</span>Н
+		<>
+			{showHeader && <Header />}
+			<main className="home">
+				<div className="home__top">
+					<img className="home__top-img-bg" src={img} alt="" />
+					<div className="home__top-inner">
+						<div className="home__top-logo">
+							А<span>&</span>Н
+						</div>
+						<div className="divider"></div>
+						<div className="home__top-date">
+							<p>{envelope.date}</p>
+							<span>&bull;</span>
+							<p>{envelope.month.toString().padStart(2, 0)}</p>
+							<span>&bull;</span>
+							<p>{envelope.year.toString().slice(2)}</p>
+						</div>
+						<h1 className="home__top-title">
+							<span>{envelope.name_1}</span>
+							<span> та </span>
+							<span>{envelope.name_2}</span>
+						</h1>
 					</div>
-					<div className="divider"></div>
-					<div className="home__top-date">
-						<p>{envelope.date}</p>
-						<span>&bull;</span>
-						<p>{envelope.month.toString().padStart(2, 0)}</p>
-						<span>&bull;</span>
-						<p>{envelope.year.toString().slice(2)}</p>
-					</div>
-					<h1 className="home__top-title">
-						<span>{envelope.name_1}</span>
-						<span> та </span>
-						<span>{envelope.name_2}</span>
-					</h1>
 				</div>
-			</div>
 
-			<div>
+				<div>
+					<p className="pepe">
+						<span>Дорогі гості,</span>
+						<br />
+						Щиро запрошуємо вас на свято, присвячене створенню нашої сім'ї, яке
+						відбудеться:
+					</p>
+				</div>
+				<div className="calendar-wrapper">
+					<p className="calendar-top">{`${txtMonth} ${envelope.year}`}</p>
+					<div className="calendar">
+						<div>Пн</div>
+						<div>Вт</div>
+						<div>Ср</div>
+						<div>Чт</div>
+						<div>Пт</div>
+						<div>Сб</div>
+						<div>Нд</div>
+						{days2.map((day, index) => {
+							return (
+								<div key={index} className={day === 28 ? "target-time" : ""}>
+									{day}
+									{day === 28 && (
+										<img className="calendar-heart" src={heartIcon} alt="" />
+									)}
+								</div>
+							);
+						})}
+					</div>
+				</div>
 				<p className="pepe">
-					<span>Дорогі гості,</span>
-					<br />
-					Щиро запрошуємо вас на свято, присвячене створенню нашої сім'ї, яке
-					відбудеться:
+					І ми не уявляємо цей радісний день без Вас - близьких і дорогих нам
+					людей!
 				</p>
-			</div>
-			<div className="calendar-wrapper">
-				<p className="calendar-top">{`${txtMonth} ${envelope.year}`}</p>
-				<div className="calendar">
-					<div>Пн</div>
-					<div>Вт</div>
-					<div>Ср</div>
-					<div>Чт</div>
-					<div>Пт</div>
-					<div>Сб</div>
-					<div>Нд</div>
-					{days2.map((day, index) => {
-						return (
-							<div key={index} className={day === 28 ? "target-time" : ""}>
-								{day}
-								{day === 28 && (
-									<img className="calendar-heart" src={heartIcon} alt="" />
-								)}
-							</div>
-						);
-					})}
-				</div>
-			</div>
-			<p className="pepe">
-				І ми не уявляємо цей радісний день без Вас - близьких і дорогих нам
-				людей!
-			</p>
-			<div className="addresses-container">
-				<p className="addresses__title">Адреси святкування</p>
-				<p style={{ marginBottom: 25 }} className="page-desc">
-					(місцевий час, {envelope.place})
-				</p>
-				<div className="addresses">
-					{envelope.adresess.map((address, index) => {
-						return (
-							<div key={index} className="address">
-								<p className="address__title">
-									<span>{address.title}</span>
-									<span>{address.time}</span>
-								</p>
-								<p className="address__info">{address.address_title}</p>
-								<p style={{ marginBottom: 10 }} className="address__info">
-									{address.address}
-								</p>
-								<iframe
-									className="map"
-									src={address.address_url}
-									loading="lazy"
-								></iframe>
-								<a
-									className="address__link"
-									href={address.address_destination_url}
-									target="_blank"
-								>
-									Отримати маршрут
-								</a>
-							</div>
-						);
-					})}
-				</div>
-			</div>
-			<div className="gallery">
-				<p className="page-title">Галерея</p>
-				<Swiper
-					effect={"cards"}
-					grabCursor={true}
-					modules={[EffectCards]}
-					className="mySwiper"
-				>
-					{envelope.gallery.map((img, index) => {
-						return (
-							<SwiperSlide key={index} className="slide">
-								<img src={img} alt="" />
-							</SwiperSlide>
-						);
-					})}
-				</Swiper>
-			</div>
-			<div className="date-container">
-				<p className="page-title">Святкування почнеться через:</p>
-				<div className="date" id="date">
-					<div>
-						<p>{days}</p>
-						<p>днів</p>
-					</div>
-					<div>
-						<p>{hours}</p>
-						<p>годин(а)</p>
-					</div>
-					<div>
-						<p>{minutes}</p>
-						<p>хвилин(а)</p>
-					</div>
-					<div>
-						<p>{seconds}</p>
-						<p>секунд(а)</p>
+				<div className="addresses-container">
+					<p className="addresses__title">Адреси святкування</p>
+					<p style={{ marginBottom: 25 }} className="page-desc">
+						(місцевий час, {envelope.place})
+					</p>
+					<div className="addresses">
+						{envelope.adresess.map((address, index) => {
+							return (
+								<div key={index} className="address">
+									<p className="address__title">
+										<span>{address.title}</span>
+										<span>{address.time}</span>
+									</p>
+									<p className="address__info">{address.address_title}</p>
+									<p style={{ marginBottom: 10 }} className="address__info">
+										{address.address}
+									</p>
+									<iframe
+										className="map"
+										src={address.address_url}
+										loading="lazy"
+									></iframe>
+									<a
+										className="address__link"
+										href={address.address_destination_url}
+										target="_blank"
+									>
+										Отримати маршрут
+									</a>
+								</div>
+							);
+						})}
 					</div>
 				</div>
-				{/* <p className="page-desc">В кінці буде феєрверк!</p> */}
-			</div>
-			<p className="page-title">Святкуйте з нами!</p>
-		</main>
+				<div className="gallery">
+					<p className="page-title">Галерея</p>
+					<Swiper
+						effect={"cards"}
+						grabCursor={true}
+						modules={[EffectCards]}
+						className="mySwiper"
+					>
+						{envelope.gallery.map((img, index) => {
+							return (
+								<SwiperSlide key={index} className="slide">
+									<img src={img} alt="" />
+								</SwiperSlide>
+							);
+						})}
+					</Swiper>
+				</div>
+				<div className="date-container">
+					<p className="page-title">Святкування почнеться через:</p>
+					<div className="date" id="date">
+						<div>
+							<p>{days}</p>
+							<p>днів</p>
+						</div>
+						<div>
+							<p>{hours}</p>
+							<p>годин(а)</p>
+						</div>
+						<div>
+							<p>{minutes}</p>
+							<p>хвилин(а)</p>
+						</div>
+						<div>
+							<p>{seconds}</p>
+							<p>секунд(а)</p>
+						</div>
+					</div>
+					{/* <p className="page-desc">В кінці буде феєрверк!</p> */}
+				</div>
+				<p className="page-title">Святкуйте з нами!</p>
+			</main>
+		</>
 	);
 };
 

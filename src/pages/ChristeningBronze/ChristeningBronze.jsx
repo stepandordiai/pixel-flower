@@ -16,6 +16,7 @@ import { EffectCards } from "swiper/modules";
 
 import { useParams } from "react-router-dom";
 import "./ChristeningBronze.scss";
+import Header from "../../components/Header/Header";
 
 const ChristeningBronze = () => {
 	const { id } = useParams();
@@ -28,6 +29,7 @@ const ChristeningBronze = () => {
 	const [hours, setHours] = useState("0");
 	const [minutes, setMinutes] = useState("0");
 	const [seconds, setSeconds] = useState("0");
+	const [showHeader, setShowHeader] = useState(false);
 
 	useEffect(() => {
 		let interval = setInterval(() => {
@@ -45,6 +47,7 @@ const ChristeningBronze = () => {
 				setMinutes(0);
 				setSeconds(0);
 				handleClick();
+				setShowHeader(true);
 			}
 		}, 1000);
 	}, []);
@@ -149,6 +152,7 @@ const ChristeningBronze = () => {
 
 	return (
 		<>
+			{showHeader && <Header />}
 			<main className="home">
 				<div style={{ position: "relative" }} className="home__top">
 					<img className="home__top-img-bg" src={img} alt="" />
