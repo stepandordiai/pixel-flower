@@ -96,10 +96,10 @@ const ChristeningBronze = () => {
 
 	const days2 = [];
 
-	const firstDay = new Date(2025, 7, 1); // August 1, 2025
+	const firstDay = new Date(2025, 8, 1); // August 1, 2025
 	let startWeekday = firstDay.getDay(); // 0 = Sunday, 1 = Monday, ...
 
-	const febDayNumbers = getDaysOfMonth(2025, 7).map((d) => d.getDate());
+	const febDayNumbers = getDaysOfMonth(2025, 8).map((d) => d.getDate());
 
 	startWeekday = (startWeekday + 6) % 7; // now Monday=0, Tuesday=1, ...
 
@@ -206,9 +206,12 @@ const ChristeningBronze = () => {
 						<div>Нд</div>
 						{days2.map((day, index) => {
 							return (
-								<div key={index} className={day === 28 ? "target-time" : ""}>
+								<div
+									key={index}
+									className={day === envelope.date ? "target-time" : ""}
+								>
 									{day}
-									{day === 28 && (
+									{day === envelope.date && (
 										<img className="calendar-heart" src={heartIcon} alt="" />
 									)}
 								</div>
