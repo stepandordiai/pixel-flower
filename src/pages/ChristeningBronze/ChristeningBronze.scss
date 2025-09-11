@@ -1,13 +1,14 @@
 .rainbow {
 	position: absolute;
 	bottom: 0;
+	left: 50%;
 	z-index: 0;
 	width: 100%;
 	max-width: 700px;
 	aspect-ratio: 1/1;
 	border-radius: 50%;
 	overflow: hidden;
-	transform: translateY(50%) rotate(90deg);
+	transform: translate(-50%, 50%) rotate(90deg);
 
 	div:nth-child(1) {
 		position: absolute;
@@ -113,4 +114,125 @@
 	to {
 		transform: translate(-50%, -50%) rotate(180deg);
 	}
+}
+
+.home-chr {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 100px;
+	overflow: hidden;
+	background: #fff !important;
+}
+
+.home__top-title-chr {
+	font-size: 1.5rem;
+}
+
+.home__top-date-chr {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.25rem;
+}
+
+.home__top-chr {
+	height: 100svh;
+	width: 100%;
+	overflow: hidden;
+}
+
+.home__top-inner-chr {
+	z-index: 1;
+	height: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 25px;
+}
+
+.scroll-chr {
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: max-content;
+	font-size: 0.75rem;
+	opacity: 0.5;
+}
+
+.scroll-chr--hide {
+	opacity: 0 !important;
+	pointer-events: none !important;
+}
+
+.pepe-chr {
+	font-size: clamp(1.75rem, 4vw, 2.25rem);
+	text-align: center;
+	text-decoration: underline;
+	text-decoration-color: #feb8d2;
+	text-decoration-thickness: 5px;
+	text-decoration-skip-ink: none;
+	padding: 0 10px;
+	color: rgb(102, 93, 73);
+
+	span {
+		font-size: clamp(2.25rem, 4vw, 3.75rem);
+	}
+}
+
+.calendar-top-christening {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: #fff;
+	padding: 0 25px;
+	width: max-content;
+	font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.calendar-christening {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-rows: repeat(6, 1fr);
+	aspect-ratio: 1/1;
+	text-align: center;
+	padding: 25px;
+	border: 1px solid #000;
+	border-radius: 25px;
+	font-weight: 300;
+
+	div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	div:nth-of-type(-n + 7) {
+		border-bottom: 1px solid #000;
+		font-weight: 500;
+	}
+}
+
+.calendar-wrapper-chr {
+	align-self: center;
+	width: 100%;
+	max-width: 500px;
+	padding: 25px;
+}
+
+.target-time-chr {
+	position: relative;
+	z-index: 1;
+}
+
+.balloon-container {
+	position: absolute;
+	z-index: -1;
+	width: 60px;
+	top: 70%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-bottom: none !important;
 }

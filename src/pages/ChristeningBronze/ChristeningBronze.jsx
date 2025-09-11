@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import confetti from "canvas-confetti";
 import img from "/bg-c.jpg";
-import heartIcon from "/heart2.png";
+import baloonIcon from "/icons/balloon.png";
 import data from "./../../assets/data/data.json";
 
 // Import Swiper React components
@@ -153,25 +153,12 @@ const ChristeningBronze = () => {
 	return (
 		<>
 			{showHeader && <Header />}
-			<main className="home">
-				<div style={{ position: "relative" }} className="home__top">
-					<img className="home__top-img-bg" src={img} alt="" />
-					<div className="home__top-inner">
-						<div className="home__top-logo">{/* А<span>&</span>Н */}</div>
-						<div className="divider"></div>
-						<div className="home__top-date">
-							<p>{envelope.date}</p>
-							<span>&bull;</span>
-							<p>{envelope.month.toString().padStart(2, 0)}</p>
-							<span>&bull;</span>
-							<p>{envelope.year.toString().slice(2)}</p>
-						</div>
-						<h1 className="home__top-title">
-							{/* <span>{envelope.name_1}</span> */}
-							{/* <span> та </span> */}
-							{/* <span>{envelope.name_2}</span> */}
-							Таїнство хрещення (Імя)
-						</h1>
+			<main className="home-chr">
+				<div style={{ position: "relative" }} className="home__top-chr">
+					<div className="home__top-inner-chr">
+						<div className="home__top-date-chr">29 Вересня 2025 року</div>
+						<p className="home__top-title-chr">Таїнство хрещення (Ім'я)</p>
+						{/* <h1 className="home__top-title">Хрестини (Ім'я)</h1> */}
 					</div>
 					<div className="rainbow">
 						<div></div>
@@ -184,19 +171,21 @@ const ChristeningBronze = () => {
 						<div></div>
 						<div></div>
 					</div>
+					<div className="scroll-chr">
+						Прокрутіть вниз, щоб дізнатися більше
+					</div>
 				</div>
-
 				<div>
-					<p className="pepe">
+					<p className="pepe-chr">
 						<span>Дорогі гості,</span>
 						<br />з великою радістю та любов’ю запрошуємо Вас розділити з нами
 						важливу подію
 					</p>
-					<p>Таїнство Хрещення нашої (синочка або дочки) [ім’я]</p>
+					<p>Таїнство Хрещення нашої дочки (ім’я)</p>
 				</div>
-				<div className="calendar-wrapper">
-					<p className="calendar-top">{`${txtMonth} ${envelope.year}`}</p>
-					<div className="calendar">
+				<div className="calendar-wrapper-chr">
+					<p className="calendar-top-christening">{`${txtMonth} ${envelope.year}`}</p>
+					<div className="calendar-christening">
 						<div>Пн</div>
 						<div>Вт</div>
 						<div>Ср</div>
@@ -208,11 +197,13 @@ const ChristeningBronze = () => {
 							return (
 								<div
 									key={index}
-									className={day === envelope.date ? "target-time" : ""}
+									className={day === envelope.date ? "target-time-chr" : ""}
 								>
 									{day}
 									{day === envelope.date && (
-										<img className="calendar-heart" src={heartIcon} alt="" />
+										<div className="balloon-container">
+											<img src={baloonIcon} alt="" />
+										</div>
 									)}
 								</div>
 							);
