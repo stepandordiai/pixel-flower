@@ -263,10 +263,9 @@ const ChristeningBronze = () => {
 					<div className="home__top-inner-chr">
 						<img className="floated-img" src={img} alt="" />
 						<div className="home__top-date-chr">
-							{envelope.date} {txtMonth} {envelope.year} рік
+							{envelope.date} Вересня {envelope.year} року
 						</div>
 						<p className="home__top-title-chr">Таїнство хрещення Марії</p>
-						{/* <p className="home__top-title-chr">Хрестини Марії</p> */}
 					</div>
 					<div className="rainbow">
 						<div className="pp"></div>
@@ -296,12 +295,6 @@ const ChristeningBronze = () => {
 						/>
 						<img className="gallery-float-img" src={img4} alt="" />
 					</div>
-					{/* <div className="gallery-masonry">
-							{envelope.gallery.map((img, index) => {
-								return <img key={index} src={img} alt="" loading="lazy" />;
-							})}
-						</div> */}
-
 					<img className="floated-img-3 animated-element1" src={img2} alt="" />
 					<p className="pepe-chr animated-element1">
 						<span>Дорогі гості,</span>
@@ -341,7 +334,7 @@ const ChristeningBronze = () => {
 					</div>
 				</div>
 				<p className="pepe-chr animated-element1">
-					І ми не уявляємо цей радісний день без Вас - близьких і дорогих нам
+					Ми не уявляємо цей радісний день без Вас - близьких і дорогих нам
 					людей!
 				</p>
 				<div style={{ padding: 10 }} className="wrapper">
@@ -385,17 +378,6 @@ const ChristeningBronze = () => {
 										>
 											Отримати маршрут
 										</a>
-										{/* <img
-											style={{
-												position: "absolute",
-												top: 100,
-												right: 0,
-												borderRadius: 20,
-											}}
-											src={address.img}
-											width={200}
-											alt=""
-										/> */}
 									</div>
 								);
 							})}
@@ -413,19 +395,8 @@ const ChristeningBronze = () => {
 						/>
 						<img className="gallery-float-img-2" src={img5} alt="" />
 					</div>
-					{/* <img className="floated-img-3" src={img2} alt="" /> */}
-					{/* <div className="gallery-chr"> */}
-					{/* <p className="page-title-chr">Галерея</p> */}
-					{/* <div className="gallery-masonry">
-							{envelope.gallery.map((img, index) => {
-								return <img key={index} src={img} alt="" loading="lazy" />;
-							})}
-						</div> */}
-
-					{/* </div> */}
 				</div>
 				<div className="wrapper">
-					{/* <img className="floated-img-3" src={img2} alt="" /> */}
 					<div className="date-container-chr">
 						<p className="page-title-chr animated-element1">
 							Святкування почнеться через:
@@ -455,7 +426,7 @@ const ChristeningBronze = () => {
 					<p className="page-title-chr animated-element1">
 						З любов’ю,
 						<br />
-						{envelope.mother_name} та {envelope.father_name}
+						{envelope.father_name} та {envelope.mother_name}
 					</p>
 					<div style={{ padding: 10 }}>
 						<div className="swiper-cont-2 animated-element1">
