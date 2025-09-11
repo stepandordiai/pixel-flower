@@ -23,49 +23,62 @@ const Templates = () => {
 		...new Set(data.map((template) => template.type)),
 	];
 
+	const filteredTemplates = data.filter((template) => {
+		return template.option === option && template.type === type;
+	});
+
 	return (
 		<div className="templates">
 			<p className="options__title">Шаблони</p>
-			<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
-				{uniqueTemplateOptions.map((templateOption) => {
-					return (
-						<button
-							key={templateOption}
-							onClick={() => handleTemplatesBtn(templateOption)}
-							className={
-								templateOption === option
-									? "templates__btn templates__btn--active"
-									: "templates__btn"
-							}
-						>
-							{templateOption}
-						</button>
-					);
-				})}
+			<div className="filters-container">
+				<div className="filter-container">
+					<p>Виберіть опцію</p>
+					<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
+						{uniqueTemplateOptions.map((templateOption) => {
+							return (
+								<button
+									key={templateOption}
+									onClick={() => handleTemplatesBtn(templateOption)}
+									className={
+										templateOption === option
+											? "templates__btn templates__btn--active"
+											: "templates__btn"
+									}
+								>
+									{templateOption}
+								</button>
+							);
+						})}
+					</div>
+				</div>
+				<div className="filter-container">
+					<p>Виберіть тип запрошення</p>
+					<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
+						{uniqueTemplateTypes.map((templateType) => {
+							return (
+								<button
+									key={templateType}
+									onClick={() => handleTemplateType(templateType)}
+									className={
+										templateType === type
+											? "templates__btn templates__btn--active"
+											: "templates__btn"
+									}
+								>
+									{templateType}
+								</button>
+							);
+						})}
+					</div>
+				</div>
 			</div>
-			<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
-				{uniqueTemplateTypes.map((templateType) => {
-					return (
-						<button
-							key={templateType}
-							onClick={() => handleTemplateType(templateType)}
-							className={
-								templateType === type
-									? "templates__btn templates__btn--active"
-									: "templates__btn"
-							}
-						>
-							{templateType}
-						</button>
-					);
-				})}
-			</div>
-			{/* TODO: */}
-			{data
-				.filter((envelope) => {
-					return envelope.option === option && envelope.type === type;
-				})
-				.map((envelope, index) => (
+
+			{filteredTemplates.length === 0 ? (
+				<div className="no-data">
+					Шаблони такої опції та типу поки-що відсутні 😣
+				</div>
+			) : (
+				filteredTemplates.map((envelope, index) => (
 					<div key={envelope.id} className="template">
 						<div className="template__img-container">
 							{envelope.ss.map((img, index) => {
@@ -89,7 +102,8 @@ const Templates = () => {
 							</NavLink>
 						</div>
 					</div>
-				))}
+				))
+			)}
 		</div>
 	);
 };
