@@ -64,7 +64,7 @@
 		"id": "chrestiny-ukraine",
 		"child_name": "Ім'я дитини",
 		"mother_name": "Мирослава",
-		"father_name": "Тато",
+		"father_name": "Михайло",
 		"year": 2025,
 		"month": 9,
 		"date": 29,
@@ -73,21 +73,31 @@
 			{
 				"title": "Хрещення",
 				"time": "12:00",
-				"address_title": "Готельно-ресторанний комплекс \"Царська Долина\"",
-				"address": "с. Нересниця , вул. Солоний, 38",
-				"address_url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d21941.462315408433!2d23.8097244!3d48.1308062!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47379e6b7b7d5dd1%3A0x6ff58cb84c0dfffb!2sTsars%CA%B9ka%20Dolyna!5e1!3m2!1sen!2scz!4v1756309347115!5m2!1sen!2scz",
-				"address_destination_url": "https://maps.app.goo.gl/VLLkSM1oYpmA2UY86"
+				"address_title": "Церква \"Kostel svatého Havla\"",
+				"address": "K Havlínu, 156 00 Zbraslav",
+				"address_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2565.950656959962!2d14.386725799999999!3d49.974783900000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b9737513b2943%3A0x2a6a534b4212dcee!2sKostel%20svat%C3%A9ho%20Havla!5e0!3m2!1sen!2scz!4v1757583443010!5m2!1sen!2scz",
+				"address_destination_url": "https://maps.app.goo.gl/AJmMJSLf9kwTXDDy9",
+				"address_img": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nru6Vso7SU3I6eflwIqHB3YXSs40xGhMnXJM58zdwNiUDQFJ5lkQIs2SPc-V218kuBduXJdhXWsaNokeIDHnniJbyuzx5JDZGFlzEk5UnczqB4xHh4m32pBfaeYEDTYqiv4s5nQ=s1360-w1360-h1020-rw"
 			},
 			{
 				"title": "Бенкет",
 				"time": "15:00",
-				"address_title": "Готельно-ресторанний комплекс \"Царська Долина\"",
-				"address": "с. Нересниця , вул. Солоний, 38",
-				"address_url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d21941.462315408433!2d23.8097244!3d48.1308062!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47379e6b7b7d5dd1%3A0x6ff58cb84c0dfffb!2sTsars%CA%B9ka%20Dolyna!5e1!3m2!1sen!2scz!4v1756309347115!5m2!1sen!2scz",
-				"address_destination_url": "https://maps.app.goo.gl/VLLkSM1oYpmA2UY86"
+				"address_title": "Ресторан \"TAMI PIZZERIA\"",
+				"address": "Nupacká 163, 251 01 Nupaky-Říčany u Prahy",
+				"address_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2564.842230878555!2d14.602272999999997!3d49.9955673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b8e8ee273c08d%3A0x39ec3b99c582b93c!2sTAMI%20PIZZERIA!5e0!3m2!1sen!2scz!4v1757583608661!5m2!1sen!2scz",
+				"address_destination_url": "https://maps.app.goo.gl/qMHDVYWifA1AoLzh6",
+				"address_img": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrsYdaE2E-57nNnt-uHaol8iCMhF99zwQf1eO1o79mAvKy3ZwNth28OioXeKz7AupL49vHATp5Cq-utCyZGSLQAQvwNMQulQMogStoDAGFf5B2W-aOJHhx-SGmKt0JJrQkihXUm=s1360-w1360-h1020-rw"
 			}
 		],
-		"gallery": ["/01.JPG", "/02.JPG", "/03.JPG", "/04.JPG", "/05.JPG"],
+		"gallery": [
+			"/child/01.jpg",
+			"/child/02.jpg",
+			"/child/03.jpg",
+			"/child/04.jpg",
+			"/child/05.jpg",
+			"/child/06.jpg",
+			"/child/07.jpg"
+		],
 		"countdown": "2025-09-29T12:00:00",
 		"option": "Bronze",
 		"type": "Хрестини",

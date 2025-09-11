@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import confetti from "canvas-confetti";
-import img from "/bg-c.jpg";
+import img from "/christening/02.webp";
+import img1 from "/christening/04.webp";
+import img2 from "/christening/06.webp";
+import img3 from "/christening/01.webp";
 import baloonIcon from "/icons/balloon.png";
 import data from "./../../assets/data/data.json";
 
@@ -15,8 +18,8 @@ import "swiper/css/effect-cards";
 import { EffectCards } from "swiper/modules";
 
 import { useParams } from "react-router-dom";
-import "./ChristeningBronze.scss";
 import Header from "../../components/Header/Header";
+import "./ChristeningBronze.scss";
 
 const ChristeningBronze = () => {
 	const { id } = useParams();
@@ -150,39 +153,96 @@ const ChristeningBronze = () => {
 			break;
 	}
 
+	useEffect(() => {
+		const scroll = document.querySelector(".scroll-chr");
+		const images = document.querySelectorAll(".gallery-masonry img");
+
+		window.addEventListener("scroll", () => {
+			if (document.documentElement.scrollTop > 0) {
+				scroll.classList.add("scroll-chr--hide");
+			} else {
+				scroll.classList.remove("scroll-chr--hide");
+			}
+
+			images.forEach((img) => {
+				const imgRect = img.getBoundingClientRect();
+				if (imgRect.top < window.innerHeight - 100) {
+					img.classList.add("img--active");
+				}
+			});
+		});
+	}, []);
+
+	useEffect(() => {
+		const rainbow = document.querySelectorAll(".rainbow");
+
+		rainbow.forEach((el) => {
+			const rainbows = el.querySelectorAll(".pp");
+			window.addEventListener("scroll", () => {
+				const elRect = el.getBoundingClientRect();
+				console.log(elRect);
+				if (elRect.top < window.innerHeight) {
+					rainbows.forEach((el, index) => {
+						setTimeout(() => {
+							el.classList.add("rainbow-el--active");
+						}, 100 * index);
+					});
+				}
+			});
+
+			const elRect = el.getBoundingClientRect();
+			if (elRect.top < window.innerHeight) {
+				rainbows.forEach((el, index) => {
+					setTimeout(() => {
+						el.classList.add("rainbow-el--active");
+					}, 100 * index);
+				});
+			}
+		});
+	}, []);
+
 	return (
 		<>
 			{showHeader && <Header />}
 			<main className="home-chr">
-				<div style={{ position: "relative" }} className="home__top-chr">
+				<div className="home__top-chr">
 					<div className="home__top-inner-chr">
-						<div className="home__top-date-chr">29 Вересня 2025 року</div>
-						<p className="home__top-title-chr">Таїнство хрещення (Ім'я)</p>
-						{/* <h1 className="home__top-title">Хрестини (Ім'я)</h1> */}
+						<img className="floated-img" src={img} alt="" />
+						<div className="home__top-date-chr">
+							{envelope.date} {txtMonth} {envelope.year} рік
+						</div>
+						<p className="home__top-title-chr">Таїнство хрещення Марійки</p>
+						{/* <p className="home__top-title-chr">Хрестини Марійки</p> */}
 					</div>
 					<div className="rainbow">
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
+						<div className="pp"></div>
+						<div className="pp"></div>
+						<div className="pp"></div>
+						<div className="pp"></div>
+						<div className="pp"></div>
+						<div className="pp"></div>
+						<div className="pp"></div>
+						<div className="pp"></div>
+						<div className="pp"></div>
 					</div>
+					<img className="floated-img-1" src={img1} alt="" />
+					<img className="floated-img-2" src={img1} alt="" />
+
 					<div className="scroll-chr">
 						Прокрутіть вниз, щоб дізнатися більше
 					</div>
 				</div>
-				<div>
+				<div className="wrapper">
+					<img className="floated-img-3" src={img2} alt="" />
 					<p className="pepe-chr">
 						<span>Дорогі гості,</span>
 						<br />з великою радістю та любов’ю запрошуємо Вас розділити з нами
 						важливу подію
+						<br />
+						Таїнство Хрещення нашої донечки Марійки
 					</p>
-					<p>Таїнство Хрещення нашої дочки (ім’я)</p>
 				</div>
+
 				<div className="calendar-wrapper-chr">
 					<p className="calendar-top-christening">{`${txtMonth} ${envelope.year}`}</p>
 					<div className="calendar-christening">
@@ -210,87 +270,110 @@ const ChristeningBronze = () => {
 						})}
 					</div>
 				</div>
-				<p className="pepe">
+				<p className="pepe-chr">
 					І ми не уявляємо цей радісний день без Вас - близьких і дорогих нам
 					людей!
 				</p>
-				<div className="addresses-container">
-					<p className="addresses__title">Адреси святкування</p>
-					<p style={{ marginBottom: 25 }} className="page-desc">
-						(місцевий час, {envelope.place})
+				<div className="wrapper">
+					<img className="floated-img-3" src={img2} alt="" />
+					<div className="addresses-container">
+						<p className="addresses__title-chr">Адреси святкування</p>
+						<p style={{ marginBottom: 25 }} className="page-desc-chr">
+							Київський час
+						</p>
+						<div className="addresses-chr">
+							{envelope.adresess.map((address, index) => {
+								return (
+									<div key={index} className="address-chr">
+										<p className="address__title-chr">
+											<span>{address.title}</span>
+											<span>{address.time}</span>
+										</p>
+										<p className="address__info-chr">{address.address_title}</p>
+										<p
+											style={{ marginBottom: 10 }}
+											className="address__info-chr"
+										>
+											{address.address}
+										</p>
+										<iframe
+											className="map"
+											src={address.address_url}
+											loading="lazy"
+										></iframe>
+										<a
+											className="address__link-chr"
+											href={address.address_destination_url}
+											target="_blank"
+										>
+											Отримати маршрут
+										</a>
+									</div>
+								);
+							})}
+						</div>
+					</div>
+				</div>
+
+				<div className="wrapper">
+					<img className="floated-img-3" src={img2} alt="" />
+					<div className="gallery-chr">
+						<p className="page-title-chr">Галерея</p>
+						<div className="gallery-masonry">
+							{envelope.gallery.map((img, index) => {
+								return <img key={index} src={img} alt="" loading="lazy" />;
+							})}
+						</div>
+					</div>
+				</div>
+				<div className="wrapper">
+					<img className="floated-img-3" src={img2} alt="" />
+					<div className="date-container-chr">
+						<p className="page-title-chr">Святкування почнеться через:</p>
+						<div className="date-chr" id="date">
+							<div>
+								<p>{days}</p>
+								<p>днів</p>
+							</div>
+							<div>
+								<p>{hours}</p>
+								<p>годин(а)</p>
+							</div>
+							<div>
+								<p>{minutes}</p>
+								<p>хвилин(а)</p>
+							</div>
+							<div>
+								<p>{seconds}</p>
+								<p>секунд(а)</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="wrapper">
+					<img className="floated-img-3" width={150} src={img3} alt="" />
+					<p className="page-title-chr">
+						З любов’ю,
+						<br />
+						{envelope.mother_name} та {envelope.father_name}
 					</p>
-					<div className="addresses">
-						{envelope.adresess.map((address, index) => {
-							return (
-								<div key={index} className="address">
-									<p className="address__title">
-										<span>{address.title}</span>
-										<span>{address.time}</span>
-									</p>
-									<p className="address__info">{address.address_title}</p>
-									<p style={{ marginBottom: 10 }} className="address__info">
-										{address.address}
-									</p>
-									<iframe
-										className="map"
-										src={address.address_url}
-										loading="lazy"
-									></iframe>
-									<a
-										className="address__link"
-										href={address.address_destination_url}
-										target="_blank"
-									>
-										Отримати маршрут
-									</a>
-								</div>
-							);
-						})}
+					<div>
+						<div className="rainbow-bottom">
+							<div className="rainbow">
+								<div className="pp"></div>
+								<div className="pp"></div>
+								<div className="pp"></div>
+								<div className="pp"></div>
+								<div className="pp"></div>
+								<div className="pp"></div>
+								<div className="pp"></div>
+								<div className="pp"></div>
+								<div className="pp"></div>
+							</div>
+						</div>
+						<img className="rainbow-img-3" src={img1} alt="" />
 					</div>
 				</div>
-				<div className="gallery">
-					<p className="page-title">Галерея</p>
-					<Swiper
-						effect={"cards"}
-						grabCursor={true}
-						modules={[EffectCards]}
-						className="mySwiper"
-					>
-						{envelope.gallery.map((img, index) => {
-							return (
-								<SwiperSlide key={index} className="slide">
-									<img src={img} alt="" />
-								</SwiperSlide>
-							);
-						})}
-					</Swiper>
-				</div>
-				<div className="date-container">
-					<p className="page-title">Святкування почнеться через:</p>
-					<div className="date" id="date">
-						<div>
-							<p>{days}</p>
-							<p>днів</p>
-						</div>
-						<div>
-							<p>{hours}</p>
-							<p>годин(а)</p>
-						</div>
-						<div>
-							<p>{minutes}</p>
-							<p>хвилин(а)</p>
-						</div>
-						<div>
-							<p>{seconds}</p>
-							<p>секунд(а)</p>
-						</div>
-					</div>
-					{/* <p className="page-desc">В кінці буде феєрверк!</p> */}
-				</div>
-				<p className="page-title">З любов’ю,</p>
-				<p>
-					{envelope.mother_name} та {envelope.father_name}
-				</p>
 			</main>
 		</>
 	);
