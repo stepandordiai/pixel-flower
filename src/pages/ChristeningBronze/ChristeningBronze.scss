@@ -83,7 +83,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	z-index: 2;
+	z-index: 100;
 
 	img {
 		width: 50%;
@@ -242,7 +242,6 @@
 	z-index: 2;
 	font-size: clamp(2.5rem, 4vw, 4rem);
 	text-align: center;
-	font-weight: 500;
 }
 
 .animated-element1 {
@@ -304,7 +303,6 @@
 	padding: 0 10px;
 
 	span {
-		font-weight: 500;
 		font-size: clamp(2rem, 4vw, 3rem);
 	}
 }
