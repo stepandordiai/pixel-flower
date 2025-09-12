@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header";
 import Options from "../../components/Options/Options";
 import { useEffect } from "react";
 import Templates from "../../components/Templates/Templates";
+import QA from "../../components/QA/QA";
 import "./Home.scss";
 
 const Home = () => {
@@ -19,6 +20,7 @@ const Home = () => {
 			<main className="home">
 				<Templates />
 				<Options />
+				<QA />
 			</main>
 		</>
 	);

@@ -1,0 +1,39 @@
+.qa {
+	background: rgb(255, 214, 214);
+	padding: 10px;
+	border: 1px solid #000;
+	border-radius: 25px;
+	margin: 0 10px;
+	max-width: 750px;
+}
+
+.qa-item {
+	background: #b5e48a;
+	border-radius: 20px;
+	border: 1px solid #000;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+.qa-item__btn {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 0;
+}
+
+.qa-item__dd {
+	display: grid;
+	grid-template-rows: 0fr;
+	transition: all 0.3s;
+
+	p {
+		overflow: hidden;
+	}
+}
+
+.qa-item__dd--active {
+	grid-template-rows: 1fr;
+}
