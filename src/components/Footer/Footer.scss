@@ -15,7 +15,7 @@
 	gap: 5px;
 	padding: 7.5px;
 	border-radius: 20px;
-	background: var(--accent-clr);
+	background: var(--accent-clr-yellow);
 	border: 1px solid #000;
 
 	&:hover .footer__btn-icon-wrapper-inner {
@@ -36,8 +36,16 @@
 
 .footer__author {
 	a {
-		display: inline-block;
-		color: #000;
-		text-decoration: underline solid var(--accent-clr) !important;
+		background: linear-gradient(
+			90deg,
+			var(--accent-clr-yellow),
+			var(--accent-clr-green),
+			var(--accent-clr-dark-green),
+			var(--accent-clr-pink),
+			var(--accent-clr-dark-pink)
+		);
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 }

@@ -88,7 +88,7 @@ const Options = () => {
 							position: "absolute",
 							top: 20,
 							right: 20,
-							background: "var(--accent-clr)",
+							background: "var(--accent-clr-yellow)",
 							border: "1px solid #000",
 							padding: "5px",
 							borderRadius: "15px",
