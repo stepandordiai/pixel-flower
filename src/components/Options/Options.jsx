@@ -6,7 +6,7 @@ const Options = () => {
 	const instaUrl = "https://www.instagram.com/pixelflower.studio/";
 
 	return (
-		<div className="options-container">
+		<div className="options-container" id="options">
 			<p className="options__title">Вартість</p>
 			<div className="options">
 				<div className="option">

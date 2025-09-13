@@ -28,7 +28,7 @@ const Templates = () => {
 	});
 
 	return (
-		<div className="templates">
+		<div className="templates" id="templates">
 			<p className="options__title">Шаблони</p>
 			<div className="filters-container">
 				<div className="filter-container">

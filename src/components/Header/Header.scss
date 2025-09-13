@@ -4,6 +4,7 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 10px 25px;
+	min-height: 70px;
 }
 
 .header__logo {
@@ -18,13 +19,156 @@
 	}
 }
 
+// menu
+
 .menu {
-	button {
-		background: var(--accent-clr-yellow);
-		border: 1px solid black;
-		border-radius: 20px;
-		padding: 7.5px;
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	z-index: 1;
+	min-height: 50px;
+	min-width: 50px;
+	background: var(--accent-clr-yellow);
+	border: 1px solid black;
+	border-radius: 25px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.menu-dd {
+	overflow: hidden;
+	display: grid;
+	grid-template-rows: 0fr;
+	grid-template-columns: 0fr;
+	transition: all 0.5s;
+}
+
+.menu-dd--active {
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr;
+	padding: 10px;
+}
+
+.menu-dd-nav {
+	white-space: nowrap;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
+}
+
+.menu-dd-nav__link {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	column-gap: 5px;
+	color: #000;
+
+	img {
+		transform: rotate(90deg);
 	}
+
+	&:hover .menu-icon-wrapper {
+		transform: translateX(0);
+	}
+}
+
+.menu-icon-container {
+	display: flex;
+	width: 16px;
+	overflow: hidden;
+}
+
+.menu-icon-wrapper {
+	transition: all 0.3s;
+	transform: translateX(-16px);
+}
+
+// burger-btn
+
+.burger-btn-wrapper {
+	width: 50px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.burger-btn {
+	position: relative;
+	width: 30px;
+	padding: 15px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.burger-btn::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background: #000;
+	transform: translateY(-5px) scaleX(1);
+	transform-origin: right;
+	transition: all 0.5s 0.75s;
+}
+
+.burger-btn--active::before {
+	transform: translateY(-5px) scaleX(0);
+	transition: all 0.5s;
+}
+
+.burger-btn::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background: #000;
+	transform: translateY(5px) scaleX(1);
+	transform-origin: right;
+	transition: transform 0.5s 0.5s;
+}
+
+.burger-btn--active::after {
+	transform: translateY(5px) scaleX(0);
+	transition: all 0.5s 0.25s;
+}
+
+.burger-btn__top-line {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) rotate(-45deg) scale(0);
+	transform-origin: center;
+	width: 100%;
+	height: 2px;
+	background: #000;
+	transition: transform 0.5s 0.25s;
+}
+
+.burger-btn__top-line--active {
+	transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+	transition: transform 0.5s 0.5s;
+}
+
+.burger-btn__bottom-line {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) rotate(45deg) scale(0);
+	transform-origin: center;
+	width: 100%;
+	height: 2px;
+	background: #000;
+	transition: transform 0.5s;
+}
+
+.burger-btn__bottom-line--active {
+	transform: translate(-50%, -50%) rotate(45deg) scale(1);
+	transition: transform 0.5s 0.75s;
 }
 
 @media screen and (width < 808px) {

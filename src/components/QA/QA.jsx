@@ -2,7 +2,7 @@ import "./QA.scss";
 
 const QA = () => {
 	return (
-		<div className="qa">
+		<div className="qa" id="qa">
 			<h2 className="qa__title">Питання та відповіді</h2>
 			<div className="qa-grid">
 				<div className="qa-item">
