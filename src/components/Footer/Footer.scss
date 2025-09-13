@@ -25,12 +25,12 @@
 
 .footer__btn-icon-wrapper {
 	overflow: hidden;
+	height: 16px;
 }
 
 .footer__btn-icon-wrapper-inner {
 	display: flex;
 	flex-direction: column;
-	height: 15px;
 	transition: all 0.3s;
 }
 

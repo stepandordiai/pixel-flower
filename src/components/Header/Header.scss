@@ -24,7 +24,7 @@
 .menu {
 	position: fixed;
 	top: 10px;
-	right: 10px;
+	right: 25px;
 	z-index: 1;
 	min-height: 50px;
 	min-width: 50px;
@@ -37,6 +37,12 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
+}
+
+@media screen and (width < 808px) {
+	.menu {
+		right: 10px;
+	}
 }
 
 .menu-dd {
@@ -68,24 +74,25 @@
 	column-gap: 5px;
 	color: #000;
 
-	img {
-		transform: rotate(90deg);
-	}
-
 	&:hover .menu-icon-wrapper {
-		transform: translateX(0);
+		transform: translateX(16px);
 	}
 }
 
 .menu-icon-container {
-	display: flex;
 	width: 16px;
 	overflow: hidden;
 }
 
 .menu-icon-wrapper {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
 	transition: all 0.3s;
-	transform: translateX(-16px);
+
+	img {
+		transform: rotate(90deg);
+	}
 }
 
 // burger-btn
