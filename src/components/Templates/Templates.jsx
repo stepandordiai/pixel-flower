@@ -4,8 +4,23 @@ import { useState } from "react";
 import "./Templates.scss";
 
 const Templates = () => {
-	const [option, setOption] = useState("Bronze");
-	const [type, setType] = useState("Весілля");
+	const uniqueTemplateOptions = [
+		...new Set(
+			data
+				.filter((template) => template.isTemplate)
+				.map((template) => template.option)
+		),
+	];
+
+	const uniqueTemplateTypes = [
+		...new Set(
+			data
+				.filter((template) => template.isTemplate)
+				.map((template) => template.type)
+		),
+	];
+	const [option, setOption] = useState(uniqueTemplateOptions[0]);
+	const [type, setType] = useState(uniqueTemplateTypes[0]);
 
 	const handleTemplatesBtn = (props) => {
 		setOption((prev) => (prev = props));
@@ -14,14 +29,6 @@ const Templates = () => {
 	const handleTemplateType = (props) => {
 		setType((prev) => (prev = props));
 	};
-
-	const uniqueTemplateOptions = [
-		...new Set(data.map((template) => template.option)),
-	];
-
-	const uniqueTemplateTypes = [
-		...new Set(data.map((template) => template.type)),
-	];
 
 	const filteredTemplates = data.filter((template) => {
 		return (
@@ -38,7 +45,8 @@ const Templates = () => {
 				<div className="filter-container">
 					<p>Виберіть опцію</p>
 					<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
-						{uniqueTemplateOptions.map((templateOption) => {
+						{/* {uniqueTemplateOptions.map((templateOption) => { */}
+						{["Bronze", "Silver", "Gold"].map((templateOption) => {
 							return (
 								<button
 									key={templateOption}

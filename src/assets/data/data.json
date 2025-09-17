@@ -139,7 +139,7 @@
 		"type_code": "christening",
 		"option_code": "bronze",
 		"background": "#ff0000",
-		"ss": ["/ss/silver/silver.png", "/ss/silver/silver1.png"],
+		"ss": ["/template-ss/pixel-flower-template-s-c-1.png"],
 		"song": "/music/Lullaby.mp3",
 		"isTemplate": true
 	}

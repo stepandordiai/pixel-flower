@@ -32,13 +32,9 @@
 
 .template__img-container {
 	width: 100%;
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
 	gap: 25px;
-	padding: 50px;
 	border: 1px solid #000;
 	border-radius: 25px;
-	background: #f3f3f3;
 }
 
 .template__type {
