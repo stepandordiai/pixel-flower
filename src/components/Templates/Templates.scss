@@ -17,6 +17,12 @@
 	background: var(--accent-clr-yellow);
 }
 
+.templates-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+}
+
 .template {
 	display: flex;
 	flex-direction: column;
@@ -75,8 +81,20 @@
 	max-width: max-content;
 }
 
+@media screen and (width < 1000px) {
+	.templates-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
 @media screen and (width < 808px) {
 	.templates {
 		padding: 0 10px;
+	}
+}
+
+@media screen and (width < 600px) {
+	.templates-grid {
+		grid-template-columns: repeat(1, 1fr);
 	}
 }

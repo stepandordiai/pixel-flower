@@ -200,7 +200,6 @@ const ChristeningBronze = () => {
 			const rainbows = el.querySelectorAll(".pp");
 			window.addEventListener("scroll", () => {
 				const elRect = el.getBoundingClientRect();
-				console.log(elRect);
 				if (elRect.top < window.innerHeight) {
 					rainbows.forEach((el, index) => {
 						setTimeout(() => {
@@ -265,7 +264,9 @@ const ChristeningBronze = () => {
 						<div className="home__top-date-chr">
 							{envelope.date} Вересня {envelope.year} року
 						</div>
-						<p className="home__top-title-chr">Таїнство хрещення Марії</p>
+						<p className="home__top-title-chr">
+							Таїнство хрещення {envelope.child_name}
+						</p>
 					</div>
 					<div className="rainbow">
 						<div className="pp"></div>
@@ -289,7 +290,7 @@ const ChristeningBronze = () => {
 					<div className="swiper-cont animated-element1">
 						<img
 							className="iimg"
-							src={envelope.gallery[3]}
+							src={envelope.gallery[0]}
 							alt=""
 							loading="lazy"
 						/>
@@ -302,7 +303,7 @@ const ChristeningBronze = () => {
 						важливу подію
 						<br />
 						<br />
-						Таїнство Хрещення нашої донечки Марії
+						Таїнство Хрещення нашої донечки {envelope.child_name}
 					</p>
 				</div>
 
@@ -389,7 +390,7 @@ const ChristeningBronze = () => {
 					<div className="swiper-cont-2 animated-element1">
 						<img
 							className="iimg"
-							src={envelope.gallery[0]}
+							src={envelope.gallery[1]}
 							alt=""
 							loading="lazy"
 						/>
@@ -432,7 +433,7 @@ const ChristeningBronze = () => {
 						<div className="swiper-cont-2 animated-element1">
 							<img
 								className="iimg"
-								src={envelope.gallery[1]}
+								src={envelope.gallery[2]}
 								alt=""
 								loading="lazy"
 							/>
