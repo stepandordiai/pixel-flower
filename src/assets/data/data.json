@@ -142,5 +142,33 @@
 		"ss": ["/template-ss/pixel-flower-template-s-c-1.png"],
 		"song": "/music/Lullaby.mp3",
 		"isTemplate": true
+	},
+	{
+		"id": "template-andrii-and-natali",
+		"name_1": "Микола",
+		"name_2": "Марія",
+		"year": 2025,
+		"month": 9,
+		"date": 18,
+		"place": "Київ",
+		"adresess": [
+			{
+				"title": "Бенкет",
+				"time": "16:00",
+				"address_title": "Готельно-ресторанний комплекс \"Царська Долина\"",
+				"address": "с. Нересниця , вул. Солоний, 38",
+				"address_url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d21941.462315408433!2d23.8097244!3d48.1308062!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47379e6b7b7d5dd1%3A0x6ff58cb84c0dfffb!2sTsars%CA%B9ka%20Dolyna!5e1!3m2!1sen!2scz!4v1756309347115!5m2!1sen!2scz",
+				"address_destination_url": "https://maps.app.goo.gl/VLLkSM1oYpmA2UY86"
+			}
+		],
+		"gallery": [],
+		"countdown": "2025-12-14T16:00:00",
+		"option": "Silver",
+		"type": "Весілля",
+		"type_code": "envelope",
+		"option_code": "silver",
+		"ss": ["/template-ss/pixel-flower-template-s-w-1-c.png"],
+		"song": "/music/LadyGaga.mp3",
+		"isTemplate": true
 	}
 ]
