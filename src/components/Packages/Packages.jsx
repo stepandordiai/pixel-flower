@@ -1,28 +1,28 @@
 import checkGrayIcon from "/icons/check-gray.png";
 import checkAccentIcon from "/icons/check-accent.png";
-import "./Options.scss";
+import "./Packages.scss";
 
-const Options = () => {
+const Packages = () => {
 	const instaUrl = "https://www.instagram.com/pixelflower.studio/";
 
 	return (
-		<div className="options-container" id="options">
-			<p className="options__title">Пакети та Вартість</p>
-			<div className="options">
-				<div className="option">
-					<p className="option__title">Bronze</p>
-					<p className="option__price">
+		<div className="packages-container" id="packages">
+			<p className="packages__title">Пакети та Вартість</p>
+			<div className="packages">
+				<div className="package">
+					<p className="package__title">Bronze</p>
+					<p className="package__price">
 						₴1499{" "}
 						<span style={{ textDecoration: "line-through", fontWeight: 400 }}>
 							₴1299
 						</span>
 					</p>
-					<a className="option__link" href={instaUrl} target="_blank">
+					<a className="package__link" href={instaUrl} target="_blank">
 						Залишити заявку
 					</a>
-					<div className="option__info">
-						<p className="option__info-title">Опції, які входять в пакет:</p>
-						<div className="option__info-list">
+					<div className="package__info">
+						<p className="package__info-title">Опції, які входять в пакет:</p>
+						<div className="package__info-list">
 							<p>
 								<img src={checkAccentIcon} width={20} height={20} alt="" />
 								<span>
@@ -80,15 +80,15 @@ const Options = () => {
 						</div>
 					</div>
 				</div>
-				<div className="option">
-					<p className="option__title">Silver</p>
-					<p className="option__price">
+				<div className="package">
+					<p className="package__title">Silver</p>
+					<p className="package__price">
 						₴2499{" "}
 						<span style={{ textDecoration: "line-through", fontWeight: 400 }}>
 							₴1799
 						</span>
 					</p>
-					<a className="option__link" href={instaUrl} target="_blank">
+					<a className="package__link" href={instaUrl} target="_blank">
 						Залишити заявку
 					</a>
 					<span
@@ -104,9 +104,9 @@ const Options = () => {
 					>
 						Популярний
 					</span>
-					<div className="option__info">
-						<p className="option__info-title">Опції, які входять в пакет:</p>
-						<div className="option__info-list">
+					<div className="package__info">
+						<p className="package__info-title">Опції, які входять в пакет:</p>
+						<div className="package__info-list">
 							<p>
 								<img src={checkAccentIcon} width={20} height={20} alt="" />
 								<span>
@@ -164,15 +164,15 @@ const Options = () => {
 						</div>
 					</div>
 				</div>
-				<div className="option">
-					<p className="option__title">Gold</p>
-					<p className="option__price">від ₴3499</p>
-					<a className="option__link" href={instaUrl} target="_blank">
+				<div className="package">
+					<p className="package__title">Gold</p>
+					<p className="package__price">від ₴3499</p>
+					<a className="package__link" href={instaUrl} target="_blank">
 						Залишити заявку
 					</a>
-					<div className="option__info">
-						<p className="option__info-title">Опції, які входять в пакет:</p>
-						<div className="option__info-list">
+					<div className="package__info">
+						<p className="package__info-title">Опції, які входять в пакет:</p>
+						<div className="package__info-list">
 							<p>
 								<img src={checkAccentIcon} width={20} height={20} alt="" />
 								<span>
@@ -235,4 +235,4 @@ const Options = () => {
 	);
 };
 
-export default Options;
+export default Packages;

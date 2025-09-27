@@ -61,10 +61,10 @@ const Header = () => {
 						<HashLink
 							onClick={() => setIsMenuActive(false)}
 							className="menu-dd-nav__link"
-							to="/#options"
+							to="/#packages"
 							smooth
 						>
-							<span>Вартість</span>
+							<span>Пакети та Вартість</span>
 							<div className="menu-icon-container">
 								<div className="menu-icon-wrapper">
 									<img src={arrowTopIcon} width={16} height={16} alt="" />

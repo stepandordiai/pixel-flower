@@ -1,10 +1,10 @@
 import { Helmet } from "react-helmet-async";
 import Header from "../../components/Header/Header";
-import Options from "../../components/Options/Options";
 import { useEffect } from "react";
 import Templates from "../../components/Templates/Templates";
 import QA from "../../components/QA/QA";
 import { HashLink } from "react-router-hash-link";
+import Packages from "../../components/Packages/Packages";
 import img from "/Shot.png";
 import arrowTopIcon from "/top.png";
 import "./Home.scss";
@@ -39,7 +39,7 @@ const Home = () => {
 					<img className="home-top__img" src={img} width={400} alt="" />
 				</div>
 				<Templates />
-				<Options />
+				<Packages />
 				<QA />
 			</main>
 		</>

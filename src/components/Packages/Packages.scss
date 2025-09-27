@@ -1,20 +1,20 @@
-.options-container {
+.packages-container {
 	padding: 0 25px;
 }
 
-.options__title {
+.packages__title {
 	text-align: center;
 	font-size: 2rem;
 	margin-bottom: 25px;
 }
 
-.options {
+.packages {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 25px;
 }
 
-.option {
+.package {
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -37,16 +37,16 @@
 	}
 }
 
-.option__title {
+.package__title {
 	font-size: 2rem;
 }
 
-.option__price {
+.package__price {
 	font-size: 1.5rem;
 	font-weight: 600;
 }
 
-.option__info {
+.package__info {
 	background: #fff;
 	width: 100%;
 	border-radius: 15px;
@@ -54,17 +54,17 @@
 	margin-top: auto;
 }
 
-.option__info-title {
+.package__info-title {
 	margin-bottom: 25px;
 }
 
-.option__info-list {
+.package__info-list {
 	display: flex;
 	flex-direction: column;
 	row-gap: 10px;
 }
 
-.option__link {
+.package__link {
 	background: var(--accent-clr-yellow);
 	padding: 7.5px;
 	text-align: center;
@@ -74,23 +74,23 @@
 }
 
 @media screen and (width <= 1000px) {
-	.options {
+	.packages {
 		grid-template-columns: repeat(2, 1fr);
 	}
 
-	.option__info {
+	.package__info {
 		padding: 10px;
 	}
 }
 
 @media screen and (width < 808px) {
-	.options-container {
+	.packages-container {
 		padding: 0 10px;
 	}
 }
 
 @media screen and (width < 600px) {
-	.options {
+	.packages {
 		grid-template-columns: repeat(1, 1fr);
 	}
 }
