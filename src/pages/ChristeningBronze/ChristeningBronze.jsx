@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import confetti from "canvas-confetti";
 import img from "/christening/02.webp";
 import img1 from "/christening/04.webp";
 import img2 from "/christening/06.webp";
@@ -13,10 +12,12 @@ import pauseIcon from "/icons/unmute.png";
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import "./ChristeningBronze.scss";
+import { useLocation } from "react-router-dom";
 
 const ChristeningBronze = () => {
 	const { id } = useParams();
 	const [isPlaying, setIsPlaying] = useState(false);
+	const { pathname } = useLocation();
 
 	const handlePlayAudio = () => {
 		setIsPlaying((prev) => !prev);
@@ -57,39 +58,10 @@ const ChristeningBronze = () => {
 				setHours(0);
 				setMinutes(0);
 				setSeconds(0);
-				handleClick();
 				setShowHeader(true);
 			}
 		}, 1000);
 	}, []);
-
-	const handleClick = () => {
-		const duration = 5 * 1000;
-		const animationEnd = Date.now() + duration;
-		const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
-
-		const randomInRange = (min, max) => Math.random() * (max - min) + min;
-
-		const interval = window.setInterval(() => {
-			const timeLeft = animationEnd - Date.now();
-
-			if (timeLeft <= 0) {
-				return clearInterval(interval);
-			}
-
-			const particleCount = 50 * (timeLeft / duration);
-			confetti({
-				...defaults,
-				particleCount,
-				origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-			});
-			confetti({
-				...defaults,
-				particleCount,
-				origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-			});
-		}, 250);
-	};
 
 	// TODO:
 	function getDaysOfMonth(year, month) {
@@ -184,31 +156,27 @@ const ChristeningBronze = () => {
 	useEffect(() => {
 		const animatedElements = document.querySelectorAll(".animated-element1");
 
-		window.addEventListener("scroll", () => {
-			animatedElements.forEach((el) => {
-				const elRect = el.getBoundingClientRect();
-
-				if (elRect.top < window.innerHeight - 100) {
-					el.classList.add("animated-element1--active");
-				}
-			});
+		animatedElements.forEach((el) => {
+			el.classList.remove("animated-element1--active");
 		});
 
-		const rainbow = document.querySelectorAll(".rainbow");
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						const el = entry.target;
+						el.classList.add("animated-element1--active");
+					}
+				});
+			},
+			{ threshold: 0 }
+		);
 
-		rainbow.forEach((el) => {
-			const rainbows = el.querySelectorAll(".pp");
-			window.addEventListener("scroll", () => {
-				const elRect = el.getBoundingClientRect();
-				if (elRect.top < window.innerHeight) {
-					rainbows.forEach((el, index) => {
-						setTimeout(() => {
-							el.classList.add("rainbow-el--active");
-						}, 100 * index);
-					});
-				}
-			});
-		});
+		animatedElements.forEach((el) => observer.observe(el));
+
+		return () => {
+			animatedElements.forEach((el) => observer.unobserve(el));
+		};
 	}, []);
 
 	useEffect(() => {
