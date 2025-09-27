@@ -7,7 +7,7 @@ const Options = () => {
 
 	return (
 		<div className="options-container" id="options">
-			<p className="options__title">Вартість</p>
+			<p className="options__title">Пакети та Вартість</p>
 			<div className="options">
 				<div className="option">
 					<p className="option__title">Bronze</p>
@@ -21,52 +21,60 @@ const Options = () => {
 						Залишити заявку
 					</a>
 					<div className="option__info">
-						<p className="option__info-title">Що входить:</p>
+						<p className="option__info-title">Опції, які входять в пакет:</p>
 						<div className="option__info-list">
 							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
 								<span>
 									Персональна сторінка з вашими іменами, фото та датою весілля
 								</span>
 							</p>
 							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
+								<span>Розклад подій</span>
+							</p>
+							<p>
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
 								<span>Інтерактивна мапа з адресою локації</span>
 							</p>
 							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
-								<span>Індивідуальний дизайн у стилі свята</span>
-							</p>
-							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
-								<span>Підтримка до самого дня весілля</span>
-							</p>
-							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
-								<span>Зручний розклад подій</span>
-							</p>
-							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
 								<span>Дрес-код</span>
 							</p>
 							<p>
-								<img src={checkGrayIcon} width={20} height={20} alt="" />{" "}
+								<img src={checkGrayIcon} width={20} height={20} alt="" />
+								<span>Анімаційний початок</span>
+							</p>
+							<p>
+								<img src={checkGrayIcon} width={20} height={20} alt="" />
 								<span>Таймер зворотнього відліку</span>
 							</p>
 							<p>
-								<img src={checkGrayIcon} width={20} height={20} alt="" />{" "}
-								<span>Підтримка кількох мов</span>
+								<img src={checkGrayIcon} width={20} height={20} alt="" />
+								<span>Музика на фоні</span>
 							</p>
 							<p>
-								<img src={checkGrayIcon} width={20} height={20} alt="" />{" "}
+								<img src={checkGrayIcon} width={20} height={20} alt="" />
+								<span>Анімації</span>
+							</p>
+							<p>
+								<img src={checkGrayIcon} width={20} height={20} alt="" />
 								<span>Додаткові розділи за бажанням</span>
 							</p>
 							<p>
-								<img src={checkGrayIcon} width={20} height={20} alt="" />{" "}
+								<img src={checkGrayIcon} width={20} height={20} alt="" />
+								<span>Безплатна підтримка до самого дня весілля</span>
+							</p>
+							<p>
+								<img src={checkGrayIcon} width={20} height={20} alt="" />
 								<span>Індивідуальний дизайн та розробка</span>
 							</p>
 							<p>
-								<img src={checkGrayIcon} width={20} height={20} alt="" />{" "}
+								<img src={checkGrayIcon} width={20} height={20} alt="" />
+								<span>Підтримка кількох мов</span>
+							</p>
+							<p>
+								<img src={checkGrayIcon} width={20} height={20} alt="" />
 								<span>Власний домен</span>
 							</p>
 						</div>
@@ -97,52 +105,60 @@ const Options = () => {
 						Популярний
 					</span>
 					<div className="option__info">
-						<p className="option__info-title">Що входить:</p>
+						<p className="option__info-title">Опції, які входять в пакет:</p>
 						<div className="option__info-list">
 							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
 								<span>
 									Персональна сторінка з вашими іменами, фото та датою весілля
 								</span>
 							</p>
 							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
+								<span>Розклад подій</span>
+							</p>
+							<p>
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
 								<span>Інтерактивна мапа з адресою локації</span>
 							</p>
 							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
-								<span>Індивідуальний дизайн у стилі свята</span>
-							</p>
-							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
-								<span>Підтримка до самого дня весілля</span>
-							</p>
-							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
-								<span>Зручний розклад подій</span>
-							</p>
-							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
-								<span>Підтримка кількох мов</span>
-							</p>
-							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
-								<span>Таймер зворотнього відліку</span>
-							</p>
-							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
 								<span>Дрес-код</span>
 							</p>
 							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
+								<span>Анімаційний початок</span>
+							</p>
+							<p>
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
+								<span>Таймер зворотнього відліку</span>
+							</p>
+							<p>
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
+								<span>Музика на фоні</span>
+							</p>
+							<p>
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
+								<span>Анімації</span>
+							</p>
+							<p>
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
 								<span>Додаткові розділи за бажанням</span>
 							</p>
 							<p>
-								<img src={checkGrayIcon} width={20} height={20} alt="" />{" "}
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
+								<span>Безплатна підтримка до самого дня весілля</span>
+							</p>
+							<p>
+								<img src={checkGrayIcon} width={20} height={20} alt="" />
 								<span>Індивідуальний дизайн та розробка</span>
 							</p>
 							<p>
-								<img src={checkGrayIcon} width={20} height={20} alt="" />{" "}
+								<img src={checkGrayIcon} width={20} height={20} alt="" />
+								<span>Підтримка кількох мов</span>
+							</p>
+							<p>
+								<img src={checkGrayIcon} width={20} height={20} alt="" />
 								<span>Власний домен</span>
 							</p>
 						</div>
@@ -155,52 +171,60 @@ const Options = () => {
 						Залишити заявку
 					</a>
 					<div className="option__info">
-						<p className="option__info-title">Що входить:</p>
+						<p className="option__info-title">Опції, які входять в пакет:</p>
 						<div className="option__info-list">
 							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
 								<span>
 									Персональна сторінка з вашими іменами, фото та датою весілля
 								</span>
 							</p>
 							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
+								<span>Розклад подій</span>
+							</p>
+							<p>
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
 								<span>Інтерактивна мапа з адресою локації</span>
 							</p>
 							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
-								<span>Індивідуальний дизайн у стилі свята</span>
-							</p>
-							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
-								<span>Підтримка до самого дня весілля</span>
-							</p>
-							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
-								<span>Зручний розклад подій</span>
-							</p>
-							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
-								<span>Підтримка кількох мов</span>
-							</p>
-							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
-								<span>Таймер зворотнього відліку</span>
-							</p>
-							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
 								<span>Дрес-код</span>
 							</p>
 							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
+								<span>Анімаційний початок</span>
+							</p>
+							<p>
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
+								<span>Таймер зворотнього відліку</span>
+							</p>
+							<p>
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
+								<span>Музика на фоні</span>
+							</p>
+							<p>
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
+								<span>Анімації</span>
+							</p>
+							<p>
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
 								<span>Додаткові розділи за бажанням</span>
 							</p>
 							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
+								<span>Безплатна підтримка до самого дня весілля</span>
+							</p>
+							<p>
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
 								<span>Індивідуальний дизайн та розробка</span>
 							</p>
 							<p>
-								<img src={checkAccentIcon} width={20} height={20} alt="" />{" "}
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
+								<span>Підтримка кількох мов</span>
+							</p>
+							<p>
+								<img src={checkAccentIcon} width={20} height={20} alt="" />
 								<span>Власний домен</span>
 							</p>
 						</div>
