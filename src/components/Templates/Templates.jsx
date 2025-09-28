@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import data from "./../../assets/data/data.json";
 import { useState } from "react";
+import arrowIcon from "/top.png";
 import "./Templates.scss";
 
 const Templates = () => {
@@ -40,12 +41,11 @@ const Templates = () => {
 
 	return (
 		<div className="templates" id="templates">
-			<p className="options__title">Шаблони</p>
+			<h2 className="templates__title">Шаблони запрошень</h2>
 			<div className="filters-container">
 				<div className="filter-container">
-					<p>Виберіть опцію</p>
+					<p>Виберіть пакет запрошення</p>
 					<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
-						{/* {uniqueTemplateOptions.map((templateOption) => { */}
 						{["Bronze", "Silver", "Gold"].map((templateOption) => {
 							return (
 								<button
@@ -104,13 +104,18 @@ const Templates = () => {
 									alignItems: "center",
 								}}
 							>
-								{/* <p className="template__type">{envelope.type}</p> */}
 								<p>{`0${index + 1}`}</p>
 								<NavLink
-									className="option__link"
+									className="template__link"
 									to={`/${envelope.type_code}-${envelope.option_code}/${envelope.id}`}
 								>
-									Дивитись шаблон
+									<span>Дивитись шаблон</span>
+									<span className="template__link-img-container">
+										<span className="template__link-img-container-inner">
+											<img src={arrowIcon} width={16} height={16} alt="" />
+											<img src={arrowIcon} width={16} height={16} alt="" />
+										</span>
+									</span>
 								</NavLink>
 							</div>
 						</div>

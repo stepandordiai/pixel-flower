@@ -4,6 +4,12 @@
 	flex-direction: column;
 	gap: 25px;
 	width: 100%;
+	scroll-margin-top: 70px;
+}
+
+.templates__title {
+	font-size: 2rem;
+	text-align: center;
 }
 
 .templates__btn {
@@ -41,6 +47,38 @@
 	padding: 7.5px;
 	border: 1px solid #000;
 	border-radius: 20px;
+}
+
+.template__link {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	column-gap: 5px;
+	color: #000;
+	background: var(--accent-clr-green);
+	border: 1px solid #000;
+	padding: 7.5px;
+	border-radius: 20px;
+
+	&:hover .template__link-img-container-inner {
+		transform: translate(16px);
+	}
+}
+
+.template__link-img-container {
+	width: 16px;
+	overflow: hidden;
+}
+
+.template__link-img-container-inner {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	transition: transform 0.5s;
+
+	img {
+		transform: rotate(90deg);
+	}
 }
 
 .no-data {
