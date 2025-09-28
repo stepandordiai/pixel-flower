@@ -67,10 +67,32 @@
 .package__link {
 	background: var(--accent-clr-yellow);
 	padding: 7.5px;
-	text-align: center;
 	border-radius: 20px;
 	color: #000;
 	border: 1px solid #000;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	&:hover .package__link-img-container-inner {
+		transform: translate(16px);
+	}
+}
+
+.package__link-img-container {
+	width: 16px;
+	overflow: hidden;
+}
+
+.package__link-img-container-inner {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	transition: transform 0.5s;
+
+	img {
+		transform: rotate(90deg);
+	}
 }
 
 @media screen and (width <= 1000px) {

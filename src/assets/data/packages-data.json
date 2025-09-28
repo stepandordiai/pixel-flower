@@ -1,0 +1,176 @@
+[
+	{
+		"name": "Bronze",
+		"price": 1299,
+		"options": [
+			{
+				"name": "Сторінка з вашими іменами, фото та датою святкування",
+				"isIncluded": true
+			},
+			{
+				"name": "Розклад подій",
+				"isIncluded": true
+			},
+			{
+				"name": "Інтерактивна мапа з адресою локації",
+				"isIncluded": true
+			},
+			{
+				"name": "Дрес-код",
+				"isIncluded": true
+			},
+			{
+				"name": "Анімаційний початок",
+				"isIncluded": false
+			},
+			{
+				"name": "Таймер зворотнього відліку",
+				"isIncluded": false
+			},
+			{
+				"name": "Музика на фоні",
+				"isIncluded": false
+			},
+			{
+				"name": "Анімації",
+				"isIncluded": false
+			},
+			{
+				"name": "Додаткові розділи за бажанням",
+				"isIncluded": false
+			},
+			{
+				"name": "Підтримка до самого дня весілля",
+				"isIncluded": false
+			},
+			{
+				"name": "Індивідуальний дизайн та розробка",
+				"isIncluded": false
+			},
+			{
+				"name": "Підтримка кількох мов",
+				"isIncluded": false
+			},
+			{
+				"name": "Власний домен",
+				"isIncluded": false
+			}
+		]
+	},
+	{
+		"name": "Silver",
+		"price": 1799,
+		"options": [
+			{
+				"name": "Сторінка з вашими іменами, фото та датою святкування",
+				"isIncluded": true
+			},
+			{
+				"name": "Розклад подій",
+				"isIncluded": true
+			},
+			{
+				"name": "Інтерактивна мапа з адресою локації",
+				"isIncluded": true
+			},
+			{
+				"name": "Дрес-код",
+				"isIncluded": true
+			},
+			{
+				"name": "Анімаційний початок",
+				"isIncluded": true
+			},
+			{
+				"name": "Таймер зворотнього відліку",
+				"isIncluded": true
+			},
+			{
+				"name": "Музика на фоні",
+				"isIncluded": true
+			},
+			{
+				"name": "Анімації",
+				"isIncluded": true
+			},
+			{
+				"name": "Додаткові розділи за бажанням",
+				"isIncluded": true
+			},
+			{
+				"name": "Підтримка до самого дня весілля",
+				"isIncluded": true
+			},
+			{
+				"name": "Індивідуальний дизайн та розробка",
+				"isIncluded": false
+			},
+			{
+				"name": "Підтримка кількох мов",
+				"isIncluded": false
+			},
+			{
+				"name": "Власний домен",
+				"isIncluded": false
+			}
+		]
+	},
+	{
+		"name": "Gold",
+		"price": 3499,
+		"options": [
+			{
+				"name": "Сторінка з вашими іменами, фото та датою святкування",
+				"isIncluded": true
+			},
+			{
+				"name": "Розклад подій",
+				"isIncluded": true
+			},
+			{
+				"name": "Інтерактивна мапа з адресою локації",
+				"isIncluded": true
+			},
+			{
+				"name": "Дрес-код",
+				"isIncluded": true
+			},
+			{
+				"name": "Анімаційний початок",
+				"isIncluded": true
+			},
+			{
+				"name": "Таймер зворотнього відліку",
+				"isIncluded": true
+			},
+			{
+				"name": "Музика на фоні",
+				"isIncluded": true
+			},
+			{
+				"name": "Анімації",
+				"isIncluded": true
+			},
+			{
+				"name": "Додаткові розділи за бажанням",
+				"isIncluded": true
+			},
+			{
+				"name": "Підтримка до самого дня весілля",
+				"isIncluded": true
+			},
+			{
+				"name": "Індивідуальний дизайн та розробка",
+				"isIncluded": true
+			},
+			{
+				"name": "Підтримка кількох мов",
+				"isIncluded": true
+			},
+			{
+				"name": "Власний домен",
+				"isIncluded": true
+			}
+		]
+	}
+]
