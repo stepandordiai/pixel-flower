@@ -20,8 +20,8 @@ const Templates = () => {
 				.map((template) => template.type)
 		),
 	];
-	const [option, setOption] = useState(uniqueTemplateOptions[0]);
-	const [type, setType] = useState(uniqueTemplateTypes[0]);
+	const [option, setOption] = useState("Всі");
+	const [type, setType] = useState("Всі");
 
 	const handleTemplatesBtn = (props) => {
 		setOption((prev) => (prev = props));
@@ -32,11 +32,23 @@ const Templates = () => {
 	};
 
 	const filteredTemplates = data.filter((template) => {
-		return (
-			template.option === option &&
-			template.type === type &&
+		// Filtering option or type "all"
+		if (
+			((option === "Всі" && template.type === type) ||
+				(type === "Всі" && template.option === option)) &&
 			template.isTemplate
-		);
+		) {
+			return template;
+			// Filtering option and type "all"
+		} else if (option === "Всі" && type === "Всі" && template.isTemplate) {
+			return template;
+			// Filtering option and type
+		} else
+			return (
+				template.option === option &&
+				template.type === type &&
+				template.isTemplate
+			);
 	});
 
 	return (
@@ -46,7 +58,7 @@ const Templates = () => {
 				<div className="filter-container">
 					<p>Виберіть пакет запрошення</p>
 					<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
-						{["Bronze", "Silver", "Gold"].map((templateOption) => {
+						{["Всі", "Bronze", "Silver", "Gold"].map((templateOption) => {
 							return (
 								<button
 									key={templateOption}
@@ -66,7 +78,7 @@ const Templates = () => {
 				<div className="filter-container">
 					<p>Виберіть тип запрошення</p>
 					<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
-						{uniqueTemplateTypes.map((templateType) => {
+						{["Всі", ...uniqueTemplateTypes].map((templateType) => {
 							return (
 								<button
 									key={templateType}
