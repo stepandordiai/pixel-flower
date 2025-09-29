@@ -4,6 +4,7 @@
 	border: 1px solid #000;
 	border-radius: 25px;
 	margin: 0 10px;
+	scroll-margin-top: 70px;
 }
 
 .qa__title {
@@ -18,7 +19,7 @@
 }
 
 .qa-item {
-	background: rgb(255, 214, 214);
+	background: #fff;
 	border-radius: 20px;
 	border: 1px solid #000;
 	padding: 10px;
@@ -29,6 +30,13 @@
 .qa-item__title {
 	font-weight: 600;
 	margin-bottom: 10px;
+}
+
+.qa-list {
+	li {
+		list-style-type: disc;
+		list-style-position: inside;
+	}
 }
 
 @media screen and (width < 808px) {
