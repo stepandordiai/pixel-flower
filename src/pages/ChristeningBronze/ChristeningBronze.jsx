@@ -1,23 +1,14 @@
 import { useEffect, useState } from "react";
-import img from "/christening/02.webp";
-import img1 from "/christening/04.webp";
-import img2 from "/christening/06.webp";
-import img4 from "/christening/07.webp";
-import img5 from "/christening/05.webp";
-import img6 from "/christening/01.webp";
-import baloonIcon from "/icons/balloon.png";
 import data from "./../../assets/data/data.json";
 import playIcon from "/icons/mute.png";
 import pauseIcon from "/icons/unmute.png";
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import "./ChristeningBronze.scss";
-import { useLocation } from "react-router-dom";
 
 const ChristeningBronze = () => {
 	const { id } = useParams();
 	const [isPlaying, setIsPlaying] = useState(false);
-	const { pathname } = useLocation();
 
 	const handlePlayAudio = () => {
 		setIsPlaying((prev) => !prev);
@@ -197,30 +188,42 @@ const ChristeningBronze = () => {
 
 			rainbow.forEach((el) => {
 				const rainbows = el.querySelectorAll(".pp");
-
-				const elRect = el.getBoundingClientRect();
-				if (elRect.top < window.innerHeight) {
+				document.addEventListener("scroll", () => {
+					const elRect = el.getBoundingClientRect();
 					rainbows.forEach((el, index) => {
+						if (elRect.top < window.innerHeight) {
+							setTimeout(() => {
+								el.classList.add("rainbow-el--active");
+							}, 100 * index);
+						}
+					});
+				});
+				const elRect = el.getBoundingClientRect();
+				rainbows.forEach((el, index) => {
+					if (elRect.top < window.innerHeight) {
 						setTimeout(() => {
 							el.classList.add("rainbow-el--active");
 						}, 100 * index);
-					});
-				}
+					}
+				});
 			});
 		}, 1000);
 	};
+
+	const color = envelope.color;
+	document.documentElement.style.setProperty("--color", color);
 
 	return (
 		<>
 			{showHeader && <Header />}
 			<div onClick={handleLoading} className="loading-chr">
-				<img src={img1} alt="" />
-				<img src={img1} alt="" />
-				<img src={img1} alt="" />
-				<img src={img1} alt="" />
-				<img src={img1} alt="" />
-				<img src={img1} alt="" />
-				<img src={img1} alt="" />
+				<img src={envelope.images[0]} alt="" />
+				<img src={envelope.images[0]} alt="" />
+				<img src={envelope.images[0]} alt="" />
+				<img src={envelope.images[0]} alt="" />
+				<img src={envelope.images[0]} alt="" />
+				<img src={envelope.images[0]} alt="" />
+				<img src={envelope.images[0]} alt="" />
 				<div className="loading-txt">
 					Торкніться екрана, щоб відкрити запрошення!
 				</div>
@@ -228,7 +231,7 @@ const ChristeningBronze = () => {
 			<main className="home-chr" style={{ display: "none" }}>
 				<div className="home__top-chr">
 					<div className="home__top-inner-chr">
-						<img className="floated-img" src={img} alt="" />
+						<img className="floated-img" src={envelope.images[1]} alt="" />
 						<div className="home__top-date-chr">
 							{envelope.date} Вересня {envelope.year} року
 						</div>
@@ -247,8 +250,8 @@ const ChristeningBronze = () => {
 						<div className="pp"></div>
 						<div className="pp"></div>
 					</div>
-					<img className="floated-img-1" src={img1} alt="" />
-					<img className="floated-img-2" src={img1} alt="" />
+					<img className="floated-img-1" src={envelope.images[0]} alt="" />
+					<img className="floated-img-2" src={envelope.images[0]} alt="" />
 
 					<div className="scroll-chr">
 						Прокрутіть вниз, щоб дізнатися більше
@@ -262,16 +265,24 @@ const ChristeningBronze = () => {
 							alt=""
 							loading="lazy"
 						/>
-						<img className="gallery-float-img" src={img4} alt="" />
+						<img
+							className="gallery-float-img"
+							src={envelope.images[5]}
+							alt=""
+						/>
 					</div>
-					<img className="floated-img-3 animated-element1" src={img2} alt="" />
+					<img
+						className="floated-img-3 animated-element1"
+						src={envelope.images[2]}
+						alt=""
+					/>
 					<p className="pepe-chr animated-element1">
 						<span>Дорогі гості,</span>
 						<br />з великою радістю та любов’ю запрошуємо Вас розділити з нами
 						важливу подію
 						<br />
 						<br />
-						Таїнство Хрещення нашої донечки {envelope.child_name}
+						{envelope.t} {envelope.child_name}
 					</p>
 				</div>
 
@@ -294,7 +305,7 @@ const ChristeningBronze = () => {
 									{day}
 									{day === envelope.date && (
 										<div className="balloon-container">
-											<img src={baloonIcon} alt="" />
+											<img src={envelope.images[6]} alt="" />
 										</div>
 									)}
 								</div>
@@ -307,7 +318,11 @@ const ChristeningBronze = () => {
 					людей!
 				</p>
 				<div style={{ padding: 10 }} className="wrapper">
-					<img className="floated-img-3 animated-element1" src={img2} alt="" />
+					<img
+						className="floated-img-3 animated-element1"
+						src={envelope.images[2]}
+						alt=""
+					/>
 					<div className="addresses-container">
 						<p className="addresses__title-chr animated-element1">
 							Адреси святкування
@@ -362,7 +377,11 @@ const ChristeningBronze = () => {
 							alt=""
 							loading="lazy"
 						/>
-						<img className="gallery-float-img-2" src={img5} alt="" />
+						<img
+							className="gallery-float-img-2"
+							src={envelope.images[5]}
+							alt=""
+						/>
 					</div>
 				</div>
 				<div className="wrapper">
@@ -391,7 +410,11 @@ const ChristeningBronze = () => {
 					</div>
 				</div>
 				<div className="wrapper">
-					<img className="floated-img-3 animated-element1" src={img2} alt="" />
+					<img
+						className="floated-img-3 animated-element1"
+						src={envelope.images[3]}
+						alt=""
+					/>
 					<p className="page-title-chr animated-element1">
 						З любов’ю,
 						<br />
@@ -405,7 +428,11 @@ const ChristeningBronze = () => {
 								alt=""
 								loading="lazy"
 							/>
-							<img className="gallery-float-img-2" src={img6} alt="" />
+							<img
+								className="gallery-float-img-2"
+								src={envelope.images[4]}
+								alt=""
+							/>
 						</div>
 					</div>
 
@@ -425,7 +452,7 @@ const ChristeningBronze = () => {
 						</div>
 						<img
 							className="rainbow-img-3 animated-element1"
-							src={img1}
+							src={envelope.images[0]}
 							alt=""
 						/>
 					</div>
