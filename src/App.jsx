@@ -4,11 +4,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import EnvelopeBronze from "./pages/EnvelopeBronze/EnvelopeBronze";
 import EnvelopeSilver from "./pages/EnvelopeSilver/EnvelopeSilver";
 import ChristeningBronze from "./pages/ChristeningBronze/ChristeningBronze";
+import ScrollToTop from "./utils/ScrollToTop";
 import "./scss/App.scss";
 
 function App() {
 	return (
 		<Router>
+			<ScrollToTop />
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/envelope-bronze/:id" element={<EnvelopeBronze />} />
