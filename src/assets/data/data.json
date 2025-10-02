@@ -37,10 +37,7 @@
 		"id": "andrii-and-natali-ukraine",
 		"name_1": "Андрій",
 		"name_2": "Наталія",
-		"year": 2025,
-		"month": 9,
-		"date": 14,
-		"place": "Київ",
+		"location_time": "Київський час",
 		"adresess": [
 			{
 				"title": "Бенкет",
@@ -51,6 +48,7 @@
 				"address_destination_url": "https://maps.app.goo.gl/VLLkSM1oYpmA2UY86"
 			}
 		],
+		"envelope_img": "/envelope/envelope-1.png",
 		"gallery": ["/01.JPG", "/02.JPG", "/03.JPG", "/04.JPG", "/05.JPG"],
 		"countdown": "2025-09-14T16:00:00",
 		"option": "Silver",
@@ -58,7 +56,8 @@
 		"type_code": "envelope",
 		"option_code": "silver",
 		"ss": ["/ss/silver/silver.png", "/ss/silver/silver1.png"],
-		"song": "/music/LadyGaga.mp3"
+		"song": "/music/LadyGaga.mp3",
+		"dress_code": false
 	},
 	{
 		"id": "chrestiny-ukraine",
@@ -154,14 +153,20 @@
 		]
 	},
 	{
-		"id": "template-andrii-and-natali",
+		"id": "template-mykola-and-maria",
+		"countdown": "2025-10-03T16:00:00",
 		"name_1": "Микола",
 		"name_2": "Марія",
-		"year": 2025,
-		"month": 9,
-		"date": 18,
-		"place": "Київ",
+		"location_time": "Київський час",
 		"adresess": [
+			{
+				"title": "Вінчання",
+				"time": "13:00",
+				"address_title": "Православний монастир св. Кирила і Мефодія",
+				"address": "Hořovičky 79, 270 04 Hořovičky",
+				"address_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2632.8214000197636!2d13.530101612005327!3d50.156151508391744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470a41402926cbe7%3A0xbb620047900bbb55!2sPravoslavn%C3%BD%20Monast%C3%BDr%20sv.%20Cyrila%20a%20Metod%C4%9Bje!5e1!3m2!1sen!2scz!4v1755459539998!5m2!1sen!2scz",
+				"address_destination_url": "https://maps.app.goo.gl/M459wEdgqjRBhLEe7"
+			},
 			{
 				"title": "Бенкет",
 				"time": "16:00",
@@ -171,8 +176,12 @@
 				"address_destination_url": "https://maps.app.goo.gl/VLLkSM1oYpmA2UY86"
 			}
 		],
-		"gallery": [],
-		"countdown": "2025-12-14T16:00:00",
+		"envelope_img": "/envelope/envelope-2.png",
+		"gallery": [
+			"https://images.pexels.com/photos/888894/pexels-photo-888894.jpeg",
+			"https://images.pexels.com/photos/3692609/pexels-photo-3692609.jpeg",
+			"https://images.pexels.com/photos/1024984/pexels-photo-1024984.jpeg"
+		],
 		"option": "Silver",
 		"type": "Весілля",
 		"type_code": "envelope",

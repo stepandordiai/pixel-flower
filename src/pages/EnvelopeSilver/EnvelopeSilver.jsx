@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
-import confetti from "canvas-confetti";
-import heartIcon from "/heart2.png";
 import data from "./../../assets/data/data.json";
+import Header from "../../components/Header/Header";
+
+// envelope
 import envelopeBase from "/envelope/envelope-base.svg";
 import envelopeRight from "/envelope/envelope-right.svg";
 import envelopeLeft from "/envelope/envelope-left.svg";
 import envelopeBottom from "/envelope/envelope-bottom.svg";
 import envelopeTop from "/envelope/envelope-top.svg";
-import card from "/card.png";
-import Header from "../../components/Header/Header";
 import lemonBranchImg from "/lemon.png";
+import heartIcon from "/heart2.png";
 import build from "/build.png";
-import benket from "/benket.png";
 import playIcon from "/icons/play.png";
 import pauseIcon from "/icons/pause.png";
 
@@ -34,6 +33,13 @@ const EnvelopeSilver = () => {
 	const { id } = useParams();
 
 	const envelope = data.find((envelope) => envelope.id == id);
+
+	const date = envelope.countdown.slice(8, 10).startsWith("0")
+		? envelope.countdown.slice(9, 10)
+		: envelope.countdown.slice(8, 10);
+	const month = envelope.countdown.slice(5, 7).startsWith("0")
+		? envelope.countdown.slice(6, 7)
+		: envelope.countdown.slice(5, 7);
 
 	// TODO:
 	const targetDate = new Date(envelope.countdown);
@@ -63,7 +69,6 @@ const EnvelopeSilver = () => {
 				setHours(0);
 				setMinutes(0);
 				setSeconds(0);
-				handleClick();
 				setShowHeader(true);
 			}
 		}, 1000);
@@ -89,34 +94,6 @@ const EnvelopeSilver = () => {
 		});
 	}, []);
 
-	const handleClick = () => {
-		const duration = 5 * 1000;
-		const animationEnd = Date.now() + duration;
-		const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
-
-		const randomInRange = (min, max) => Math.random() * (max - min) + min;
-
-		const interval = window.setInterval(() => {
-			const timeLeft = animationEnd - Date.now();
-
-			if (timeLeft <= 0) {
-				return clearInterval(interval);
-			}
-
-			const particleCount = 50 * (timeLeft / duration);
-			confetti({
-				...defaults,
-				particleCount,
-				origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-			});
-			confetti({
-				...defaults,
-				particleCount,
-				origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-			});
-		}, 250);
-	};
-
 	// TODO:
 	function getDaysOfMonth(year, month) {
 		// month is 0-indexed in JS (0 = January, 1 = February, ...)
@@ -133,12 +110,17 @@ const EnvelopeSilver = () => {
 
 	const days2 = [];
 
-	const firstDay = new Date(envelope.year, envelope.month - 1, 1); // August 1, 2025
+	const firstDay = new Date(
+		Number(envelope.countdown.slice(0, 4)),
+		Number(month) - 1,
+		1
+	); // August 1, 2025
 	let startWeekday = firstDay.getDay(); // 0 = Sunday, 1 = Monday, ...
 
-	const febDayNumbers = getDaysOfMonth(envelope.year, envelope.month - 1).map(
-		(d) => d.getDate()
-	);
+	const febDayNumbers = getDaysOfMonth(
+		Number(envelope.countdown.slice(0, 4)),
+		Number(month) - 1
+	).map((d) => d.getDate());
 
 	startWeekday = (startWeekday + 6) % 7; // now Monday=0, Tuesday=1, ...
 
@@ -147,47 +129,6 @@ const EnvelopeSilver = () => {
 	}
 
 	days2.push(...febDayNumbers);
-
-	let txtMonth;
-
-	switch (envelope.month) {
-		case 1:
-			txtMonth = "Січень";
-			break;
-		case 2:
-			txtMonth = "Лютий";
-			break;
-		case 3:
-			txtMonth = "Березень";
-			break;
-		case 4:
-			txtMonth = "Квітень";
-			break;
-		case 5:
-			txtMonth = "Травень";
-			break;
-		case 6:
-			txtMonth = "Червень";
-			break;
-		case 7:
-			txtMonth = "Липень";
-			break;
-		case 8:
-			txtMonth = "Серпень";
-			break;
-		case 9:
-			txtMonth = "Вересень";
-			break;
-		case 10:
-			txtMonth = "Жовтень";
-			break;
-		case 11:
-			txtMonth = "Листопад";
-			break;
-		case 12:
-			txtMonth = "Грудень";
-			break;
-	}
 
 	useEffect(() => {
 		const scroll = document.querySelector(".scroll");
@@ -204,82 +145,127 @@ const EnvelopeSilver = () => {
 	}, []);
 
 	const handleEnvelope = (e) => {
-		e.currentTarget.classList.add("envelope-inner--active");
+		e.currentTarget.classList.add("envelope--stop-animation");
 		document.querySelector(".env-top").classList.add("env-top--active");
 		document.querySelector(".card").classList.add("card--active");
 		document.querySelector(".envelope-txt").style.display = "none";
 		setPlayAudio((prev) => !prev);
 
 		setTimeout(() => {
-			document.querySelector(".envelope").classList.add("envelope--active");
+			document.querySelector(".loading").classList.add("loading--hide");
 			document.body.style.overflow = "auto";
 		}, 4000);
 	};
 
+	let txtMonth;
+
+	switch (Number(month)) {
+		case 1:
+			txtMonth = "Січня";
+			break;
+		case 2:
+			txtMonth = "Лютого";
+			break;
+		case 3:
+			txtMonth = "Березня";
+			break;
+		case 4:
+			txtMonth = "Квітня";
+			break;
+		case 5:
+			txtMonth = "Травня";
+			break;
+		case 6:
+			txtMonth = "Червня";
+			break;
+		case 7:
+			txtMonth = "Липня";
+			break;
+		case 8:
+			txtMonth = "Серпня";
+			break;
+		case 9:
+			txtMonth = "Вересня";
+			break;
+		case 10:
+			txtMonth = "Жовтня";
+			break;
+		case 11:
+			txtMonth = "Листопада";
+			break;
+		case 12:
+			txtMonth = "Грудня";
+			break;
+	}
+
 	return (
 		<>
-			{showHeader && <Header />}
-			<div className="envelope">
-				<div onClick={handleEnvelope} className="envelope-inner">
+			<div className="loading">
+				<div onClick={handleEnvelope} className="envelope">
 					<img className="env-base" src={envelopeBase} alt="" />
 					<img className="env-bottom" src={envelopeBottom} alt="" />
 					<img className="env-left" src={envelopeLeft} alt="" />
 					<img className="env-right" src={envelopeRight} alt="" />
 					<img className="env-top" src={envelopeTop} alt="" />
-					<img className="card" src={card} alt="" />
+					<img className="card" src={envelope.envelope_img} alt="" />
 				</div>
 				<div className="envelope-txt">
 					Натисніть на конверт, щоб відкрити запрошення!
 				</div>
 			</div>
+			{/* {showHeader && <Header />} */}
 			<main className="envelope-silver">
-				<div className="envelope-silver__top frame">
-					<div
-						style={{
-							display: "flex",
-							flexDirection: "column",
-							justifyContent: "center",
-							alignItems: "center",
-						}}
-					>
-						<div className="envelope-silver__top-logo">
-							<span>{envelope.name_1[0]}</span>
-							<span>{envelope.name_2[0]}</span>
+				<div className="container">
+					<div className="envelope-silver__top">
+						<div
+							style={{
+								display: "flex",
+								flexDirection: "column",
+								justifyContent: "center",
+								alignItems: "center",
+							}}
+						>
+							<div className="envelope-silver__top-logo font-m">
+								<span>{envelope.name_1[0]}</span>
+								<span>{envelope.name_2[0]}</span>
+							</div>
+							<img className="top-img" src={lemonBranchImg} alt="" />
 						</div>
-						<img className="top-img" src={lemonBranchImg} alt="" />
+						<div className="envelope-silver__top-title font-l font-accent">
+							<span>{envelope.name_1}</span>
+							<span className="font-m">та</span>
+							<span>{envelope.name_2}</span>
+						</div>
+						<img className="build" src={build} alt="" />
+						<div className="scroll">Прокрутіть вниз, щоб дізнатися більше</div>
 					</div>
-					<div className="envelope-silver__top-title font">
-						<span>{envelope.name_1}</span>
-						<span>та</span>
-						<span>{envelope.name_2}</span>
-					</div>
-					<img className="build" src={build} alt="" />
-					<div className="scroll">Прокрутіть вниз, щоб дізнатися більше</div>
-				</div>
-				<div className="frame">
-					<div className="frame-inner">
-						<p className="m-size animated-element font">Дорогі гості</p>
-						<p className="desc animated-element">
-							Ми надзвичайно раді поділитися з Вами цим особливим днем!
+					<div className="container-inner">
+						<p className="animated-element font-m font-accent">Дорогі гості</p>
+						<div className="font-s">
+							<p className="animated-element">
+								Ми надзвичайно раді поділитися з Вами цим особливим днем!
+							</p>
 							<br />
+							<p className="animated-element">
+								Розпочинаючи нашу спільну подорож, ми будемо щасливі, якщо Ви
+								приєднаєтеся до святкування нашого весілля.
+							</p>
 							<br />
-							Розпочинаючи нашу спільну подорож, ми будемо щасливі, якщо Ви
-							приєднаєтеся до святкування нашого весілля.
+							<p className="animated-element">
+								Тут ви знайдете всю необхідну інформацію - розклад подій,
+								зворотний відлік, інформацію про місце проведення, галерею та
+								інше.
+							</p>
 							<br />
-							<br />
-							Тут ви знайдете всю необхідну інформацію - розклад подій,
-							зворотний відлік, інформацію про місце проведення, галерею та
-							інше.
-							<br />
-							<br />
-							Ваша присутність для нас безцінна, і ми з нетерпінням чекаємо, щоб
-							розділити радість, сміх і любов цього дня.
-							<br />
-							<br />
+							<p className="animated-element">
+								Ваша присутність для нас безцінна, і ми з нетерпінням чекаємо,
+								щоб розділити радість, сміх і любов цього дня.
+							</p>
+						</div>
+						<p className="animated-element font-m font-accent">
+							Неділя, {date} {txtMonth}, {envelope.countdown.slice(0, 4)}
 						</p>
-						<p className="s-size animated-element">Неділя, 14 Вересня, 2025</p>
-						<div className="silver-calendar-wrapper animated-element">
-							<p className="silver-calendar-top">{`${txtMonth} ${envelope.year}`}</p>
+						<div className="silver-calendar-wrapper animated-element font-s">
 							<div className="silver-calendar">
 								<div>Пн</div>
 								<div>Вт</div>
@@ -292,10 +278,10 @@ const EnvelopeSilver = () => {
 									return (
 										<div
 											key={index}
-											className={day === envelope.date ? "target-time" : ""}
+											className={day == date ? "target-time" : ""}
 										>
 											{day}
-											{day === envelope.date && (
+											{day == date && (
 												<img
 													className="calendar-heart"
 													src={heartIcon}
@@ -307,117 +293,97 @@ const EnvelopeSilver = () => {
 								})}
 							</div>
 						</div>
-						<p className="s-size animated-element font">
+						<p className="animated-element font-m font-accent">
 							Давайте створимо спогади, які залишаться на все життя!
 						</p>
 					</div>
-				</div>
-				<div className="frame">
-					<div className="frame-inner">
+					<div className="container-inner">
 						<img className="animated-element" src={lemonBranchImg} alt="" />
-
-						<p className="m-size animated-element font">
+						<p className="animated-element font-m font-accent">
 							Зворотний відлік до нашого Великого дня
 						</p>
 						<div className="silver-date" id="date">
 							<div className="animated-element">
-								<span>{days}</span>
-								<span>днів</span>
+								<span className="font-l">{days}</span>
+								<span className="font-s">днів</span>
 							</div>
 							<div className="animated-element">
-								<span>{hours}</span>
-								<span>годин(а)</span>
+								<span className="font-l">{hours}</span>
+								<span className="font-s">годин(а)</span>
 							</div>
 							<div className="animated-element">
-								<span>{minutes}</span>
-								<span>хвилин(а)</span>
+								<span className="font-l">{minutes}</span>
+								<span className="font-s">хвилин(а)</span>
 							</div>
 							<div className="animated-element">
-								<span>{seconds}</span>
-								<span>секунд(а)</span>
+								<span className="font-l">{seconds}</span>
+								<span className="font-s">секунд(а)</span>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div className="frame">
-					<div className="frame-inner">
+					<div className="container-inner">
 						<img className="animated-element" src={lemonBranchImg} alt="" />
-
 						<div>
-							<p className="m-size animated-element font">Адреси святкування</p>
-							<p style={{ fontWeight: 500 }} className="animated-element">
-								(За Київським часом)
+							<p className="animated-element font-m font-accent">
+								Адреси святкування
+							</p>
+							<p className="animated-element font-s">
+								{envelope.location_time}
 							</p>
 						</div>
-						<div className="silver-addresses">
-							{envelope.adresess.map((address, index) => {
-								return (
-									<div key={index} className="silver-address">
-										<img
-											className="address-img animated-element"
-											src={benket}
-											alt=""
-										/>
-										<p
-											style={{
-												display: "flex",
-												justifyContent: "space-between",
-												fontWeight: 500,
-											}}
-											className="s-size animated-element"
-										>
-											<span>{address.title}</span>
-											<span>{address.time}</span>
-										</p>
-										<br />
-										<p className="animated-element">{address.address_title}</p>
-										<br />
-										<p
-											style={{ marginBottom: 10 }}
-											className="animated-element"
-										>
-											{address.address}
-										</p>
-										<br />
-										<iframe
-											className="silver-map animated-element"
-											src={address.address_url}
-											loading="lazy"
-										></iframe>
-										<br />
-										<a
-											className="silver-address__link animated-element"
-											href={address.address_destination_url}
-											target="_blank"
-										>
-											Отримати маршрут
-										</a>
-									</div>
-								);
-							})}
-						</div>
+						{envelope.adresess.map((address, index) => {
+							return (
+								<div key={index} className="container-inner">
+									<p
+										style={{
+											width: "100%",
+											display: "flex",
+											justifyContent: "space-between",
+										}}
+										className="animated-element font-m font-accent"
+									>
+										<span>{address.title}</span>
+										<span>{address.time}</span>
+									</p>
+									<p className="animated-element font-s">
+										{address.address_title}
+									</p>
+									<p className="animated-element font-s">{address.address}</p>
+									<iframe
+										style={{ width: "100%", height: 400 }}
+										className="animated-element"
+										src={address.address_url}
+										loading="lazy"
+									></iframe>
+									<a
+										className="silver-address__link animated-element font-s"
+										href={address.address_destination_url}
+										target="_blank"
+									>
+										Отримати маршрут
+									</a>
+								</div>
+							);
+						})}
 					</div>
-				</div>
-				{/* <div className="frame">
-					<div className="frame-inner">
-						<p className="font m-size animated-element">Дрес-код</p>
-						<p className="desc animated-element">
-							Нам буде дуже приємно, якщо ви додасте у свій образ відтінки з
-							нашої весільної палітри.
-						</p>
-						<div className="colors-container animated-element">
-							<div style={{ background: "#bab86c" }}></div>
-							<div style={{ background: "#fff" }}></div>
-							<div style={{ background: "#F5F5DC" }}></div>
-							<div style={{ background: "#7B3F00" }}></div>
+					{envelope.dress_code && (
+						<div className="container-inner">
+							<p className="font-m font-accent animated-element">Дрес-код</p>
+							<p className="font-s animated-element">
+								Нам буде дуже приємно, якщо ви додасте у свій образ відтінки з
+								нашої весільної палітри.
+							</p>
+							<div className="colors-container animated-element">
+								<div style={{ background: "#bab86c" }}></div>
+								<div style={{ background: "#ffffff" }}></div>
+								<div style={{ background: "#F5F5DC" }}></div>
+								<div style={{ background: "#7B3F00" }}></div>
+							</div>
 						</div>
-					</div>
-				</div> */}
-				<div className="frame">
-					<div className="frame-inner">
+					)}
+					<div className="container-inner">
 						<img className="animated-element" src={lemonBranchImg} alt="" />
-
-						<p className="m-size animated-element font">Галерея</p>
+						<p className="animated-element font-m font-accent">Галерея</p>
 						<Swiper
 							effect={"fade"}
 							loop={true}
@@ -438,14 +404,12 @@ const EnvelopeSilver = () => {
 							})}
 						</Swiper>
 					</div>
-				</div>
-				<div className="frame">
-					<div className="frame-inner">
+					<div className="container-inner">
 						<img className="animated-element" src={lemonBranchImg} alt="" />
-						<p className="m-size animated-element font">
+						<p className="animated-element font-m font-accent">
 							Ми з нетерпінням чекаємо, щоб відсвяткувати разом з вами!
 						</p>
-						<div className="envelope-silver__top-logo animated-element">
+						<div className="envelope-silver__top-logo animated-element font-m">
 							<span>{envelope.name_1[0]}</span>
 							<span>{envelope.name_2[0]}</span>
 						</div>
