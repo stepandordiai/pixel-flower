@@ -5,7 +5,7 @@ import Templates from "../../components/Templates/Templates";
 import QA from "../../components/QA/QA";
 import { HashLink } from "react-router-hash-link";
 import Packages from "../../components/Packages/Packages";
-import img from "/Shot.png";
+import img from "/iphone.png";
 import arrowTopIcon from "/icons/top.png";
 import "./Home.scss";
 
@@ -21,8 +21,188 @@ const Home = () => {
 			</Helmet>
 			<Header />
 			<main className="home">
-				<div className="home-top">
+				<div className="home-hero">
 					<div className="home-top-container">
+						<div className="home-top__sliders">
+							<div
+								className="home-top__slider"
+								style={{
+									"--height": "200px",
+									"--quantity": "6",
+									"--state": "reverse",
+								}}
+							>
+								<div className="home-top__list">
+									<div className="home-top__item" style={{ "--position": "1" }}>
+										<img
+											className="home-top__img"
+											src={img}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "2" }}>
+										<img
+											className="home-top__img"
+											src={img}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "3" }}>
+										<img
+											className="home-top__img"
+											src={img}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "4" }}>
+										<img
+											className="home-top__img"
+											src={img}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "5" }}>
+										<img
+											className="home-top__img"
+											src={img}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "6" }}>
+										<img
+											className="home-top__img"
+											src={img}
+											height={200}
+											alt=""
+										/>
+									</div>
+								</div>
+							</div>
+							<div
+								className="home-top__slider"
+								style={{
+									"--height": "200px",
+									"--quantity": "6",
+									"--state": "normal",
+								}}
+							>
+								<div className="home-top__list">
+									<div className="home-top__item" style={{ "--position": "1" }}>
+										<img
+											className="home-top__img"
+											src={img}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "2" }}>
+										<img
+											className="home-top__img"
+											src={img}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "3" }}>
+										<img
+											className="home-top__img"
+											src={img}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "4" }}>
+										<img
+											className="home-top__img"
+											src={img}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "5" }}>
+										<img
+											className="home-top__img"
+											src={img}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "6" }}>
+										<img
+											className="home-top__img"
+											src={img}
+											height={200}
+											alt=""
+										/>
+									</div>
+								</div>
+							</div>
+							<div
+								className="home-top__slider"
+								style={{
+									"--height": "200px",
+									"--quantity": "6",
+									"--state": "reverse",
+								}}
+							>
+								<div className="home-top__list">
+									<div className="home-top__item" style={{ "--position": "1" }}>
+										<img
+											className="home-top__img"
+											src={img}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "2" }}>
+										<img
+											className="home-top__img"
+											src={img}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "3" }}>
+										<img
+											className="home-top__img"
+											src={img}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "4" }}>
+										<img
+											className="home-top__img"
+											src={img}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "5" }}>
+										<img
+											className="home-top__img"
+											src={img}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "6" }}>
+										<img
+											className="home-top__img"
+											src={img}
+											height={200}
+											alt=""
+										/>
+									</div>
+								</div>
+							</div>
+						</div>
+
 						<h1 className="home-top__title">
 							Студія креативних сайт-запрошень
 						</h1>
@@ -36,7 +216,6 @@ const Home = () => {
 							</div>
 						</HashLink>
 					</div>
-					<img className="home-top__img" src={img} width={400} alt="" />
 				</div>
 				<Templates />
 				<Packages />
