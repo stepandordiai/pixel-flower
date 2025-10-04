@@ -1,6 +1,6 @@
 import { HashLink } from "react-router-hash-link";
 import logo from "/Frame.svg";
-import arrowTopIcon from "/top.png";
+import arrowTopIcon from "/icons/top.png";
 import "./Header.scss";
 import { useState } from "react";
 

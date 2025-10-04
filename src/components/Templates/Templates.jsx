@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom";
-import data from "./../../assets/data/data.json";
+import templatesData from "./../../assets/data/templates-data.json";
 import { useState } from "react";
-import arrowIcon from "/top.png";
+import arrowIcon from "/icons/top.png";
 import "./Templates.scss";
 
 const Templates = () => {
 	const uniqueTemplateOptions = [
 		...new Set(
-			data
+			templatesData
 				.filter((template) => template.isTemplate)
 				.map((template) => template.option)
 		),
@@ -15,7 +15,7 @@ const Templates = () => {
 
 	const uniqueTemplateTypes = [
 		...new Set(
-			data
+			templatesData
 				.filter((template) => template.isTemplate)
 				.map((template) => template.type)
 		),
@@ -31,7 +31,7 @@ const Templates = () => {
 		setType((prev) => (prev = props));
 	};
 
-	const filteredTemplates = data.filter((template) => {
+	const filteredTemplates = templatesData.filter((template) => {
 		// Filtering option or type "all"
 		if (
 			((option === "Всі" && template.type === type) ||
@@ -119,7 +119,7 @@ const Templates = () => {
 								<p>{`0${index + 1}`}</p>
 								<NavLink
 									className="template__link"
-									to={`/${envelope.type_code}-${envelope.option_code}/${envelope.id}`}
+									to={`/${envelope.type_code}/${envelope.id}`}
 								>
 									<span>Дивитись шаблон</span>
 									<span className="template__link-img-container">

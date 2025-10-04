@@ -1,10 +1,11 @@
 import Home from "./pages/Home/Home";
 import Footer from "./components/Footer/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import EnvelopeBronze from "./pages/EnvelopeBronze/EnvelopeBronze";
-import EnvelopeSilver from "./pages/EnvelopeSilver/EnvelopeSilver";
-import ChristeningBronze from "./pages/ChristeningBronze/ChristeningBronze";
 import ScrollToTop from "./utils/ScrollToTop";
+import ChristeningBoy from "./pages/ChristeningBoy/ChristeningBoy";
+import ChristeningGirl from "./pages/ChristeningGirl/ChristeningGirl";
+import WeddingOne from "./pages/WeddingOne/WeddingOne";
+import WeddingTwo from "./pages/WeddingTwo/WeddingTwo";
 import "./scss/App.scss";
 
 function App() {
@@ -13,9 +14,10 @@ function App() {
 			<ScrollToTop />
 			<Routes>
 				<Route path="/" element={<Home />} />
-				<Route path="/envelope-bronze/:id" element={<EnvelopeBronze />} />
-				<Route path="/envelope-silver/:id" element={<EnvelopeSilver />} />
-				<Route path="/christening-bronze/:id" element={<ChristeningBronze />} />
+				<Route path="/wedding-one/:id" element={<WeddingOne />} />
+				<Route path="/wedding-two/:id" element={<WeddingTwo />} />
+				<Route path="/christening-boy/:id" element={<ChristeningBoy />} />
+				<Route path="/christening-girl/:id" element={<ChristeningGirl />} />
 			</Routes>
 			<Footer />
 		</Router>

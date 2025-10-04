@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
-import confetti from "canvas-confetti";
-import img from "/bg-c.jpg";
-import heartIcon from "/heart2.png";
-import data from "./../../assets/data/data.json";
+import img from "/wedding-one/bg-c.jpg";
+import heartIcon from "/wedding-one/heart.png";
+import templatesData from "../../assets/data/templates-data.json";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,70 +14,20 @@ import { EffectCards } from "swiper/modules";
 
 import { useParams } from "react-router-dom";
 
-import "./EnvelopeBronze.scss";
-import Header from "../../components/Header/Header";
+import "./WeddingOne.scss";
 
-const EnvelopeBronze = () => {
+const WeddingOne = () => {
 	const { id } = useParams();
 
-	const envelope = data.find((envelope) => envelope.id == id);
+	const template = templatesData.find((template) => template.id == id);
 
-	// TODO:
-	const targetDate = new Date(envelope.countdown);
-	const [days, setDays] = useState("0");
-	const [hours, setHours] = useState("0");
-	const [minutes, setMinutes] = useState("0");
-	const [seconds, setSeconds] = useState("0");
-	const [showHeader, setShowHeader] = useState(false);
+	const date = template.time.slice(8, 10).startsWith("0")
+		? template.time.slice(9, 10)
+		: template.time.slice(8, 10);
 
-	useEffect(() => {
-		let interval = setInterval(() => {
-			const date = new Date();
-			const dateDifference = targetDate - date;
-			setDays(Math.floor(dateDifference / 1000 / 60 / 60 / 24));
-			setHours(Math.floor((dateDifference / 1000 / 60 / 60) % 24));
-			setMinutes(Math.floor((dateDifference / 1000 / 60) % 60));
-			setSeconds(Math.floor((dateDifference / 1000) % 60));
-
-			if (dateDifference <= 0) {
-				clearInterval(interval);
-				setDays(0);
-				setHours(0);
-				setMinutes(0);
-				setSeconds(0);
-				handleClick();
-				setShowHeader(true);
-			}
-		}, 1000);
-	}, []);
-
-	const handleClick = () => {
-		const duration = 5 * 1000;
-		const animationEnd = Date.now() + duration;
-		const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
-
-		const randomInRange = (min, max) => Math.random() * (max - min) + min;
-
-		const interval = window.setInterval(() => {
-			const timeLeft = animationEnd - Date.now();
-
-			if (timeLeft <= 0) {
-				return clearInterval(interval);
-			}
-
-			const particleCount = 50 * (timeLeft / duration);
-			confetti({
-				...defaults,
-				particleCount,
-				origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-			});
-			confetti({
-				...defaults,
-				particleCount,
-				origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-			});
-		}, 250);
-	};
+	const month = template.time.slice(5, 7).startsWith("0")
+		? template.time.slice(6, 7)
+		: template.time.slice(5, 7);
 
 	// TODO:
 	function getDaysOfMonth(year, month) {
@@ -112,7 +60,7 @@ const EnvelopeBronze = () => {
 
 	let txtMonth;
 
-	switch (envelope.month) {
+	switch (Number(month)) {
 		case 1:
 			txtMonth = "Січень";
 			break;
@@ -152,26 +100,27 @@ const EnvelopeBronze = () => {
 	}
 	return (
 		<>
-			{showHeader && <Header />}
 			<main className="home">
 				<div className="home__top">
 					<img className="home__top-img-bg" src={img} alt="" />
 					<div className="home__top-inner">
 						<div className="home__top-logo">
-							А<span>&</span>Н
+							{template.name_1[0]}
+							<span>&</span>
+							{template.name_2[0]}
 						</div>
 						<div className="divider"></div>
 						<div className="home__top-date">
-							<p>{envelope.date}</p>
+							<p>{date}</p>
 							<span>&bull;</span>
-							<p>{envelope.month.toString().padStart(2, 0)}</p>
+							<p>{month}</p>
 							<span>&bull;</span>
-							<p>{envelope.year.toString().slice(2)}</p>
+							<p>{template.time.slice(0, 4)}</p>
 						</div>
 						<h1 className="home__top-title">
-							<span>{envelope.name_1}</span>
+							<span>{template.name_1}</span>
 							<span> та </span>
-							<span>{envelope.name_2}</span>
+							<span>{template.name_2}</span>
 						</h1>
 					</div>
 				</div>
@@ -185,7 +134,10 @@ const EnvelopeBronze = () => {
 					</p>
 				</div>
 				<div className="calendar-wrapper">
-					<p className="calendar-top">{`${txtMonth} ${envelope.year}`}</p>
+					<p className="calendar-top">{`${txtMonth} ${template.time.slice(
+						0,
+						4
+					)}`}</p>
 					<div className="calendar">
 						<div>Пн</div>
 						<div>Вт</div>
@@ -196,9 +148,9 @@ const EnvelopeBronze = () => {
 						<div>Нд</div>
 						{days2.map((day, index) => {
 							return (
-								<div key={index} className={day === 28 ? "target-time" : ""}>
+								<div key={index} className={day == date ? "target-time" : ""}>
 									{day}
-									{day === 28 && (
+									{day == date && (
 										<img className="calendar-heart" src={heartIcon} alt="" />
 									)}
 								</div>
@@ -213,10 +165,10 @@ const EnvelopeBronze = () => {
 				<div className="addresses-container">
 					<p className="addresses__title">Адреси святкування</p>
 					<p style={{ marginBottom: 25 }} className="page-desc">
-						(місцевий час, {envelope.place})
+						{template.location_time}
 					</p>
 					<div className="addresses">
-						{envelope.adresess.map((address, index) => {
+						{template.adresess.map((address, index) => {
 							return (
 								<div key={index} className="address">
 									<p className="address__title">
@@ -252,7 +204,7 @@ const EnvelopeBronze = () => {
 						modules={[EffectCards]}
 						className="mySwiper"
 					>
-						{envelope.gallery.map((img, index) => {
+						{template.gallery.map((img, index) => {
 							return (
 								<SwiperSlide key={index} className="slide">
 									<img src={img} alt="" />
@@ -261,7 +213,7 @@ const EnvelopeBronze = () => {
 						})}
 					</Swiper>
 				</div>
-				<div className="date-container">
+				{/* <div className="date-container">
 					<p className="page-title">Святкування почнеться через:</p>
 					<div className="date" id="date">
 						<div>
@@ -281,12 +233,16 @@ const EnvelopeBronze = () => {
 							<p>секунд(а)</p>
 						</div>
 					</div>
-					{/* <p className="page-desc">В кінці буде феєрверк!</p> */}
-				</div>
+				</div> */}
 				<p className="page-title">Святкуйте з нами!</p>
+				<div className="home__top-logo">
+					{template.name_1[0]}
+					<span>&</span>
+					{template.name_2[0]}
+				</div>
 			</main>
 		</>
 	);
 };
 
-export default EnvelopeBronze;
+export default WeddingOne;

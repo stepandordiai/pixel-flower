@@ -36,10 +36,6 @@
 				"isIncluded": false
 			},
 			{
-				"name": "Додаткові розділи за бажанням",
-				"isIncluded": false
-			},
-			{
 				"name": "Підтримка до самого дня весілля",
 				"isIncluded": false
 			},
@@ -94,10 +90,6 @@
 				"isIncluded": true
 			},
 			{
-				"name": "Додаткові розділи за бажанням",
-				"isIncluded": true
-			},
-			{
 				"name": "Підтримка до самого дня весілля",
 				"isIncluded": true
 			},
@@ -149,10 +141,6 @@
 			},
 			{
 				"name": "Анімації",
-				"isIncluded": true
-			},
-			{
-				"name": "Додаткові розділи за бажанням",
 				"isIncluded": true
 			},
 			{

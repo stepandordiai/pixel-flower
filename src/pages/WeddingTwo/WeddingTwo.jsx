@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
-import data from "./../../assets/data/data.json";
-import Header from "../../components/Header/Header";
+import templatesData from "../../assets/data/templates-data.json";
 
 // envelope
-import envelopeBase from "/envelope/envelope-base.svg";
-import envelopeRight from "/envelope/envelope-right.svg";
-import envelopeLeft from "/envelope/envelope-left.svg";
-import envelopeBottom from "/envelope/envelope-bottom.svg";
-import envelopeTop from "/envelope/envelope-top.svg";
-import lemonBranchImg from "/lemon.png";
-import heartIcon from "/heart2.png";
-import build from "/build.png";
+import envelopeBase from "/wedding-two/envelope-base.svg";
+import envelopeRight from "/wedding-two/envelope-right.svg";
+import envelopeLeft from "/wedding-two/envelope-left.svg";
+import envelopeBottom from "/wedding-two/envelope-bottom.svg";
+import envelopeTop from "/wedding-two/envelope-top.svg";
+import lemonBranchImg from "/wedding-two/lemon.png";
+import heartIcon from "/wedding-one/heart.png";
+import build from "/wedding-two/build.png";
 import playIcon from "/icons/play.png";
 import pauseIcon from "/icons/pause.png";
 
@@ -27,27 +26,28 @@ import { Autoplay, EffectFade } from "swiper/modules";
 
 import { useParams } from "react-router-dom";
 
-import "./EnvelopeSilver.scss";
+import Container from "../../components/Container/Container";
+import ContainerInner from "../../components/ContainerInner/ContainerInner";
+import "./WeddingTwo.scss";
 
-const EnvelopeSilver = () => {
+const WeddingTwo = () => {
 	const { id } = useParams();
 
-	const envelope = data.find((envelope) => envelope.id == id);
+	const template = templatesData.find((template) => template.id == id);
 
-	const date = envelope.countdown.slice(8, 10).startsWith("0")
-		? envelope.countdown.slice(9, 10)
-		: envelope.countdown.slice(8, 10);
-	const month = envelope.countdown.slice(5, 7).startsWith("0")
-		? envelope.countdown.slice(6, 7)
-		: envelope.countdown.slice(5, 7);
+	const date = template.time.slice(8, 10).startsWith("0")
+		? template.time.slice(9, 10)
+		: template.time.slice(8, 10);
+	const month = template.time.slice(5, 7).startsWith("0")
+		? template.time.slice(6, 7)
+		: template.time.slice(5, 7);
 
 	// TODO:
-	const targetDate = new Date(envelope.countdown);
+	const targetDate = new Date(template.time);
 	const [days, setDays] = useState(0);
 	const [hours, setHours] = useState(0);
 	const [minutes, setMinutes] = useState(0);
 	const [seconds, setSeconds] = useState(0);
-	const [showHeader, setShowHeader] = useState(false);
 	const [playAudio, setPlayAudio] = useState(false);
 
 	const handlePlayAudio = () => {
@@ -69,7 +69,6 @@ const EnvelopeSilver = () => {
 				setHours(0);
 				setMinutes(0);
 				setSeconds(0);
-				setShowHeader(true);
 			}
 		}, 1000);
 
@@ -111,14 +110,15 @@ const EnvelopeSilver = () => {
 	const days2 = [];
 
 	const firstDay = new Date(
-		Number(envelope.countdown.slice(0, 4)),
+		Number(template.time.slice(0, 4)),
 		Number(month) - 1,
 		1
-	); // August 1, 2025
+	);
+
 	let startWeekday = firstDay.getDay(); // 0 = Sunday, 1 = Monday, ...
 
 	const febDayNumbers = getDaysOfMonth(
-		Number(envelope.countdown.slice(0, 4)),
+		Number(template.time.slice(0, 4)),
 		Number(month) - 1
 	).map((d) => d.getDate());
 
@@ -207,15 +207,14 @@ const EnvelopeSilver = () => {
 					<img className="env-left" src={envelopeLeft} alt="" />
 					<img className="env-right" src={envelopeRight} alt="" />
 					<img className="env-top" src={envelopeTop} alt="" />
-					<img className="card" src={envelope.envelope_img} alt="" />
+					<img className="card" src={template.envelope_img} alt="" />
 				</div>
 				<div className="envelope-txt">
 					Натисніть на конверт, щоб відкрити запрошення!
 				</div>
 			</div>
-			{/* {showHeader && <Header />} */}
 			<main className="envelope-silver">
-				<div className="container">
+				<Container>
 					<div className="envelope-silver__top">
 						<div
 							style={{
@@ -226,20 +225,20 @@ const EnvelopeSilver = () => {
 							}}
 						>
 							<div className="envelope-silver__top-logo font-m">
-								<span>{envelope.name_1[0]}</span>
-								<span>{envelope.name_2[0]}</span>
+								<span>{template.name_1[0]}</span>
+								<span>{template.name_2[0]}</span>
 							</div>
 							<img className="top-img" src={lemonBranchImg} alt="" />
 						</div>
 						<div className="envelope-silver__top-title font-l font-accent">
-							<span>{envelope.name_1}</span>
+							<span>{template.name_1}</span>
 							<span className="font-m">та</span>
-							<span>{envelope.name_2}</span>
+							<span>{template.name_2}</span>
 						</div>
 						<img className="build" src={build} alt="" />
 						<div className="scroll">Прокрутіть вниз, щоб дізнатися більше</div>
 					</div>
-					<div className="container-inner">
+					<ContainerInner>
 						<p className="animated-element font-m font-accent">Дорогі гості</p>
 						<div className="font-s">
 							<p className="animated-element">
@@ -263,7 +262,7 @@ const EnvelopeSilver = () => {
 							</p>
 						</div>
 						<p className="animated-element font-m font-accent">
-							Неділя, {date} {txtMonth}, {envelope.countdown.slice(0, 4)}
+							Неділя, {date} {txtMonth}, {template.time.slice(0, 4)}
 						</p>
 						<div className="silver-calendar-wrapper animated-element font-s">
 							<div className="silver-calendar">
@@ -296,8 +295,8 @@ const EnvelopeSilver = () => {
 						<p className="animated-element font-m font-accent">
 							Давайте створимо спогади, які залишаться на все життя!
 						</p>
-					</div>
-					<div className="container-inner">
+					</ContainerInner>
+					<ContainerInner>
 						<img className="animated-element" src={lemonBranchImg} alt="" />
 						<p className="animated-element font-m font-accent">
 							Зворотний відлік до нашого Великого дня
@@ -320,18 +319,18 @@ const EnvelopeSilver = () => {
 								<span className="font-s">секунд(а)</span>
 							</div>
 						</div>
-					</div>
-					<div className="container-inner">
+					</ContainerInner>
+					<ContainerInner>
 						<img className="animated-element" src={lemonBranchImg} alt="" />
 						<div>
 							<p className="animated-element font-m font-accent">
 								Адреси святкування
 							</p>
 							<p className="animated-element font-s">
-								{envelope.location_time}
+								{template.location_time}
 							</p>
 						</div>
-						{envelope.adresess.map((address, index) => {
+						{template.adresess.map((address, index) => {
 							return (
 								<div key={index} className="container-inner">
 									<p
@@ -365,9 +364,9 @@ const EnvelopeSilver = () => {
 								</div>
 							);
 						})}
-					</div>
-					{envelope.dress_code && (
-						<div className="container-inner">
+					</ContainerInner>
+					{template.dress_code && (
+						<ContainerInner>
 							<p className="font-m font-accent animated-element">Дрес-код</p>
 							<p className="font-s animated-element">
 								Нам буде дуже приємно, якщо ви додасте у свій образ відтінки з
@@ -379,9 +378,9 @@ const EnvelopeSilver = () => {
 								<div style={{ background: "#F5F5DC" }}></div>
 								<div style={{ background: "#7B3F00" }}></div>
 							</div>
-						</div>
+						</ContainerInner>
 					)}
-					<div className="container-inner">
+					<ContainerInner>
 						<img className="animated-element" src={lemonBranchImg} alt="" />
 						<p className="animated-element font-m font-accent">Галерея</p>
 						<Swiper
@@ -395,7 +394,7 @@ const EnvelopeSilver = () => {
 							modules={[EffectFade, Autoplay]}
 							className="silver-swiper animated-element"
 						>
-							{envelope.gallery.map((img, index) => {
+							{template.gallery.map((img, index) => {
 								return (
 									<SwiperSlide key={index} className="slide">
 										<img src={img} alt="" loading="lazy" />
@@ -403,27 +402,27 @@ const EnvelopeSilver = () => {
 								);
 							})}
 						</Swiper>
-					</div>
-					<div className="container-inner">
+					</ContainerInner>
+					<ContainerInner>
 						<img className="animated-element" src={lemonBranchImg} alt="" />
 						<p className="animated-element font-m font-accent">
 							Ми з нетерпінням чекаємо, щоб відсвяткувати разом з вами!
 						</p>
 						<div className="envelope-silver__top-logo animated-element font-m">
-							<span>{envelope.name_1[0]}</span>
-							<span>{envelope.name_2[0]}</span>
+							<span>{template.name_1[0]}</span>
+							<span>{template.name_2[0]}</span>
 						</div>
-					</div>
-				</div>
+					</ContainerInner>
+				</Container>
 			</main>
 			<button onClick={handlePlayAudio} className="floating-btn">
 				<img src={playAudio === false ? playIcon : pauseIcon} alt="" />
 			</button>
-			{envelope.song && playAudio && (
-				<audio autoPlay src={envelope.song}></audio>
+			{template.song && playAudio && (
+				<audio autoPlay src={template.song}></audio>
 			)}
 		</>
 	);
 };
 
-export default EnvelopeSilver;
+export default WeddingTwo;

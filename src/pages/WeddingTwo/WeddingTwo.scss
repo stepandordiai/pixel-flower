@@ -131,18 +131,6 @@
 	text-align: center;
 }
 
-.container {
-	width: 100%;
-	max-width: 1080px;
-	margin: 0 auto;
-	padding: 0 25px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	row-gap: 50px;
-}
-
 .container-inner {
 	width: 100%;
 	display: flex;
@@ -408,10 +396,6 @@
 		align-items: center;
 		overflow: hidden;
 		width: 100%;
-	}
-
-	.container {
-		padding: 0 10px;
 	}
 
 	.envelope-silver__top {

@@ -1,7 +1,7 @@
 import packagesData from "./../../assets/data/packages-data.json";
 import checkGrayIcon from "/icons/check-gray.png";
 import checkAccentIcon from "/icons/check-accent.png";
-import arrowIcon from "/top.png";
+import arrowIcon from "/icons/top.png";
 import "./Packages.scss";
 
 const Packages = () => {

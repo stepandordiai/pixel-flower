@@ -6,7 +6,7 @@ import QA from "../../components/QA/QA";
 import { HashLink } from "react-router-hash-link";
 import Packages from "../../components/Packages/Packages";
 import img from "/Shot.png";
-import arrowTopIcon from "/top.png";
+import arrowTopIcon from "/icons/top.png";
 import "./Home.scss";
 
 const Home = () => {

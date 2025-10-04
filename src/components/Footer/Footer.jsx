@@ -1,4 +1,4 @@
-import arrowTopIcon from "/top.png";
+import arrowTopIcon from "/icons/top.png";
 import "./Footer.scss";
 
 const Footer = () => {
