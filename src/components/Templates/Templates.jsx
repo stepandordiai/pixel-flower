@@ -5,14 +5,15 @@ import arrowIcon from "/icons/top.png";
 import "./Templates.scss";
 
 const Templates = () => {
-	const uniqueTemplateOptions = [
-		...new Set(
-			templatesData
-				.filter((template) => template.isTemplate)
-				.map((template) => template.option)
-		),
-	];
+	// const uniqueTemplateOptions = [
+	// 	...new Set(
+	// 		templatesData
+	// 			.filter((template) => template.isTemplate)
+	// 			.map((template) => template.option)
+	// 	),
+	// ];
 
+	// TODO:
 	const uniqueTemplateTypes = [
 		...new Set(
 			templatesData
@@ -99,13 +100,14 @@ const Templates = () => {
 			<div className="templates-grid">
 				{filteredTemplates.length === 0 ? (
 					<div className="no-data">
-						Шаблони такої опції та типу поки-що відсутні 😣
+						Шаблони такого пакету та типу поки-що відсутні 😣
 					</div>
 				) : (
-					filteredTemplates.map((envelope, index) => (
-						<div key={envelope.id} className="template">
+					filteredTemplates.map((template, index) => (
+						<div key={template.id} className="template">
+							<div className="template__type">{template.option}</div>
 							<div className="template__img-container">
-								{envelope.ss.map((img, index) => {
+								{template.ss.map((img, index) => {
 									return <img key={index} src={img} alt="" />;
 								})}
 							</div>
@@ -119,7 +121,7 @@ const Templates = () => {
 								<p>{`0${index + 1}`}</p>
 								<NavLink
 									className="template__link"
-									to={`/${envelope.type_code}/${envelope.id}`}
+									to={`/${template.type_code}/${template.id}`}
 								>
 									<span>Дивитись шаблон</span>
 									<span className="template__link-img-container">
