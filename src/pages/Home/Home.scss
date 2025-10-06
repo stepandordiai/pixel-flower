@@ -17,6 +17,14 @@
 	padding: 0 25px;
 }
 
+.home-hero__link-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
 .home-top-container {
 	width: 100%;
 	text-align: center;
@@ -101,7 +109,6 @@
 	justify-content: center;
 	align-items: center;
 	width: max-content;
-	margin: 0 auto;
 	column-gap: 5px;
 	color: #000;
 	background: var(--accent-clr-pink);
@@ -111,6 +118,10 @@
 
 	&:hover .home-top-icon-wrapper-inner {
 		transform: translateX(16px);
+	}
+
+	&:nth-of-type(2) {
+		background: var(--accent-clr-yellow);
 	}
 }
 

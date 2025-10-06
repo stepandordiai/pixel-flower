@@ -180,15 +180,26 @@ const Home = () => {
 						<h1 className="home-top__title">
 							Студія креативних сайт-запрошень
 						</h1>
-						<HashLink className="home-top__link" to="/#templates" smooth>
-							<span>Обрати шаблони</span>
-							<div className="home-top-icon-wrapper">
-								<div className="home-top-icon-wrapper-inner">
-									<img src={arrowTopIcon} width={16} height={16} alt="" />
-									<img src={arrowTopIcon} width={16} height={16} alt="" />
+						<div className="home-hero__link-container">
+							<HashLink className="home-top__link" to="/#templates" smooth>
+								<span>Обрати шаблони</span>
+								<div className="home-top-icon-wrapper">
+									<div className="home-top-icon-wrapper-inner">
+										<img src={arrowTopIcon} width={16} height={16} alt="" />
+										<img src={arrowTopIcon} width={16} height={16} alt="" />
+									</div>
 								</div>
-							</div>
-						</HashLink>
+							</HashLink>
+							<HashLink className="home-top__link" to="/#packages" smooth>
+								<span>Дізнатися вартість</span>
+								<div className="home-top-icon-wrapper">
+									<div className="home-top-icon-wrapper-inner">
+										<img src={arrowTopIcon} width={16} height={16} alt="" />
+										<img src={arrowTopIcon} width={16} height={16} alt="" />
+									</div>
+								</div>
+							</HashLink>
+						</div>
 					</div>
 				</div>
 				<Templates />
