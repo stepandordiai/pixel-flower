@@ -31,7 +31,7 @@ const Home = () => {
 				<title>Студія креативних сайт-запрошень &sim; pixel flower</title>
 			</Helmet>
 			<Header />
-			<main className="home">
+			<main className="home" id="home">
 				<div className="home-hero">
 					<div className="home-top__sliders">
 						<div

@@ -1,8 +1,8 @@
 import { HashLink } from "react-router-hash-link";
+import { useState } from "react";
 import logo from "/Frame.svg";
 import arrowTopIcon from "/icons/top.png";
 import "./Header.scss";
-import { useState } from "react";
 
 const Header = () => {
 	const [isMenuActive, setIsMenuActive] = useState(false);
@@ -44,6 +44,20 @@ const Header = () => {
 				</button>
 				<div className={isMenuActive ? "menu-dd menu-dd--active" : "menu-dd"}>
 					<nav className="menu-dd-nav">
+						<HashLink
+							onClick={() => setIsMenuActive(false)}
+							className="menu-dd-nav__link"
+							to="/#home"
+							smooth
+						>
+							<span>Головна</span>
+							<div className="menu-icon-container">
+								<div className="menu-icon-wrapper">
+									<img src={arrowTopIcon} width={16} height={16} alt="" />
+									<img src={arrowTopIcon} width={16} height={16} alt="" />
+								</div>
+							</div>
+						</HashLink>
 						<HashLink
 							onClick={() => setIsMenuActive(false)}
 							className="menu-dd-nav__link"
