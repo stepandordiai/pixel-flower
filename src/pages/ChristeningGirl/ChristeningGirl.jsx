@@ -16,7 +16,7 @@ import "./ChristeningGirl.scss";
 
 const ChristeningGirl = () => {
 	const { id } = useParams();
-	const template = templatesData.find((template) => template.id == id);
+	const template = templatesData.find((template) => template.id === id);
 
 	const [isPlaying, setIsPlaying] = useState(false);
 
@@ -25,7 +25,7 @@ const ChristeningGirl = () => {
 	};
 
 	useEffect(() => {
-		const audio = document.querySelector(".audio");
+		const audio = document.querySelector(".christening-girl__audio");
 
 		if (!isPlaying) {
 			audio.pause();
@@ -140,30 +140,34 @@ const ChristeningGirl = () => {
 	}
 
 	useEffect(() => {
-		const scroll = document.querySelector(".scroll-chr");
-		const images = document.querySelectorAll(".gallery-masonry img");
+		const scroll = document.querySelector(".christening-girl__scroll-chr");
+		const images = document.querySelectorAll(
+			".christening-girl__gallery-masonry img"
+		);
 
 		window.addEventListener("scroll", () => {
 			if (document.documentElement.scrollTop > 0) {
-				scroll.classList.add("scroll-chr--hide");
+				scroll.classList.add("christening-girl__scroll-chr--hide");
 			} else {
-				scroll.classList.remove("scroll-chr--hide");
+				scroll.classList.remove("christening-girl__scroll-chr--hide");
 			}
 
 			images.forEach((img) => {
 				const imgRect = img.getBoundingClientRect();
 				if (imgRect.top < window.innerHeight - 100) {
-					img.classList.add("img--active");
+					img.classList.add("christening-girl__img--active");
 				}
 			});
 		});
 	}, []);
 
 	useEffect(() => {
-		const animatedElements = document.querySelectorAll(".animated-element1");
+		const animatedElements = document.querySelectorAll(
+			".christening-girl__animate"
+		);
 
 		animatedElements.forEach((el) => {
-			el.classList.remove("animated-element1--active");
+			el.classList.remove("christening-girl__animate--active");
 		});
 
 		const observer = new IntersectionObserver(
@@ -171,7 +175,7 @@ const ChristeningGirl = () => {
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
 						const el = entry.target;
-						el.classList.add("animated-element1--active");
+						el.classList.add("christening-girl__animate--active");
 					}
 				});
 			},
@@ -191,24 +195,26 @@ const ChristeningGirl = () => {
 
 	const handleLoading = () => {
 		document.body.style.overflow = "auto";
-		document.querySelector(".loading-chr").classList.add("loading--hide");
-		document.querySelector(".home-chr").style.display = "flex";
+		document
+			.querySelector(".christening-girl__loading")
+			.classList.add("christening-girl__loading--hide");
+		document.querySelector(".christening-girl").style.display = "flex";
 		setIsPlaying(true);
 		setTimeout(() => {
 			document
-				.querySelector(".home__top-chr")
-				.classList.add("home__top-chr--active");
+				.querySelector(".christening-girl__hero")
+				.classList.add("christening-girl__hero--active");
 
-			const rainbow = document.querySelectorAll(".rainbow");
+			const rainbow = document.querySelectorAll(".christening-girl__rainbow");
 
 			rainbow.forEach((el) => {
-				const rainbows = el.querySelectorAll(".pp");
+				const rainbows = el.querySelectorAll(".christening-girl__rainbow div");
 				document.addEventListener("scroll", () => {
 					const elRect = el.getBoundingClientRect();
 					rainbows.forEach((el, index) => {
 						if (elRect.top < window.innerHeight) {
 							setTimeout(() => {
-								el.classList.add("rainbow-el--active");
+								el.classList.add("christening-girl__rainbow--active");
 							}, 100 * index);
 						}
 					});
@@ -217,7 +223,7 @@ const ChristeningGirl = () => {
 				rainbows.forEach((el, index) => {
 					if (elRect.top < window.innerHeight) {
 						setTimeout(() => {
-							el.classList.add("rainbow-el--active");
+							el.classList.add("christening-girl__rainbow--active");
 						}, 100 * index);
 					}
 				});
@@ -231,7 +237,7 @@ const ChristeningGirl = () => {
 	return (
 		<>
 			{showHeader && <Header />}
-			<div onClick={handleLoading} className="loading-chr">
+			<div onClick={handleLoading} className="christening-girl__loading">
 				<img src={img1} alt="" />
 				<img src={img1} alt="" />
 				<img src={img1} alt="" />
@@ -239,58 +245,59 @@ const ChristeningGirl = () => {
 				<img src={img1} alt="" />
 				<img src={img1} alt="" />
 				<img src={img1} alt="" />
-				<div className="loading-txt">
-					Торкніться екрана, щоб відкрити запрошення!
-				</div>
+				<div>Торкніться екрана, щоб відкрити запрошення!</div>
 			</div>
-			<main className="home-chr" style={{ display: "none" }}>
+			<main className="christening-girl" style={{ display: "none" }}>
 				<Container>
-					<div className="home__top-chr">
-						<div className="home__top-inner-chr">
-							<img className="floated-img" src={img2} alt="" />
-							<div className="home__top-date-chr">
+					<div className="christening-girl__hero">
+						<div className="christening-girl__home__top-inner-chr">
+							<img className="christening-girl__hero-img" src={img2} alt="" />
+							<div className="christening-girl__hero-date">
 								{template.date} Вересня {template.year} року
 							</div>
-							<p className="home__top-title-chr">
+							<p className="christening-girl__hero-title">
 								Таїнство хрещення {template.child_name}
 							</p>
 						</div>
-						<div className="rainbow">
-							<div className="pp"></div>
-							<div className="pp"></div>
-							<div className="pp"></div>
-							<div className="pp"></div>
-							<div className="pp"></div>
-							<div className="pp"></div>
-							<div className="pp"></div>
-							<div className="pp"></div>
-							<div className="pp"></div>
+						<div className="christening-girl__rainbow">
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
 						</div>
-						<img className="floated-img-1" src={img1} alt="" />
-						<img className="floated-img-2" src={img1} alt="" />
+						<img className="christening-girl__hero-img-2" src={img1} alt="" />
+						<img className="christening-girl__hero-img-3" src={img1} alt="" />
 
-						<div className="scroll-chr">
+						<div className="christening-girl__hero-scroll">
 							Прокрутіть вниз, щоб дізнатися більше
 						</div>
 					</div>
-
-					<div className="wrapper">
-						<div className="swiper-cont animated-element1">
+					<div className="christening-girl__wrapper">
+						<div className="christening-girl__swiper-cont christening-girl__animate">
 							<img
-								className="iimg"
+								className="christening-girl__iimg"
 								src={template.gallery[0]}
 								alt=""
 								loading="lazy"
 							/>
-							<img className="gallery-float-img" src={img6} alt="" />
+							<img
+								className="christening-girl__gallery-float-img"
+								src={img6}
+								alt=""
+							/>
 						</div>
 						<img
-							className="floated-img-3 animated-element1"
+							className="christening-girl__floated-img-3 christening-girl__animate"
 							src={img3}
 							alt=""
 						/>
-						<p className="pepe-chr animated-element1">
-							<span>Дорогі гості,</span>
+						<p className="christening-girl__animate christening-girl__txt-decoration">
+							<span className="christening-girl__font-l">Дорогі гості,</span>
 							<br />з великою радістю та любов’ю запрошуємо Вас розділити з нами
 							важливу подію
 							<br />
@@ -298,13 +305,12 @@ const ChristeningGirl = () => {
 							{template.type} {template.child_name}
 						</p>
 					</div>
-
-					<div className="calendar-wrapper-chr animated-element1">
-						<p className="calendar-top-christening">{`${txtMonth} ${template.time.slice(
+					<div className="christening-girl__calendar-wrapper christening-girl__animate">
+						<p className="christening-girl__calendar-top">{`${txtMonth} ${template.time.slice(
 							0,
 							4
 						)}`}</p>
-						<div className="calendar-christening">
+						<div className="christening-girl__calendar">
 							<div>Пн</div>
 							<div>Вт</div>
 							<div>Ср</div>
@@ -316,11 +322,15 @@ const ChristeningGirl = () => {
 								return (
 									<div
 										key={index}
-										className={day == date ? "target-time-chr" : ""}
+										className={
+											day == date
+												? "christening-girl__calendar-target-time"
+												: ""
+										}
 									>
 										{day}
 										{day == date && (
-											<div className="balloon-container">
+											<div className="christening-girl__calendar-img-container">
 												<img src={img7} alt="" />
 											</div>
 										)}
@@ -329,50 +339,50 @@ const ChristeningGirl = () => {
 							})}
 						</div>
 					</div>
-					<p className="pepe-chr animated-element1">
+					<p className="christening-girl__pepe-chr christening-girl__animate christening-girl__txt-decoration">
 						Ми не уявляємо цей радісний день без Вас - близьких і дорогих нам
 						людей!
 					</p>
-					<div style={{ padding: 10 }} className="wrapper">
+					<div style={{ padding: 10 }} className="christening-girl__wrapper">
 						<img
-							className="floated-img-3 animated-element1"
+							className="christening-girl__floated-img-3 christening-girl__animate"
 							src={img3}
 							alt=""
 						/>
-						<div className="addresses-container">
-							<p className="addresses__title-chr animated-element1">
+						<div className="christening-girl__addresses-container">
+							<p className="christening-girl__animate christening-girl__txt-decoration christening-girl__font-l">
 								Адреси святкування
 							</p>
 							<p
 								style={{ marginBottom: 25 }}
-								className="page-desc-chr animated-element1"
+								className=" christening-girl__font-m christening-girl__animate"
 							>
 								{template.location_time}
 							</p>
-							<div className="addresses-chr">
+							<div className="christening-girl__addresses-chr">
 								{template.adresess.map((address, index) => {
 									return (
-										<div key={index} className="address-chr">
-											<p className="address__title-chr animated-element1">
+										<div key={index} className="christening-girl__address-chr">
+											<p className="christening-girl__address__title-chr christening-girl__animate christening-girl__txt-decoration">
 												<span>{address.title}</span>
 												<span>{address.time}</span>
 											</p>
-											<p className="address__info-chr animated-element1">
+											<p className="christening-girl__address__info-chr christening-girl__animate">
 												{address.address_title}
 											</p>
 											<p
 												style={{ marginBottom: 10 }}
-												className="address__info-chr animated-element1"
+												className="christening-girl__address__info-chr christening-girl__animate"
 											>
 												{address.address}
 											</p>
 											<iframe
-												className="map animated-element1"
+												className="christening-girl__map christening-girl__animate"
 												src={address.address_url}
 												loading="lazy"
 											></iframe>
 											<a
-												className="address__link-chr animated-element1"
+												className="christening-girl__address__link-chr christening-girl__animate"
 												href={address.address_destination_url}
 												target="_blank"
 											>
@@ -385,23 +395,33 @@ const ChristeningGirl = () => {
 						</div>
 					</div>
 
-					<div style={{ padding: "10px" }} className="wrapper">
-						<div className="swiper-cont-2 animated-element1">
+					<div
+						style={{ padding: "10px" }}
+						className="christening-girl__wrapper"
+					>
+						<div className="christening-girl__swiper-cont-2 christening-girl__animate">
 							<img
-								className="iimg"
+								className="christening-girl__iimg"
 								src={template.gallery[1]}
 								alt=""
 								loading="lazy"
 							/>
-							<img className="gallery-float-img-2" src={img6} alt="" />
+							<img
+								className="christening-girl__gallery-float-img-2"
+								src={img6}
+								alt=""
+							/>
 						</div>
 					</div>
-					<div className="wrapper">
-						<div className="date-container-chr">
-							<p className="page-title-chr animated-element1">
+					<div className="christening-girl__wrapper">
+						<div className="christening-girl__date-container-chr">
+							<p className="christening-girl__font-l christening-girl__animate christening-girl__txt-decoration">
 								Святкування почнеться через:
 							</p>
-							<div className="date-chr animated-element1" id="date">
+							<div
+								className="christening-girl__countdown christening-girl__animate"
+								id="date"
+							>
 								<div>
 									<p>{days}</p>
 									<p>днів</p>
@@ -421,45 +441,49 @@ const ChristeningGirl = () => {
 							</div>
 						</div>
 					</div>
-					<div className="wrapper">
+					<div className="christening-girl__wrapper">
 						<img
-							className="floated-img-3 animated-element1"
+							className="christening-girl__floated-img-3 christening-girl__animate"
 							src={img4}
 							alt=""
 						/>
-						<p className="page-title-chr animated-element1">
+						<p className="christening-girl__font-l christening-girl__animate christening-girl__txt-decoration">
 							З любов’ю,
 							<br />
 							{template.father_name} та {template.mother_name}
 						</p>
 						<div style={{ padding: 10 }}>
-							<div className="swiper-cont-2 animated-element1">
+							<div className="christening-girl__swiper-cont-2 christening-girl__animate">
 								<img
-									className="iimg"
+									className="christening-girl__iimg"
 									src={template.gallery[2]}
 									alt=""
 									loading="lazy"
 								/>
-								<img className="gallery-float-img-2" src={img5} alt="" />
+								<img
+									className="christening-girl__gallery-float-img-2"
+									src={img5}
+									alt=""
+								/>
 							</div>
 						</div>
 
 						<div>
-							<div className="rainbow-bottom animated-element1">
-								<div className="rainbow">
-									<div className="pp"></div>
-									<div className="pp"></div>
-									<div className="pp"></div>
-									<div className="pp"></div>
-									<div className="pp"></div>
-									<div className="pp"></div>
-									<div className="pp"></div>
-									<div className="pp"></div>
-									<div className="pp"></div>
+							<div className="christening-girl__rainbow-bottom christening-girl__animate">
+								<div className="christening-girl__rainbow">
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
 								</div>
 							</div>
 							<img
-								className="rainbow-img-3 animated-element1"
+								className="christening-girl__rainbow-img-3 christening-girl__animate"
 								src={img1}
 								alt=""
 							/>
@@ -467,10 +491,14 @@ const ChristeningGirl = () => {
 					</div>
 				</Container>
 			</main>
-			<button onClick={handlePlayAudio} className="floating-btn-2">
+			<button onClick={handlePlayAudio} className="christening-girl__audio-btn">
 				<img src={isPlaying === false ? playIcon : pauseIcon} alt="" />
 			</button>
-			<audio className="audio" autoPlay src={template.song}></audio>
+			<audio
+				className="christening-girl__audio"
+				autoPlay
+				src={template.song}
+			></audio>
 		</>
 	);
 };
