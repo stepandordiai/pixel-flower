@@ -43,64 +43,77 @@ const Header = () => {
 					</div>
 				</button>
 				<div className={isMenuActive ? "menu-dd menu-dd--active" : "menu-dd"}>
-					<nav className="menu-dd-nav">
-						<HashLink
-							onClick={() => setIsMenuActive(false)}
-							className="menu-dd-nav__link"
-							to="/#home"
-							smooth
-						>
-							<span>Головна</span>
-							<div className="menu-icon-container">
-								<div className="menu-icon-wrapper">
-									<img src={arrowTopIcon} width={16} height={16} alt="" />
-									<img src={arrowTopIcon} width={16} height={16} alt="" />
+					<div className="menu-dd-inner">
+						<nav className="menu-dd-nav">
+							<HashLink
+								onClick={() => setIsMenuActive(false)}
+								className="menu-dd-nav__link"
+								to="/#home"
+								smooth
+							>
+								<span>Головна</span>
+								<div className="menu-icon-container">
+									<div className="menu-icon-wrapper">
+										<img src={arrowTopIcon} width={16} height={16} alt="" />
+										<img src={arrowTopIcon} width={16} height={16} alt="" />
+									</div>
 								</div>
-							</div>
-						</HashLink>
-						<HashLink
-							onClick={() => setIsMenuActive(false)}
-							className="menu-dd-nav__link"
-							to="/#templates"
-							smooth
-						>
-							<span>Шаблони</span>
-							<div className="menu-icon-container">
-								<div className="menu-icon-wrapper">
-									<img src={arrowTopIcon} width={16} height={16} alt="" />
-									<img src={arrowTopIcon} width={16} height={16} alt="" />
+							</HashLink>
+							<HashLink
+								onClick={() => setIsMenuActive(false)}
+								className="menu-dd-nav__link"
+								to="/#templates"
+								smooth
+							>
+								<span>Шаблони</span>
+								<div className="menu-icon-container">
+									<div className="menu-icon-wrapper">
+										<img src={arrowTopIcon} width={16} height={16} alt="" />
+										<img src={arrowTopIcon} width={16} height={16} alt="" />
+									</div>
 								</div>
-							</div>
-						</HashLink>
-						<HashLink
-							onClick={() => setIsMenuActive(false)}
-							className="menu-dd-nav__link"
-							to="/#packages"
-							smooth
-						>
-							<span>Пакети та Вартість</span>
-							<div className="menu-icon-container">
-								<div className="menu-icon-wrapper">
-									<img src={arrowTopIcon} width={16} height={16} alt="" />
-									<img src={arrowTopIcon} width={16} height={16} alt="" />
+							</HashLink>
+							<HashLink
+								onClick={() => setIsMenuActive(false)}
+								className="menu-dd-nav__link"
+								to="/#packages"
+								smooth
+							>
+								<span>Пакети та Вартість</span>
+								<div className="menu-icon-container">
+									<div className="menu-icon-wrapper">
+										<img src={arrowTopIcon} width={16} height={16} alt="" />
+										<img src={arrowTopIcon} width={16} height={16} alt="" />
+									</div>
 								</div>
-							</div>
-						</HashLink>
-						<HashLink
-							onClick={() => setIsMenuActive(false)}
-							className="menu-dd-nav__link"
-							to="/#qa"
-							smooth
-						>
-							<span>Питання та відповіді</span>
-							<div className="menu-icon-container">
-								<div className="menu-icon-wrapper">
-									<img src={arrowTopIcon} width={16} height={16} alt="" />
-									<img src={arrowTopIcon} width={16} height={16} alt="" />
+							</HashLink>
+							<HashLink
+								onClick={() => setIsMenuActive(false)}
+								className="menu-dd-nav__link"
+								to="/#qa"
+								smooth
+							>
+								<span>Питання та відповіді</span>
+								<div className="menu-icon-container">
+									<div className="menu-icon-wrapper">
+										<img src={arrowTopIcon} width={16} height={16} alt="" />
+										<img src={arrowTopIcon} width={16} height={16} alt="" />
+									</div>
 								</div>
-							</div>
-						</HashLink>
-					</nav>
+							</HashLink>
+						</nav>
+						<div className="menu-dd-socials">
+							<a
+								href="https://www.instagram.com/pixelflower.studio/"
+								target="_blank"
+							>
+								<i class="fa-brands fa-instagram"></i>
+							</a>
+							<a href="https://t.me/heeeyooo" target="_blank">
+								<i class="fa-brands fa-telegram"></i>
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</>
