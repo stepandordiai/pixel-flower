@@ -1,5 +1,4 @@
 .templates {
-	padding: 0 25px;
 	display: flex;
 	flex-direction: column;
 	gap: 25px;
@@ -122,12 +121,6 @@
 @media screen and (width < 1000px) {
 	.templates-grid {
 		grid-template-columns: repeat(2, 1fr);
-	}
-}
-
-@media screen and (width < 808px) {
-	.templates {
-		padding: 0 10px;
 	}
 }
 

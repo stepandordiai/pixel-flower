@@ -32,179 +32,181 @@ const Home = () => {
 			</Helmet>
 			<Header />
 			<main className="home" id="home">
-				<div className="home-hero">
-					<div className="home-top__sliders">
-						<div
-							className="home-top__slider"
-							style={{
-								"--height": "200px",
-								"--quantity": "3",
-								"--state": "reverse",
-							}}
-						>
-							<div className="home-top__list">
-								<div className="home-top__item" style={{ "--position": "1" }}>
-									<img
-										className="home-top__img"
-										src={img}
-										height={200}
-										alt=""
-									/>
-								</div>
-								<div className="home-top__item" style={{ "--position": "2" }}>
-									<img
-										className="home-top__img"
-										src={img2}
-										height={200}
-										alt=""
-									/>
-								</div>
-								<div className="home-top__item" style={{ "--position": "3" }}>
-									<img
-										className="home-top__img"
-										src={img3}
-										height={200}
-										alt=""
-									/>
-								</div>
-							</div>
-						</div>
-						<div
-							className="home-top__slider"
-							style={{
-								"--height": "200px",
-								"--quantity": "3",
-								"--state": "normal",
-							}}
-						>
-							<div className="home-top__list">
-								<div className="home-top__item" style={{ "--position": "1" }}>
-									<img
-										className="home-top__img"
-										src={img4}
-										height={200}
-										alt=""
-									/>
-								</div>
-								<div className="home-top__item" style={{ "--position": "2" }}>
-									<img
-										className="home-top__img"
-										src={img5}
-										height={200}
-										alt=""
-									/>
-								</div>
-								<div className="home-top__item" style={{ "--position": "3" }}>
-									<img
-										className="home-top__img"
-										src={img6}
-										height={200}
-										alt=""
-									/>
+				<div className="home-container">
+					<div className="home-hero">
+						<div className="home-top__sliders">
+							<div
+								className="home-top__slider"
+								style={{
+									"--height": "200px",
+									"--quantity": "3",
+									"--state": "reverse",
+								}}
+							>
+								<div className="home-top__list">
+									<div className="home-top__item" style={{ "--position": "1" }}>
+										<img
+											className="home-top__img"
+											src={img}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "2" }}>
+										<img
+											className="home-top__img"
+											src={img2}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "3" }}>
+										<img
+											className="home-top__img"
+											src={img3}
+											height={200}
+											alt=""
+										/>
+									</div>
 								</div>
 							</div>
-						</div>
+							<div
+								className="home-top__slider"
+								style={{
+									"--height": "200px",
+									"--quantity": "3",
+									"--state": "normal",
+								}}
+							>
+								<div className="home-top__list">
+									<div className="home-top__item" style={{ "--position": "1" }}>
+										<img
+											className="home-top__img"
+											src={img4}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "2" }}>
+										<img
+											className="home-top__img"
+											src={img5}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "3" }}>
+										<img
+											className="home-top__img"
+											src={img6}
+											height={200}
+											alt=""
+										/>
+									</div>
+								</div>
+							</div>
 
-						<div
-							className="home-top__slider"
-							style={{
-								"--height": "200px",
-								"--quantity": "3",
-								"--state": "reverse",
-							}}
-						>
-							<div className="home-top__list">
-								<div className="home-top__item" style={{ "--position": "1" }}>
-									<img
-										className="home-top__img"
-										src={img7}
-										height={200}
-										alt=""
-									/>
+							<div
+								className="home-top__slider"
+								style={{
+									"--height": "200px",
+									"--quantity": "3",
+									"--state": "reverse",
+								}}
+							>
+								<div className="home-top__list">
+									<div className="home-top__item" style={{ "--position": "1" }}>
+										<img
+											className="home-top__img"
+											src={img7}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "2" }}>
+										<img
+											className="home-top__img"
+											src={img8}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "3" }}>
+										<img
+											className="home-top__img"
+											src={img9}
+											height={200}
+											alt=""
+										/>
+									</div>
 								</div>
-								<div className="home-top__item" style={{ "--position": "2" }}>
-									<img
-										className="home-top__img"
-										src={img8}
-										height={200}
-										alt=""
-									/>
-								</div>
-								<div className="home-top__item" style={{ "--position": "3" }}>
-									<img
-										className="home-top__img"
-										src={img9}
-										height={200}
-										alt=""
-									/>
+							</div>
+							<div
+								className="home-top__slider"
+								style={{
+									"--height": "200px",
+									"--quantity": "3",
+									"--state": "normal",
+								}}
+							>
+								<div className="home-top__list">
+									<div className="home-top__item" style={{ "--position": "1" }}>
+										<img
+											className="home-top__img"
+											src={img10}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "2" }}>
+										<img
+											className="home-top__img"
+											src={img11}
+											height={200}
+											alt=""
+										/>
+									</div>
+									<div className="home-top__item" style={{ "--position": "3" }}>
+										<img
+											className="home-top__img"
+											src={img12}
+											height={200}
+											alt=""
+										/>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div
-							className="home-top__slider"
-							style={{
-								"--height": "200px",
-								"--quantity": "3",
-								"--state": "normal",
-							}}
-						>
-							<div className="home-top__list">
-								<div className="home-top__item" style={{ "--position": "1" }}>
-									<img
-										className="home-top__img"
-										src={img10}
-										height={200}
-										alt=""
-									/>
-								</div>
-								<div className="home-top__item" style={{ "--position": "2" }}>
-									<img
-										className="home-top__img"
-										src={img11}
-										height={200}
-										alt=""
-									/>
-								</div>
-								<div className="home-top__item" style={{ "--position": "3" }}>
-									<img
-										className="home-top__img"
-										src={img12}
-										height={200}
-										alt=""
-									/>
-								</div>
+						<div className="home-top-container">
+							<h1 className="home-top__title">
+								Студія креативних сайт-запрошень
+							</h1>
+							<div className="home-hero__link-container">
+								<HashLink className="home-top__link" to="/#templates" smooth>
+									<span>Обрати шаблони</span>
+									<div className="home-top-icon-wrapper">
+										<div className="home-top-icon-wrapper-inner">
+											<img src={arrowTopIcon} width={16} height={16} alt="" />
+											<img src={arrowTopIcon} width={16} height={16} alt="" />
+										</div>
+									</div>
+								</HashLink>
+								<HashLink className="home-top__link" to="/#packages" smooth>
+									<span>Дізнатися вартість</span>
+									<div className="home-top-icon-wrapper">
+										<div className="home-top-icon-wrapper-inner">
+											<img src={arrowTopIcon} width={16} height={16} alt="" />
+											<img src={arrowTopIcon} width={16} height={16} alt="" />
+										</div>
+									</div>
+								</HashLink>
 							</div>
 						</div>
 					</div>
-					<div className="home-top-container">
-						<h1 className="home-top__title">
-							Студія креативних сайт-запрошень
-						</h1>
-						<div className="home-hero__link-container">
-							<HashLink className="home-top__link" to="/#templates" smooth>
-								<span>Обрати шаблони</span>
-								<div className="home-top-icon-wrapper">
-									<div className="home-top-icon-wrapper-inner">
-										<img src={arrowTopIcon} width={16} height={16} alt="" />
-										<img src={arrowTopIcon} width={16} height={16} alt="" />
-									</div>
-								</div>
-							</HashLink>
-							<HashLink className="home-top__link" to="/#packages" smooth>
-								<span>Дізнатися вартість</span>
-								<div className="home-top-icon-wrapper">
-									<div className="home-top-icon-wrapper-inner">
-										<img src={arrowTopIcon} width={16} height={16} alt="" />
-										<img src={arrowTopIcon} width={16} height={16} alt="" />
-									</div>
-								</div>
-							</HashLink>
-						</div>
-					</div>
+					<Templates />
+					<Packages />
+					<QA />
 				</div>
-				<Templates />
-				<Packages />
-				<QA />
 			</main>
 		</>
 	);
