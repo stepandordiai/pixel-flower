@@ -21,7 +21,7 @@ const Footer = () => {
 				</div>
 			</button>
 			<p className="footer__author">
-				Сайт створено{" "}
+				Website created by{" "}
 				<a href="https://www.heeeyooo.studio/" target="_blank">
 					heeeyooo studio
 				</a>
