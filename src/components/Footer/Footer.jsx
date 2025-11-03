@@ -1,4 +1,6 @@
+import { NavLink } from "react-router-dom";
 import arrowTopIcon from "/icons/top.png";
+import logo from "/logo/pixel-flower-logo.svg";
 import "./Footer.scss";
 
 const Footer = () => {
@@ -11,6 +13,9 @@ const Footer = () => {
 
 	return (
 		<footer className="footer">
+			<NavLink to="/">
+				<img src={logo} width={128} height={128} alt="pixel flower logo" />
+			</NavLink>
 			<button onClick={handleScrollToTop} className="footer__btn">
 				<span>Повернутись на початок</span>
 				<div className="footer__btn-icon-wrapper">

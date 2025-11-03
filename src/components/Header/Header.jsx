@@ -1,117 +1,83 @@
-import { HashLink } from "react-router-hash-link";
 import { useState } from "react";
-import logo from "/Frame.svg";
+import socialsData from "./../../assets/data/socials-data.json";
+import { NavLink } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
+import logo from "/logo/pixel-flower-logo.svg";
 import arrowTopIcon from "/icons/top.png";
 import "./Header.scss";
+
+const linksData = [
+	{ name: "Головна", path: "/#home" },
+	{ name: "Шаблони", path: "/#templates" },
+	{ name: "Пакети та Вартість", path: "/#packages" },
+	{ name: "Питання та відповіді", path: "/#qa" },
+];
 
 const Header = () => {
 	const [isMenuActive, setIsMenuActive] = useState(false);
 
-	function toggleBurgerBtn() {
-		setIsMenuActive((prev) => !prev);
-	}
+	const toggleBurgerBtn = () => setIsMenuActive((prev) => !prev);
 
 	return (
 		<>
 			<header className="header">
-				<a className="header__logo" href="">
-					<img src={logo} width={35} height={35} alt="" />
+				<NavLink className="header__logo" to="/">
+					<img src={logo} width={35} height={35} alt="pixel flower logo" />
 					<span>pixel flower</span>
-				</a>
+				</NavLink>
 			</header>
 			<div className="menu">
 				<button onClick={toggleBurgerBtn} className="burger-btn-wrapper">
 					<div
-						className={
-							isMenuActive ? "burger-btn burger-btn--active" : "burger-btn"
-						}
+						className={`burger-btn ${isMenuActive ? "burger-btn--active" : ""}`}
 					>
 						<span
-							className={
-								isMenuActive
-									? "burger-btn__top-line burger-btn__top-line--active"
-									: "burger-btn__top-line"
-							}
+							className={`burger-btn__top-line ${
+								isMenuActive ? "burger-btn__top-line--active" : ""
+							}`}
 						></span>
 						<span
-							className={
-								isMenuActive
-									? "burger-btn__bottom-line burger-btn__bottom-line--active"
-									: "burger-btn__bottom-line"
-							}
+							className={`burger-btn__bottom-line ${
+								isMenuActive ? "burger-btn__bottom-line--active" : ""
+							}`}
 						></span>
 					</div>
 				</button>
-				<div className={isMenuActive ? "menu-dd menu-dd--active" : "menu-dd"}>
+				<div className={`menu-dd ${isMenuActive ? "menu-dd--active" : ""}`}>
 					<div className="menu-dd-inner">
 						<nav className="menu-dd-nav">
-							<HashLink
-								onClick={() => setIsMenuActive(false)}
-								className="menu-dd-nav__link"
-								to="/#home"
-								smooth
-							>
-								<span>Головна</span>
-								<div className="menu-icon-container">
-									<div className="menu-icon-wrapper">
-										<img src={arrowTopIcon} width={16} height={16} alt="" />
-										<img src={arrowTopIcon} width={16} height={16} alt="" />
-									</div>
-								</div>
-							</HashLink>
-							<HashLink
-								onClick={() => setIsMenuActive(false)}
-								className="menu-dd-nav__link"
-								to="/#templates"
-								smooth
-							>
-								<span>Шаблони</span>
-								<div className="menu-icon-container">
-									<div className="menu-icon-wrapper">
-										<img src={arrowTopIcon} width={16} height={16} alt="" />
-										<img src={arrowTopIcon} width={16} height={16} alt="" />
-									</div>
-								</div>
-							</HashLink>
-							<HashLink
-								onClick={() => setIsMenuActive(false)}
-								className="menu-dd-nav__link"
-								to="/#packages"
-								smooth
-							>
-								<span>Пакети та Вартість</span>
-								<div className="menu-icon-container">
-									<div className="menu-icon-wrapper">
-										<img src={arrowTopIcon} width={16} height={16} alt="" />
-										<img src={arrowTopIcon} width={16} height={16} alt="" />
-									</div>
-								</div>
-							</HashLink>
-							<HashLink
-								onClick={() => setIsMenuActive(false)}
-								className="menu-dd-nav__link"
-								to="/#qa"
-								smooth
-							>
-								<span>Питання та відповіді</span>
-								<div className="menu-icon-container">
-									<div className="menu-icon-wrapper">
-										<img src={arrowTopIcon} width={16} height={16} alt="" />
-										<img src={arrowTopIcon} width={16} height={16} alt="" />
-									</div>
-								</div>
-							</HashLink>
+							{linksData.map((link, index) => {
+								return (
+									<HashLink
+										key={index}
+										onClick={() => setIsMenuActive(false)}
+										className="menu-dd-nav__link"
+										to={link.path}
+										smooth
+									>
+										<span>{link.name}</span>
+										<div className="menu-icon-container">
+											<div className="menu-icon-wrapper">
+												<img src={arrowTopIcon} width={16} height={16} alt="" />
+												<img src={arrowTopIcon} width={16} height={16} alt="" />
+											</div>
+										</div>
+									</HashLink>
+								);
+							})}
 						</nav>
 						<div className="menu-dd-socials">
-							<a
-								href="https://www.instagram.com/pixelflower.studio/"
-								target="_blank"
-							>
-								<i class="fa-brands fa-instagram"></i>
-							</a>
-							<a href="https://t.me/heeeyooo" target="_blank">
-								<i class="fa-brands fa-telegram"></i>
-							</a>
+							{socialsData.map((social) => {
+								return (
+									<a
+										href={social.socialUrl}
+										target="_blank"
+										title={social.title}
+									>
+										<i class={social.fontIcon}></i>
+									</a>
+								);
+							})}
 						</div>
 					</div>
 				</div>

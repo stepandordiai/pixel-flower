@@ -1,37 +1,22 @@
-import { NavLink } from "react-router-dom";
 import templatesData from "./../../assets/data/templates-data.json";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import arrowIcon from "/icons/top.png";
 import "./Templates.scss";
 
-const Templates = () => {
-	// const uniqueTemplateOptions = [
-	// 	...new Set(
-	// 		templatesData
-	// 			.filter((template) => template.isTemplate)
-	// 			.map((template) => template.option)
-	// 	),
-	// ];
+const uniqueTemplateTypes = [
+	...new Set(
+		templatesData
+			.filter((template) => template.isTemplate)
+			.map((template) => template.type)
+	),
+];
 
-	// TODO:
-	const uniqueTemplateTypes = [
-		...new Set(
-			templatesData
-				.filter((template) => template.isTemplate)
-				.map((template) => template.type)
-		),
-	];
+const Templates = () => {
 	const [option, setOption] = useState("Всі");
 	const [type, setType] = useState("Всі");
 
-	const handleTemplatesBtn = (props) => {
-		setOption((prev) => (prev = props));
-	};
-
-	const handleTemplateType = (props) => {
-		setType((prev) => (prev = props));
-	};
-
+	// TODO:
 	const filteredTemplates = templatesData.filter((template) => {
 		// Filtering option or type "all"
 		if (
@@ -63,7 +48,7 @@ const Templates = () => {
 							return (
 								<button
 									key={templateOption}
-									onClick={() => handleTemplatesBtn(templateOption)}
+									onClick={() => setOption(templateOption)}
 									className={
 										templateOption === option
 											? "templates__btn templates__btn--active"
@@ -79,11 +64,12 @@ const Templates = () => {
 				<div className="filter-container">
 					<p>Виберіть тип запрошення</p>
 					<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
+						{/* TODO: */}
 						{["Всі", ...uniqueTemplateTypes].map((templateType) => {
 							return (
 								<button
 									key={templateType}
-									onClick={() => handleTemplateType(templateType)}
+									onClick={() => setType(templateType)}
 									className={
 										templateType === type
 											? "templates__btn templates__btn--active"

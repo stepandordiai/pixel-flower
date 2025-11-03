@@ -33,6 +33,7 @@ const Home = () => {
 			<Header />
 			<main className="home" id="home">
 				<div className="home-hero">
+					{/* TODO: */}
 					<div className="home-top__sliders">
 						<div
 							className="home-top__slider"

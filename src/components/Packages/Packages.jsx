@@ -1,12 +1,11 @@
 import packagesData from "./../../assets/data/packages-data.json";
+import socialsData from "./../../assets/data/socials-data.json";
 import checkGrayIcon from "/icons/check-gray.png";
 import checkAccentIcon from "/icons/check-accent.png";
 import arrowIcon from "/icons/top.png";
 import "./Packages.scss";
 
 const Packages = () => {
-	const instaUrl = "https://www.instagram.com/pixelflower.studio/";
-
 	return (
 		<div className="packages-container" id="packages">
 			<p className="packages__title">Пакети та Вартість</p>
@@ -16,7 +15,12 @@ const Packages = () => {
 						<div key={pack.name} className="package">
 							<p className="package__title">{pack.name}</p>
 							<p className="package__price">₴{pack.price}</p>
-							<a className="package__link" href={instaUrl} target="_blank">
+							<a
+								className="package__link"
+								href={socialsData[0].socialUrl}
+								target="_blank"
+								title={socialsData[0].title}
+							>
 								<span>Залишити заявку</span>
 								<span className="package__link-img-container">
 									<span className="package__link-img-container-inner">
