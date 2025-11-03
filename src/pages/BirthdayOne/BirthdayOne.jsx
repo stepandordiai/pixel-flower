@@ -20,12 +20,17 @@ import { useParams } from "react-router-dom";
 
 import Container from "../../components/Container/Container";
 import ContainerInner from "../../components/ContainerInner/ContainerInner";
+import NotFound from "../NotFound/NotFound";
 import "./BirthdayOne.scss";
 
 const BirthdayOne = () => {
 	const { id } = useParams();
 
-	const template = templatesData.find((template) => template.id == id);
+	const template = templatesData.find((template) => template.id === id);
+
+	if (!template) {
+		return <NotFound />;
+	}
 
 	const date = template.time.slice(8, 10).startsWith("0")
 		? template.time.slice(9, 10)

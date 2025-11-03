@@ -7,6 +7,7 @@ import ChristeningGirl from "./pages/ChristeningGirl/ChristeningGirl";
 import WeddingOne from "./pages/WeddingOne/WeddingOne";
 import WeddingTwo from "./pages/WeddingTwo/WeddingTwo";
 import BirthdayOne from "./pages/BirthdayOne/BirthdayOne";
+import NotFound from "./pages/NotFound/NotFound";
 import "./scss/App.scss";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 				<Route path="/christening-boy/:id" element={<ChristeningBoy />} />
 				<Route path="/christening-girl/:id" element={<ChristeningGirl />} />
 				<Route path="/birthday-one/:id" element={<BirthdayOne />} />
+				<Route path="*" element={<NotFound />} />
 			</Routes>
 			<Footer />
 		</Router>

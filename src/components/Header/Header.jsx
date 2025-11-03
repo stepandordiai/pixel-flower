@@ -67,14 +67,15 @@ const Header = () => {
 							})}
 						</nav>
 						<div className="menu-dd-socials">
-							{socialsData.map((social) => {
+							{socialsData.map((social, index) => {
 								return (
 									<a
+										key={index}
 										href={social.socialUrl}
 										target="_blank"
 										title={social.title}
 									>
-										<i class={social.fontIcon}></i>
+										<i className={social.fontIcon}></i>
 									</a>
 								);
 							})}

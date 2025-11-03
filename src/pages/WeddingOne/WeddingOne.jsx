@@ -14,12 +14,17 @@ import { EffectCards } from "swiper/modules";
 
 import { useParams } from "react-router-dom";
 
+import NotFound from "../NotFound/NotFound";
 import "./WeddingOne.scss";
 
 const WeddingOne = () => {
 	const { id } = useParams();
 
 	const template = templatesData.find((template) => template.id == id);
+
+	if (!template) {
+		return <NotFound />;
+	}
 
 	const date = template.time.slice(8, 10).startsWith("0")
 		? template.time.slice(9, 10)
@@ -98,6 +103,7 @@ const WeddingOne = () => {
 			txtMonth = "Грудень";
 			break;
 	}
+
 	return (
 		<>
 			<main className="home">

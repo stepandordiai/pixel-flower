@@ -11,13 +11,18 @@ import img4 from "/christening-boy/04.webp";
 import img5 from "/christening-boy/05.webp";
 import img6 from "/christening-boy/06.webp";
 import img7 from "/christening-boy/07.png";
-import "./ChristeningBoy.scss";
 import Container from "../../components/Container/Container";
+import NotFound from "../NotFound/NotFound";
+import "./ChristeningBoy.scss";
 
 const ChristeningBoy = () => {
 	const { id } = useParams();
 
 	const template = templatesData.find((template) => template.id == id);
+
+	if (!template) {
+		return <NotFound />;
+	}
 
 	const [isPlaying, setIsPlaying] = useState(false);
 
