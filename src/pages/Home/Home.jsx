@@ -5,20 +5,27 @@ import Templates from "../../components/Templates/Templates";
 import QA from "../../components/QA/QA";
 import { HashLink } from "react-router-hash-link";
 import Packages from "../../components/Packages/Packages";
-import img from "/iphone.png";
-// import img2 from "/iphone-2.png";
-// import img3 from "/iphone-3.png";
-// import img4 from "/iphone-4.png";
-// import img5 from "/iphone-5.png";
-// import img6 from "/iphone-6.png";
-// import img7 from "/iphone-7.png";
-// import img8 from "/iphone-8.png";
-// import img9 from "/iphone-9.png";
-// import img10 from "/iphone-10.png";
-// import img11 from "/iphone-11.png";
-// import img12 from "/iphone-12.png";
+import img1 from "/iphone.png";
+import img2 from "/iphone-2.png";
+import img3 from "/iphone-3.png";
+import img4 from "/iphone-4.png";
+import img5 from "/iphone-5.png";
+import img6 from "/iphone-6.png";
+import img7 from "/iphone-7.png";
+import img8 from "/iphone-8.png";
+import img9 from "/iphone-9.png";
+import img10 from "/iphone-10.png";
+import img11 from "/iphone-11.png";
+import img12 from "/iphone-12.png";
 import arrowTopIcon from "/icons/top.png";
 import "./Home.scss";
+
+const sliderImgData = [
+	[img1, img2, img3],
+	[img4, img5, img6],
+	[img7, img8, img9],
+	[img10, img11, img12],
+];
 
 const Home = () => {
 	useEffect(() => {
@@ -34,30 +41,30 @@ const Home = () => {
 			<main className="home" id="home">
 				<section className="home-hero">
 					<div className="home-top__sliders">
-						{Array.from({ length: 4 }).map((_, i) => {
+						{Array.from({ length: 4 }).map((_, sliderIndex) => {
 							return (
 								<div
-									key={i}
+									key={sliderIndex}
 									className="home-top__slider"
 									style={{
-										"--height": "200px",
+										// "--height": "250px",
 										"--quantity": "3",
-										"--state": i % 2 === 0 ? "reverse" : "normal",
+										"--state": sliderIndex % 2 === 0 ? "reverse" : "normal",
 									}}
 								>
 									<div className="home-top__list">
-										{Array.from({ length: 3 }).map((_, i) => {
+										{/* TODO: */}
+										{sliderImgData[sliderIndex].map((img, i) => {
 											return (
 												<div
 													key={i}
 													className="home-top__item"
 													style={{ "--position": i + 1 }}
 												>
-													{/* FIXME: */}
 													<img
 														className="home-top__img"
 														src={img}
-														height={200}
+														height={250}
 														alt=""
 													/>
 												</div>

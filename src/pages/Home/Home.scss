@@ -40,7 +40,7 @@
 	text-align: center;
 }
 
-@media screen and (width < 808px) {
+@media screen and (width < 1200px) {
 	.home-hero {
 		display: flex;
 		flex-direction: column;
@@ -52,7 +52,7 @@
 .home-top__sliders {
 	display: flex;
 	gap: 10px;
-	height: 400px;
+	height: 500px;
 	width: 100%;
 	// TODO:
 	mask-image: linear-gradient(
@@ -72,25 +72,23 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	min-height: calc(var(--height) * var(--quantity));
+	min-height: calc(250px * var(--quantity));
 	position: relative;
 	overflow: hidden;
 }
 
 .home-top__item {
-	height: var(--height);
+	height: 250px;
 	position: absolute;
 	top: 100%;
 	animation: autoRun 25s linear infinite var(--state);
-	//
 	animation-delay: calc(
 		(25s / var(--quantity)) * (var(--position) - 3)
 	) !important;
-	//
 
 	img {
 		display: block;
-		height: 200px;
+		height: 250px;
 	}
 }
 
@@ -99,7 +97,48 @@
 		top: 100%;
 	}
 	to {
-		top: calc(var(--height) * -1);
+		top: calc(250px * -1);
+	}
+}
+
+@media screen and (width < 1200px) {
+	.home-top__sliders {
+		height: 400px;
+	}
+}
+
+@media screen and (width < 608px) {
+	.home-top__list {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		min-height: calc(150px * var(--quantity));
+		position: relative;
+		overflow: hidden;
+	}
+
+	.home-top__item {
+		height: 150px;
+		position: absolute;
+		top: 100%;
+		animation: autoRun 25s linear infinite var(--state);
+		animation-delay: calc(
+			(25s / var(--quantity)) * (var(--position) - 3)
+		) !important;
+
+		img {
+			display: block;
+			height: 150px;
+		}
+	}
+
+	@keyframes autoRun {
+		from {
+			top: 100%;
+		}
+		to {
+			top: calc(150px * -1);
+		}
 	}
 }
 
