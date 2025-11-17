@@ -5,6 +5,7 @@ import Templates from "../../components/Templates/Templates";
 import QA from "../../components/QA/QA";
 import { HashLink } from "react-router-hash-link";
 import Packages from "../../components/Packages/Packages";
+import Socials from "../../components/Socials/Socials";
 import img1 from "/iphone.png";
 import img2 from "/iphone-2.png";
 import img3 from "/iphone-3.png";
@@ -105,6 +106,7 @@ const Home = () => {
 					<Templates />
 					<Packages />
 					<QA />
+					<Socials />
 				</div>
 			</main>
 		</>
