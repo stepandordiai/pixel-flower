@@ -14,7 +14,7 @@ const Packages = () => {
 					return (
 						<div key={pack.name} className="package">
 							<p className="package__title">{pack.name}</p>
-							<p className="package__price">₴{pack.price}</p>
+							<p className="package__price">{pack.price}₴</p>
 							<a
 								className="package__link"
 								href={socialsData[0].socialUrl}
