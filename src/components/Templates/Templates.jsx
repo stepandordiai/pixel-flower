@@ -92,23 +92,21 @@ const Templates = () => {
 					filteredTemplates.map((template, index) => (
 						<div key={template.id} className="template">
 							<div className="template__type">{template.option}</div>
-							<div className="template__img-container">
-								{template.ss.map((img, index) => {
-									return <img key={index} src={img} alt="" />;
-								})}
-							</div>
-							<div
+							<NavLink
+								to={`/${template.type_code}/${template.id}`}
+								className="template__img-container"
 								style={{
 									display: "flex",
-									justifyContent: "space-between",
+									justifyContent: "center",
 									alignItems: "center",
 								}}
 							>
-								<p>{`0${index + 1}`}</p>
-								<NavLink
-									className="template__link"
-									to={`/${template.type_code}/${template.id}`}
-								>
+								{template.ss ? (
+									<img key={index} src={template.ss} alt="" />
+								) : (
+									<span style={{ fontSize: "1.5rem" }}>Скоро буде!</span>
+								)}
+								<div className="template__link">
 									<span>Дивитись шаблон</span>
 									<span className="template__link-img-container">
 										<span className="template__link-img-container-inner">
@@ -116,7 +114,16 @@ const Templates = () => {
 											<img src={arrowIcon} width={16} height={16} alt="" />
 										</span>
 									</span>
-								</NavLink>
+								</div>
+							</NavLink>
+							<div
+								style={{
+									display: "flex",
+									justifyContent: "space-between",
+									alignItems: "center",
+								}}
+							>
+								<p style={{ fontSize: "1.2rem" }}>{template.type}</p>
 							</div>
 						</div>
 					))

@@ -36,10 +36,13 @@
 }
 
 .template__img-container {
+	position: relative;
 	width: 100%;
+	aspect-ratio: 1/1;
 	gap: 25px;
 	border: 1px solid #000;
 	border-radius: 25px;
+	color: #000;
 }
 
 .template__type {
@@ -53,6 +56,9 @@
 }
 
 .template__link {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
 	display: flex;
 	justify-content: center;
 	align-items: center;

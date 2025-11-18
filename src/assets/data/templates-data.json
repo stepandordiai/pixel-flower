@@ -34,7 +34,7 @@
 		"type": "Весілля",
 		"type_code": "wedding-one",
 		"option_code": "bronze",
-		"ss": ["/ss/bronze/01.png", "/ss/bronze/02.png"]
+		"ss": "/ss/bronze/01.png"
 	},
 	{
 		"id": "andrii-and-natali-ukraine",
@@ -64,7 +64,7 @@
 		"type": "Весілля",
 		"type_code": "wedding-two",
 		"option_code": "silver",
-		"ss": ["/ss/silver/silver.png", "/ss/silver/silver1.png"],
+		"ss": "/ss/silver/silver.png",
 		"song": "/music/LadyGaga.mp3",
 		"dress_code": false
 	},
@@ -104,7 +104,7 @@
 		"type_code": "christening",
 		"option_code": "bronze",
 		"background": "#ff0000",
-		"ss": ["/ss/silver/silver.png", "/ss/silver/silver1.png"],
+		"ss": "/ss/silver/silver.png",
 		"song": "/music/Lullaby.mp3"
 	},
 	{
@@ -148,7 +148,7 @@
 		"type_code": "christening-girl",
 		"option_code": "bronze",
 		"background": "#ff0000",
-		"ss": ["/template-ss/pixel-flower-template-s-c-1.png"],
+		"ss": "/template-ss/pixel-flower-template-s-c-1.png",
 		"song": "/music/Lullaby.mp3",
 		"isTemplate": true
 	},
@@ -186,7 +186,7 @@
 		"type": "Весілля",
 		"type_code": "wedding-two",
 		"option_code": "silver",
-		"ss": ["/template-ss/pixel-flower-template-s-w-1-c.png"],
+		"ss": "/template-ss/pixel-flower-template-s-w-1-c.png",
 		"song": "/music/LadyGaga.mp3",
 		"isTemplate": true
 	},
@@ -229,7 +229,7 @@
 		"type_code": "christening-boy",
 		"option_code": "bronze",
 		"background": "#ff0000",
-		"ss": ["/ss/silver/pixel-flower-template-s-c-4-c.png"],
+		"ss": "/ss/silver/pixel-flower-template-s-c-4-c.png",
 		"song": "/music/Lullaby.mp3",
 		"isTemplate": true
 	},
@@ -266,7 +266,7 @@
 		"type": "Весілля",
 		"type_code": "wedding-one",
 		"option_code": "bronze",
-		"ss": ["/ss/bronze/pixel-flower-template-s-c-5.png"],
+		"ss": "/ss/bronze/pixel-flower-template-s-c-5.png",
 		"isTemplate": true
 	},
 	{
@@ -293,7 +293,6 @@
 		"type": "День Народження",
 		"type_code": "birthday-one",
 		"option_code": "silver",
-		"ss": ["/template-ss/pixel-flower-template-s-w-1-c.png"],
 		"song": "/music/LadyGaga.mp3",
 		"isTemplate": true,
 		"dress_code": true
