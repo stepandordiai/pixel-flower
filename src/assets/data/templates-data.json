@@ -23,7 +23,13 @@
 				"address_destination_url": "https://maps.app.goo.gl/nHWv2Fre1u7tGAru7"
 			}
 		],
-		"gallery": ["/01.JPG", "/02.JPG", "/03.JPG", "/04.JPG", "/05.JPG"],
+		"gallery": [
+			"/wedding-one/01.JPG",
+			"/wedding-one/02.JPG",
+			"/wedding-one/03.JPG",
+			"/wedding-one/04.JPG",
+			"/wedding-one/05.JPG"
+		],
 		"option": "Bronze",
 		"type": "Весілля",
 		"type_code": "wedding-one",
@@ -47,7 +53,13 @@
 			}
 		],
 		"envelope_img": "/wedding-two/envelope-1.png",
-		"gallery": ["/01.JPG", "/02.JPG", "/03.JPG", "/04.JPG", "/05.JPG"],
+		"gallery": [
+			"/wedding-one/01.JPG",
+			"/wedding-one/02.JPG",
+			"/wedding-one/03.JPG",
+			"/wedding-one/04.JPG",
+			"/wedding-one/05.JPG"
+		],
 		"option": "Silver",
 		"type": "Весілля",
 		"type_code": "wedding-two",
