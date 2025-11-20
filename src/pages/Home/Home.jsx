@@ -82,7 +82,7 @@ const Home = () => {
 						</h1>
 						<div className="home-hero__link-container">
 							<HashLink className="home-top__link" to="/#templates" smooth>
-								<span>Обрати шаблони</span>
+								<span>Обрати шаблон</span>
 								<div className="home-top-icon-wrapper">
 									<div className="home-top-icon-wrapper-inner">
 										<img src={arrowTopIcon} width={16} height={16} alt="" />
