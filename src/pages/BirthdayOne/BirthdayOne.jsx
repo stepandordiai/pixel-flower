@@ -1,20 +1,12 @@
 import { useEffect, useState } from "react";
 import templatesData from "../../assets/data/templates-data.json";
 
-import lemonBranchImg from "/wedding-two/lemon.png";
-import giftIcon from "/birthday-one/gift.png";
-import build from "/wedding-two/build.png";
-
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-// import "swiper/css/effect-cards";
-import "swiper/css/effect-fade";
-
-// import required modules
-import { Autoplay, EffectFade } from "swiper/modules";
+import giftIcon from "/birthday-one/5.webp";
+import bg from "/birthday-one/17.jpg";
+import code1 from "/birthday-one/10.webp";
+import code2 from "/birthday-one/11.webp";
+import code3 from "/birthday-one/12.webp";
+import code4 from "/birthday-one/13.webp";
 
 import { useParams } from "react-router-dom";
 
@@ -181,122 +173,122 @@ const BirthdayOne = () => {
 		<>
 			<main className="birthday-one__envelope-silver">
 				<Container>
-					<div className="birthday-one__envelope-silver__top">
-						<div className="birthday-one__top-title font-l font-accent">
+					<section className="birthday-one__hero">
+						<img className="birthday-one__hero-bg" src={bg} alt="" />
+						<p className="birthday-one__hero-date">{`${date} - ${month} - ${template.time.slice(
+							0,
+							4
+						)}`}</p>
+						<div className="birthday-one__top-title font-accent">
 							Birthday Party
 						</div>
-						<p>{`${date} / ${month} / ${template.time.slice(0, 4)}`}</p>
-						{/* <img className="birthday-one__build" src={build} alt="" /> */}
+						<p style={{ fontSize: "1.5rem", padding: "25px 0" }}>
+							Diana is turning 18!
+						</p>
+						<p>at 19:00</p>
 						<div className="birthday-one__scroll">
 							Прокрутіть вниз, щоб дізнатися більше
 						</div>
-					</div>
-					<ContainerInner>
-						<p className="birthday-one__animated-element birthday-one__font-m birthday-one__font-accent">
-							Дорогі друзі
-						</p>
-						<div className="birthday-one__font-s">
-							<p className="birthday-one__animated-element">
-								Ми надзвичайно раді поділитися з Вами цим особливим днем!
+					</section>
+					<div className="lolo">
+						<ContainerInner>
+							<p className="birthday-one__animated-element birthday-one__font-m birthday-one__font-accent">
+								Дорогі друзі
 							</p>
-							<br />
-							<p className="birthday-one__animated-element">
-								Розпочинаючи нашу спільну подорож, ми будемо щасливі, якщо Ви
-								приєднаєтеся до святкування нашого весілля.
+							<div className="birthday-one__font-s">
+								<p className="birthday-one__animated-element">
+									Ми надзвичайно раді поділитися з Вами цим особливим днем!
+								</p>
+								<br />
+								<p className="birthday-one__animated-element">
+									Розпочинаючи нашу спільну подорож, ми будемо щасливі, якщо Ви
+									приєднаєтеся до святкування нашого весілля.
+								</p>
+								<br />
+								<p className="birthday-one__animated-element">
+									Тут ви знайдете всю необхідну інформацію - розклад подій,
+									зворотний відлік, інформацію про місце проведення, галерею та
+									інше.
+								</p>
+								<br />
+								<p className="birthday-one__animated-element">
+									Ваша присутність для нас безцінна, і ми з нетерпінням чекаємо,
+									щоб розділити радість, сміх і любов цього дня.
+								</p>
+							</div>
+							<p className="birthday-one__animated-element birthday-one__font-m birthday-one__font-accent">
+								Неділя, {date} {txtMonth}, {template.time.slice(0, 4)}
 							</p>
-							<br />
-							<p className="birthday-one__animated-element">
-								Тут ви знайдете всю необхідну інформацію - розклад подій,
-								зворотний відлік, інформацію про місце проведення, галерею та
-								інше.
+							<div className="birthday-one__silver-calendar-wrapper birthday-one__animated-element birthday-one__font-s">
+								<div className="birthday-one__silver-calendar">
+									<div>Пн</div>
+									<div>Вт</div>
+									<div>Ср</div>
+									<div>Чт</div>
+									<div>Пт</div>
+									<div>Сб</div>
+									<div>Нд</div>
+									{days2.map((day, index) => {
+										return (
+											<div
+												key={index}
+												className={
+													day == date ? "birthday-one__target-time" : ""
+												}
+											>
+												{day}
+												{day == date && (
+													<img
+														className="birthday-one__calendar-img "
+														src={giftIcon}
+														alt=""
+													/>
+												)}
+											</div>
+										);
+									})}
+								</div>
+							</div>
+							<p className="birthday-one__animated-element birthday-one__font-m birthday-one__font-accent">
+								Давайте створимо спогади, які залишаться на все життя!
 							</p>
-							<br />
-							<p className="birthday-one__animated-element">
-								Ваша присутність для нас безцінна, і ми з нетерпінням чекаємо,
-								щоб розділити радість, сміх і любов цього дня.
-							</p>
-						</div>
-						<p className="birthday-one__animated-element birthday-one__font-m birthday-one__font-accent">
-							Неділя, {date} {txtMonth}, {template.time.slice(0, 4)}
-						</p>
-						<div className="birthday-one__silver-calendar-wrapper birthday-one__animated-element birthday-one__font-s">
-							<div className="birthday-one__silver-calendar">
-								<div>Пн</div>
-								<div>Вт</div>
-								<div>Ср</div>
-								<div>Чт</div>
-								<div>Пт</div>
-								<div>Сб</div>
-								<div>Нд</div>
-								{days2.map((day, index) => {
-									return (
-										<div
-											key={index}
-											className={day == date ? "birthday-one__target-time" : ""}
-										>
-											{day}
-											{day == date && (
-												<img
-													className="birthday-one__calendar-img "
-													src={giftIcon}
-													alt=""
-												/>
-											)}
-										</div>
-									);
-								})}
-							</div>
-						</div>
-						<p className="birthday-one__animated-element birthday-one__font-m birthday-one__font-accent">
-							Давайте створимо спогади, які залишаться на все життя!
-						</p>
-					</ContainerInner>
-					<ContainerInner>
-						<img
-							className="birthday-one__animated-element"
-							src={lemonBranchImg}
-							alt=""
-						/>
-						<p className="birthday-one__animated-element font-m font-accent">
-							Зворотний відлік до мого Дня Народження
-						</p>
-						<div className="birthday-one__silver-date" id="date">
-							<div className="birthday-one__animated-element">
-								<span className="birthday-one__font-l">{days}</span>
-								<span className="birthday-one__font-s">днів</span>
-							</div>
-							<div className="birthday-one__animated-element">
-								<span className="birthday-one__font-l">{hours}</span>
-								<span className="birthday-one__font-s">годин(а)</span>
-							</div>
-							<div className="birthday-one__animated-element">
-								<span className="birthday-one__font-l">{minutes}</span>
-								<span className="birthday-one__font-s">хвилин(а)</span>
-							</div>
-							<div className="birthday-one__animated-element">
-								<span className="birthday-one__font-l">{seconds}</span>
-								<span className="birthday-one__font-s">секунд(а)</span>
-							</div>
-						</div>
-					</ContainerInner>
-					<ContainerInner>
-						<img
-							className="birthday-one__animated-element"
-							src={lemonBranchImg}
-							alt=""
-						/>
-						<div>
+						</ContainerInner>
+						<ContainerInner>
 							<p className="birthday-one__animated-element font-m font-accent">
-								Місце проведення
+								Зворотний відлік до Дня Народження
 							</p>
-							<p className="birthday-one__animated-element font-s">
-								{template.location_time}
-							</p>
-						</div>
-						{template.adresess.map((address, index) => {
-							return (
-								<div key={index} className="birthday-one__container-inner">
-									{/* <p
+							<div className="birthday-one__silver-date" id="date">
+								<div className="birthday-one__animated-element">
+									<span className="birthday-one__font-l">{days}</span>
+									<span className="birthday-one__font-s"> днів</span>
+								</div>
+								<div className="birthday-one__animated-element">
+									<span className="birthday-one__font-l">{hours}</span>
+									<span className="birthday-one__font-s"> годин(а)</span>
+								</div>
+								<div className="birthday-one__animated-element">
+									<span className="birthday-one__font-l">{minutes}</span>
+									<span className="birthday-one__font-s"> хвилин(а)</span>
+								</div>
+								<div className="birthday-one__animated-element">
+									<span className="birthday-one__font-l">{seconds}</span>
+									<span className="birthday-one__font-s"> секунд(а)</span>
+								</div>
+							</div>
+						</ContainerInner>
+						<ContainerInner>
+							<div>
+								<p className="birthday-one__animated-element font-m font-accent">
+									Місце проведення
+								</p>
+								<p className="birthday-one__animated-element font-s">
+									{template.location_time}
+								</p>
+							</div>
+							{template.adresess.map((address, index) => {
+								return (
+									<div key={index} className="birthday-one__container-inner">
+										{/* <p
 										style={{
 											width: "100%",
 											display: "flex",
@@ -307,89 +299,51 @@ const BirthdayOne = () => {
 										<span>{address.title}</span>
 										<span>{address.time}</span>
 									</p> */}
-									<p className="birthday-one__animated-element font-s">
-										{address.address_title}
-									</p>
-									<p className="birthday-one__animated-element font-s">
-										{address.address}
-									</p>
-									<iframe
-										style={{ width: "100%", height: 400 }}
-										className="birthday-one__animated-element"
-										src={address.address_url}
-										loading="lazy"
-									></iframe>
-									<a
-										className="birthday-one__silver-address__link animated-element font-s"
-										href={address.address_destination_url}
-										target="_blank"
-									>
-										Отримати маршрут
-									</a>
-								</div>
-							);
-						})}
-					</ContainerInner>
-					{template.dress_code && (
-						<ContainerInner>
-							<p className="birthday-one__font-m font-accent birthday-one__animated-element">
-								Дрес-код
-							</p>
-							<p className="birthday-one__font-s birthday-one__animated-element">
-								Нам буде дуже приємно, якщо ви додасте у свій образ відтінки з
-								нашої весільної палітри.
-							</p>
-							<div className="birthday-one__colors-container birthday-one__animated-element">
-								<div style={{ background: "#bab86c" }}></div>
-								<div style={{ background: "#ffffff" }}></div>
-								<div style={{ background: "#F5F5DC" }}></div>
-								<div style={{ background: "#7B3F00" }}></div>
-							</div>
-						</ContainerInner>
-					)}
-					<ContainerInner>
-						<img
-							className="birthday-one__animated-element"
-							src={lemonBranchImg}
-							alt=""
-						/>
-						<p className="birthday-one__animated-element font-m font-accent">
-							Галерея
-						</p>
-						<Swiper
-							effect={"fade"}
-							loop={true}
-							speed={1000}
-							autoplay={{
-								delay: 3000,
-								disableOnInteraction: false,
-							}}
-							modules={[EffectFade, Autoplay]}
-							className="birthday-one__silver-swiper animated-element"
-						>
-							{template.gallery.map((img, index) => {
-								return (
-									<SwiperSlide key={index} className="birthday-one__slide">
-										<img src={img} alt="" loading="lazy" />
-									</SwiperSlide>
+										<p className="birthday-one__animated-element font-s">
+											{address.address_title}
+										</p>
+										<p className="birthday-one__animated-element font-s">
+											{address.address}
+										</p>
+										<iframe
+											style={{ width: "100%", height: 400 }}
+											className="birthday-one__animated-element"
+											src={address.address_url}
+											loading="lazy"
+										></iframe>
+										<a
+											className="birthday-one__silver-address__link animated-element font-s"
+											href={address.address_destination_url}
+											target="_blank"
+										>
+											Отримати маршрут
+										</a>
+									</div>
 								);
 							})}
-						</Swiper>
-					</ContainerInner>
-					<ContainerInner>
-						<img
-							className="birthday-one__animated-element"
-							src={lemonBranchImg}
-							alt=""
-						/>
-						<p className="birthday-one__animated-element font-m font-accent">
-							Буду дуже рада бачити вас!
-						</p>
-						{/* <div className="birthday-one__envelope-silver__top-logo animated-element font-m">
-							<span>{template.name_1[0]}</span>
-							<span>{template.name_2[0]}</span>
-						</div> */}
-					</ContainerInner>
+						</ContainerInner>
+						{template.dress_code && (
+							<ContainerInner>
+								<p className="birthday-one__font-m font-accent birthday-one__animated-element">
+									Дрес-код
+								</p>
+								<p className="birthday-one__font-s birthday-one__animated-element">
+									Мені буде дуже приємно, якщо ви підтримаєте мій дрес-код.
+								</p>
+								<div className="birthday-one__colors-container birthday-one__animated-element">
+									<img src={code1} alt="" />
+									<img src={code2} alt="" />
+									<img src={code3} alt="" />
+									<img src={code4} alt="" />
+								</div>
+							</ContainerInner>
+						)}
+						<ContainerInner>
+							<p className="birthday-one__animated-element font-m font-accent">
+								Буду дуже рада бачити вас!
+							</p>
+						</ContainerInner>
+					</div>
 				</Container>
 			</main>
 		</>

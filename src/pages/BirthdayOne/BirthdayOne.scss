@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap");
+
 .birthday-one__calendar-img {
 	position: absolute;
 	top: 50%;
@@ -15,6 +17,7 @@
 	width: 100%;
 	padding-bottom: 50px;
 	text-align: center;
+	background: #fffbf2;
 }
 
 .birthday-one__container-inner {
@@ -26,22 +29,53 @@
 	row-gap: 25px;
 }
 
-.birthday-one__envelope-silver__top {
+.birthday-one__hero {
 	position: relative;
 	height: 100svh;
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	width: 100%;
-	color: #000;
+	color: #fff;
 	padding: 25px 25px 10px 25px;
 	z-index: 1;
+}
+
+.birthday-one__hero-bg {
+	position: absolute;
+	z-index: -2;
+	width: 100%;
+	height: 100%;
+	scale: 1.4;
+	object-fit: contain;
+	object-position: center;
 }
 
 .birthday-one__top-img {
 	max-width: 600px;
 	width: 100%;
+}
+
+.birthday-one__hero-date {
+	position: absolute;
+	top: 200px;
+}
+
+.birthday-one__top-title {
+	color: #fff;
+	font-size: 3.5rem;
+	font-family: "Fleur De Leah", cursive;
+}
+
+.lolo {
+	background-color: #fffbf2;
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 100px;
 }
 
 .birthday-one__build {
@@ -53,8 +87,10 @@
 }
 
 .birthday-one__scroll {
+	position: absolute;
+	bottom: 0;
 	font-size: 0.75rem;
-	color: rgba(0, 0, 0, 0.5);
+	color: rgba(255, 255, 255, 0.5);
 }
 
 .birthday-one__scroll--hide {
@@ -65,7 +101,7 @@
 .birthday-one__animated-element {
 	opacity: 0;
 	transform: scale(0.5);
-	transition: all 1s;
+	transition: opacity 1s, transform 1s;
 }
 
 .birthday-one__animated-element--active {
@@ -81,7 +117,7 @@
 }
 
 .birthday-one__font-accent {
-	font-family: "Great Vibes", cursive;
+	font-family: "Fleur De Leah", "Great Vibes", cursive;
 }
 
 .birthday-one__font-s {
@@ -112,9 +148,6 @@
 	span:nth-child(2) {
 		transform: translate(-35%, 25%);
 	}
-}
-
-.birthday-one__top-title {
 }
 
 .birthday-one__home__top-date {
@@ -195,6 +228,7 @@
 	justify-content: center;
 	align-items: center;
 	gap: 25px;
+	font-family: "Fleur De Leah", cursive;
 }
 
 .birthday-one__addresses-container {
