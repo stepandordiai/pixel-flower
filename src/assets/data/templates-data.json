@@ -101,7 +101,7 @@
 		"gallery": ["/child/01.jpg", "/child/02.jpg", "/child/03.jpg"],
 		"option": "Bronze",
 		"type": "Хрестини",
-		"type_code": "christening",
+		"type_code": "christening-girl",
 		"option_code": "bronze",
 		"background": "#ff0000",
 		"ss": "/ss/silver/pixel-flower-template-s-c-2.png",
