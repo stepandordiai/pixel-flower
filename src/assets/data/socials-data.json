@@ -5,6 +5,16 @@
 		"socialUrl": "https://www.instagram.com/pixelflower.studio/"
 	},
 	{
+		"fontIcon": "fa-brands fa-tiktok",
+		"title": "TikTok",
+		"socialUrl": "https://www.tiktok.com/@pixelflower.studio"
+	},
+	{
+		"fontIcon": "fa-brands fa-facebook",
+		"title": "Facebook",
+		"socialUrl": "https://www.facebook.com/profile.php?id=61580692074316"
+	},
+	{
 		"fontIcon": "fa-brands fa-telegram",
 		"title": "Telegram",
 		"socialUrl": "https://t.me/heeeyooo"
