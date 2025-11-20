@@ -34,7 +34,7 @@
 		"type": "Весілля",
 		"type_code": "wedding-one",
 		"option_code": "bronze",
-		"ss": "/ss/bronze/01.png"
+		"ss": "/ss/bronze/pixel-flower-template-s-w-3.png"
 	},
 	{
 		"id": "andrii-and-natali-ukraine",
@@ -64,7 +64,7 @@
 		"type": "Весілля",
 		"type_code": "wedding-two",
 		"option_code": "silver",
-		"ss": "/ss/silver/silver.png",
+		"ss": "/ss/silver/pixel-flower-template-s-w-2.png",
 		"song": "/music/LadyGaga.mp3",
 		"dress_code": false
 	},
@@ -104,7 +104,7 @@
 		"type_code": "christening",
 		"option_code": "bronze",
 		"background": "#ff0000",
-		"ss": "/ss/silver/silver.png",
+		"ss": "/ss/silver/pixel-flower-template-s-c-2.png",
 		"song": "/music/Lullaby.mp3"
 	},
 	{

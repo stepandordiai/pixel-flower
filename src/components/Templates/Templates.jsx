@@ -5,11 +5,7 @@ import arrowIcon from "/icons/top.png";
 import "./Templates.scss";
 
 const uniqueTemplateTypes = [
-	...new Set(
-		templatesData
-			.filter((template) => template.isTemplate)
-			.map((template) => template.type)
-	),
+	...new Set(templatesData.map((template) => template.type)),
 ];
 
 const Templates = () => {
@@ -20,21 +16,15 @@ const Templates = () => {
 	const filteredTemplates = templatesData.filter((template) => {
 		// Filtering option or type "all"
 		if (
-			((option === "Всі" && template.type === type) ||
-				(type === "Всі" && template.option === option)) &&
-			template.isTemplate
+			(option === "Всі" && template.type === type) ||
+			(type === "Всі" && template.option === option)
 		) {
 			return template;
 			// Filtering option and type "all"
-		} else if (option === "Всі" && type === "Всі" && template.isTemplate) {
+		} else if (option === "Всі" && type === "Всі") {
 			return template;
 			// Filtering option and type
-		} else
-			return (
-				template.option === option &&
-				template.type === type &&
-				template.isTemplate
-			);
+		} else return template.option === option && template.type === type;
 	});
 
 	return (
