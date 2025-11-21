@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import Header from "../../components/Header/Header";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Templates from "../../components/Templates/Templates";
 import QA from "../../components/QA/QA";
 import { HashLink } from "react-router-hash-link";
@@ -29,6 +29,8 @@ const sliderImgData = [
 ];
 
 const Home = () => {
+	const [showLoadedImg, setShowLoadedImg] = useState({});
+
 	useEffect(() => {
 		document.body.style.overflow = "auto";
 	}, []);
@@ -63,7 +65,15 @@ const Home = () => {
 													style={{ "--position": i + 1 }}
 												>
 													<img
-														className="home-top__img"
+														onLoad={() => {
+															setShowLoadedImg((prev) => ({
+																...prev,
+																[i]: true,
+															}));
+														}}
+														className={`home-top__img ${
+															showLoadedImg[i] ? "home-top__img--show" : ""
+														}`}
 														src={img}
 														height={250}
 														alt=""

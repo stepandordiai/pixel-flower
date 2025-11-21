@@ -85,11 +85,17 @@
 	animation-delay: calc(
 		(25s / var(--quantity)) * (var(--position) - 3)
 	) !important;
+}
 
-	img {
-		display: block;
-		height: 250px;
-	}
+.home-top__img {
+	display: block;
+	height: 250px;
+	opacity: 0;
+	transition: opacity 1s;
+}
+
+.home-top__img--show {
+	opacity: 1;
 }
 
 @keyframes autoRun {
