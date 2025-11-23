@@ -1,4 +1,4 @@
-import socialsData from "./../../assets/data/socials-data.json";
+import socialsData from "../../assets/data/socialsData";
 import "./Socials.scss";
 
 const Socials = () => {
@@ -7,6 +7,7 @@ const Socials = () => {
 			<h2 className="socials__title">Ми в соціальних мережах!</h2>
 			<div className="socials__container">
 				{socialsData.map((social, i) => {
+					const Icon = social.icon;
 					return (
 						<a
 							key={i}
@@ -15,7 +16,7 @@ const Socials = () => {
 							data-value={social.title}
 							title={social.title}
 						>
-							<i className={social.fontIcon}></i>
+							<Icon size={32} />
 						</a>
 					);
 				})}

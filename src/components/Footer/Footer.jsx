@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import arrowTopIcon from "/icons/top.png";
 import logo from "/logo/pixel-flower-logo.svg";
 import "./Footer.scss";
 
@@ -20,8 +19,24 @@ const Footer = () => {
 				<span>Повернутись на початок</span>
 				<div className="footer__btn-icon-wrapper">
 					<div className="footer__btn-icon-wrapper-inner">
-						<img src={arrowTopIcon} width={16} height={16} alt="" />
-						<img src={arrowTopIcon} width={16} height={16} alt="" />
+						{[...Array(2)].map((_, i) => {
+							return (
+								<svg
+									key={i}
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									fill="currentColor"
+									className="bi bi-arrow-up-short"
+									viewBox="0 0 16 16"
+								>
+									<path
+										fillRule="evenodd"
+										d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"
+									/>
+								</svg>
+							);
+						})}
 					</div>
 				</div>
 			</button>

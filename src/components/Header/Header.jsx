@@ -1,9 +1,8 @@
 import { useState } from "react";
-import socialsData from "./../../assets/data/socials-data.json";
 import { NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import socialsData from "../../assets/data/socialsData";
 import logo from "/logo/pixel-flower-logo.svg";
-import arrowTopIcon from "/icons/top.png";
 import "./Header.scss";
 
 const linksData = [
@@ -58,8 +57,25 @@ const Header = () => {
 										<span>{link.name}</span>
 										<div className="menu-icon-container">
 											<div className="menu-icon-wrapper">
-												<img src={arrowTopIcon} width={16} height={16} alt="" />
-												<img src={arrowTopIcon} width={16} height={16} alt="" />
+												{/* TODO: LEARN THIS */}
+												{[...Array(2)].map((_, i) => {
+													return (
+														<svg
+															key={i}
+															xmlns="http://www.w3.org/2000/svg"
+															width="24"
+															height="24"
+															fill="currentColor"
+															className="bi bi-arrow-right-short"
+															viewBox="0 0 16 16"
+														>
+															<path
+																fillRule="evenodd"
+																d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"
+															/>
+														</svg>
+													);
+												})}
 											</div>
 										</div>
 									</HashLink>
@@ -68,6 +84,7 @@ const Header = () => {
 						</nav>
 						<div className="menu-dd-socials">
 							{socialsData.map((social, index) => {
+								const Icon = social.icon;
 								return (
 									<a
 										key={index}
@@ -75,7 +92,7 @@ const Header = () => {
 										target="_blank"
 										title={social.title}
 									>
-										<i className={social.fontIcon}></i>
+										<Icon size={24} />
 									</a>
 								);
 							})}

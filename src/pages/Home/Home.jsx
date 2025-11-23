@@ -18,7 +18,6 @@ import img9 from "/iphone-9.png";
 import img10 from "/iphone-10.png";
 import img11 from "/iphone-11.png";
 import img12 from "/iphone-12.png";
-import arrowTopIcon from "/icons/top.png";
 import "./Home.scss";
 
 const sliderImgData = [
@@ -95,8 +94,24 @@ const Home = () => {
 								<span>Обрати шаблон</span>
 								<div className="home-top-icon-wrapper">
 									<div className="home-top-icon-wrapper-inner">
-										<img src={arrowTopIcon} width={16} height={16} alt="" />
-										<img src={arrowTopIcon} width={16} height={16} alt="" />
+										{[...Array(2)].map((_, i) => {
+											return (
+												<svg
+													key={i}
+													xmlns="http://www.w3.org/2000/svg"
+													width="24"
+													height="24"
+													fill="currentColor"
+													className="bi bi-arrow-right-short"
+													viewBox="0 0 16 16"
+												>
+													<path
+														fillRule="evenodd"
+														d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"
+													/>
+												</svg>
+											);
+										})}
 									</div>
 								</div>
 							</HashLink>
@@ -104,8 +119,24 @@ const Home = () => {
 								<span>Дізнатися вартість</span>
 								<div className="home-top-icon-wrapper">
 									<div className="home-top-icon-wrapper-inner">
-										<img src={arrowTopIcon} width={16} height={16} alt="" />
-										<img src={arrowTopIcon} width={16} height={16} alt="" />
+										{[...Array(2)].map((_, i) => {
+											return (
+												<svg
+													key={i}
+													xmlns="http://www.w3.org/2000/svg"
+													width="24"
+													height="24"
+													fill="currentColor"
+													className="bi bi-arrow-right-short"
+													viewBox="0 0 16 16"
+												>
+													<path
+														fillRule="evenodd"
+														d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"
+													/>
+												</svg>
+											);
+										})}
 									</div>
 								</div>
 							</HashLink>
