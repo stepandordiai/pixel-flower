@@ -7,12 +7,17 @@ import code1 from "/birthday-one/10.webp";
 import code2 from "/birthday-one/11.webp";
 import code3 from "/birthday-one/12.webp";
 import code4 from "/birthday-one/13.webp";
+import img4 from "/birthday-one/4.webp";
+import img8 from "/birthday-one/8.webp";
+import img9 from "/birthday-one/9.webp";
+import img14 from "/birthday-one/14.webp";
 
 import { useParams } from "react-router-dom";
 
 import Container from "../../components/Container/Container";
 import ContainerInner from "../../components/ContainerInner/ContainerInner";
 import NotFound from "../NotFound/NotFound";
+import AnimatedTxt from "../../components/AnimatedTxt/AnimatedTxt";
 import "./BirthdayOne.scss";
 
 const BirthdayOne = () => {
@@ -175,59 +180,68 @@ const BirthdayOne = () => {
 				<Container>
 					<section className="birthday-one__hero">
 						<img className="birthday-one__hero-bg" src={bg} alt="" />
-						<p className="birthday-one__hero-date">{`${date} - ${month} - ${template.time.slice(
-							0,
-							4
-						)}`}</p>
-						<div className="birthday-one__top-title font-accent">
-							Birthday Party
-						</div>
-						<p style={{ fontSize: "1.5rem", padding: "25px 0" }}>
-							Diana is turning 18!
+						<p className="birthday-one__hero-date">
+							<AnimatedTxt>
+								{`${date} - ${month} - ${template.time.slice(0, 4)}`}
+							</AnimatedTxt>
 						</p>
-						<p>at 19:00</p>
+						<div className="birthday-one__top-title font-accent">
+							<AnimatedTxt>Birthday Party</AnimatedTxt>
+						</div>
+						<p style={{ padding: "25px 0" }}>
+							<AnimatedTxt>at 19:00</AnimatedTxt>
+						</p>
+						<p style={{ fontSize: "1.5rem" }}>
+							<AnimatedTxt>Diana is turning 18!</AnimatedTxt>
+						</p>
 						<div className="birthday-one__scroll">
 							Прокрутіть вниз, щоб дізнатися більше
 						</div>
 					</section>
 					<div className="lolo">
 						<ContainerInner>
-							<p className="birthday-one__animated-element birthday-one__font-m birthday-one__font-accent">
-								Дорогі друзі
+							<p className="birthday-one__font-m birthday-one__font-accent">
+								<AnimatedTxt>Дорогі друзі</AnimatedTxt>
 							</p>
 							<div className="birthday-one__font-s">
-								<p className="birthday-one__animated-element">
-									Ми надзвичайно раді поділитися з Вами цим особливим днем!
-								</p>
-								<br />
-								<p className="birthday-one__animated-element">
-									Розпочинаючи нашу спільну подорож, ми будемо щасливі, якщо Ви
-									приєднаєтеся до святкування нашого весілля.
-								</p>
-								<br />
-								<p className="birthday-one__animated-element">
-									Тут ви знайдете всю необхідну інформацію - розклад подій,
-									зворотний відлік, інформацію про місце проведення, галерею та
-									інше.
-								</p>
-								<br />
-								<p className="birthday-one__animated-element">
-									Ваша присутність для нас безцінна, і ми з нетерпінням чекаємо,
-									щоб розділити радість, сміх і любов цього дня.
+								<p style={{ fontSize: "1.2rem" }}>
+									<AnimatedTxt>
+										Хочу запросити вас на святкування мого дня народження! Для
+										мене буде дуже важливо провести цей день разом з людьми, які
+										роблять моє життя яскравішим. Буду дуже рада бачити вас,
+										поспілкуватися, посміятися й просто чудово провести час
+										разом!
+									</AnimatedTxt>
 								</p>
 							</div>
-							<p className="birthday-one__animated-element birthday-one__font-m birthday-one__font-accent">
-								Неділя, {date} {txtMonth}, {template.time.slice(0, 4)}
+							<p className="birthday-one__font-m birthday-one__font-accent">
+								<AnimatedTxt>
+									Неділя, {date} {txtMonth}, {template.time.slice(0, 4)}
+								</AnimatedTxt>
 							</p>
-							<div className="birthday-one__silver-calendar-wrapper birthday-one__animated-element birthday-one__font-s">
+							<div className="birthday-one__silver-calendar-wrapper birthday-one__font-s">
 								<div className="birthday-one__silver-calendar">
-									<div>Пн</div>
-									<div>Вт</div>
-									<div>Ср</div>
-									<div>Чт</div>
-									<div>Пт</div>
-									<div>Сб</div>
-									<div>Нд</div>
+									<div>
+										<AnimatedTxt>Пн</AnimatedTxt>
+									</div>
+									<div>
+										<AnimatedTxt>Вт</AnimatedTxt>
+									</div>
+									<div>
+										<AnimatedTxt>Ср</AnimatedTxt>
+									</div>
+									<div>
+										<AnimatedTxt>Чт</AnimatedTxt>
+									</div>
+									<div>
+										<AnimatedTxt>Пт</AnimatedTxt>
+									</div>
+									<div>
+										<AnimatedTxt>Сб</AnimatedTxt>
+									</div>
+									<div>
+										<AnimatedTxt>Нд</AnimatedTxt>
+									</div>
 									{days2.map((day, index) => {
 										return (
 											<div
@@ -236,7 +250,7 @@ const BirthdayOne = () => {
 													day == date ? "birthday-one__target-time" : ""
 												}
 											>
-												{day}
+												<AnimatedTxt>{day}</AnimatedTxt>
 												{day == date && (
 													<img
 														className="birthday-one__calendar-img "
@@ -249,40 +263,52 @@ const BirthdayOne = () => {
 									})}
 								</div>
 							</div>
-							<p className="birthday-one__animated-element birthday-one__font-m birthday-one__font-accent">
-								Давайте створимо спогади, які залишаться на все життя!
+							<p className="birthday-one__font-m birthday-one__font-accent">
+								<AnimatedTxt>
+									Давайте створимо спогади, які залишаться на все життя!
+								</AnimatedTxt>
 							</p>
 						</ContainerInner>
 						<ContainerInner>
-							<p className="birthday-one__animated-element font-m font-accent">
-								Зворотний відлік до Дня Народження
+							<img src={img4} width={100} height={100} alt="" />
+							<p className="font-m font-accent">
+								<AnimatedTxt>Зворотний відлік до Дня Народження</AnimatedTxt>
 							</p>
 							<div className="birthday-one__silver-date" id="date">
-								<div className="birthday-one__animated-element">
-									<span className="birthday-one__font-l">{days}</span>
-									<span className="birthday-one__font-s"> днів</span>
-								</div>
-								<div className="birthday-one__animated-element">
-									<span className="birthday-one__font-l">{hours}</span>
-									<span className="birthday-one__font-s"> годин(а)</span>
-								</div>
-								<div className="birthday-one__animated-element">
-									<span className="birthday-one__font-l">{minutes}</span>
-									<span className="birthday-one__font-s"> хвилин(а)</span>
-								</div>
-								<div className="birthday-one__animated-element">
-									<span className="birthday-one__font-l">{seconds}</span>
-									<span className="birthday-one__font-s"> секунд(а)</span>
-								</div>
+								<AnimatedTxt>
+									<div>
+										<span className="birthday-one__font-l">{days}</span>
+										<span className="birthday-one__font-s"> днів</span>
+									</div>
+								</AnimatedTxt>
+								<AnimatedTxt>
+									<div>
+										<span className="birthday-one__font-l">{hours}</span>
+										<span className="birthday-one__font-s"> годин(а)</span>
+									</div>
+								</AnimatedTxt>
+								<AnimatedTxt>
+									<div>
+										<span className="birthday-one__font-l">{minutes}</span>
+										<span className="birthday-one__font-s"> хвилин(а)</span>
+									</div>
+								</AnimatedTxt>
+								<AnimatedTxt>
+									<div>
+										<span className="birthday-one__font-l">{seconds}</span>
+										<span className="birthday-one__font-s"> секунд(а)</span>
+									</div>
+								</AnimatedTxt>
 							</div>
 						</ContainerInner>
 						<ContainerInner>
+							<img src={img8} width={100} height={100} alt="" />
 							<div>
-								<p className="birthday-one__animated-element font-m font-accent">
-									Місце проведення
+								<p className="font-m font-accent">
+									<AnimatedTxt>Місце проведення</AnimatedTxt>
 								</p>
-								<p className="birthday-one__animated-element font-s">
-									{template.location_time}
+								<p className=" font-s">
+									<AnimatedTxt>{template.location_time}</AnimatedTxt>
 								</p>
 							</div>
 							{template.adresess.map((address, index) => {
@@ -299,20 +325,19 @@ const BirthdayOne = () => {
 										<span>{address.title}</span>
 										<span>{address.time}</span>
 									</p> */}
-										<p className="birthday-one__animated-element font-s">
-											{address.address_title}
+										<p className="font-s">
+											<AnimatedTxt>{address.address_title}</AnimatedTxt>
 										</p>
-										<p className="birthday-one__animated-element font-s">
-											{address.address}
+										<p className="font-s">
+											<AnimatedTxt>{address.address}</AnimatedTxt>
 										</p>
 										<iframe
 											style={{ width: "100%", height: 400 }}
-											className="birthday-one__animated-element"
 											src={address.address_url}
 											loading="lazy"
 										></iframe>
 										<a
-											className="birthday-one__silver-address__link animated-element font-s"
+											className="birthday-one__silver-address__link font-s"
 											href={address.address_destination_url}
 											target="_blank"
 										>
@@ -324,13 +349,15 @@ const BirthdayOne = () => {
 						</ContainerInner>
 						{template.dress_code && (
 							<ContainerInner>
-								<p className="birthday-one__font-m font-accent birthday-one__animated-element">
-									Дрес-код
+								<p className="birthday-one__font-m font-accent">
+									<AnimatedTxt>Дрес-код</AnimatedTxt>
 								</p>
-								<p className="birthday-one__font-s birthday-one__animated-element">
-									Мені буде дуже приємно, якщо ви підтримаєте мій дрес-код.
+								<p className="birthday-one__font-s">
+									<AnimatedTxt>
+										Мені буде дуже приємно, якщо ви підтримаєте мій дрес-код.
+									</AnimatedTxt>
 								</p>
-								<div className="birthday-one__colors-container birthday-one__animated-element">
+								<div className="birthday-one__colors-container">
 									<img src={code1} alt="" />
 									<img src={code2} alt="" />
 									<img src={code3} alt="" />
@@ -339,9 +366,13 @@ const BirthdayOne = () => {
 							</ContainerInner>
 						)}
 						<ContainerInner>
-							<p className="birthday-one__animated-element font-m font-accent">
-								Буду дуже рада бачити вас!
+							<p className="font-m font-accent">
+								<AnimatedTxt>Буду дуже рада бачити вас!</AnimatedTxt>
 							</p>
+							<div>
+								<img src={img14} width={100} height={100} alt="" />
+								<img src={img9} width={150} height={150} alt="" />
+							</div>
 						</ContainerInner>
 					</div>
 				</Container>

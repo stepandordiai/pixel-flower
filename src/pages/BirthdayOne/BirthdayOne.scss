@@ -195,7 +195,7 @@
 	}
 
 	div:nth-of-type(-n + 7) {
-		border-bottom: 1px solid #000;
+		border-bottom: 1px solid rgb(166, 4, 4);
 		font-weight: 500;
 	}
 }
@@ -205,7 +205,7 @@
 	width: 100%;
 	max-width: 500px;
 	padding: 25px;
-	border: 5px solid #000;
+	border: 5px dotted rgb(166, 4, 4);
 }
 
 .birthday-one__target-time {
@@ -228,7 +228,16 @@
 	justify-content: center;
 	align-items: center;
 	gap: 25px;
-	font-family: "Fleur De Leah", cursive;
+	// font-family: "Fleur De Leah", cursive;
+
+	div {
+		background: rgb(114, 1, 1);
+		padding: 10px;
+		border-radius: 25px;
+		width: 100%;
+		min-width: 250px;
+		color: #fff;
+	}
 }
 
 .birthday-one__addresses-container {
