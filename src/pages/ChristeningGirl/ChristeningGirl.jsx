@@ -242,7 +242,7 @@ const ChristeningGirl = () => {
 
 	return (
 		<>
-			{showHeader && !template.isTemplate && <Header />}
+			{/* {showHeader && !template.isTemplate && <Header />} */}
 			<div onClick={handleLoading} className="christening-girl__loading">
 				<img src={img1} alt="" />
 				<img src={img1} alt="" />
