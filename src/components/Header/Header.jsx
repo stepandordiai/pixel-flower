@@ -26,8 +26,13 @@ const Header = () => {
 				</NavLink>
 			</header>
 			<div className="menu">
-				<button onClick={toggleBurgerBtn} className="burger-btn-wrapper">
-					<div
+				{/* menu-btn */}
+				<button
+					onClick={toggleBurgerBtn}
+					className="burger-btn-wrapper"
+					aria-label={isMenuActive ? "Закрити меню" : "Відкрити меню"}
+				>
+					<span
 						className={`burger-btn ${isMenuActive ? "burger-btn--active" : ""}`}
 					>
 						<span
@@ -40,7 +45,7 @@ const Header = () => {
 								isMenuActive ? "burger-btn__bottom-line--active" : ""
 							}`}
 						></span>
-					</div>
+					</span>
 				</button>
 				<div className={`menu-dd ${isMenuActive ? "menu-dd--active" : ""}`}>
 					<div className="menu-dd-inner">
