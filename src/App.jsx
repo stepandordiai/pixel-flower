@@ -9,6 +9,7 @@ import WeddingTwo from "./pages/WeddingTwo/WeddingTwo";
 import BirthdayOne from "./pages/BirthdayOne/BirthdayOne";
 import NotFound from "./pages/NotFound/NotFound";
 import "./scss/App.scss";
+import BirthdayTwo from "./pages/BirthdayTwo/BirthdayTwo";
 
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 				<Route path="/christening-boy/:id" element={<ChristeningBoy />} />
 				<Route path="/christening-girl/:id" element={<ChristeningGirl />} />
 				<Route path="/birthday-one/:id" element={<BirthdayOne />} />
+				<Route path="/birthday-two/:id" element={<BirthdayTwo />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 			<Footer />

@@ -296,5 +296,37 @@
 		"song": "/music/LadyGaga.mp3",
 		"isTemplate": true,
 		"dress_code": true
+	},
+	{
+		"id": "template-birthday-two",
+		"time": "2026-01-28T14:00:00",
+		"child_name": "Максима",
+		"mother_name": "Ганна",
+		"father_name": "Михайло",
+		"text": "День народження нашого синочка",
+		"color": "#b8f3fe80",
+		"place": "Київ",
+		"adresess": [
+			{
+				"title": "Бенкет",
+				"time": "16:00",
+				"address_title": "Ресторан \"TAMI PIZZERIA\"",
+				"address": "Nupacká 163, 251 01 Nupaky-Říčany u Prahy",
+				"address_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2564.842230878555!2d14.602272999999997!3d49.9955673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b8e8ee273c08d%3A0x39ec3b99c582b93c!2sTAMI%20PIZZERIA!5e0!3m2!1sen!2scz!4v1757583608661!5m2!1sen!2scz",
+				"address_destination_url": "https://maps.app.goo.gl/qMHDVYWifA1AoLzh6",
+				"img": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrsYdaE2E-57nNnt-uHaol8iCMhF99zwQf1eO1o79mAvKy3ZwNth28OioXeKz7AupL49vHATp5Cq-utCyZGSLQAQvwNMQulQMogStoDAGFf5B2W-aOJHhx-SGmKt0JJrQkihXUm=s1360-w1360-h1020-rw"
+			}
+		],
+		"gallery": [
+			"https://babybeauandbelle.com/cdn/shop/files/Elijah-Suit-3-Piece-Baby_0523_570x570.jpg",
+			"https://i.etsystatic.com/7512782/r/il/68ccbc/4854350831/il_570xN.4854350831_mldo.jpg",
+			"https://www.stephanieparkerphotography.com/wp-content/uploads/2021/01/DSC_7836_WEB-1024x684(pp_w768_h513).jpg"
+		],
+		"option": "Silver",
+		"type": "День Народження",
+		"type_code": "birthday-two",
+		"option_code": "silver",
+		"background": "#ff0000",
+		"isTemplate": true
 	}
 ]
