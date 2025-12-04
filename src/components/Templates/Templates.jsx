@@ -1,6 +1,7 @@
 import templatesData from "./../../assets/data/templates-data.json";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import classNames from "classnames";
 import "./Templates.scss";
 
 const uniqueTemplateTypes = [
@@ -38,11 +39,9 @@ const Templates = () => {
 								<button
 									key={templateOption}
 									onClick={() => setOption(templateOption)}
-									className={
-										templateOption === option
-											? "templates__btn templates__btn--active"
-											: "templates__btn"
-									}
+									className={classNames("templates__btn", {
+										"templates__btn--active": templateOption === option,
+									})}
 								>
 									{templateOption}
 								</button>
@@ -59,11 +58,9 @@ const Templates = () => {
 								<button
 									key={templateType}
 									onClick={() => setType(templateType)}
-									className={
-										templateType === type
-											? "templates__btn templates__btn--active"
-											: "templates__btn"
-									}
+									className={classNames("templates__btn", {
+										"templates__btn--active": templateType === type,
+									})}
 								>
 									{templateType}
 								</button>

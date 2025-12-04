@@ -6,6 +6,7 @@ import QA from "../../components/QA/QA";
 import { HashLink } from "react-router-hash-link";
 import Packages from "../../components/Packages/Packages";
 import Socials from "../../components/Socials/Socials";
+import classNames from "classnames";
 import img1 from "/iphone.png";
 import img2 from "/iphone-2.png";
 import img3 from "/iphone-3.png";
@@ -70,9 +71,9 @@ const Home = () => {
 																[i]: true,
 															}));
 														}}
-														className={`home-top__img ${
-															showLoadedImg[i] ? "home-top__img--show" : ""
-														}`}
+														className={classNames("home-top__img", {
+															"home-top__img--show": showLoadedImg[i],
+														})}
 														src={img}
 														height={250}
 														alt=""

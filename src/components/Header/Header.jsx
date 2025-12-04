@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import socialsData from "../../assets/data/socialsData";
+import classNames from "classnames";
 import logo from "/logo/pixel-flower-logo.svg";
 import "./Header.scss";
 
@@ -33,21 +34,27 @@ const Header = () => {
 					aria-label={isMenuActive ? "Закрити меню" : "Відкрити меню"}
 				>
 					<span
-						className={`burger-btn ${isMenuActive ? "burger-btn--active" : ""}`}
+						className={classNames("burger-btn", {
+							"burger-btn--active": isMenuActive,
+						})}
 					>
 						<span
-							className={`burger-btn__top-line ${
-								isMenuActive ? "burger-btn__top-line--active" : ""
-							}`}
+							className={classNames("burger-btn__top-line", {
+								"burger-btn__top-line--active": isMenuActive,
+							})}
 						></span>
 						<span
-							className={`burger-btn__bottom-line ${
-								isMenuActive ? "burger-btn__bottom-line--active" : ""
-							}`}
+							className={classNames("burger-btn__bottom-line", {
+								"burger-btn__bottom-line--active": isMenuActive,
+							})}
 						></span>
 					</span>
 				</button>
-				<div className={`menu-dd ${isMenuActive ? "menu-dd--active" : ""}`}>
+				<div
+					className={classNames("menu-dd", {
+						"menu-dd--active": isMenuActive,
+					})}
+				>
 					<div className="menu-dd-inner">
 						<nav className="menu-dd-nav">
 							{linksData.map((link, index) => {
