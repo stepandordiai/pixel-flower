@@ -2,20 +2,20 @@ import { NavLink } from "react-router-dom";
 import logo from "/logo/pixel-flower-logo.svg";
 import "./Footer.scss";
 
-const Footer = () => {
-	const handleScrollToTop = () => {
-		window.scrollTo({
-			top: 0,
-			behavior: "smooth",
-		});
-	};
+const scrollToTop = () => {
+	window.scrollTo({
+		top: 0,
+		behavior: "smooth",
+	});
+};
 
+const Footer = () => {
 	return (
 		<footer className="footer">
 			<NavLink to="/">
 				<img src={logo} width={128} height={128} alt="pixel flower logo" />
 			</NavLink>
-			<button onClick={handleScrollToTop} className="footer__btn">
+			<button onClick={scrollToTop} className="footer__btn">
 				<span>Повернутись на початок</span>
 				<div className="footer__btn-icon-wrapper">
 					<div className="footer__btn-icon-wrapper-inner">
@@ -29,6 +29,7 @@ const Footer = () => {
 									fill="currentColor"
 									className="bi bi-arrow-up-short"
 									viewBox="0 0 16 16"
+									aria-hidden="true"
 								>
 									<path
 										fillRule="evenodd"
