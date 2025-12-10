@@ -14,9 +14,9 @@ const linksData = [
 ];
 
 const Header = () => {
-	const [isMenuActive, setIsMenuActive] = useState(false);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-	const toggleBurgerBtn = () => setIsMenuActive((prev) => !prev);
+	const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
 	return (
 		<>
@@ -29,31 +29,35 @@ const Header = () => {
 			<div className="menu">
 				{/* menu-btn */}
 				<button
-					onClick={toggleBurgerBtn}
+					onClick={toggleMenu}
 					className="burger-btn-wrapper"
-					aria-label={isMenuActive ? "Закрити меню" : "Відкрити меню"}
+					aria-label={isMenuOpen ? "Закрити меню" : "Відкрити меню"}
+					aria-expanded={isMenuOpen}
+					aria-controls="menu"
 				>
 					<span
 						className={classNames("burger-btn", {
-							"burger-btn--active": isMenuActive,
+							"burger-btn--active": isMenuOpen,
 						})}
 					>
 						<span
 							className={classNames("burger-btn__top-line", {
-								"burger-btn__top-line--active": isMenuActive,
+								"burger-btn__top-line--active": isMenuOpen,
 							})}
 						></span>
 						<span
 							className={classNames("burger-btn__bottom-line", {
-								"burger-btn__bottom-line--active": isMenuActive,
+								"burger-btn__bottom-line--active": isMenuOpen,
 							})}
 						></span>
 					</span>
 				</button>
 				<div
 					className={classNames("menu-dd", {
-						"menu-dd--active": isMenuActive,
+						"menu-dd--active": isMenuOpen,
 					})}
+					id="menu"
+					aria-hidden={!isMenuOpen}
 				>
 					<div className="menu-dd-inner">
 						<nav className="menu-dd-nav">
@@ -61,7 +65,7 @@ const Header = () => {
 								return (
 									<HashLink
 										key={index}
-										onClick={() => setIsMenuActive(false)}
+										onClick={() => setIsMenuOpen(false)}
 										className="menu-dd-nav__link"
 										to={link.path}
 										smooth
@@ -69,7 +73,7 @@ const Header = () => {
 										<span>{link.name}</span>
 										<div className="menu-icon-container">
 											<div className="menu-icon-wrapper">
-												{/* TODO: LEARN THIS */}
+												{/* TODO: learn this */}
 												{[...Array(2)].map((_, i) => {
 													return (
 														<svg
@@ -80,6 +84,7 @@ const Header = () => {
 															fill="currentColor"
 															className="bi bi-arrow-right-short"
 															viewBox="0 0 16 16"
+															aria-hidden="true"
 														>
 															<path
 																fillRule="evenodd"
