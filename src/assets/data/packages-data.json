@@ -1,162 +1,162 @@
 [
 	{
 		"name": "Bronze",
-		"price": 1299,
+		"price": "packagesAndPricing.bronzePrice",
 		"options": [
 			{
-				"name": "Сторінка з вашими іменами, фото та датою святкування",
+				"name": "packagesAndPricing.option1",
 				"isIncluded": true
 			},
 			{
-				"name": "Розклад подій",
+				"name": "packagesAndPricing.option2",
 				"isIncluded": true
 			},
 			{
-				"name": "Інтерактивна мапа з адресою локації",
+				"name": "packagesAndPricing.option3",
 				"isIncluded": true
 			},
 			{
-				"name": "Дрес-код",
+				"name": "packagesAndPricing.option4",
 				"isIncluded": true
 			},
 			{
-				"name": "Анімаційний початок",
+				"name": "packagesAndPricing.option5",
 				"isIncluded": false
 			},
 			{
-				"name": "Таймер зворотнього відліку",
+				"name": "packagesAndPricing.option6",
 				"isIncluded": false
 			},
 			{
-				"name": "Музика на фоні",
+				"name": "packagesAndPricing.option7",
 				"isIncluded": false
 			},
 			{
-				"name": "Анімації",
+				"name": "packagesAndPricing.option8",
 				"isIncluded": false
 			},
 			{
-				"name": "Підтримка до самого дня весілля",
+				"name": "packagesAndPricing.option9",
 				"isIncluded": false
 			},
 			{
-				"name": "Індивідуальний дизайн та розробка",
+				"name": "packagesAndPricing.option10",
 				"isIncluded": false
 			},
 			{
-				"name": "Підтримка кількох мов",
+				"name": "packagesAndPricing.option11",
 				"isIncluded": false
 			},
 			{
-				"name": "Власний домен",
+				"name": "packagesAndPricing.option12",
 				"isIncluded": false
 			}
 		]
 	},
 	{
 		"name": "Silver",
-		"price": 1799,
+		"price": "packagesAndPricing.silverPrice",
 		"options": [
 			{
-				"name": "Сторінка з вашими іменами, фото та датою святкування",
+				"name": "packagesAndPricing.option1",
 				"isIncluded": true
 			},
 			{
-				"name": "Розклад подій",
+				"name": "packagesAndPricing.option2",
 				"isIncluded": true
 			},
 			{
-				"name": "Інтерактивна мапа з адресою локації",
+				"name": "packagesAndPricing.option3",
 				"isIncluded": true
 			},
 			{
-				"name": "Дрес-код",
+				"name": "packagesAndPricing.option4",
 				"isIncluded": true
 			},
 			{
-				"name": "Анімаційний початок",
+				"name": "packagesAndPricing.option5",
 				"isIncluded": true
 			},
 			{
-				"name": "Таймер зворотнього відліку",
+				"name": "packagesAndPricing.option6",
 				"isIncluded": true
 			},
 			{
-				"name": "Музика на фоні",
+				"name": "packagesAndPricing.option7",
 				"isIncluded": true
 			},
 			{
-				"name": "Анімації",
+				"name": "packagesAndPricing.option8",
 				"isIncluded": true
 			},
 			{
-				"name": "Підтримка до самого дня весілля",
+				"name": "packagesAndPricing.option9",
 				"isIncluded": true
 			},
 			{
-				"name": "Індивідуальний дизайн та розробка",
+				"name": "packagesAndPricing.option10",
 				"isIncluded": false
 			},
 			{
-				"name": "Підтримка кількох мов",
+				"name": "packagesAndPricing.option11",
 				"isIncluded": false
 			},
 			{
-				"name": "Власний домен",
+				"name": "packagesAndPricing.option12",
 				"isIncluded": false
 			}
 		]
 	},
 	{
 		"name": "Gold",
-		"price": "від 3499",
+		"price": "packagesAndPricing.goldPrice",
 		"options": [
 			{
-				"name": "Сторінка з вашими іменами, фото та датою святкування",
+				"name": "packagesAndPricing.option1",
 				"isIncluded": true
 			},
 			{
-				"name": "Розклад подій",
+				"name": "packagesAndPricing.option2",
 				"isIncluded": true
 			},
 			{
-				"name": "Інтерактивна мапа з адресою локації",
+				"name": "packagesAndPricing.option3",
 				"isIncluded": true
 			},
 			{
-				"name": "Дрес-код",
+				"name": "packagesAndPricing.option4",
 				"isIncluded": true
 			},
 			{
-				"name": "Анімаційний початок",
+				"name": "packagesAndPricing.option5",
 				"isIncluded": true
 			},
 			{
-				"name": "Таймер зворотнього відліку",
+				"name": "packagesAndPricing.option6",
 				"isIncluded": true
 			},
 			{
-				"name": "Музика на фоні",
+				"name": "packagesAndPricing.option7",
 				"isIncluded": true
 			},
 			{
-				"name": "Анімації",
+				"name": "packagesAndPricing.option8",
 				"isIncluded": true
 			},
 			{
-				"name": "Підтримка до самого дня весілля",
+				"name": "packagesAndPricing.option9",
 				"isIncluded": true
 			},
 			{
-				"name": "Індивідуальний дизайн та розробка",
+				"name": "packagesAndPricing.option10",
 				"isIncluded": true
 			},
 			{
-				"name": "Підтримка кількох мов",
+				"name": "packagesAndPricing.option11",
 				"isIncluded": true
 			},
 			{
-				"name": "Власний домен",
+				"name": "packagesAndPricing.option12",
 				"isIncluded": true
 			}
 		]

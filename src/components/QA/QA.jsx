@@ -1,88 +1,43 @@
+import { useTranslation } from "react-i18next";
 import "./QA.scss";
 
 const QA = () => {
+	const { t } = useTranslation();
+
 	return (
 		<div className="qa" id="qa">
-			<h2 className="qa__title">Питання та відповіді</h2>
+			<h2 className="qa__title">{t("questionsAndAnswersTitle")}</h2>
 			<div className="qa-grid">
 				<div className="qa-item">
-					<p className="qa-item__title">Скільки часу займає розробка сайту?</p>
+					<p className="qa-item__title">{t("questionsAndAnswers.question1")}</p>
 					<div className="qa-item__desc">
-						<p>Тривалість залежить від обраного тарифного плану:</p>
-						<ul className="qa-list">
-							<li>Bronze / Silver – від 1 до 3 робочих днів.</li>
-							<li>
-								Gold – індивідуальний дизайн та розробка, орієнтовно від 5 до 10
-								робочих днів.
-							</li>
-						</ul>
+						<p>{t("questionsAndAnswers.answer1")}</p>
 					</div>
 				</div>
 				<div className="qa-item">
 					<p className="qa-item__title">
-						Що робити, якщо після готовності сайту мені потрібно змінити
-						інформацію?
+						<p>{t("questionsAndAnswers.question2")}</p>
 					</p>
 					<div className="qa-item__desc">
-						<p>Можливості змін залежать від обраного тарифного плану:</p>
-						<ul className="qa-list">
-							<li>
-								Bronze – зміни оплачуються окремо, вартість однієї зміни
-								становить ₴99.
-							</li>
-							<li>
-								Silver – доступно 3 безкоштовні зміни, після чого вартість
-								кожної додаткової зміни становить ₴99.
-							</li>
-							<li>
-								Gold – безкоштовна підтримка 24/7 до кінця святкового періоду.
-							</li>
-						</ul>
+						<p>{t("questionsAndAnswers.answer2")}</p>
 					</div>
 				</div>
 				<div className="qa-item">
-					<p className="qa-item__title">
-						Чи можу я переглядати запрошення на іншому пристрої, окрім телефону?
-					</p>
+					<p className="qa-item__title">{t("questionsAndAnswers.question3")}</p>
 					<div className="qa-item__desc">
-						<p>
-							Так! Наші сайти-запрошення повністю адаптовані під будь-який
-							пристрій: смартфон, планшет або комп’ютер.
-						</p>
+						<p>{t("questionsAndAnswers.answer3")}</p>
 					</div>
 				</div>
 				<div className="qa-item">
-					<p className="qa-item__title">
-						Що робити, якщо потрібно скасувати свято?
-					</p>
+					<p className="qa-item__title">{t("questionsAndAnswers.question4")}</p>
 					<div className="qa-item__desc">
-						<ul className="qa-list">
-							<li>
-								Якщо запрошення скасовано на етапі розробки, сплачується 50% від
-								вартості обраного плану.
-							</li>
-							<li>
-								Якщо сайт уже готовий, сплата здійснюється повною сумою обраного
-								плану.
-							</li>
-						</ul>
+						<p>{t("questionsAndAnswers.answer4")}</p>
 					</div>
 				</div>
 				<div className="qa-item">
-					<p className="qa-item__title">
-						Чи залишиться сайт-запрошення в мене після свята?
-					</p>
+					<p className="qa-item__title">{t("questionsAndAnswers.question5")}</p>
 					<div className="qa-item__desc">
-						<ul className="qa-list">
-							<li>
-								Якщо ви обрали план Gold, сайт-запрошення буде доступне для вас
-								необмежений час — доки оплачується ваш домен.
-							</li>
-							<li>
-								Для інших тарифних планів сайт-запрошення також залишається у
-								вашому доступі, проте з часом його робота може бути припинена.
-							</li>
-						</ul>
+						<p>{t("questionsAndAnswers.answer5")}</p>
 					</div>
 				</div>
 			</div>

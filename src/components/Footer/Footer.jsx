@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import logo from "/logo/pixel-flower-logo.svg";
 import "./Footer.scss";
@@ -10,13 +11,15 @@ const scrollToTop = () => {
 };
 
 const Footer = () => {
+	const { t } = useTranslation();
+
 	return (
 		<footer className="footer">
 			<NavLink to="/">
 				<img src={logo} width={128} height={128} alt="pixel flower logo" />
 			</NavLink>
 			<button onClick={scrollToTop} className="footer__btn">
-				<span>Повернутись на початок</span>
+				<span>{t("scrollToTop")}</span>
 				<div className="footer__btn-icon-wrapper">
 					<div className="footer__btn-icon-wrapper-inner">
 						{[...Array(2)].map((_, i) => {

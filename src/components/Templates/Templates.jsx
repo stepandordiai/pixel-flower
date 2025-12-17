@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import templatesData from "./../../assets/data/templates-data.json";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
@@ -9,19 +10,21 @@ const uniqueTemplateTypes = [
 ];
 
 const Templates = () => {
-	const [option, setOption] = useState("Всі");
-	const [type, setType] = useState("Всі");
+	const { t } = useTranslation();
+
+	const [option, setOption] = useState(t("templates.all"));
+	const [type, setType] = useState(t("templates.all"));
 
 	// TODO:
 	const filteredTemplates = templatesData.filter((template) => {
 		// Filtering option or type "all"
 		if (
-			(option === "Всі" && template.type === type) ||
-			(type === "Всі" && template.option === option)
+			(option === t("templates.all") && template.type === type) ||
+			(type === t("templates.all") && template.option === option)
 		) {
 			return template;
 			// Filtering option and type "all"
-		} else if (option === "Всі" && type === "Всі") {
+		} else if (option === t("templates.all") && type === t("templates.all")) {
 			return template;
 			// Filtering option and type
 		} else return template.option === option && template.type === type;
@@ -29,43 +32,47 @@ const Templates = () => {
 
 	return (
 		<div className="templates" id="templates">
-			<h2 className="templates__title">Шаблони запрошень</h2>
+			<h2 className="templates__title">{t("templatesTitle")}</h2>
 			<div className="filters-container">
 				<div className="filter-container">
-					<p>Виберіть пакет запрошення</p>
+					<p>{t("templates.chooseAnInvitationPackage")}</p>
 					<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
-						{["Всі", "Bronze", "Silver", "Gold"].map((templateOption) => {
-							return (
-								<button
-									key={templateOption}
-									onClick={() => setOption(templateOption)}
-									className={classNames("templates__btn", {
-										"templates__btn--active": templateOption === option,
-									})}
-								>
-									{templateOption}
-								</button>
-							);
-						})}
+						{[t("templates.all"), "Bronze", "Silver", "Gold"].map(
+							(templateOption) => {
+								return (
+									<button
+										key={templateOption}
+										onClick={() => setOption(templateOption)}
+										className={classNames("templates__btn", {
+											"templates__btn--active": templateOption === option,
+										})}
+									>
+										{templateOption}
+									</button>
+								);
+							}
+						)}
 					</div>
 				</div>
 				<div className="filter-container">
-					<p>Виберіть тип запрошення</p>
+					<p>{t("templates.chooseTheInvitationType")}</p>
 					<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
 						{/* TODO: */}
-						{["Всі", ...uniqueTemplateTypes].map((templateType) => {
-							return (
-								<button
-									key={templateType}
-									onClick={() => setType(templateType)}
-									className={classNames("templates__btn", {
-										"templates__btn--active": templateType === type,
-									})}
-								>
-									{templateType}
-								</button>
-							);
-						})}
+						{[t("templates.all"), ...uniqueTemplateTypes].map(
+							(templateType) => {
+								return (
+									<button
+										key={templateType}
+										onClick={() => setType(templateType)}
+										className={classNames("templates__btn", {
+											"templates__btn--active": templateType === type,
+										})}
+									>
+										{t(templateType)}
+									</button>
+								);
+							}
+						)}
 					</div>
 				</div>
 			</div>
@@ -90,10 +97,12 @@ const Templates = () => {
 								{template.ss ? (
 									<img key={index} src={template.ss} alt="" />
 								) : (
-									<span style={{ fontSize: "1.5rem" }}>Скоро буде!</span>
+									<span style={{ fontSize: "1.5rem" }}>
+										{t("templates.comingSoon")}
+									</span>
 								)}
 								<div className="template__link">
-									<span>Дивитись шаблон</span>
+									<span>{t("templates.viewTheTemplate")}</span>
 									<span className="template__link-img-container">
 										<span className="template__link-img-container-inner">
 											{[...Array(2)].map((_, i) => {
@@ -125,7 +134,7 @@ const Templates = () => {
 									alignItems: "center",
 								}}
 							>
-								<p style={{ fontSize: "1.2rem" }}>{template.type}</p>
+								<p style={{ fontSize: "1.2rem" }}>{t(template.type)}</p>
 							</div>
 						</div>
 					))

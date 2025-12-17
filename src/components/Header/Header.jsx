@@ -1,19 +1,23 @@
+import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import socialsData from "../../assets/data/socialsData";
 import classNames from "classnames";
 import logo from "/logo/pixel-flower-logo.svg";
+import Lng from "../Lng/Lng";
 import "./Header.scss";
 
 const linksData = [
-	{ name: "Головна", path: "/#home" },
-	{ name: "Шаблони", path: "/#templates" },
-	{ name: "Пакети та Вартість", path: "/#packages" },
-	{ name: "Питання та відповіді", path: "/#qa" },
+	{ name: "homeTitle", path: "/#home" },
+	{ name: "templatesTitle", path: "/#templates" },
+	{ name: "packagesAndPricingTitle", path: "/#packages" },
+	{ name: "questionsAndAnswersTitle", path: "/#qa" },
 ];
 
 const Header = () => {
+	const { t } = useTranslation();
+
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	const toggleMenu = () => setIsMenuOpen((prev) => !prev);
@@ -31,6 +35,7 @@ const Header = () => {
 				<button
 					onClick={toggleMenu}
 					className="burger-btn-wrapper"
+					//
 					aria-label={isMenuOpen ? "Закрити меню" : "Відкрити меню"}
 					aria-expanded={isMenuOpen}
 					aria-controls="menu"
@@ -70,7 +75,7 @@ const Header = () => {
 										to={link.path}
 										smooth
 									>
-										<span>{link.name}</span>
+										<span>{t(link.name)}</span>
 										<div className="menu-icon-container">
 											<div className="menu-icon-wrapper">
 												{/* TODO: learn this */}
@@ -114,6 +119,7 @@ const Header = () => {
 								);
 							})}
 						</div>
+						<Lng />
 					</div>
 				</div>
 			</div>

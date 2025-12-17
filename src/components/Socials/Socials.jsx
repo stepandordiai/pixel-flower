@@ -1,10 +1,13 @@
+import { useTranslation } from "react-i18next";
 import socialsData from "../../assets/data/socialsData";
 import "./Socials.scss";
 
 const Socials = () => {
+	const { t } = useTranslation();
+
 	return (
 		<div className="socials">
-			<h2 className="socials__title">Ми в соціальних мережах!</h2>
+			<h2 className="socials__title">{t("followUs")}</h2>
 			<div className="socials__container">
 				{socialsData.map((social, i) => {
 					const Icon = social.icon;

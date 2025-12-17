@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
 import Header from "../../components/Header/Header";
 import { useEffect, useState } from "react";
@@ -29,6 +30,8 @@ const sliderImgData = [
 ];
 
 const Home = () => {
+	const { t } = useTranslation();
+
 	const [showLoadedImg, setShowLoadedImg] = useState({});
 
 	useEffect(() => {
@@ -87,12 +90,10 @@ const Home = () => {
 						})}
 					</div>
 					<div className="home-top-container">
-						<h1 className="home-top__title">
-							Студія креативних сайт-запрошень
-						</h1>
+						<h1 className="home-top__title">{t("home.title")}</h1>
 						<div className="home-hero__link-container">
 							<HashLink className="home-top__link" to="/#templates" smooth>
-								<span>Обрати шаблон</span>
+								<span>{t("home.chooseATemplate")}</span>
 								<div className="home-top-icon-wrapper">
 									<div className="home-top-icon-wrapper-inner">
 										{[...Array(2)].map((_, i) => {
@@ -117,7 +118,7 @@ const Home = () => {
 								</div>
 							</HashLink>
 							<HashLink className="home-top__link" to="/#packages" smooth>
-								<span>Дізнатися вартість</span>
+								<span>{t("home.findOutThePrice")}</span>
 								<div className="home-top-icon-wrapper">
 									<div className="home-top-icon-wrapper-inner">
 										{[...Array(2)].map((_, i) => {

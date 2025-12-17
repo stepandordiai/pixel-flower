@@ -8,8 +8,9 @@ import WeddingOne from "./pages/WeddingOne/WeddingOne";
 import WeddingTwo from "./pages/WeddingTwo/WeddingTwo";
 import BirthdayOne from "./pages/BirthdayOne/BirthdayOne";
 import NotFound from "./pages/NotFound/NotFound";
-import "./scss/App.scss";
 import BirthdayTwo from "./pages/BirthdayTwo/BirthdayTwo";
+import "./i18n";
+import "./scss/App.scss";
 
 function App() {
 	return (

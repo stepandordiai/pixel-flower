@@ -31,7 +31,7 @@
 			"/wedding-one/05.JPG"
 		],
 		"option": "Bronze",
-		"type": "Весілля",
+		"type": "templates.wedding",
 		"type_code": "wedding-one",
 		"option_code": "bronze",
 		"ss": "/ss/bronze/pixel-flower-template-s-w-3.png"
@@ -61,7 +61,7 @@
 			"/wedding-one/05.JPG"
 		],
 		"option": "Silver",
-		"type": "Весілля",
+		"type": "templates.wedding",
 		"type_code": "wedding-two",
 		"option_code": "silver",
 		"ss": "/ss/silver/pixel-flower-template-s-w-2.png",
@@ -100,7 +100,7 @@
 		],
 		"gallery": ["/child/01.jpg", "/child/02.jpg", "/child/03.jpg"],
 		"option": "Bronze",
-		"type": "Хрестини",
+		"type": "templates.christening",
 		"type_code": "christening-girl",
 		"option_code": "bronze",
 		"background": "#ff0000",
@@ -144,7 +144,7 @@
 			"/template-img/03.jpg"
 		],
 		"option": "Silver",
-		"type": "Хрестини",
+		"type": "templates.christening",
 		"type_code": "christening-girl",
 		"option_code": "bronze",
 		"background": "#ff0000",
@@ -183,7 +183,7 @@
 			"https://images.pexels.com/photos/1024984/pexels-photo-1024984.jpeg"
 		],
 		"option": "Silver",
-		"type": "Весілля",
+		"type": "templates.wedding",
 		"type_code": "wedding-two",
 		"option_code": "silver",
 		"ss": "/template-ss/pixel-flower-template-s-w-1-c.png",
@@ -225,7 +225,7 @@
 			"https://bishopandholland.com/wp-content/uploads/2016/02/217WILLnewborn-e1454430919602.jpg"
 		],
 		"option": "Silver",
-		"type": "Хрестини",
+		"type": "templates.christening",
 		"type_code": "christening-boy",
 		"option_code": "bronze",
 		"background": "#ff0000",
@@ -263,7 +263,7 @@
 			"https://images.pexels.com/photos/1024984/pexels-photo-1024984.jpeg"
 		],
 		"option": "Bronze",
-		"type": "Весілля",
+		"type": "templates.wedding",
 		"type_code": "wedding-one",
 		"option_code": "bronze",
 		"ss": "/ss/bronze/pixel-flower-template-s-c-5.png",
@@ -290,7 +290,7 @@
 			"https://images.pexels.com/photos/1024984/pexels-photo-1024984.jpeg"
 		],
 		"option": "Silver",
-		"type": "День Народження",
+		"type": "templates.birthday",
 		"type_code": "birthday-one",
 		"option_code": "silver",
 		"song": "/music/LadyGaga.mp3",
@@ -323,7 +323,7 @@
 			"https://www.stephanieparkerphotography.com/wp-content/uploads/2021/01/DSC_7836_WEB-1024x684(pp_w768_h513).jpg"
 		],
 		"option": "Silver",
-		"type": "День Народження",
+		"type": "templates.birthday",
 		"type_code": "birthday-two",
 		"option_code": "silver",
 		"background": "#ff0000",
