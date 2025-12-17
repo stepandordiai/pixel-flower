@@ -1,0 +1,54 @@
+.why-us {
+	background: rgba(0, 0, 0, 0.074);
+	width: 100%;
+}
+
+.why-us-card-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 300px; /* ⬅️ ОЦЕ важливо */
+	// padding-bottom: 600px;
+}
+
+.title {
+	z-index: 100;
+	color: red;
+}
+
+.why-us-card {
+	position: sticky;
+	height: 300px;
+	background: gray;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+}
+
+.why-us-card:nth-child(1) {
+	top: 120px;
+}
+.why-us-card:nth-child(2) {
+	top: 150px;
+}
+.why-us-card:nth-child(3) {
+	top: 180px;
+}
+.why-us-card:nth-child(4) {
+	top: 210px;
+}
+.why-us-card:nth-child(5) {
+	top: 240px;
+}
+.why-us-card:nth-child(6) {
+	top: 270px;
+}
+.why-us-card:nth-child(7) {
+	top: 300px;
+}
+
+.why-us-card:nth-child(8) {
+	// top: 330px;
+}

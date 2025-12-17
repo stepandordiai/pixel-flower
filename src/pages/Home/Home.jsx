@@ -8,6 +8,7 @@ import { HashLink } from "react-router-hash-link";
 import Packages from "../../components/Packages/Packages";
 import Socials from "../../components/Socials/Socials";
 import classNames from "classnames";
+import WhyUs from "../../components/WhyUs/WhyUs";
 import img1 from "/iphone.png";
 import img2 from "/iphone-2.png";
 import img3 from "/iphone-3.png";
@@ -148,6 +149,7 @@ const Home = () => {
 				<div className="home-container">
 					<Templates />
 					<Packages />
+					<WhyUs />
 					<QA />
 					<Socials />
 				</div>
