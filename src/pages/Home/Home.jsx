@@ -9,6 +9,7 @@ import Packages from "../../components/Packages/Packages";
 import Socials from "../../components/Socials/Socials";
 import classNames from "classnames";
 import WhyUs from "../../components/WhyUs/WhyUs";
+import Lng from "../../components/Lng/Lng";
 import img1 from "/iphone.png";
 import img2 from "/iphone-2.png";
 import img3 from "/iphone-3.png";
@@ -30,10 +31,28 @@ const sliderImgData = [
 	[img10, img11, img12],
 ];
 
+const storedLngData = localStorage.getItem("i18nextLng");
+
 const Home = () => {
 	const { t } = useTranslation();
 
 	const [showLoadedImg, setShowLoadedImg] = useState({});
+	const [lngBannerVisible, setLngBannerVisible] = useState(false);
+
+	useEffect(() => {
+		// TODO: LEARN THIS
+		const shortPreferredLng = navigator.language;
+
+		if (
+			shortPreferredLng.split("-")[0] === (storedLngData || "uk") ||
+			storedLngData
+		)
+			return;
+
+		const timeout = setTimeout(() => setLngBannerVisible(true), 1000);
+
+		return () => clearTimeout(timeout);
+	}, []);
 
 	useEffect(() => {
 		document.body.style.overflow = "auto";
@@ -45,6 +64,29 @@ const Home = () => {
 				<title>Студія креативних сайт-запрошень &sim; pixel flower</title>
 			</Helmet>
 			<Header />
+			<div
+				className={`lng-banner ${
+					lngBannerVisible ? "lng-banner--visible" : ""
+				}`.trimEnd()}
+			>
+				<div style={{ marginBottom: 10 }}>
+					<p>Будь ласка, оберіть бажану мову зі списку нижче.</p>
+					<p>Vyberte si prosím preferovaný jazyk ze seznamu níže.</p>
+				</div>
+				<div
+					style={{
+						display: "flex",
+						justifyContent: "space-between",
+						alignItems: "center",
+					}}
+				>
+					{/* TODO: learn this */}
+					<Lng click={() => setLngBannerVisible(false)} />
+					<button onClick={() => setLngBannerVisible(false)}>
+						{t("close")}
+					</button>
+				</div>
+			</div>
 			<main className="home" id="home">
 				<section className="home-hero">
 					<div className="home-top__sliders">

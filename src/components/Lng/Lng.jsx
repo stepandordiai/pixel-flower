@@ -10,7 +10,8 @@ const lngData = [
 
 const storedLngData = localStorage.getItem("i18nextLng") || lngData[0].code;
 
-const Lng = () => {
+// TODO: learn this
+const Lng = ({ click = () => {} }) => {
 	const [lngCode, setLngCode] = useState(storedLngData);
 
 	const changeLngOnClick = (lngCode) => {
@@ -18,12 +19,18 @@ const Lng = () => {
 		changeLanguage(lngCode);
 	};
 
+	const closeLngBanner = (lngCode) => {
+		changeLngOnClick(lngCode);
+		// TODO: learn this
+		click();
+	};
+
 	return (
 		<div style={{ display: "flex", gap: 5 }}>
 			{lngData.map((lng) => {
 				return (
 					<button
-						onClick={() => changeLngOnClick(lng.code)}
+						onClick={() => closeLngBanner(lng.code)}
 						className={classNames("lng__btn", {
 							"lng__btn--active": lng.code === lngCode,
 						})}
