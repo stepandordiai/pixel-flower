@@ -8,21 +8,24 @@ const lngData = [
 	{ code: "cs", name: "CZ" },
 ];
 
-const storedLngData = localStorage.getItem("i18nextLng") || lngData[0].code;
+const storedLngData = localStorage.getItem("i18nextLng") || "uk";
 
 // TODO: learn this
 const Lng = ({ click = () => {} }) => {
 	const [lngCode, setLngCode] = useState(storedLngData);
 
 	const changeLngOnClick = (lngCode) => {
-		setLngCode(lngCode);
 		changeLanguage(lngCode);
+		setLngCode(lngCode);
 	};
 
 	const closeLngBanner = (lngCode) => {
 		changeLngOnClick(lngCode);
 		// TODO: learn this
 		click();
+		// TODO: learn this
+		// FIXME:
+		window.location.reload();
 	};
 
 	return (
