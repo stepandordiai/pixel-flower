@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
+import Lng from "../Lng/Lng";
 import logo from "/logo/pixel-flower-logo.svg";
 import "./Footer.scss";
 
@@ -44,6 +45,7 @@ const Footer = () => {
 					</div>
 				</div>
 			</button>
+			<Lng />
 			<p className="footer__author">
 				Website created by{" "}
 				<a href="https://www.heeeyooo.studio/" target="_blank">

@@ -5,7 +5,6 @@ import { HashLink } from "react-router-hash-link";
 import socialsData from "../../assets/data/socialsData";
 import classNames from "classnames";
 import logo from "/logo/pixel-flower-logo.svg";
-import Lng from "../Lng/Lng";
 import "./Header.scss";
 
 const linksData = [
@@ -119,7 +118,7 @@ const Header = () => {
 								);
 							})}
 						</div>
-						<Lng />
+						{/* <Lng /> */}
 					</div>
 				</div>
 			</div>
