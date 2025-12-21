@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import templatesData from "../../assets/data/templates-data.json";
 
 // envelope
@@ -203,6 +204,9 @@ const WeddingTwo = () => {
 
 	return (
 		<>
+			<Helmet>
+				<meta name="robots" content="noindex, nofollow" />
+			</Helmet>
 			<div className="loading">
 				<div onClick={handleEnvelope} className="envelope">
 					<img className="env-base" src={envelopeBase} alt="" />

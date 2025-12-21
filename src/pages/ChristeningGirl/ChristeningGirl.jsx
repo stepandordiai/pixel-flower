@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import templatesData from "../../assets/data/templates-data.json";
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
@@ -240,6 +241,9 @@ const ChristeningGirl = () => {
 
 	return (
 		<>
+			<Helmet>
+				<meta name="robots" content="noindex, nofollow" />
+			</Helmet>
 			{/* {showHeader && !template.isTemplate && <Header />} */}
 			<div onClick={handleLoading} className="christening-girl__loading">
 				<img src={img1} alt="" />

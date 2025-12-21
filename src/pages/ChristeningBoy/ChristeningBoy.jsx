@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import templatesData from "./../../assets/data/templates-data.json";
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
@@ -234,272 +235,273 @@ const ChristeningBoy = () => {
 
 	return (
 		<>
-			<>
-				{showHeader && !template.isTemplate && <Header />}
-				<div onClick={handleLoading} className="loading-chr">
-					<img src={img1} alt="" />
-					<img src={img1} alt="" />
-					<img src={img1} alt="" />
-					<img src={img1} alt="" />
-					<img src={img1} alt="" />
-					<img src={img1} alt="" />
-					<img src={img1} alt="" />
-					<div className="loading-txt">
-						Торкніться екрана, щоб відкрити запрошення!
-					</div>
+			<Helmet>
+				<meta name="robots" content="noindex, nofollow" />
+			</Helmet>
+			{showHeader && !template.isTemplate && <Header />}
+			<div onClick={handleLoading} className="loading-chr">
+				<img src={img1} alt="" />
+				<img src={img1} alt="" />
+				<img src={img1} alt="" />
+				<img src={img1} alt="" />
+				<img src={img1} alt="" />
+				<img src={img1} alt="" />
+				<img src={img1} alt="" />
+				<div className="loading-txt">
+					Торкніться екрана, щоб відкрити запрошення!
 				</div>
-				<main className="home-chr" style={{ display: "none" }}>
-					<Container>
-						<div className="home__top-chr">
-							<div className="home__top-inner-chr">
-								<img className="floated-img" src={img2} alt="" />
-								<div className="home__top-date-chr">
-									{template.date} Вересня {template.year} року
-								</div>
-								<p className="home__top-title-chr">
-									Таїнство хрещення {template.child_name}
-								</p>
+			</div>
+			<main className="home-chr" style={{ display: "none" }}>
+				<Container>
+					<div className="home__top-chr">
+						<div className="home__top-inner-chr">
+							<img className="floated-img" src={img2} alt="" />
+							<div className="home__top-date-chr">
+								{template.date} Вересня {template.year} року
 							</div>
-							<div className="rainbow">
-								<div className="pp"></div>
-								<div className="pp"></div>
-								<div className="pp"></div>
-								<div className="pp"></div>
-								<div className="pp"></div>
-								<div className="pp"></div>
-								<div className="pp"></div>
-								<div className="pp"></div>
-								<div className="pp"></div>
-							</div>
-							<img className="floated-img-1" src={img1} alt="" />
-							<img className="floated-img-2" src={img1} alt="" />
-
-							<div className="scroll-chr">
-								Прокрутіть вниз, щоб дізнатися більше
-							</div>
-						</div>
-						<div className="wrapper">
-							<div className="swiper-cont animated-element1">
-								<img
-									className="iimg"
-									src={template.gallery[0]}
-									alt=""
-									loading="lazy"
-								/>
-								<img className="gallery-float-img" src={img6} alt="" />
-							</div>
-							<img
-								className="floated-img-3 animated-element1"
-								src={img3}
-								alt=""
-							/>
-							<p className="pepe-chr animated-element1">
-								<span>Дорогі гості,</span>
-								<br />з великою радістю та любов’ю запрошуємо Вас розділити з
-								нами важливу подію
-								<br />
-								<br />
-								{template.t} {template.child_name}
+							<p className="home__top-title-chr">
+								Таїнство хрещення {template.child_name}
 							</p>
 						</div>
+						<div className="rainbow">
+							<div className="pp"></div>
+							<div className="pp"></div>
+							<div className="pp"></div>
+							<div className="pp"></div>
+							<div className="pp"></div>
+							<div className="pp"></div>
+							<div className="pp"></div>
+							<div className="pp"></div>
+							<div className="pp"></div>
+						</div>
+						<img className="floated-img-1" src={img1} alt="" />
+						<img className="floated-img-2" src={img1} alt="" />
 
-						<div className="calendar-wrapper-chr animated-element1">
-							<p className="calendar-top-christening">{`${txtMonth} ${template.time.slice(
-								0,
-								4
-							)}`}</p>
-							<div className="calendar-christening">
-								<div>Пн</div>
-								<div>Вт</div>
-								<div>Ср</div>
-								<div>Чт</div>
-								<div>Пт</div>
-								<div>Сб</div>
-								<div>Нд</div>
-								{days2.map((day, index) => {
+						<div className="scroll-chr">
+							Прокрутіть вниз, щоб дізнатися більше
+						</div>
+					</div>
+					<div className="wrapper">
+						<div className="swiper-cont animated-element1">
+							<img
+								className="iimg"
+								src={template.gallery[0]}
+								alt=""
+								loading="lazy"
+							/>
+							<img className="gallery-float-img" src={img6} alt="" />
+						</div>
+						<img
+							className="floated-img-3 animated-element1"
+							src={img3}
+							alt=""
+						/>
+						<p className="pepe-chr animated-element1">
+							<span>Дорогі гості,</span>
+							<br />з великою радістю та любов’ю запрошуємо Вас розділити з нами
+							важливу подію
+							<br />
+							<br />
+							{template.t} {template.child_name}
+						</p>
+					</div>
+
+					<div className="calendar-wrapper-chr animated-element1">
+						<p className="calendar-top-christening">{`${txtMonth} ${template.time.slice(
+							0,
+							4
+						)}`}</p>
+						<div className="calendar-christening">
+							<div>Пн</div>
+							<div>Вт</div>
+							<div>Ср</div>
+							<div>Чт</div>
+							<div>Пт</div>
+							<div>Сб</div>
+							<div>Нд</div>
+							{days2.map((day, index) => {
+								return (
+									<div
+										key={index}
+										className={day == date ? "target-time-chr" : ""}
+									>
+										{day}
+										{day == date && (
+											<div className="balloon-container">
+												<img src={img7} alt="" />
+											</div>
+										)}
+									</div>
+								);
+							})}
+						</div>
+					</div>
+					<p className="pepe-chr animated-element1">
+						Ми не уявляємо цей радісний день без Вас - близьких і дорогих нам
+						людей!
+					</p>
+					<div style={{ padding: 10 }} className="wrapper">
+						<img
+							className="floated-img-3 animated-element1"
+							src={img3}
+							alt=""
+						/>
+						<div className="addresses-container">
+							<p className="addresses__title-chr animated-element1">
+								Адреси святкування
+							</p>
+							<p
+								style={{ marginBottom: 25 }}
+								className="page-desc-chr animated-element1"
+							>
+								Празький час
+							</p>
+							<div className="addresses-chr">
+								{template.adresess.map((address, index) => {
 									return (
-										<div
-											key={index}
-											className={day == date ? "target-time-chr" : ""}
-										>
-											{day}
-											{day == date && (
-												<div className="balloon-container">
-													<img src={img7} alt="" />
-												</div>
-											)}
+										<div key={index} className="address-chr">
+											<p className="address__title-chr animated-element1">
+												<span>{address.title}</span>
+												<span>{address.time}</span>
+											</p>
+											<p className="address__info-chr animated-element1">
+												{address.address_title}
+											</p>
+											<p
+												style={{ marginBottom: 10 }}
+												className="address__info-chr animated-element1"
+											>
+												{address.address}
+											</p>
+											<iframe
+												className="map animated-element1"
+												src={address.address_url}
+												loading="lazy"
+											></iframe>
+											<a
+												className="address__link-chr animated-element1"
+												href={address.address_destination_url}
+												target="_blank"
+											>
+												Отримати маршрут
+											</a>
 										</div>
 									);
 								})}
 							</div>
 						</div>
-						<p className="pepe-chr animated-element1">
-							Ми не уявляємо цей радісний день без Вас - близьких і дорогих нам
-							людей!
-						</p>
-						<div style={{ padding: 10 }} className="wrapper">
+					</div>
+
+					<div style={{ padding: "10px" }} className="wrapper">
+						<div className="swiper-cont-2 animated-element1">
 							<img
-								className="floated-img-3 animated-element1"
-								src={img3}
+								className="iimg"
+								src={template.gallery[1]}
 								alt=""
+								loading="lazy"
 							/>
-							<div className="addresses-container">
-								<p className="addresses__title-chr animated-element1">
-									Адреси святкування
-								</p>
-								<p
-									style={{ marginBottom: 25 }}
-									className="page-desc-chr animated-element1"
-								>
-									Празький час
-								</p>
-								<div className="addresses-chr">
-									{template.adresess.map((address, index) => {
-										return (
-											<div key={index} className="address-chr">
-												<p className="address__title-chr animated-element1">
-													<span>{address.title}</span>
-													<span>{address.time}</span>
-												</p>
-												<p className="address__info-chr animated-element1">
-													{address.address_title}
-												</p>
-												<p
-													style={{ marginBottom: 10 }}
-													className="address__info-chr animated-element1"
-												>
-													{address.address}
-												</p>
-												<iframe
-													className="map animated-element1"
-													src={address.address_url}
-													loading="lazy"
-												></iframe>
-												<a
-													className="address__link-chr animated-element1"
-													href={address.address_destination_url}
-													target="_blank"
-												>
-													Отримати маршрут
-												</a>
-											</div>
-										);
-									})}
+							<img className="gallery-float-img-2" src={img6} alt="" />
+						</div>
+					</div>
+					<div className="wrapper">
+						<div className="date-container-chr">
+							<p className="page-title-chr animated-element1">
+								Святкування почнеться через:
+							</p>
+							<div className="date-chr animated-element1" id="date">
+								<div>
+									<p>{days}</p>
+									<p>днів</p>
+								</div>
+								<div>
+									<p>{hours}</p>
+									<p>годин(а)</p>
+								</div>
+								<div>
+									<p>{minutes}</p>
+									<p>хвилин(а)</p>
+								</div>
+								<div>
+									<p>{seconds}</p>
+									<p>секунд(а)</p>
 								</div>
 							</div>
 						</div>
-
-						<div style={{ padding: "10px" }} className="wrapper">
+					</div>
+					<div className="wrapper">
+						<img
+							className="floated-img-3 animated-element1"
+							src={img4}
+							alt=""
+						/>
+						<p className="page-title-chr animated-element1">
+							З любов’ю,
+							<br />
+							{template.father_name} та {template.mother_name}
+						</p>
+						<div style={{ padding: 10 }}>
 							<div className="swiper-cont-2 animated-element1">
 								<img
 									className="iimg"
-									src={template.gallery[1]}
+									src={template.gallery[2]}
 									alt=""
 									loading="lazy"
 								/>
-								<img className="gallery-float-img-2" src={img6} alt="" />
+								<img className="gallery-float-img-2" src={img5} alt="" />
 							</div>
 						</div>
-						<div className="wrapper">
-							<div className="date-container-chr">
-								<p className="page-title-chr animated-element1">
-									Святкування почнеться через:
-								</p>
-								<div className="date-chr animated-element1" id="date">
-									<div>
-										<p>{days}</p>
-										<p>днів</p>
-									</div>
-									<div>
-										<p>{hours}</p>
-										<p>годин(а)</p>
-									</div>
-									<div>
-										<p>{minutes}</p>
-										<p>хвилин(а)</p>
-									</div>
-									<div>
-										<p>{seconds}</p>
-										<p>секунд(а)</p>
-									</div>
+
+						<div>
+							<div className="rainbow-bottom animated-element1">
+								<div className="rainbow">
+									<div className="pp"></div>
+									<div className="pp"></div>
+									<div className="pp"></div>
+									<div className="pp"></div>
+									<div className="pp"></div>
+									<div className="pp"></div>
+									<div className="pp"></div>
+									<div className="pp"></div>
+									<div className="pp"></div>
 								</div>
 							</div>
-						</div>
-						<div className="wrapper">
 							<img
-								className="floated-img-3 animated-element1"
-								src={img4}
+								className="rainbow-img-3 animated-element1"
+								src={img1}
 								alt=""
 							/>
-							<p className="page-title-chr animated-element1">
-								З любов’ю,
-								<br />
-								{template.father_name} та {template.mother_name}
-							</p>
-							<div style={{ padding: 10 }}>
-								<div className="swiper-cont-2 animated-element1">
-									<img
-										className="iimg"
-										src={template.gallery[2]}
-										alt=""
-										loading="lazy"
-									/>
-									<img className="gallery-float-img-2" src={img5} alt="" />
-								</div>
-							</div>
-
-							<div>
-								<div className="rainbow-bottom animated-element1">
-									<div className="rainbow">
-										<div className="pp"></div>
-										<div className="pp"></div>
-										<div className="pp"></div>
-										<div className="pp"></div>
-										<div className="pp"></div>
-										<div className="pp"></div>
-										<div className="pp"></div>
-										<div className="pp"></div>
-										<div className="pp"></div>
-									</div>
-								</div>
-								<img
-									className="rainbow-img-3 animated-element1"
-									src={img1}
-									alt=""
-								/>
-							</div>
 						</div>
-					</Container>
-				</main>
-				<button onClick={handlePlayAudio} className="floating-btn-2">
-					{!isPlaying ? (
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="50%"
-							height="50%"
-							fill="currentColor"
-							className="bi bi-play-fill"
-							viewBox="0 0 16 16"
-						>
-							<title>Play</title>
-							<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
-						</svg>
-					) : (
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="50%"
-							height="50%"
-							fill="currentColor"
-							className="bi bi-pause-fill"
-							viewBox="0 0 16 16"
-						>
-							<title>Pause</title>
-							<path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5" />
-						</svg>
-					)}
-				</button>
-				<audio className="audio" autoPlay src={template.song}></audio>
-			</>
+					</div>
+				</Container>
+			</main>
+			<button onClick={handlePlayAudio} className="floating-btn-2">
+				{!isPlaying ? (
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="50%"
+						height="50%"
+						fill="currentColor"
+						className="bi bi-play-fill"
+						viewBox="0 0 16 16"
+					>
+						<title>Play</title>
+						<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
+					</svg>
+				) : (
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="50%"
+						height="50%"
+						fill="currentColor"
+						className="bi bi-pause-fill"
+						viewBox="0 0 16 16"
+					>
+						<title>Pause</title>
+						<path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5" />
+					</svg>
+				)}
+			</button>
+			<audio className="audio" autoPlay src={template.song}></audio>
 		</>
 	);
 };

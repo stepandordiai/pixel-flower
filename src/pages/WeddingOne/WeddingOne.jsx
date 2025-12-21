@@ -1,6 +1,8 @@
+import templatesData from "../../assets/data/templates-data.json";
+import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import img from "/wedding-one/bg-c.jpg";
 import heartIcon from "/wedding-one/heart.png";
-import templatesData from "../../assets/data/templates-data.json";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,8 +13,6 @@ import "swiper/css/effect-cards";
 
 // import required modules
 import { EffectCards } from "swiper/modules";
-
-import { useParams } from "react-router-dom";
 
 import NotFound from "../NotFound/NotFound";
 import "./WeddingOne.scss";
@@ -106,6 +106,9 @@ const WeddingOne = () => {
 
 	return (
 		<>
+			<Helmet>
+				<meta name="robots" content="noindex, nofollow" />
+			</Helmet>
 			<main className="home">
 				<div className="home__top">
 					<img className="home__top-img-bg" src={img} alt="" />

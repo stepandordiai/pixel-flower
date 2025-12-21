@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import templatesData from "../../assets/data/templates-data.json";
-
+import { Helmet } from "react-helmet-async";
 import giftIcon from "/birthday-one/5.webp";
 import bg from "/birthday-one/17.jpg";
 import code1 from "/birthday-one/10.webp";
@@ -176,6 +176,9 @@ const BirthdayOne = () => {
 
 	return (
 		<>
+			<Helmet>
+				<meta name="robots" content="noindex, nofollow" />
+			</Helmet>
 			<main className="birthday-one__envelope-silver">
 				<Container>
 					<section className="birthday-one__hero">
