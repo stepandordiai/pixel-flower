@@ -15,9 +15,7 @@ const QA = () => {
 					</div>
 				</div>
 				<div className="qa-item">
-					<p className="qa-item__title">
-						<p>{t("questionsAndAnswers.question2")}</p>
-					</p>
+					<p className="qa-item__title">{t("questionsAndAnswers.question2")}</p>
 					<div className="qa-item__desc">
 						<p>{t("questionsAndAnswers.answer2")}</p>
 					</div>

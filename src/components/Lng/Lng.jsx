@@ -33,6 +33,7 @@ const Lng = ({ click = () => {} }) => {
 			{lngData.map((lng) => {
 				return (
 					<button
+						key={lng.code}
 						onClick={() => closeLngBanner(lng.code)}
 						className={classNames("lng__btn", {
 							"lng__btn--active": lng.code === lngCode,

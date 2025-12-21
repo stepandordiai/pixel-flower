@@ -61,7 +61,9 @@ const Home = () => {
 	return (
 		<>
 			<Helmet>
-				<title>Студія креативних сайт-запрошень &sim; pixel flower</title>
+				<meta name="description" content={t("homeMetaDesc")} />
+				<title>{t("home.title")} | pixel flower</title>
+				<link rel="canonical" href="https://www.pixelflower.studio/" />
 			</Helmet>
 			<Header />
 			<div
