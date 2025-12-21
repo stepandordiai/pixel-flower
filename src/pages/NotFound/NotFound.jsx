@@ -1,18 +1,22 @@
+import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
 import { NavLink } from "react-router-dom";
 import "./NotFound.scss";
 
 const NotFound = () => {
+	const { t } = useTranslation();
+
 	return (
 		<>
 			<Helmet>
-				<title>Сторінку не знайдено &sim; pixel flower</title>
+				<meta name="robots" content="noindex, nofollow" />
+				<title>{t("pageNotFound")} | pixel flower</title>
 			</Helmet>
 			<div className="not-found">
 				<span className="not-found__title">404</span>
-				<span>Сторінку не знайдено</span>
+				<span>{t("pageNotFound")}</span>
 				<NavLink className="not-found__link" to="/">
-					<span>Повернутись на головну</span>
+					<span>{t("backToHome")}</span>
 					<span className="not-found__link-img-container">
 						<span className="not-found__link-img-container-inner">
 							{[...Array(2)].map((_, i) => {
