@@ -1,14 +1,14 @@
 import { useTranslation } from "react-i18next";
 import socialsData from "../../assets/data/socialsData";
-import "./Socials.scss";
+import styles from "./Socials.module.scss";
 
 const Socials = () => {
 	const { t } = useTranslation();
 
 	return (
-		<div className="socials">
-			<h2 className="socials__title">{t("followUs")}</h2>
-			<div className="socials__container">
+		<section className={styles["socials"]}>
+			<h2 className={styles["socials__title"]}>{t("followUs")}</h2>
+			<div className={styles["socials__container"]}>
 				{socialsData.map((social, i) => {
 					const Icon = social.icon;
 					return (
@@ -19,12 +19,12 @@ const Socials = () => {
 							data-value={social.title}
 							title={social.title}
 						>
-							<Icon size={32} />
+							<Icon size={24} />
 						</a>
 					);
 				})}
 			</div>
-		</div>
+		</section>
 	);
 };
 
