@@ -1,39 +1,59 @@
-import "./WhyUs.scss";
+import styles from "./WhyUs.module.scss";
+
+const whyUsData = [
+	{
+		title: "Сучасніше рішення, що виглядає «дорожче»",
+		desc: "Онлайн-запрошення справляє сильніше враження, ніж звичайний файл або картинка.",
+	},
+	{
+		title: "Зручно відкривати на будь-якому пристрої",
+		desc: "Смартфон, планшет чи ноутбук — сайт виглядає однаково добре всюди.",
+	},
+	{
+		title: "Живі елементи, яких немає в PDF",
+		desc: "Анімації, музика, кнопки та інтерактив створюють вау-ефект.",
+	},
+	{
+		title: "Легко оновлювати інформацію",
+		desc: "Змінилися деталі події? Ми швидко внесемо правки без перевипуску запрошень.",
+	},
+	{
+		title: "Посилання зручно надсилати гостям",
+		desc: "Одне посилання — у месенджері, поштою або соцмережах.",
+	},
+	{
+		title: "Доступніше, ніж здається",
+		desc: "Ціна онлайн-запрошення часто не вища за друк та доставку паперових.",
+	},
+	{
+		title: "Таке запрошення запам’ятовується",
+		desc: "Гості ще довго згадують стильну подачу та атмосферу події.",
+	},
+];
 
 const WhyUs = () => {
 	return (
-		<div className="why-us">
-			<h2 className="title">Чому варто обрати сайт-запрошення</h2>
-			<div className="why-us-card-wrapper">
-				<div className="why-us-card">
-					<p>1 Це сучасніше та виглядає «дорожче»</p>
-				</div>
-				<div className="why-us-card">
-					<p>2 Зручно відкривати на будь-якому пристрої</p>
-				</div>
-				<div className="why-us-card">
-					<p>3 Живі елементи, яких немає в PDF</p>
-				</div>
-				<div className="why-us-card">
-					<p>4 Легко змінити інформацію</p>
-				</div>
-				<div className="why-us-card">
-					<p>5 Посилання зручно надсилати</p>
-				</div>
-				<div className="why-us-card">
-					<p>6 Це не дорожче, ніж здається</p>
-				</div>
-				<div className="why-us-card">
-					<p>7 Це запам’ятовується</p>
-				</div>
-				<div className="why-us-card">
-					<p>
-						«Сайт-запрошення — це не просто дизайн, а зручність, емоція і
-						сучасний формат, який справді дивує гостей».
-					</p>
-				</div>
-			</div>
-		</div>
+		<section className={styles["why-us"]}>
+			<h2 className={styles["why-us__title"]}>
+				Чому варто обрати наше сайт-запрошення
+			</h2>
+			<ul className={styles["why-us-list"]}>
+				{whyUsData.map(({ title, desc }, i) => {
+					return (
+						<li key={i} className={styles["why-us-item"]}>
+							<p
+								className={styles["why-us-item__number"]}
+								style={{ fontSize: "2rem", fontWeight: 600 }}
+							>
+								{i + 1}
+							</p>
+							<h3 className={styles["why-us-item__title"]}>{title}</h3>
+							<p>{desc}</p>
+						</li>
+					);
+				})}
+			</ul>
+		</section>
 	);
 };
 
