@@ -37,6 +37,44 @@
 		"ss": "/ss/bronze/pixel-flower-template-s-w-3.png"
 	},
 	{
+		"id": "andrii-and-natali-prague",
+		"time": "2025-08-28T16:00:00",
+		"name_1": "Андрій",
+		"name_2": "Наталія",
+		"location_time": "Празький час",
+		"adresess": [
+			{
+				"title": "Вінчання",
+				"time": "13:00",
+				"address_title": "Православний монастир св. Кирила і Мефодія",
+				"address": "Hořovičky 79, 270 04 Hořovičky",
+				"address_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2632.8214000197636!2d13.530101612005327!3d50.156151508391744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470a41402926cbe7%3A0xbb620047900bbb55!2sPravoslavn%C3%BD%20Monast%C3%BDr%20sv.%20Cyrila%20a%20Metod%C4%9Bje!5e1!3m2!1sen!2scz!4v1755459539998!5m2!1sen!2scz",
+				"address_destination_url": "https://maps.app.goo.gl/M459wEdgqjRBhLEe7"
+			},
+			{
+				"title": "Бенкет",
+				"time": "16:00",
+				"address_title": "Ресторан \"Dergi Praha\"",
+				"address": "Revoluční 25, 110 00 Staré Město",
+				"address_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5273.010388171266!2d14.422204873322281!3d50.08922209402551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b95452691e2cf%3A0x27150a1da02a743b!2sDergi%20Praha!5e1!3m2!1sen!2scz!4v1755497626955!5m2!1sen!2scz",
+				"address_destination_url": "https://maps.app.goo.gl/nHWv2Fre1u7tGAru7"
+			}
+		],
+		"gallery": [
+			"/wedding-one/01.JPG",
+			"/wedding-one/02.JPG",
+			"/wedding-one/03.JPG",
+			"/wedding-one/04.JPG",
+			"/wedding-one/05.JPG"
+		],
+		"option": "Bronze",
+		"type": "templates.wedding",
+		"type_code": "wedding-one",
+		"option_code": "bronze",
+		"ss": "/ss/bronze/pixel-flower-template-s-w-3.png",
+		"isTemplate": true
+	},
+	{
 		"id": "andrii-and-natali-ukraine",
 		"time": "2025-09-14T16:00:00",
 		"name_1": "Андрій",
@@ -67,6 +105,39 @@
 		"ss": "/ss/silver/pixel-flower-template-s-w-2.png",
 		"song": "/music/LadyGaga.mp3",
 		"dress_code": false
+	},
+	{
+		"id": "andrii-and-natali-ukraine",
+		"time": "2025-09-14T16:00:00",
+		"name_1": "Андрій",
+		"name_2": "Наталія",
+		"location_time": "Київський час",
+		"adresess": [
+			{
+				"title": "Бенкет",
+				"time": "17:00",
+				"address_title": "Готельно-ресторанний комплекс \"Царська Долина\"",
+				"address": "с. Нересниця , вул. Солоний, 38",
+				"address_url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d21941.462315408433!2d23.8097244!3d48.1308062!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47379e6b7b7d5dd1%3A0x6ff58cb84c0dfffb!2sTsars%CA%B9ka%20Dolyna!5e1!3m2!1sen!2scz!4v1756309347115!5m2!1sen!2scz",
+				"address_destination_url": "https://maps.app.goo.gl/VLLkSM1oYpmA2UY86"
+			}
+		],
+		"envelope_img": "/wedding-two/envelope-1.png",
+		"gallery": [
+			"/wedding-one/01.JPG",
+			"/wedding-one/02.JPG",
+			"/wedding-one/03.JPG",
+			"/wedding-one/04.JPG",
+			"/wedding-one/05.JPG"
+		],
+		"option": "Silver",
+		"type": "templates.wedding",
+		"type_code": "wedding-two",
+		"option_code": "silver",
+		"ss": "/ss/silver/pixel-flower-template-s-w-2.png",
+		"song": "/music/LadyGaga.mp3",
+		"dress_code": false,
+		"isTemplate": true
 	},
 	{
 		"id": "chrestiny-ukraine",
@@ -108,20 +179,19 @@
 		"song": "/music/Lullaby.mp3"
 	},
 	{
-		"id": "template-christening-girl",
-		"time": "2025-10-28T14:00:00",
-		"child_name": "Мілани",
-		"mother_name": "Аліна",
-		"father_name": "Іван",
-		"year": 2026,
-		"color": "#feb8d280",
-		"month": 10,
-		"date": 28,
-		"place": "Київ",
+		"id": "chrestiny-ukraine",
+		"time": "2025-09-21T13:00:00",
+		"child_name": "Марії",
+		"mother_name": "Мирослава",
+		"father_name": "Михайло",
+		"year": 2025,
+		"month": 9,
+		"date": 21,
+		"location_time": "Київський час",
 		"adresess": [
 			{
 				"title": "Хрещення",
-				"time": "14:00",
+				"time": "13:00",
 				"address_title": "Церква \"Kostel svatého Havla\"",
 				"address": "K Havlínu, 156 00 Zbraslav",
 				"address_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2565.950656959962!2d14.386725799999999!3d49.974783900000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b9737513b2943%3A0x2a6a534b4212dcee!2sKostel%20svat%C3%A9ho%20Havla!5e0!3m2!1sen!2scz!4v1757583443010!5m2!1sen!2scz",
@@ -130,7 +200,7 @@
 			},
 			{
 				"title": "Бенкет",
-				"time": "16:00",
+				"time": "15:00",
 				"address_title": "Ресторан \"TAMI PIZZERIA\"",
 				"address": "Nupacká 163, 251 01 Nupaky-Říčany u Prahy",
 				"address_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2564.842230878555!2d14.602272999999997!3d49.9955673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b8e8ee273c08d%3A0x39ec3b99c582b93c!2sTAMI%20PIZZERIA!5e0!3m2!1sen!2scz!4v1757583608661!5m2!1sen!2scz",
@@ -138,56 +208,14 @@
 				"img": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrsYdaE2E-57nNnt-uHaol8iCMhF99zwQf1eO1o79mAvKy3ZwNth28OioXeKz7AupL49vHATp5Cq-utCyZGSLQAQvwNMQulQMogStoDAGFf5B2W-aOJHhx-SGmKt0JJrQkihXUm=s1360-w1360-h1020-rw"
 			}
 		],
-		"gallery": [
-			"/template-img/01.jpg",
-			"/template-img/02.jpg",
-			"/template-img/03.jpg"
-		],
-		"option": "Silver",
+		"gallery": ["/child/01.jpg", "/child/02.jpg", "/child/03.jpg"],
+		"option": "Bronze",
 		"type": "templates.christening",
 		"type_code": "christening-girl",
 		"option_code": "bronze",
 		"background": "#ff0000",
-		"ss": "/template-ss/pixel-flower-template-s-c-1.png",
+		"ss": "/ss/silver/pixel-flower-template-s-c-2.png",
 		"song": "/music/Lullaby.mp3",
-		"isTemplate": true
-	},
-	{
-		"id": "template-mykola-and-maria",
-		"time": "2025-10-03T16:00:00",
-		"name_1": "Микола",
-		"name_2": "Марія",
-		"location_time": "Київський час",
-		"adresess": [
-			{
-				"title": "Вінчання",
-				"time": "13:00",
-				"address_title": "Православний монастир св. Кирила і Мефодія",
-				"address": "Hořovičky 79, 270 04 Hořovičky",
-				"address_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2632.8214000197636!2d13.530101612005327!3d50.156151508391744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470a41402926cbe7%3A0xbb620047900bbb55!2sPravoslavn%C3%BD%20Monast%C3%BDr%20sv.%20Cyrila%20a%20Metod%C4%9Bje!5e1!3m2!1sen!2scz!4v1755459539998!5m2!1sen!2scz",
-				"address_destination_url": "https://maps.app.goo.gl/M459wEdgqjRBhLEe7"
-			},
-			{
-				"title": "Бенкет",
-				"time": "16:00",
-				"address_title": "Готельно-ресторанний комплекс \"Царська Долина\"",
-				"address": "с. Нересниця , вул. Солоний, 38",
-				"address_url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d21941.462315408433!2d23.8097244!3d48.1308062!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47379e6b7b7d5dd1%3A0x6ff58cb84c0dfffb!2sTsars%CA%B9ka%20Dolyna!5e1!3m2!1sen!2scz!4v1756309347115!5m2!1sen!2scz",
-				"address_destination_url": "https://maps.app.goo.gl/VLLkSM1oYpmA2UY86"
-			}
-		],
-		"envelope_img": "/wedding-two/envelope-2.png",
-		"gallery": [
-			"https://images.pexels.com/photos/888894/pexels-photo-888894.jpeg",
-			"https://images.pexels.com/photos/3692609/pexels-photo-3692609.jpeg",
-			"https://images.pexels.com/photos/1024984/pexels-photo-1024984.jpeg"
-		],
-		"option": "Silver",
-		"type": "templates.wedding",
-		"type_code": "wedding-two",
-		"option_code": "silver",
-		"ss": "/template-ss/pixel-flower-template-s-w-1-c.png",
-		"song": "/music/LadyGaga.mp3",
 		"isTemplate": true
 	},
 	{
@@ -231,42 +259,6 @@
 		"background": "#ff0000",
 		"ss": "/ss/silver/pixel-flower-template-s-c-4-c.png",
 		"song": "/music/Lullaby.mp3",
-		"isTemplate": true
-	},
-	{
-		"id": "template-vasyl-and-oksana-prague",
-		"time": "2025-11-28T13:00:00",
-		"name_1": "Василь",
-		"name_2": "Оксана",
-		"location_time": "Празький час",
-		"adresess": [
-			{
-				"title": "Вінчання",
-				"time": "13:00",
-				"address_title": "Православний монастир св. Кирила і Мефодія",
-				"address": "Hořovičky 79, 270 04 Hořovičky",
-				"address_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2632.8214000197636!2d13.530101612005327!3d50.156151508391744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470a41402926cbe7%3A0xbb620047900bbb55!2sPravoslavn%C3%BD%20Monast%C3%BDr%20sv.%20Cyrila%20a%20Metod%C4%9Bje!5e1!3m2!1sen!2scz!4v1755459539998!5m2!1sen!2scz",
-				"address_destination_url": "https://maps.app.goo.gl/M459wEdgqjRBhLEe7"
-			},
-			{
-				"title": "Бенкет",
-				"time": "16:00",
-				"address_title": "Ресторан \"Dergi Praha\"",
-				"address": "Revoluční 25, 110 00 Staré Město",
-				"address_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5273.010388171266!2d14.422204873322281!3d50.08922209402551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b95452691e2cf%3A0x27150a1da02a743b!2sDergi%20Praha!5e1!3m2!1sen!2scz!4v1755497626955!5m2!1sen!2scz",
-				"address_destination_url": "https://maps.app.goo.gl/nHWv2Fre1u7tGAru7"
-			}
-		],
-		"gallery": [
-			"https://images.pexels.com/photos/888894/pexels-photo-888894.jpeg",
-			"https://images.pexels.com/photos/3692609/pexels-photo-3692609.jpeg",
-			"https://images.pexels.com/photos/1024984/pexels-photo-1024984.jpeg"
-		],
-		"option": "Bronze",
-		"type": "templates.wedding",
-		"type_code": "wedding-one",
-		"option_code": "bronze",
-		"ss": "/ss/bronze/pixel-flower-template-s-c-5.png",
 		"isTemplate": true
 	},
 	{

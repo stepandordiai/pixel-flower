@@ -3,19 +3,14 @@ import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import img from "/wedding-one/bg-c.jpg";
 import heartIcon from "/wedding-one/heart.png";
+import NotFound from "../NotFound/NotFound";
+import styles from "./WeddingOne.module.scss";
 
-// Import Swiper React components
+// Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
+import { EffectCards } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-cards";
-
-// import required modules
-import { EffectCards } from "swiper/modules";
-
-import NotFound from "../NotFound/NotFound";
-import "./WeddingOne.scss";
 
 const WeddingOne = () => {
 	const { id } = useParams();
@@ -109,16 +104,24 @@ const WeddingOne = () => {
 			<Helmet>
 				<meta name="robots" content="noindex, nofollow" />
 			</Helmet>
-			<main className="home">
-				<div className="home__top">
-					<img className="home__top-img-bg" src={img} alt="" />
-					<div className="home__top-inner">
-						<div className="home__top-logo">
+			<main className={styles.main}>
+				<div className={styles.hero}>
+					<img className={styles["hero__img"]} src={img} alt="" />
+					<div className={styles["hero-inner"]}>
+						<div style={{ fontSize: "2rem", color: "rgb(211, 201, 87)" }}>
 							{template.name_1[0]}
-							<span>&</span>
+							<span
+								style={{
+									display: "inline-block",
+									fontSize: "1.5rem",
+									padding: "0 5px",
+								}}
+							>
+								&
+							</span>
 							{template.name_2[0]}
 						</div>
-						<div className="divider"></div>
+						<div className={styles["hero__divider"]}></div>
 						<div className="home__top-date">
 							<p>{date}</p>
 							<span>&bull;</span>
@@ -133,7 +136,6 @@ const WeddingOne = () => {
 						</h1>
 					</div>
 				</div>
-
 				<div>
 					<p className="pepe">
 						<span>Дорогі гості,</span>
@@ -142,12 +144,12 @@ const WeddingOne = () => {
 						відбудеться:
 					</p>
 				</div>
-				<div className="calendar-wrapper">
+				<div className={styles.calendar}>
 					<p className="calendar-top">{`${txtMonth} ${template.time.slice(
 						0,
 						4
 					)}`}</p>
-					<div className="calendar">
+					<div className={styles["calendar-inner"]}>
 						<div>Пн</div>
 						<div>Вт</div>
 						<div>Ср</div>
@@ -222,31 +224,18 @@ const WeddingOne = () => {
 						})}
 					</Swiper>
 				</div>
-				{/* <div className="date-container">
-					<p className="page-title">Святкування почнеться через:</p>
-					<div className="date" id="date">
-						<div>
-							<p>{days}</p>
-							<p>днів</p>
-						</div>
-						<div>
-							<p>{hours}</p>
-							<p>годин(а)</p>
-						</div>
-						<div>
-							<p>{minutes}</p>
-							<p>хвилин(а)</p>
-						</div>
-						<div>
-							<p>{seconds}</p>
-							<p>секунд(а)</p>
-						</div>
-					</div>
-				</div> */}
 				<p className="page-title">Святкуйте з нами!</p>
-				<div className="home__top-logo">
+				<div style={{ fontSize: "2rem", color: "rgb(211, 201, 87)" }}>
 					{template.name_1[0]}
-					<span>&</span>
+					<span
+						style={{
+							display: "inline-block",
+							fontSize: "1.5rem",
+							padding: "0 5px",
+						}}
+					>
+						&
+					</span>
 					{template.name_2[0]}
 				</div>
 			</main>

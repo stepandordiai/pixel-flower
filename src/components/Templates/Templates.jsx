@@ -19,15 +19,28 @@ const Templates = () => {
 	const filteredTemplates = templatesData.filter((template) => {
 		// Filtering option or type "all"
 		if (
-			(option === t("templates.all") && template.type === type) ||
-			(type === t("templates.all") && template.option === option)
+			(option === t("templates.all") &&
+				template.type === type &&
+				template.isTemplate) ||
+			(type === t("templates.all") &&
+				template.option === option &&
+				template.isTemplate)
 		) {
 			return template;
 			// Filtering option and type "all"
-		} else if (option === t("templates.all") && type === t("templates.all")) {
+		} else if (
+			option === t("templates.all") &&
+			type === t("templates.all") &&
+			template.isTemplate
+		) {
 			return template;
 			// Filtering option and type
-		} else return template.option === option && template.type === type;
+		} else
+			return (
+				template.option === option &&
+				template.type === type &&
+				template.isTemplate
+			);
 	});
 
 	return (

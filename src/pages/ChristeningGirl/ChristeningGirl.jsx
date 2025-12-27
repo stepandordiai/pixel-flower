@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import templatesData from "../../assets/data/templates-data.json";
 import { useParams } from "react-router-dom";
-import Header from "../../components/Header/Header";
 import img1 from "/christening-girl/01.webp";
 import img2 from "/christening-girl/02.webp";
 import img3 from "/christening-girl/03.webp";
@@ -52,7 +51,6 @@ const ChristeningGirl = () => {
 	const [hours, setHours] = useState("0");
 	const [minutes, setMinutes] = useState("0");
 	const [seconds, setSeconds] = useState("0");
-	const [showHeader, setShowHeader] = useState(false);
 
 	useEffect(() => {
 		let interval = setInterval(() => {
@@ -69,7 +67,6 @@ const ChristeningGirl = () => {
 				setHours(0);
 				setMinutes(0);
 				setSeconds(0);
-				setShowHeader(true);
 			}
 		}, 1000);
 	}, []);
@@ -244,7 +241,6 @@ const ChristeningGirl = () => {
 			<Helmet>
 				<meta name="robots" content="noindex, nofollow" />
 			</Helmet>
-			{/* {showHeader && !template.isTemplate && <Header />} */}
 			<div onClick={handleLoading} className="christening-girl__loading">
 				<img src={img1} alt="" />
 				<img src={img1} alt="" />
