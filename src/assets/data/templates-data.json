@@ -71,7 +71,7 @@
 		"type": "templates.wedding",
 		"type_code": "wedding-one",
 		"option_code": "bronze",
-		"ss": "/ss/bronze/pixel-flower-template-s-w-3.png",
+		"ss": "/template-img/01.png",
 		"isTemplate": true
 	},
 	{
@@ -134,9 +134,9 @@
 		"type": "templates.wedding",
 		"type_code": "wedding-two",
 		"option_code": "silver",
-		"ss": "/ss/silver/pixel-flower-template-s-w-2.png",
 		"song": "/music/LadyGaga.mp3",
 		"dress_code": false,
+		"ss": "/template-img/02.png",
 		"isTemplate": true
 	},
 	{
@@ -214,8 +214,8 @@
 		"type_code": "christening-girl",
 		"option_code": "bronze",
 		"background": "#ff0000",
-		"ss": "/ss/silver/pixel-flower-template-s-c-2.png",
 		"song": "/music/Lullaby.mp3",
+		"ss": "/template-img/03.png",
 		"isTemplate": true
 	},
 	{
@@ -257,8 +257,8 @@
 		"type_code": "christening-boy",
 		"option_code": "bronze",
 		"background": "#ff0000",
-		"ss": "/ss/silver/pixel-flower-template-s-c-4-c.png",
 		"song": "/music/Lullaby.mp3",
+		"ss": "/template-img/04.png",
 		"isTemplate": true
 	},
 	{
@@ -286,8 +286,9 @@
 		"type_code": "birthday-one",
 		"option_code": "silver",
 		"song": "/music/LadyGaga.mp3",
-		"isTemplate": true,
-		"dress_code": true
+		"dress_code": true,
+		"ss": "/template-img/05.png",
+		"isTemplate": true
 	},
 	{
 		"id": "template-birthday-two",
@@ -319,6 +320,7 @@
 		"type_code": "birthday-two",
 		"option_code": "silver",
 		"background": "#ff0000",
+		"ss": "/template-img/06.png",
 		"isTemplate": true
 	}
 ]
