@@ -62,7 +62,7 @@ const Home = () => {
 		<>
 			<Helmet>
 				<meta name="description" content={t("homeMetaDesc")} />
-				<title>{t("home.title")} | pixel flower</title>
+				<title>{t("homeMetaTitle")} | pixel flower</title>
 				<link rel="canonical" href="https://www.pixelflower.studio/" />
 			</Helmet>
 			<Header />
