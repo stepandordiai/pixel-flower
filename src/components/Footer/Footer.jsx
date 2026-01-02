@@ -46,6 +46,7 @@ const Footer = () => {
 				</div>
 			</button>
 			<Lng />
+			<p>&copy; 2025&ndash;{new Date().getFullYear()} pixel flower</p>
 			<p className="footer__author">
 				Website created by{" "}
 				<a href="https://www.heeeyooo.studio/" target="_blank">
