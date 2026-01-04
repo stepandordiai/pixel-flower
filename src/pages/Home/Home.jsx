@@ -23,6 +23,7 @@ import img10 from "/hero-img/10.png";
 import img11 from "/hero-img/11.png";
 import img12 from "/hero-img/12.png";
 import "./Home.scss";
+import HowItWorks from "../../components/HowItWorks/HowItWorks";
 
 const sliderImgData = [
 	[img1, img2, img3],
@@ -162,8 +163,8 @@ const Home = () => {
 									</div>
 								</div>
 							</HashLink>
-							<HashLink className="home-top__link" to="/#packages" smooth>
-								<span>{t("home.findOutThePrice")}</span>
+							<HashLink className="home-top__link" to="/#how-it-works" smooth>
+								<span>{t("howItWorks.heading")}</span>
 								<div className="home-top-icon-wrapper">
 									<div className="home-top-icon-wrapper-inner">
 										{[...Array(2)].map((_, i) => {
@@ -191,6 +192,7 @@ const Home = () => {
 					</div>
 				</section>
 				<div className="home-container">
+					<HowItWorks />
 					<Templates />
 					<Packages />
 					<WhyUs />

@@ -17,6 +17,22 @@
 		"findOutThePrice": "Zjistit cenu"
 	},
 
+	"howItWorks": {
+		"heading": "Jak to funguje",
+		"desc": "Stačí jen pár kroků a vaše pozvánka je hotová",
+		"cardHeading1": "🎨 Vyberte si šablonu",
+		"cardDesc1": "Zvolte si design, který ladí se stylem vaší události – svatba, narozeniny nebo křtiny.",
+		"cardHeading2": "✍️ Předejte nám podrobnosti",
+		"cardDesc2": "Pošlete nám datum, místo, jména a další informace – vše připravíme za vás.",
+		"cardHeading3": "🔗 Získejte hotový odkaz",
+		"cardDesc3": "Mini-stránka se zobrazí v telefonu, obsahuje odpočítávání, mapu a všechny potřebné informace pro hosty.",
+		"cardHeading4": "📤 Odešlete hostům",
+		"cardDesc4": "Jednoduše sdílejte odkaz přes messenger, WhatsApp nebo sociální sítě.",
+		"txt1": "✔️ Hotovo za 1–2 dny",
+		"txt2": "✔️ Funguje na každém telefonu",
+		"txt3": "✔️ Není potřeba nic instalovat"
+	},
+
 	"templates": {
 		"chooseAnInvitationPackage": "Vyberte si balíček pozvánky",
 		"all": "Vše",
