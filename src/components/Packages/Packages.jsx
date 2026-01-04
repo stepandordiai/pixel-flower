@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import packagesData from "./../../assets/data/packages-data.json";
 import socialsData from "../../assets/data/socialsData";
+import ArrowRightIcon from "../../icons/ArrowRightIcon";
 import "./Packages.scss";
 
 const Packages = () => {
@@ -14,7 +15,14 @@ const Packages = () => {
 					return (
 						<div key={pack.name} className="package">
 							<p className="package__title">{t(pack.name)}</p>
-							<p className="package__price">{t(pack.price)}</p>
+							<p className="package__price">
+								<span
+									style={{ textDecoration: "line-through", fontWeight: 400 }}
+								>
+									{t(pack.price)}
+								</span>{" "}
+								<span>{t(pack.priceDiscount)}</span>
+							</p>
 							<a
 								className="package__link"
 								href={socialsData[0].socialUrl}
@@ -24,22 +32,7 @@ const Packages = () => {
 								<span className="package__link-img-container">
 									<span className="package__link-img-container-inner">
 										{[...Array(2)].map((_, i) => {
-											return (
-												<svg
-													key={i}
-													xmlns="http://www.w3.org/2000/svg"
-													width="24"
-													height="24"
-													fill="currentColor"
-													className="bi bi-arrow-right-short"
-													viewBox="0 0 16 16"
-												>
-													<path
-														fillRule="evenodd"
-														d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"
-													/>
-												</svg>
-											);
+											return <ArrowRightIcon key={i} />;
 										})}
 									</span>
 								</span>

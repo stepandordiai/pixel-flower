@@ -3,6 +3,7 @@ import templatesData from "./../../assets/data/templates-data.json";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import classNames from "classnames";
+import ArrowRightIcon from "../../icons/ArrowRightIcon";
 import "./Templates.scss";
 
 const uniqueTemplateTypes = [
@@ -15,7 +16,7 @@ const Templates = () => {
 	const [option, setOption] = useState(t("templates.all"));
 	const [type, setType] = useState(t("templates.all"));
 
-	// TODO:
+	// TODO: learn this
 	const filteredTemplates = templatesData.filter((template) => {
 		// Filtering option or type "all"
 		if (
@@ -48,7 +49,9 @@ const Templates = () => {
 			<h2 className="templates__title">{t("templatesTitle")}</h2>
 			<div className="filters-container">
 				<div className="filter-container">
-					<p>{t("templates.chooseAnInvitationPackage")}</p>
+					<p style={{ fontWeight: 600 }}>
+						{t("templates.chooseAnInvitationPackage")}
+					</p>
 					<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
 						{[t("templates.all"), "Bronze", "Silver", "Gold"].map(
 							(templateOption) => {
@@ -68,7 +71,9 @@ const Templates = () => {
 					</div>
 				</div>
 				<div className="filter-container">
-					<p>{t("templates.chooseTheInvitationType")}</p>
+					<p style={{ fontWeight: 600 }}>
+						{t("templates.chooseTheInvitationType")}
+					</p>
 					<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
 						{/* TODO: */}
 						{[t("templates.all"), ...uniqueTemplateTypes].map(
@@ -89,13 +94,13 @@ const Templates = () => {
 					</div>
 				</div>
 			</div>
-			<div className="templates-grid">
-				{filteredTemplates.length === 0 ? (
-					<div className="no-data">
-						Шаблони такого пакету та типу поки-що відсутні 😣
-					</div>
-				) : (
-					filteredTemplates.map((template, index) => (
+			{filteredTemplates.length === 0 ? (
+				<div className="no-data">
+					Шаблони такого пакету та типу поки-що відсутні 😣
+				</div>
+			) : (
+				<div className="templates-grid">
+					{filteredTemplates.map((template, index) => (
 						<div key={template.id} className="template">
 							<div className="template__type">{template.option}</div>
 							<NavLink
@@ -120,22 +125,7 @@ const Templates = () => {
 									<span className="template__link-img-container">
 										<span className="template__link-img-container-inner">
 											{[...Array(2)].map((_, i) => {
-												return (
-													<svg
-														key={i}
-														xmlns="http://www.w3.org/2000/svg"
-														width="24"
-														height="24"
-														fill="currentColor"
-														className="bi bi-arrow-right-short"
-														viewBox="0 0 16 16"
-													>
-														<path
-															fillRule="evenodd"
-															d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"
-														/>
-													</svg>
-												);
+												return <ArrowRightIcon key={i} />;
 											})}
 										</span>
 									</span>
@@ -151,9 +141,9 @@ const Templates = () => {
 								<p style={{ fontSize: "1.2rem" }}>{t(template.type)}</p>
 							</div>
 						</div>
-					))
-				)}
-			</div>
+					))}
+				</div>
+			)}
 		</div>
 	);
 };

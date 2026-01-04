@@ -92,19 +92,14 @@
 
 .no-data {
 	width: 100%;
-	max-width: 500px;
-	background: var(--accent-clr-pink);
+	max-width: max-content;
 	border: 1px solid #000;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 10px;
-	border-radius: 20px;
+	padding: 25px;
+	border-radius: 25px;
 	text-align: center;
 }
 
 .filters-container {
-	background: var(--accent-clr-pink);
 	padding: 10px;
 	border-radius: 25px;
 	border: 1px solid #000;

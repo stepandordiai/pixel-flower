@@ -10,6 +10,8 @@ import Socials from "../../components/Socials/Socials";
 import classNames from "classnames";
 import WhyUs from "../../components/WhyUs/WhyUs";
 import Lng from "../../components/Lng/Lng";
+import HowItWorks from "../../components/HowItWorks/HowItWorks";
+import ArrowRightIcon from "../../icons/ArrowRightIcon";
 import img1 from "/hero-img/01.png";
 import img2 from "/hero-img/02.png";
 import img3 from "/hero-img/03.png";
@@ -23,7 +25,6 @@ import img10 from "/hero-img/10.png";
 import img11 from "/hero-img/11.png";
 import img12 from "/hero-img/12.png";
 import "./Home.scss";
-import HowItWorks from "../../components/HowItWorks/HowItWorks";
 
 const sliderImgData = [
 	[img1, img2, img3],
@@ -136,29 +137,17 @@ const Home = () => {
 						})}
 					</div>
 					<div className="home-top-container">
-						<h1 className="home-top__title">{t("home.title")}</h1>
+						<h1 className="home-top__title">
+							Створюйте особливі спогади з першого кліку. Онлайн-запрошення на
+							ваше свято.
+						</h1>
 						<div className="home-hero__link-container">
 							<HashLink className="home-top__link" to="/#templates" smooth>
 								<span>{t("home.chooseATemplate")}</span>
 								<div className="home-top-icon-wrapper">
 									<div className="home-top-icon-wrapper-inner">
 										{[...Array(2)].map((_, i) => {
-											return (
-												<svg
-													key={i}
-													xmlns="http://www.w3.org/2000/svg"
-													width="24"
-													height="24"
-													fill="currentColor"
-													className="bi bi-arrow-right-short"
-													viewBox="0 0 16 16"
-												>
-													<path
-														fillRule="evenodd"
-														d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"
-													/>
-												</svg>
-											);
+											return <ArrowRightIcon key={i} />;
 										})}
 									</div>
 								</div>
@@ -168,22 +157,7 @@ const Home = () => {
 								<div className="home-top-icon-wrapper">
 									<div className="home-top-icon-wrapper-inner">
 										{[...Array(2)].map((_, i) => {
-											return (
-												<svg
-													key={i}
-													xmlns="http://www.w3.org/2000/svg"
-													width="24"
-													height="24"
-													fill="currentColor"
-													className="bi bi-arrow-right-short"
-													viewBox="0 0 16 16"
-												>
-													<path
-														fillRule="evenodd"
-														d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"
-													/>
-												</svg>
-											);
+											return <ArrowRightIcon key={i} />;
 										})}
 									</div>
 								</div>
