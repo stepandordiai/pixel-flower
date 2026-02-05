@@ -1,0 +1,84 @@
+{
+	"homeTitle": "Domů",
+	"templatesTitle": "Šablony pozvánek",
+	"packagesAndPricingTitle": "Balíčky a ceny",
+	"questionsAndAnswersTitle": "Časté dotazy",
+	"followUs": "Sledujte nás!",
+	"scrollToTop": "Zpět nahoru",
+	"close": "zavřít",
+	"homeMetaDesc": "Moderní online pozvánkové weby pro svatby a události. Individuální design, rychlé spuštění a pohodlí pro hosty.",
+	"homeMetaTitle": "Pozvánkové weby pro svatby a události",
+	"pageNotFound": "Stránka nenalezena",
+	"backToHome": "Zpět na hlavní stránku",
+
+	"home": {
+		"title": "Studio kreativních webových pozvánek",
+		"chooseATemplate": "Vybrat šablonu",
+		"findOutThePrice": "Zjistit cenu"
+	},
+
+	"howItWorks": {
+		"heading": "Jak to funguje",
+		"desc": "Stačí jen pár kroků a vaše pozvánka je hotová",
+		"cardHeading1": "🎨 Vyberte si šablonu",
+		"cardDesc1": "Zvolte si design, který ladí se stylem vaší události – svatba, narozeniny nebo křtiny.",
+		"cardHeading2": "✍️ Předejte nám podrobnosti",
+		"cardDesc2": "Pošlete nám datum, místo, jména a další informace – vše připravíme za vás.",
+		"cardHeading3": "🔗 Získejte hotový odkaz",
+		"cardDesc3": "Mini-stránka se zobrazí v telefonu, obsahuje odpočítávání, mapu a všechny potřebné informace pro hosty.",
+		"cardHeading4": "📤 Odešlete hostům",
+		"cardDesc4": "Jednoduše sdílejte odkaz přes messenger, WhatsApp nebo sociální sítě.",
+		"txt1": "✔️ Hotovo za 1–2 dny",
+		"txt2": "✔️ Funguje na každém telefonu",
+		"txt3": "✔️ Není potřeba nic instalovat"
+	},
+
+	"templates": {
+		"chooseAnInvitationPackage": "Vyberte si balíček pozvánky",
+		"all": "Vše",
+		"chooseTheInvitationType": "Vyberte typ pozvánky",
+		"wedding": "Svatba",
+		"christening": "Křtiny",
+		"birthday": "Narozeniny",
+		"viewTheTemplate": "Zobrazit šablonu",
+		"comingSoon": "Již brzy!"
+	},
+
+	"packagesAndPricing": {
+		"bronzePrice": "599Kč",
+		"silverPrice": "899Kč",
+		"goldPrice": "1699Kč",
+		"bronzePriceDiscount": "499Kč",
+		"silverPriceDiscount": "799Kč",
+		"goldPriceDiscount": "1599Kč",
+		"chooseThisPackage": "Vybrat tento balíček",
+		"optionsTitle": "V balíčku je zahrnuto:",
+		"option1": "Stránka s vašimi jmény, fotografií a datem oslavy",
+		"option2": "Harmonogram událostí",
+		"option3": "Interaktivní mapa s adresou místa konání",
+		"option4": "Dress code",
+		"option5": "Animovaný úvod",
+		"option6": "Odpočet do začátku",
+		"option7": "Hudba na pozadí",
+		"option8": "Animace",
+		"option9": "Podpora až do dne svatby",
+		"option10": "Individuální design a vývoj",
+		"option11": "Podpora více jazyků",
+		"option12": "Vlastní doména",
+		"freeConsultation": "*Konzultace zdarma",
+		"contactUs": "Kontaktujte nás způsobem, který vám vyhovuje"
+	},
+
+	"questionsAndAnswers": {
+		"question1": "Jak dlouho trvá vytvoření webu",
+		"question2": "Co když po dokončení potřebuji upravit informace",
+		"question3": "Mohu si pozvánku zobrazit i na jiném zařízení než na telefonu",
+		"question4": "Co když potřebujeme oslavu zrušit",
+		"question5": "Zůstane mi webová pozvánka k dispozici i po oslavě",
+		"answer1": "Doba vytvoření závisí na balíčku: Bronze a Silver jsou hotové za 1–3 pracovní dny, zatímco Gold s individuálním designem trvá přibližně 5–10 pracovních dnů.",
+		"answer2": "Možnosti úprav se liší podle balíčku: u Bronze jsou změny zpoplatněny (99 ₴ za jednu), u Silver máte 3 úpravy zdarma a každá další stojí 99 ₴, a u Gold je k dispozici bezplatná podpora 24/7 až do konce svátečního období.",
+		"answer3": "Ano! Naše webové pozvánky se pohodlně zobrazí na jakémkoli zařízení — na mobilu, tabletu i počítači.",
+		"answer4": "Při zrušení objednávky během vývoje se účtuje 25 % z ceny vybraného balíčku, a pokud je web už hotový, hradí se plná cena balíčku.",
+		"answer5": "Pokud si vyberete balíček Gold, webová pozvánka vám zůstane k dispozici neomezeně dlouho, dokud je hrazená doména; u ostatních balíčků přístup zůstává, ale provoz webu může být časem ukončen."
+	}
+}

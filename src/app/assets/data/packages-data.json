@@ -1,0 +1,167 @@
+[
+	{
+		"name": "Пакет \"Bronze\"",
+		"price": "packagesAndPricing.bronzePrice",
+		"priceDiscount": "packagesAndPricing.bronzePriceDiscount",
+		"options": [
+			{
+				"name": "packagesAndPricing.option1",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option2",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option3",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option4",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option5",
+				"isIncluded": false
+			},
+			{
+				"name": "packagesAndPricing.option6",
+				"isIncluded": false
+			},
+			{
+				"name": "packagesAndPricing.option7",
+				"isIncluded": false
+			},
+			{
+				"name": "packagesAndPricing.option8",
+				"isIncluded": false
+			},
+			{
+				"name": "packagesAndPricing.option9",
+				"isIncluded": false
+			},
+			{
+				"name": "packagesAndPricing.option10",
+				"isIncluded": false
+			},
+			{
+				"name": "packagesAndPricing.option11",
+				"isIncluded": false
+			},
+			{
+				"name": "packagesAndPricing.option12",
+				"isIncluded": false
+			}
+		]
+	},
+	{
+		"name": "Пакет \"Silver\"",
+		"price": "packagesAndPricing.silverPrice",
+		"priceDiscount": "packagesAndPricing.silverPriceDiscount",
+		"options": [
+			{
+				"name": "packagesAndPricing.option1",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option2",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option3",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option4",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option5",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option6",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option7",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option8",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option9",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option10",
+				"isIncluded": false
+			},
+			{
+				"name": "packagesAndPricing.option11",
+				"isIncluded": false
+			},
+			{
+				"name": "packagesAndPricing.option12",
+				"isIncluded": false
+			}
+		]
+	},
+	{
+		"name": "Пакет \"Gold\"",
+		"price": "packagesAndPricing.goldPrice",
+		"priceDiscount": "packagesAndPricing.goldPriceDiscount",
+		"options": [
+			{
+				"name": "packagesAndPricing.option1",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option2",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option3",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option4",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option5",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option6",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option7",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option8",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option9",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option10",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option11",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option12",
+				"isIncluded": true
+			}
+		]
+	}
+]

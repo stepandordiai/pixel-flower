@@ -1,0 +1,417 @@
+// loading
+
+.loading {
+	position: fixed;
+	background-color: var(--silver-bg-clr);
+	height: 100svh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 50px;
+	z-index: 100;
+	transition: opacity 2s;
+}
+
+.loading--hide {
+	pointer-events: none;
+	opacity: 0;
+}
+
+.envelope-txt {
+	position: absolute;
+	bottom: 50px;
+	left: 10px;
+	right: 10px;
+	text-align: center;
+	font-size: clamp(1.25rem, 4vw, 1.5rem);
+}
+
+.envelope {
+	position: relative;
+	max-width: 500px;
+	height: max-content;
+	cursor: pointer;
+	animation: animateEnvelopeInner 1s infinite;
+}
+
+.envelope--stop-animation {
+	animation: none;
+}
+
+@keyframes animateEnvelopeInner {
+	25% {
+		transform: rotate(10deg);
+	}
+	50% {
+		transform: rotate(-5deg);
+	}
+	75% {
+		transform: rotate(2.5deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+.env-base {
+	width: 100%;
+	height: 100%;
+}
+
+.env-left {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	z-index: 1;
+}
+
+.env-right {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	z-index: 1;
+}
+
+.env-top {
+	position: absolute;
+	left: 0;
+	top: 0;
+	transform-origin: top;
+	z-index: 1;
+}
+
+.env-top--active {
+	animation: animateEnvTop 2s forwards;
+}
+
+@keyframes animateEnvTop {
+	to {
+		transform: rotateX(180deg);
+		z-index: 0;
+	}
+}
+
+.card {
+	position: absolute;
+	bottom: 0;
+	left: 10px;
+	height: 100%;
+	width: calc(100% - 20px);
+}
+
+.card--active {
+	animation: animateCard 1s 2s forwards;
+}
+
+@keyframes animateCard {
+	to {
+		transform: translateY(-100px);
+	}
+}
+
+.env-bottom {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.envelope-silver {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 50px;
+	overflow: hidden;
+	width: 100%;
+	padding-bottom: 50px;
+	background-color: var(--silver-bg-clr);
+	text-align: center;
+}
+
+.container-inner {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	row-gap: 25px;
+}
+
+.envelope-silver__top {
+	position: relative;
+	height: 100svh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	color: #000;
+	padding: 25px 25px 10px 25px;
+	z-index: 1;
+}
+
+.top-img {
+	max-width: 600px;
+	width: 100%;
+}
+
+.build {
+	position: absolute;
+	bottom: 20px;
+	width: 100%;
+	max-width: 700px;
+	z-index: -1;
+}
+
+.scroll {
+	font-size: 0.75rem;
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.scroll--hide {
+	opacity: 0 !important;
+	pointer-events: none !important;
+}
+
+.animated-element {
+	opacity: 0;
+	transform: scale(0.5);
+	transition: all 1s;
+}
+
+.animated-element--active {
+	opacity: 1;
+	transform: scale(1);
+}
+
+.home {
+	display: flex;
+	flex-direction: column;
+	gap: 100px;
+	// overflow: hidden;
+}
+
+.font-accent {
+	font-family: "Great Vibes", cursive;
+}
+
+.font-s {
+	font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.font-m {
+	font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.font-l {
+	font-size: clamp(3rem, 14vw, 6rem);
+}
+
+.home__top {
+	display: flex;
+}
+
+.envelope-silver__top-logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	span:nth-child(1) {
+		transform: translate(35%, -25%);
+	}
+
+	span:nth-child(2) {
+		transform: translate(-35%, 25%);
+	}
+}
+
+.envelope-silver__top-title {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.home__top-date {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	width: 100%;
+}
+
+.home__top-img {
+	border-radius: 25px;
+	width: 200px;
+}
+
+.underline {
+	width: 200px;
+	transform: translateY(25px);
+}
+
+.frame-inner {
+	display: flex;
+	flex-direction: column;
+	row-gap: 50px;
+	padding: 0 10px;
+}
+
+.silver-swiper {
+	border: 5px solid #000;
+	padding: 12.5px;
+	width: 100%;
+	max-width: 400px;
+}
+
+.silver-calendar {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-rows: repeat(6, 1fr);
+	aspect-ratio: 1/1;
+	text-align: center;
+
+	div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	div:nth-of-type(-n + 7) {
+		border-bottom: 1px solid #000;
+		font-weight: 500;
+	}
+}
+
+.silver-calendar-wrapper {
+	align-self: center;
+	width: 100%;
+	max-width: 500px;
+	padding: 25px;
+	border: 5px solid #000;
+}
+
+.target-time {
+	position: relative;
+}
+
+.calendar-heart {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.date-container {
+	width: 100%;
+}
+
+.silver-date {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 25px;
+}
+
+.addresses-container {
+	width: 100%;
+}
+
+.silver-addresses {
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+	width: 100%;
+}
+
+.silver-address {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.address-img {
+	width: 100%;
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+.silver-address__link {
+	color: #000;
+	width: 100%;
+	padding: 10px;
+	align-self: flex-end;
+	border: 2.5px solid #000;
+
+	&:hover {
+		color: #fff;
+		background: #000;
+	}
+}
+
+.floating-btn {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: rgba(215, 231, 112, 0.5);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+}
+
+.colors-container {
+	max-width: 500px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(1, 300px);
+	gap: 10px;
+
+	div {
+		border-radius: 40px;
+		border: 2.5px dashed #000;
+	}
+}
+
+@media screen and (width <= 808px) {
+	.envelope-silver {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		overflow: hidden;
+		width: 100%;
+	}
+
+	.envelope-silver__top {
+		width: 100%;
+		display: flex;
+		color: #000;
+	}
+
+	.home__top-date {
+		justify-content: center;
+	}
+}
+
+@media screen and (width <= 600px) {
+	.home__top-title {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.silver-date {
+		flex-direction: column;
+	}
+}

@@ -1,0 +1,32 @@
+.lng__btn {
+	border: 1px solid #000;
+	padding: 7.5px;
+	border-radius: 20px;
+}
+
+.lng__btn--active {
+	background: var(--accent-clr-green);
+	border: 1px solid #000;
+	padding: 7.5px;
+	border-radius: 20px;
+}
+
+.lng-banner {
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	z-index: 100;
+	transform: translateY(calc(100% + 20px));
+	width: min(100%, max-content);
+	margin-left: 10px;
+	background: #fff;
+	border: 1px solid #000;
+	border-radius: 25px;
+	padding: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	transition: transform 0.5s;
+}
+
+.lng-banner--visible {
+	transform: translateY(0);
+}

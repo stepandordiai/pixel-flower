@@ -1,0 +1,14 @@
+.txt-wrapper {
+	display: inline-block;
+	overflow: hidden;
+}
+
+.txt {
+	display: inline-block;
+	transform: translateY(100%);
+	transition: transform 1s ease;
+}
+
+.txt--animate {
+	transform: translateY(0);
+}
