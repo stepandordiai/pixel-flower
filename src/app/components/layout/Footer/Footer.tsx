@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import Lng from "../../Lng/Lng";
+import Lng from "../../common/Lng/Lng";
 import "./Footer.scss";
 
 const scrollToTop = () => {

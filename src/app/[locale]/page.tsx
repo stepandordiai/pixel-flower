@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import Header from "../components/common/Header/Header";
+import Header from "../components/layout/Header/Header";
 import { useEffect } from "react";
 import Templates from "../components/home/Templates/Templates";
 import QA from "../components/home/QA/QA";

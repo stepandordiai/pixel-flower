@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
-import Footer from "../components/common/Footer/Footer";
+import Footer from "../components/layout/Footer/Footer";
 import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
