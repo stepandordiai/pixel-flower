@@ -6,13 +6,13 @@ import { useParams } from "next/navigation";
 // import Header from "../../components/Header/Header";
 import Container from "@/app/components/Container/Container";
 import { notFound } from "next/navigation";
-import "./BirthdayTwo.scss";
 import ScrollToTop from "@/app/utils/ScrollToTop";
+import "./BirthdayTwo.scss";
 
 const BirthdayTwo = () => {
-	const { id } = useParams();
+	const params = useParams();
 
-	const template = templatesData.find((template) => template.id == id);
+	const template = templatesData.find((template) => template.id === params?.id);
 
 	if (!template) {
 		return notFound();
@@ -310,7 +310,7 @@ const BirthdayTwo = () => {
 								Празький час
 							</p>
 							<div className="addresses-chr">
-								{template.adresess.map((address, index) => {
+								{template.addresses.map((address, index) => {
 									return (
 										<div key={index} className="address-chr">
 											<p className="address__title-chr animated-element1">

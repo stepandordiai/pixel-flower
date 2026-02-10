@@ -12,9 +12,9 @@ import ScrollToTop from "@/app/utils/ScrollToTop";
 import "./BirthdayOne.scss";
 
 export default function BirthdayOne() {
-	const { id } = useParams();
+	const params = useParams();
 
-	const template = templatesData.find((template) => template.id === id);
+	const template = templatesData.find((template) => template.id === params?.id);
 
 	if (!template) {
 		return notFound();
@@ -269,7 +269,7 @@ export default function BirthdayOne() {
 									<AnimatedTxt>{template.location_time}</AnimatedTxt>
 								</p>
 							</div>
-							{template.adresess.map((address, index) => {
+							{template.addresses.map((address, index) => {
 								return (
 									<div key={index} className="birthday-one__container-inner">
 										{/* <p

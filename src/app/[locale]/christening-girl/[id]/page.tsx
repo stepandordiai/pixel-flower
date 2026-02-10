@@ -5,11 +5,12 @@ import templatesData from "./../../../assets/data/templates-data.json";
 import { useParams } from "next/navigation";
 import Container from "@/app/components/Container/Container";
 import { notFound } from "next/navigation";
-import "./ChristeningGirl.scss";
 import ScrollToTop from "@/app/utils/ScrollToTop";
+import "./ChristeningGirl.scss";
 
 const ChristeningGirl = () => {
-	const { id } = useParams();
+	const params = useParams();
+	const id = Array.isArray(params?.id) ? params.id[0] : params?.id;
 
 	const template = templatesData.find((template) => template.id === id);
 
@@ -337,7 +338,7 @@ const ChristeningGirl = () => {
 								{template.location_time}
 							</p>
 							<div className="christening-girl__addresses-chr">
-								{template.adresess.map((address, index) => {
+								{template.addresses.map((address, index) => {
 									return (
 										<div key={index} className="christening-girl__address-chr">
 											<p className="christening-girl__address__title-chr christening-girl__animate christening-girl__txt-decoration">

@@ -43,10 +43,10 @@
 // }
 
 .main {
-	font-family: "Caveat", cursive;
+	// font-family: "Caveat", cursive;
 	font-family: "Alex Brush", cursive;
-	height: 100vh;
-	overflow: hidden;
+	// height: 100vh;
+	// overflow: hidden;
 	// font-family: "Comfortaa", sans-serif;
 	// font-family: "Great Vibes", sans-serif;
 }
@@ -113,4 +113,53 @@
 .hero__heading {
 	width: max-content;
 	font-size: 3rem;
+}
+
+.section {
+	background: #fff;
+}
+
+.calendar {
+	position: relative;
+	width: max-content;
+	margin: 0 auto;
+}
+
+.calendar-inner {
+	// font-family: "Nata Sans", sans-serif;
+	display: grid;
+	grid-template-columns: repeat(7, 50px);
+	grid-template-rows: repeat(6, 50px);
+	text-align: center;
+	padding: 25px;
+	border: 1px solid #000000;
+	border-radius: 25px;
+	font-weight: 300;
+	color: #000000;
+
+	div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	div:nth-of-type(-n + 7) {
+		border-bottom: 1px solid #000000;
+		font-weight: 500;
+	}
+}
+
+.target-time {
+	position: relative;
+}
+
+.calendar-heart {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.addresses-container {
+	width: 100%;
 }

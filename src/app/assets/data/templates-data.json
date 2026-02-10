@@ -4,10 +4,10 @@
 		"time": "2025-08-28T16:00:00",
 		"monthName": "Серпень",
 		"monthDeclined": "Серпня",
-		"name_1": "Андрій",
-		"name_2": "Наталія",
+		"hisName": "Андрій",
+		"herName": "Наталія",
 		"location_time": "Празький час",
-		"adresess": [
+		"addresses": [
 			{
 				"title": "Вінчання",
 				"time": "13:00",
@@ -41,10 +41,10 @@
 	{
 		"id": "andrii-and-natali-prague",
 		"time": "2025-08-28T16:00:00",
-		"name_1": "Андрій",
-		"name_2": "Наталія",
+		"hisName": "Андрій",
+		"herName": "Наталія",
 		"location_time": "Празький час",
-		"adresess": [
+		"addresses": [
 			{
 				"title": "Вінчання",
 				"time": "13:00",
@@ -81,10 +81,10 @@
 		"time": "2025-09-14T16:00:00",
 		"monthName": "Вересень",
 		"monthDeclined": "Вересня",
-		"name_1": "Андрій",
-		"name_2": "Наталія",
+		"hisName": "Андрій",
+		"herName": "Наталія",
 		"location_time": "Київський час",
-		"adresess": [
+		"addresses": [
 			{
 				"title": "Бенкет",
 				"time": "17:00",
@@ -113,10 +113,10 @@
 	{
 		"id": "andrii-and-natali-ukraine",
 		"time": "2025-09-14T16:00:00",
-		"name_1": "Андрій",
-		"name_2": "Наталія",
+		"hisName": "Андрій",
+		"herName": "Наталія",
 		"location_time": "Київський час",
-		"adresess": [
+		"addresses": [
 			{
 				"title": "Бенкет",
 				"time": "17:00",
@@ -155,7 +155,7 @@
 
 		"date": 21,
 		"location_time": "Київський час",
-		"adresess": [
+		"addresses": [
 			{
 				"title": "Хрещення",
 				"time": "13:00",
@@ -194,7 +194,7 @@
 		"month": 9,
 		"date": 21,
 		"location_time": "Київський час",
-		"adresess": [
+		"addresses": [
 			{
 				"title": "Хрещення",
 				"time": "13:00",
@@ -235,7 +235,7 @@
 		"text": "Таїнство Хрещення нашого синочка",
 		"color": "#b8f3fe80",
 		"place": "Київ",
-		"adresess": [
+		"addresses": [
 			{
 				"title": "Хрещення",
 				"time": "14:00",
@@ -274,10 +274,10 @@
 		"time": "2025-12-13T16:00:00",
 		"monthName": "Грудень",
 		"monthDeclined": "Грудня",
-		"name_1": "Микола",
-		"name_2": "Марія",
+		"hisName": "Микола",
+		"herName": "Марія",
 		"location_time": "Київський час",
-		"adresess": [
+		"addresses": [
 			{
 				"address_title": "Караоке-рестобар «SVOI»",
 				"address": "Ivana Chendeya St, 12, Uzhhorod, Zakarpattia Oblast, Ukraine, 88000",
@@ -311,7 +311,7 @@
 		"text": "День народження нашого синочка",
 		"color": "#b8f3fe80",
 		"place": "Київ",
-		"adresess": [
+		"addresses": [
 			{
 				"title": "Бенкет",
 				"time": "16:00",
@@ -337,11 +337,21 @@
 	},
 	{
 		"id": "stepan-and-andriana",
-		"time": "2025-09-14T16:00:00",
-		"name_1": "Андрій",
-		"name_2": "Наталія",
-		"location_time": "Київський час",
-		"adresess": [
+		"time": "2026-05-03T17:00:00",
+		"monthName": "Травень",
+		"monthDeclined": "Травня",
+		"hisName": "Stepan",
+		"herName": "Andriana",
+		"location_time": "Празький час",
+		"addresses": [
+			{
+				"title": "Вінчання",
+				"time": "13:00",
+				"address_title": "Православний монастир св. Кирила і Мефодія",
+				"address": "Hořovičky 79, 270 04 Hořovičky",
+				"address_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2632.8214000197636!2d13.530101612005327!3d50.156151508391744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470a41402926cbe7%3A0xbb620047900bbb55!2sPravoslavn%C3%BD%20Monast%C3%BDr%20sv.%20Cyrila%20a%20Metod%C4%9Bje!5e1!3m2!1sen!2scz!4v1755459539998!5m2!1sen!2scz",
+				"address_destination_url": "https://maps.app.goo.gl/M459wEdgqjRBhLEe7"
+			},
 			{
 				"title": "Бенкет",
 				"time": "17:00",
@@ -370,10 +380,10 @@
 	{
 		"id": "bogdan-and-anzelika",
 		"time": "2025-09-14T16:00:00",
-		"name_1": "Андрій",
-		"name_2": "Наталія",
+		"hisName": "Андрій",
+		"herName": "Наталія",
 		"location_time": "Київський час",
-		"adresess": [
+		"addresses": [
 			{
 				"title": "Бенкет",
 				"time": "17:00",

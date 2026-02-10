@@ -13,9 +13,9 @@ import styles from "./WeddingOne.module.scss";
 import ScrollToTop from "@/app/utils/ScrollToTop";
 
 export default function WeddingOne() {
-	const { id } = useParams();
+	const params = useParams();
 
-	const template = templatesData.find((template) => template.id === String(id));
+	const template = templatesData.find((template) => template.id === params?.id);
 
 	if (!template) {
 		return notFound();
@@ -70,7 +70,7 @@ export default function WeddingOne() {
 					/>
 					<div className={styles["hero-inner"]}>
 						<div style={{ fontSize: "2rem", color: "rgb(211, 201, 87)" }}>
-							{template.name_1?.[0]}
+							{template.hisName?.[0]}
 							<span
 								style={{
 									display: "inline-block",
@@ -80,7 +80,7 @@ export default function WeddingOne() {
 							>
 								&
 							</span>
-							{template.name_2?.[0]}
+							{template.herName?.[0]}
 						</div>
 						<div className={styles["hero__divider"]}></div>
 						<div className="home__top-date">
@@ -91,9 +91,9 @@ export default function WeddingOne() {
 							<p>{template.time.slice(0, 4)}</p>
 						</div>
 						<h1 className="home__top-title">
-							<span>{template.name_1}</span>
+							<span>{template.hisName}</span>
 							<span> та </span>
-							<span>{template.name_2}</span>
+							<span>{template.herName}</span>
 						</h1>
 					</div>
 				</div>
@@ -144,7 +144,7 @@ export default function WeddingOne() {
 						{template.location_time}
 					</p>
 					<div className="addresses">
-						{template.adresess.map((address, index) => {
+						{template.addresses.map((address, index) => {
 							return (
 								<div key={index} className="address">
 									<p className="address__title">
@@ -191,7 +191,7 @@ export default function WeddingOne() {
 				</div>
 				<p className="page-title">Святкуйте з нами!</p>
 				<div style={{ fontSize: "2rem", color: "rgb(211, 201, 87)" }}>
-					{template.name_1?.[0]}
+					{template.hisName?.[0]}
 					<span
 						style={{
 							display: "inline-block",
@@ -201,7 +201,7 @@ export default function WeddingOne() {
 					>
 						&
 					</span>
-					{template.name_2?.[0]}
+					{template.herName?.[0]}
 				</div>
 			</main>
 		</>

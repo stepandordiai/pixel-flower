@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 import templatesData from "./../../../assets/data/templates-data.json";
 import { useParams, notFound } from "next/navigation";
 import Container from "@/app/components/Container/Container";
-import "./ChristeningBoy.scss";
 import ScrollToTop from "@/app/utils/ScrollToTop";
+import "./ChristeningBoy.scss";
 
 const ChristeningBoy = () => {
-	const { id } = useParams();
+	const params = useParams();
 
-	const template = templatesData.find((template) => template.id == id);
+	const template = templatesData.find((template) => template.id === params?.id);
 
 	if (!template) {
 		return notFound();
@@ -325,7 +325,7 @@ const ChristeningBoy = () => {
 								Празький час
 							</p>
 							<div className="addresses-chr">
-								{template.adresess.map((address, index) => {
+								{template.addresses.map((address, index) => {
 									return (
 										<div key={index} className="address-chr">
 											<p className="address__title-chr animated-element1">

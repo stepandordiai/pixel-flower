@@ -20,13 +20,13 @@ import Container from "@/app/components/Container/Container";
 import ContainerInner from "@/app/components/ContainerInner/ContainerInner.";
 // import NotFound from "../NotFound/NotFound";
 import { notFound } from "next/navigation";
-import "./WeddingTwo.scss";
 import ScrollToTop from "@/app/utils/ScrollToTop";
+import "./WeddingTwo.scss";
 
 export default function WeddingTwo() {
-	const { id } = useParams();
+	const params = useParams();
 
-	const template = templatesData.find((template) => template.id == id);
+	const template = templatesData.find((template) => template.id === params?.id);
 
 	if (!template) {
 		return notFound();
@@ -202,15 +202,15 @@ export default function WeddingTwo() {
 							}}
 						>
 							<div className="envelope-silver__top-logo font-m">
-								<span>{template.name_1?.[0]}</span>
-								<span>{template.name_2?.[0]}</span>
+								<span>{template.hisName?.[0]}</span>
+								<span>{template.herName?.[0]}</span>
 							</div>
 							<img className="top-img" src="/wedding-two/lemon.png" alt="" />
 						</div>
 						<div className="envelope-silver__top-title font-l font-accent">
-							<span>{template.name_1}</span>
+							<span>{template.hisName}</span>
 							<span className="font-m">та</span>
-							<span>{template.name_2}</span>
+							<span>{template.herName}</span>
 						</div>
 						<img className="build" src="/wedding-two/build.png" alt="" />
 						<div className="scroll">Прокрутіть вниз, щоб дізнатися більше</div>
@@ -316,7 +316,7 @@ export default function WeddingTwo() {
 								{template.location_time}
 							</p>
 						</div>
-						{template.adresess.map((address, index) => {
+						{template.addresses.map((address, index) => {
 							return (
 								<div key={index} className="container-inner">
 									<p
@@ -403,8 +403,8 @@ export default function WeddingTwo() {
 							Ми з нетерпінням чекаємо, щоб відсвяткувати разом з вами!
 						</p>
 						<div className="envelope-silver__top-logo animated-element font-m">
-							<span>{template.name_1?.[0]}</span>
-							<span>{template.name_2?.[0]}</span>
+							<span>{template.hisName?.[0]}</span>
+							<span>{template.herName?.[0]}</span>
 						</div>
 					</ContainerInner>
 				</Container>
