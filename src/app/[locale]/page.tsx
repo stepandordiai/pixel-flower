@@ -1,8 +1,5 @@
-"use client";
-
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Header from "../components/layout/Header/Header";
-import { useEffect } from "react";
 import Templates from "../components/home/Templates/Templates";
 import QA from "../components/home/QA/QA";
 import Packages from "../components/home/Packages/Packages";
@@ -12,6 +9,7 @@ import HowItWorks from "../components/home/HowItWorks/HowItWorks";
 import ArrowRightIcon from "../icons/ArrowRightIcon";
 import { Link } from "@/i18n/navigation";
 import ScrollToTop from "../utils/ScrollToTop";
+import type { Metadata } from "next";
 import "./Home.scss";
 
 const sliderImgData = [
@@ -21,17 +19,43 @@ const sliderImgData = [
 	["/hero-img/10.png", "/hero-img/11.png", "/hero-img/12.png"],
 ];
 
-export default function Home() {
-	const t = useTranslations();
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+	const { locale } = await params;
 
-	// TODO: learn this
+	// TODO: ?
+	const t = await getTranslations({ locale });
+	const baseUrl = "https://www.pixelflower.studio";
+
+	return {
+		title: `${t("homeMetaTitle")} | pixel flower`,
+		description: t("homeMetaDesc"),
+		alternates: {
+			canonical: `${baseUrl}/${locale}`,
+			languages: {
+				uk: `${baseUrl}/uk`,
+				cs: `${baseUrl}/cs`,
+				"x-default": `${baseUrl}/uk`,
+			},
+		},
+	};
+}
+
+export default async function Home() {
+	// TODO: ?
+	const t = await getTranslations();
+
 	// const [showLoadedImg, setShowLoadedImg] = useState<Record<number, boolean>>(
 	// 	{},
 	// );
 
-	useEffect(() => {
-		document.body.style.overflow = "auto";
-	}, []);
+	// FIXME:
+	// useEffect(() => {
+	// 	document.body.style.overflow = "auto";
+	// }, []);
 
 	return (
 		<>

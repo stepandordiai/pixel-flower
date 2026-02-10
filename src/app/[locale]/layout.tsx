@@ -1,39 +1,16 @@
-import { getTranslations } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import Footer from "../components/layout/Footer/Footer";
 import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import type { Metadata } from "next";
+import { Montserrat_Alternates } from "next/font/google";
+import "@/app/globals.scss";
 
-export async function generateMetadata({
-	params,
-}: {
-	params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-	const { locale } = await params;
-
-	// TODO: ?
-	const t = await getTranslations({ locale });
-	const baseUrl = "https://www.pixelflower.studio";
-
-	const lngUrls: Record<"uk" | "cs", string> = {
-		uk: `${baseUrl}/uk`,
-		cs: `${baseUrl}/cs`,
-	};
-
-	return {
-		title: `${t("homeMetaTitle")} | pixel flower`,
-		description: t("homeMetaDesc"),
-		alternates: {
-			canonical: `${baseUrl}/${locale}`,
-			languages: {
-				...lngUrls,
-				"x-default": `${baseUrl}/uk`,
-			},
-		},
-	};
-}
+const montserratAlternates = Montserrat_Alternates({
+	weight: ["400", "500", "600", "700"],
+	variable: "--font-montserrat-alternates",
+	subsets: ["latin", "cyrillic"],
+});
 
 type LocaleLayoutProps = {
 	children: React.ReactNode;
@@ -52,9 +29,13 @@ export default async function LocaleLayout({
 	}
 
 	return (
-		<NextIntlClientProvider locale={locale}>
-			{children}
-			<Footer />
-		</NextIntlClientProvider>
+		<html lang={locale}>
+			<body className={montserratAlternates.variable}>
+				<NextIntlClientProvider locale={locale}>
+					{children}
+					<Footer />
+				</NextIntlClientProvider>
+			</body>
+		</html>
 	);
 }
