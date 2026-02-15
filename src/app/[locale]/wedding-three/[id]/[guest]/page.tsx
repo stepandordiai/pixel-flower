@@ -1,12 +1,14 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from "./WeddingThree.module.scss";
 import { Alex_Brush, Montserrat } from "next/font/google";
 import ScrollToTop from "@/app/utils/ScrollToTop";
 // import { useRef, useEffect } from "react";
 import templatesData from "@/app/assets/data/templates-data.json";
 import { useParams, notFound } from "next/navigation";
+import Image from "next/image";
+import { useRef } from "react";
 
 const alexBrush = Alex_Brush({
 	weight: ["400"],
@@ -15,7 +17,7 @@ const alexBrush = Alex_Brush({
 });
 
 const montserrat = Montserrat({
-	weight: ["400"],
+	weight: ["400", "500", "600"],
 	variable: "--font-montserrat",
 	subsets: ["latin", "cyrillic"],
 });
@@ -134,6 +136,27 @@ const WeddingThree = () => {
 	// 	};
 	// }, []);
 
+	const [animate, setAnimate] = useState(false);
+	const pathRef = useRef<SVGPathElement>(null);
+
+	useEffect(() => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						setAnimate(true);
+					}
+				});
+			},
+			{ threshold: 0 },
+		);
+
+		if (pathRef.current) {
+			observer.observe(pathRef.current);
+		}
+		return () => observer.disconnect();
+	}, []);
+
 	return (
 		<>
 			{/* <img
@@ -166,7 +189,7 @@ const WeddingThree = () => {
 					</div>
 				</section>
 				<section className={styles.section}>
-					<p style={{ textAlign: "center", fontSize: "2rem" }}>
+					<p style={{ fontSize: "1.5rem", fontWeight: 600 }}>
 						{guest ? `Дорога сім'я ${guest.name}` : "Дорогі гості"}
 					</p>
 					<p>
@@ -175,10 +198,9 @@ const WeddingThree = () => {
 					</p>
 					{/* FIXME: */}
 					<div className={styles.calendar}>
-						<p className="calendar-top">{`${template.monthName} ${template.time.slice(
-							0,
-							4,
-						)}`}</p>
+						<p
+							className={styles["calendar-top"]}
+						>{`${template.monthName} ${template.time.slice(0, 4)}`}</p>
 						<div className={styles["calendar-inner"]}>
 							<div>Пн</div>
 							<div>Вт</div>
@@ -195,10 +217,12 @@ const WeddingThree = () => {
 									>
 										{day}
 										{day == date && (
-											<img
+											<Image
 												className={styles["calendar-heart"]}
 												src="/wedding-one/heart.png"
-												alt=""
+												width={40}
+												height={40}
+												alt="Heart"
 											/>
 										)}
 									</div>
@@ -211,21 +235,52 @@ const WeddingThree = () => {
 						людей!
 					</p>
 				</section>
+				<div className={styles["wavy-divider"]}>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 1200 100"
+						preserveAspectRatio="none"
+					>
+						<path
+							ref={pathRef}
+							className={`${styles["wavy-divider__path"]} ${animate ? styles["animate"] : ""}`}
+							d="M0,50 C60,5 120,95 180,50 C240,5 300,95 360,50 C420,5 480,95 540,50 C600,5 660,95 720,50 C780,5 840,95 900,50 C960,5 1020,95 1080,50 C1140,5 1170,27 1200,50"
+							fill="none"
+							stroke="currentColor"
+							strokeWidth="11"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+						/>
+					</svg>
+				</div>
 				<section className={styles.section}>
-					<p>Адреси святкування</p>
-					<p>{template.location_time}</p>
-					<div>
+					<p style={{ fontSize: "1.5rem", fontWeight: "500" }}>
+						Адреси святкування
+					</p>
+					<div className={styles.addresses}>
 						{template.addresses.map((address, i) => {
 							return (
-								<div key={i}>
-									<p>
+								<div key={i} className={styles.address}>
+									<p
+										style={{ display: "flex", justifyContent: "space-between" }}
+									>
 										{/* <span>{address.title}</span> */}
-										{/* <span>{address.time}</span> */}
+										{/* <span>
+											{address.time}({template.location_time})
+										</span> */}
 									</p>
 									<p>{address.address_title}</p>
 									<p>{address.address}</p>
-									<iframe src={address.address_url} loading="lazy"></iframe>
-									<a href={address.address_destination_url} target="_blank">
+									<iframe
+										className={styles["address__map"]}
+										src={address.address_url}
+										loading="lazy"
+									></iframe>
+									<a
+										className={styles.link}
+										href={address.address_destination_url}
+										target="_blank"
+									>
 										Отримати маршрут
 									</a>
 								</div>
