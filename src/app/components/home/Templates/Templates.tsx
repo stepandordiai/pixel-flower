@@ -104,7 +104,8 @@ export default function Templates() {
 						<div key={template.id} className="template">
 							<div className="template__type">{template.option}</div>
 							<Link
-								href={`/${template.type_code}/${template.id}`}
+								// TODO: ?
+								href={`/${template.type_code}/${template.id}/guest`}
 								className="template__img-container"
 								style={{
 									display: "flex",
