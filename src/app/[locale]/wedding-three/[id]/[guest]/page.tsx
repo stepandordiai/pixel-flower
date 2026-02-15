@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import styles from "./WeddingThree.module.scss";
-import { Alex_Brush } from "next/font/google";
+import { Alex_Brush, Montserrat } from "next/font/google";
 import ScrollToTop from "@/app/utils/ScrollToTop";
 // import { useRef, useEffect } from "react";
 import templatesData from "@/app/assets/data/templates-data.json";
@@ -14,10 +14,22 @@ const alexBrush = Alex_Brush({
 	subsets: ["latin"],
 });
 
+const montserrat = Montserrat({
+	weight: ["400"],
+	variable: "--font-montserrat",
+	subsets: ["latin", "cyrillic"],
+});
+
+const guests = [
+	{ slug: "kopilets", name: "Копилець" },
+	{ slug: "bilusyak", name: "Білусяк" },
+];
+
 const WeddingThree = () => {
 	const params = useParams();
 
 	const template = templatesData.find((template) => template.id === params?.id);
+	const guest = guests.find((g) => g.slug === params?.guest);
 
 	if (!template) {
 		return notFound();
@@ -154,7 +166,9 @@ const WeddingThree = () => {
 					</div>
 				</section>
 				<section className={styles.section}>
-					<p>Дорогі гості</p>
+					<p style={{ textAlign: "center", fontSize: "2rem" }}>
+						{guest ? `Дорога сім'я ${guest.name}` : "Дорогі гості"}
+					</p>
 					<p>
 						Щиро запрошуємо вас на свято, присвячене створенню нашої сім'ї, яке
 						відбудеться:
