@@ -157,6 +157,59 @@ const WeddingThree = () => {
 		return () => observer.disconnect();
 	}, []);
 
+	const targetDate: any = new Date(template.time);
+	const [days, setDays] = useState(0);
+	const [hours, setHours] = useState(0);
+	const [minutes, setMinutes] = useState(0);
+	const [seconds, setSeconds] = useState(0);
+
+	useEffect(() => {
+		let interval = setInterval(() => {
+			const date: any = new Date();
+			const dateDifference = targetDate - date;
+			setDays(Math.floor(dateDifference / 1000 / 60 / 60 / 24));
+			setHours(Math.floor((dateDifference / 1000 / 60 / 60) % 24));
+			setMinutes(Math.floor((dateDifference / 1000 / 60) % 60));
+			setSeconds(Math.floor((dateDifference / 1000) % 60));
+
+			if (dateDifference <= 0) {
+				clearInterval(interval);
+				setDays(0);
+				setHours(0);
+				setMinutes(0);
+				setSeconds(0);
+			}
+		}, 1000);
+
+		return () => clearInterval(interval);
+	}, []);
+
+	// TODO: learn this
+	function helper(
+		time: number,
+		one: string,
+		two: string,
+		five: string,
+	): string {
+		const abs = Math.abs(time);
+		const lastDigit = abs % 10;
+		const lastTwoDigits = abs % 100;
+
+		if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
+			return five;
+		}
+
+		if (lastDigit === 1) {
+			return one;
+		}
+
+		if (lastDigit >= 2 && lastDigit <= 4) {
+			return two;
+		}
+
+		return five;
+	}
+
 	return (
 		<>
 			{/* <img
@@ -286,6 +339,37 @@ const WeddingThree = () => {
 								</div>
 							);
 						})}
+					</div>
+				</section>
+				<section className={styles.section}>
+					<p className="animated-element font-m font-accent">
+						Зворотний відлік до нашого Великого дня
+					</p>
+					<div className="silver-date" id="date">
+						<div className="animated-element">
+							<span className="font-l">{days}</span>
+							<span className="font-s">
+								{helper(hours, "день", "дні", "днів")}
+							</span>
+						</div>
+						<div className="animated-element">
+							<span className="font-l">{hours}</span>
+							<span className="font-s">
+								{helper(hours, "година", "години", "годин")}
+							</span>
+						</div>
+						<div className="animated-element">
+							<span className="font-l">{minutes}</span>
+							<span className="font-s">
+								{helper(minutes, "хвилина", "хвилини", "хвилин")}
+							</span>
+						</div>
+						<div className="animated-element">
+							<span className="font-l">{seconds}</span>
+							<span className="font-s">
+								{helper(seconds, "секунда", "секунди", "секунд")}
+							</span>
+						</div>
 					</div>
 				</section>
 			</main>
