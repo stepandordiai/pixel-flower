@@ -375,7 +375,8 @@
 		"option_code": "silver",
 		"song": "/music/LadyGaga.mp3",
 		"dress_code": false,
-		"isTemplate": true
+		"isTemplate": true,
+		"hasGuestRoute": true
 	},
 	{
 		"id": "bogdan-and-anzelika",
