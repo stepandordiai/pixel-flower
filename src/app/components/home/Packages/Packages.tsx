@@ -85,7 +85,7 @@ const Packages = () => {
 					{packagesData.map((pack) => {
 						return (
 							<div key={pack.name} className="package">
-								{/* <p className="package__title">{t(pack.name)}</p> */}
+								<p className="package__title">{pack.name}</p>
 								<p className="package__price">
 									<span
 										style={{ textDecoration: "line-through", fontWeight: 400 }}

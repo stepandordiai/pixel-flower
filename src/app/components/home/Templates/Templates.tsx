@@ -77,7 +77,6 @@ export default function Templates() {
 						{t("templates.chooseTheInvitationType")}
 					</p>
 					<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
-						{/* TODO: learn this */}
 						{["templates.all", ...uniqueTemplateTypes].map((templateType) => {
 							return (
 								<button
