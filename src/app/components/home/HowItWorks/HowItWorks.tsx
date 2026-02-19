@@ -3,8 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
-import ArrowRightIcon from "../../../icons/ArrowRightIcon";
-import "./HowItWorks.scss";
+import styles from "./HowItWorks.module.scss";
 
 const howItWorksData = [
 	{
@@ -27,6 +26,7 @@ const howItWorksData = [
 
 const HowItWorks = () => {
 	const t = useTranslations();
+
 	const cardsRef = useRef<(HTMLElement | null)[]>([]);
 	const [isCardInView, setIsCardInView] = useState(() =>
 		new Array(howItWorksData.length).fill(false),
@@ -59,22 +59,20 @@ const HowItWorks = () => {
 	}, []);
 
 	return (
-		<section className="how-it-works">
-			<h2 className="how-it-works__title" id="how-it-works">
+		<section className={styles.section}>
+			<h2 className={styles["how-it-works__title"]} id="how-it-works">
 				{t("howItWorks.heading")}
 			</h2>
-			<p style={{ textAlign: "center", marginBottom: 10 }}>
-				{t("howItWorks.desc")}
-			</p>
-			<div className="how-it-works-container">
+			<p className={styles["how-it-works__desc"]}>{t("howItWorks.desc")}</p>
+			<div className={styles["how-it-works-container"]}>
 				{howItWorksData.map(({ heading, desc }, i) => {
 					return (
 						<div
 							ref={(card) => {
 								cardsRef.current[i] = card;
 							}}
-							className={classNames("how-it-works-card", {
-								"how-it-works-card--visible": isCardInView[i],
+							className={classNames(styles["how-it-works-card"], {
+								[styles["how-it-works-card--visible"]]: isCardInView[i],
 							})}
 							key={i}
 						>
