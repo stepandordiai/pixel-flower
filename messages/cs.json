@@ -69,6 +69,24 @@
 		"contactUs": "Kontaktujte nás způsobem, který vám vyhovuje"
 	},
 
+	"whyUs": {
+		"title": "Proč si vybrat naše webové pozvánky",
+		"itemTitle1": "Moderní řešení s luxusnějším dojmem",
+		"itemDesc1": "Online pozvánka působí reprezentativněji než běžný soubor nebo obrázek.",
+		"itemTitle2": "Pohodlné zobrazení na jakémkoli zařízení",
+		"itemDesc2": "Chytrý telefon, tablet nebo notebook — web vypadá skvěle všude.",
+		"itemTitle3": "Interaktivní prvky, které PDF nenabízí",
+		"itemDesc3": "Animace, hudba, tlačítka a interaktivita vytvářejí wow efekt.",
+		"itemTitle4": "Snadná aktualizace informací",
+		"itemDesc4": "Změnily se detaily události? Rychle je upravíme bez nutnosti znovu vydávat pozvánky.",
+		"itemTitle5": "Jednoduché sdílení odkazu hostům",
+		"itemDesc5": "Jeden odkaz — do messengeru, e-mailem nebo na sociálních sítích.",
+		"itemTitle6": "Dostupnější, než si myslíte",
+		"itemDesc6": "Cena online pozvánky je často srovnatelná nebo nižší než tisk a doručení papírových.",
+		"itemTitle7": "Pozvánka, která zanechá dojem",
+		"itemDesc7": "Hosté si ještě dlouho pamatují stylovou prezentaci a atmosféru události."
+	},
+
 	"questionsAndAnswers": {
 		"question1": "Jak dlouho trvá vytvoření webu",
 		"question2": "Co když po dokončení potřebuji upravit informace",

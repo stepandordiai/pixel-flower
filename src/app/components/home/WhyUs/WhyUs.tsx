@@ -1,42 +1,43 @@
 import styles from "./WhyUs.module.scss";
+import { getTranslations } from "next-intl/server";
 
 const whyUsData = [
 	{
-		title: "Сучасніше рішення, що виглядає «дорожче»",
-		desc: "Онлайн-запрошення справляє сильніше враження, ніж звичайний файл або картинка.",
+		title: "whyUs.itemTitle1",
+		desc: "whyUs.itemDesc1",
 	},
 	{
-		title: "Зручно відкривати на будь-якому пристрої",
-		desc: "Смартфон, планшет чи ноутбук — сайт виглядає однаково добре всюди.",
+		title: "whyUs.itemTitle2",
+		desc: "whyUs.itemDesc2",
 	},
 	{
-		title: "Живі елементи, яких немає в PDF",
-		desc: "Анімації, музика, кнопки та інтерактив створюють вау-ефект.",
+		title: "whyUs.itemTitle3",
+		desc: "whyUs.itemDesc3",
 	},
 	{
-		title: "Легко оновлювати інформацію",
-		desc: "Змінилися деталі події? Ми швидко внесемо правки без перевипуску запрошень.",
+		title: "whyUs.itemTitle4",
+		desc: "whyUs.itemDesc4",
 	},
 	{
-		title: "Посилання зручно надсилати гостям",
-		desc: "Одне посилання — у месенджері, поштою або соцмережах.",
+		title: "whyUs.itemTitle5",
+		desc: "whyUs.itemDesc5",
 	},
 	{
-		title: "Доступніше, ніж здається",
-		desc: "Ціна онлайн-запрошення часто не вища за друк та доставку паперових.",
+		title: "whyUs.itemTitle6",
+		desc: "whyUs.itemDesc6",
 	},
 	{
-		title: "Таке запрошення запам’ятовується",
-		desc: "Гості ще довго згадують стильну подачу та атмосферу події.",
+		title: "whyUs.itemTitle7",
+		desc: "whyUs.itemDesc7",
 	},
 ];
 
-const WhyUs = () => {
+const WhyUs = async () => {
+	const t = await getTranslations();
+
 	return (
-		<section className={styles["why-us"]}>
-			<h2 className={styles["why-us__title"]}>
-				Чому варто обрати наше сайт-запрошення
-			</h2>
+		<section className={styles.section}>
+			<h2 className={styles["why-us__title"]}>{t("whyUs.title")}</h2>
 			<ul className={styles["why-us-list"]}>
 				{whyUsData.map(({ title, desc }, i) => {
 					return (
@@ -47,8 +48,8 @@ const WhyUs = () => {
 							>
 								{i + 1}
 							</p>
-							<h3 className={styles["why-us-item__title"]}>{title}</h3>
-							<p>{desc}</p>
+							<h3 className={styles["why-us-item__title"]}>{t(title)}</h3>
+							<p>{t(desc)}</p>
 						</li>
 					);
 				})}

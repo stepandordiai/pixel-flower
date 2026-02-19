@@ -1,4 +1,4 @@
-.why-us {
+.section {
 	scroll-margin-top: 70px;
 	width: 100%;
 	display: flex;
@@ -9,7 +9,6 @@
 .why-us__title {
 	font-size: clamp(1.5rem, 4vw, 2rem);
 	margin-bottom: 10px;
-	font-weight: 500;
 	position: sticky;
 	top: 70px;
 }
@@ -59,13 +58,13 @@
 }
 
 .why-us-item__title {
-	font-size: clamp(20px, 2vw, 24px);
+	font-size: 18px;
 	font-weight: 500;
 	margin-bottom: 10px;
 }
 
 @media screen and (width < 900px) {
-	.why-us {
+	.section {
 		flex-direction: column;
 	}
 
