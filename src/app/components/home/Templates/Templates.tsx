@@ -101,7 +101,15 @@ export default function Templates() {
 				<div className="templates-grid">
 					{filteredTemplates.map((template, index) => (
 						<div key={template.id} className="template">
-							<div className="template__type">{template.option}</div>
+							<div
+								className={classNames("template__type", {
+									"template__type--bronze": template.option === "Bronze",
+									"template__type--silver": template.option === "Silver",
+									"template__type--gold": template.option === "Gold",
+								})}
+							>
+								{template.option}
+							</div>
 							<Link
 								href={`/${template.type_code}/${template.id}${template.hasGuestRoute ? "/guest" : ""}`}
 								className="template__img-container"
@@ -137,7 +145,9 @@ export default function Templates() {
 									alignItems: "center",
 								}}
 							>
-								<p style={{ fontSize: "1.2rem" }}>{t(template.type)}</p>
+								<p style={{ fontSize: "18px", fontWeight: 500 }}>
+									{t(template.type)}
+								</p>
 							</div>
 						</div>
 					))}

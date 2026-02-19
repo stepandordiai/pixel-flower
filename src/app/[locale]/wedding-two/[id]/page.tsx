@@ -139,6 +139,10 @@ export default function WeddingTwo() {
 		});
 
 		document.body.style.overflow = "hidden";
+
+		return () => {
+			document.body.style.overflow = "";
+		};
 	}, []);
 
 	const handleEnvelope = (e: any) => {

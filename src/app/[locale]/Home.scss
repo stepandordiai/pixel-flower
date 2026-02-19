@@ -45,6 +45,12 @@
 	flex-direction: column;
 }
 
+.home-top__title {
+	font-size: clamp(1.5rem, 4vw, 2rem);
+	font-weight: 500;
+	margin-bottom: 25px;
+}
+
 @media screen and (width < 1200px) {
 	.home-hero {
 		display: flex;
@@ -159,11 +165,6 @@
 	}
 }
 
-.home-top__title {
-	font-size: clamp(1.5rem, 4vw, 2rem);
-	margin-bottom: 25px;
-}
-
 .home-top__link {
 	display: flex;
 	justify-content: center;
@@ -202,29 +203,9 @@
 	}
 }
 
-.home__top-date {
-	font-family: "Nata Sans", sans-serif;
-	font-weight: 300;
-	font-size: clamp(2rem, 4vw, 4rem);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 10px;
-	width: 100%;
-
-	span {
-		font-size: 1.5rem;
-	}
-}
-
 .home__top-img {
 	border-radius: 25px;
 	width: 200px;
-}
-
-.home__top-title {
-	font-size: clamp(4rem, 10vw, 10rem);
-	text-align: center;
 }
 
 .calendar-wrapper {
@@ -287,44 +268,8 @@
 	}
 }
 
-.pepe {
-	font-size: clamp(1.75rem, 4vw, 2.25rem);
-	text-align: center;
-	text-decoration: underline;
-	text-decoration-color: rgb(239, 247, 231);
-	text-decoration-thickness: 5px;
-	text-decoration-skip-ink: none;
-	padding: 0 10px;
-	color: rgb(102, 93, 73);
-
-	span {
-		font-size: clamp(2.25rem, 4vw, 3.75rem);
-	}
-}
-
-.page-title {
-	text-align: center;
-	font-size: clamp(2.25rem, 4vw, 3.75rem);
-	text-decoration-line: underline;
-	text-decoration-color: rgb(239, 247, 231);
-	text-decoration-thickness: 5px;
-	text-decoration-skip-ink: none;
-	margin-bottom: 25px;
-}
-
 .addresses-container {
 	width: 100%;
-}
-
-.addresses__title {
-	font-size: clamp(2.25rem, 4vw, 3.75rem);
-	text-align: center;
-	text-decoration: underline;
-	text-decoration-color: var(--olive-clr);
-	text-decoration-thickness: 5px;
-	text-decoration-skip-ink: none;
-	text-decoration-line: underline;
-	margin-bottom: 25px;
 }
 
 .addresses {
@@ -378,20 +323,6 @@
 				height: 300px;
 			}
 		}
-	}
-}
-
-.address__title {
-	font-size: clamp(1.75rem, 4vw, 2.25rem);
-	display: flex;
-	justify-content: space-between;
-
-	span {
-		text-decoration: underline;
-		text-decoration-color: var(--olive-clr);
-		text-decoration-thickness: 5px;
-		text-decoration-skip-ink: none;
-		text-decoration-line: underline;
 	}
 }
 
@@ -464,10 +395,6 @@
 		padding: 0 10px;
 	}
 
-	.home__top-date {
-		justify-content: center;
-	}
-
 	.addresses {
 		padding: 0 10px;
 		flex-direction: column;
@@ -493,11 +420,6 @@
 }
 
 @media screen and (width <= 600px) {
-	.home__top-title {
-		display: flex;
-		flex-direction: column;
-	}
-
 	.date {
 		flex-direction: column;
 	}

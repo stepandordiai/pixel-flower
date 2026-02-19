@@ -4,6 +4,7 @@ import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Montserrat_Alternates } from "next/font/google";
+import ScrollToTop from "../utils/ScrollToTop";
 import "@/app/globals.scss";
 
 const montserratAlternates = Montserrat_Alternates({
@@ -31,6 +32,7 @@ export default async function LocaleLayout({
 	return (
 		<html lang={locale}>
 			<body className={montserratAlternates.variable}>
+				<ScrollToTop />
 				<NextIntlClientProvider locale={locale}>
 					{children}
 					<Footer />

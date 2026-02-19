@@ -76,7 +76,9 @@ const HowItWorks = () => {
 							})}
 							key={i}
 						>
-							<h3 style={{ fontWeight: 600, marginBottom: 10 }}>
+							<h3
+								style={{ fontSize: "18px", fontWeight: 500, marginBottom: 10 }}
+							>
 								{t(heading)}
 							</h3>
 							<p>{t(desc)}</p>

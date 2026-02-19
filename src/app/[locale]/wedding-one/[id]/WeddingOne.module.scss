@@ -1,9 +1,20 @@
+.underline {
+	text-decoration: underline;
+	text-decoration-color: var(--olive-clr);
+	text-decoration-thickness: 5px;
+	text-decoration-skip-ink: none;
+	text-decoration-line: underline;
+}
+
 .main {
+	font-family: var(--font-natasans);
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 	gap: 100px;
 	overflow: hidden;
+	--brown-clr: #665d49;
+	--olive-clr: #eff7e7;
 }
 
 .hero {
@@ -52,6 +63,38 @@
 	background: rgba(211, 201, 87, 0.5);
 }
 
+.home__top-date {
+	font-weight: 300;
+	font-size: clamp(2rem, 4vw, 4rem);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	width: 100%;
+
+	span {
+		font-size: 1.5rem;
+	}
+}
+
+.home__top-title {
+	font-size: clamp(4rem, 10vw, 10rem);
+	text-align: center;
+}
+
+.pepe {
+	font-size: 18px;
+	text-align: center;
+	padding: 0 10px;
+	color: var(--brown-clr);
+	@extend .underline;
+
+	span {
+		font-size: 2rem;
+		font-weight: 500;
+	}
+}
+
 .calendar {
 	position: relative;
 	width: max-content;
@@ -79,5 +122,48 @@
 	div:nth-of-type(-n + 7) {
 		border-bottom: 1px solid var(--brown-clr);
 		font-weight: 500;
+	}
+}
+
+.addresses__title {
+	color: var(--brown-clr);
+	font-size: 2rem;
+	font-weight: 500;
+	text-align: center;
+	margin-bottom: 25px;
+
+	@extend .underline;
+}
+
+.address__title {
+	font-size: 18px;
+	display: flex;
+	justify-content: space-between;
+
+	span {
+		@extend .underline;
+	}
+}
+
+.page-title {
+	color: var(--brown-clr);
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 500;
+	margin-bottom: 25px;
+
+	@extend .underline;
+}
+
+@media screen and (width < 808px) {
+	.home__top-date {
+		flex-direction: column;
+	}
+}
+
+@media screen and (width <= 600px) {
+	.home__top-title {
+		display: flex;
+		flex-direction: column;
 	}
 }
