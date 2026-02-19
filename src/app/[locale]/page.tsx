@@ -11,6 +11,7 @@ import { Link } from "@/i18n/navigation";
 import ScrollToTop from "../utils/ScrollToTop";
 import type { Metadata } from "next";
 import "./Home.scss";
+import ContactUs from "../components/home/ContactUs/ContactUs";
 
 const sliderImgData = [
 	["/hero-img/01.png", "/hero-img/02.png", "/hero-img/03.png"],
@@ -144,6 +145,7 @@ export default async function Home() {
 					<Packages />
 					<WhyUs />
 					<QA />
+					<ContactUs />
 					<Socials />
 				</div>
 			</main>

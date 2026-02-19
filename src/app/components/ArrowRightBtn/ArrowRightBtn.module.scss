@@ -1,0 +1,29 @@
+.link {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+	color: #000;
+	border: 1px solid #000;
+	border-radius: 20px;
+	padding: 7.5px;
+
+	&:hover .inner {
+		transform: translate(24px);
+	}
+}
+.container {
+	width: 24px;
+	overflow: hidden;
+}
+
+.inner {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	transition: transform 0.5s;
+
+	svg {
+		flex-shrink: 0;
+	}
+}
