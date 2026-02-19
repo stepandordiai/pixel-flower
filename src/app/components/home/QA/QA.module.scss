@@ -1,4 +1,4 @@
-.qa {
+.section {
 	scroll-margin-top: 70px;
 	display: flex;
 	flex-direction: row-reverse;
@@ -76,7 +76,7 @@
 }
 
 .qa-item__title {
-	font-size: clamp(20px, 2vw, 24px);
+	font-size: 18px;
 	font-weight: 500;
 	margin-bottom: 10px;
 }
@@ -89,7 +89,7 @@
 }
 
 @media screen and (width < 900px) {
-	.qa {
+	.section {
 		flex-direction: column;
 	}
 

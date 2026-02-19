@@ -1,61 +1,52 @@
-"use client";
+import { getTranslations } from "next-intl/server";
+import styles from "./QA.module.scss";
 
-import { useTranslations } from "next-intl";
-import "./QA.scss";
+const questionsAnswersData = [
+	{
+		question: "questionsAndAnswers.question1",
+		answer: "questionsAndAnswers.answer1",
+	},
+	{
+		question: "questionsAndAnswers.question2",
+		answer: "questionsAndAnswers.answer2",
+	},
+	{
+		question: "questionsAndAnswers.question3",
+		answer: "questionsAndAnswers.answer3",
+	},
+	{
+		question: "questionsAndAnswers.question4",
+		answer: "questionsAndAnswers.answer4",
+	},
+	{
+		question: "questionsAndAnswers.question5",
+		answer: "questionsAndAnswers.answer5",
+	},
+];
 
-export default function QA() {
-	const t = useTranslations();
+const QA = async () => {
+	const t = await getTranslations();
 
 	return (
-		<div className="qa" id="qa">
-			<h2 className="qa__title">{t("questionsAndAnswersTitle")}</h2>
-			<div className="qa-grid">
-				<div className="qa-item">
-					<p className="qa-item__title">
-						{t("questionsAndAnswers.question1")}
-						<span>?</span>
-					</p>
-					<div className="qa-item__desc">
-						<p>{t("questionsAndAnswers.answer1")}</p>
-					</div>
-				</div>
-				<div className="qa-item">
-					<p className="qa-item__title">
-						{t("questionsAndAnswers.question2")}
-						<span>?</span>
-					</p>
-					<div className="qa-item__desc">
-						<p>{t("questionsAndAnswers.answer2")}</p>
-					</div>
-				</div>
-				<div className="qa-item">
-					<p className="qa-item__title">
-						{t("questionsAndAnswers.question3")}
-						<span>?</span>
-					</p>
-					<div className="qa-item__desc">
-						<p>{t("questionsAndAnswers.answer3")}</p>
-					</div>
-				</div>
-				<div className="qa-item">
-					<p className="qa-item__title">
-						{t("questionsAndAnswers.question4")}
-						<span>?</span>
-					</p>
-					<div className="qa-item__desc">
-						<p>{t("questionsAndAnswers.answer4")}</p>
-					</div>
-				</div>
-				<div className="qa-item">
-					<p className="qa-item__title">
-						{t("questionsAndAnswers.question5")}
-						<span>?</span>
-					</p>
-					<div className="qa-item__desc">
-						<p>{t("questionsAndAnswers.answer5")}</p>
-					</div>
-				</div>
+		<div className={styles.section} id="qa">
+			<h2 className={styles["qa__title"]}>{t("questionsAndAnswersTitle")}</h2>
+			<div className={styles["qa-grid"]}>
+				{questionsAnswersData.map(({ question, answer }, i) => {
+					return (
+						<div key={i} className={styles["qa-item"]}>
+							<p className={styles["qa-item__title"]}>
+								{t(question)}
+								<span>?</span>
+							</p>
+							<div className={styles["qa-item__desc"]}>
+								<p>{t(answer)}</p>
+							</div>
+						</div>
+					);
+				})}
 			</div>
 		</div>
 	);
-}
+};
+
+export default QA;
