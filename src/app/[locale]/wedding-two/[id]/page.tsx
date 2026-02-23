@@ -15,10 +15,8 @@ import "swiper/css/effect-fade";
 import { Autoplay, EffectFade } from "swiper/modules";
 
 import { useParams } from "next/navigation";
-
 import Container from "@/app/components/Container/Container";
 import ContainerInner from "@/app/components/ContainerInner/ContainerInner.";
-// import NotFound from "../NotFound/NotFound";
 import { notFound } from "next/navigation";
 import ScrollToTop from "@/app/utils/ScrollToTop";
 import "./WeddingTwo.scss";
@@ -32,12 +30,8 @@ export default function WeddingTwo() {
 		return notFound();
 	}
 
-	const date = template.time.slice(8, 10).startsWith("0")
-		? template.time.slice(9, 10)
-		: template.time.slice(8, 10);
-	const month = template.time.slice(5, 7).startsWith("0")
-		? template.time.slice(6, 7)
-		: template.time.slice(5, 7);
+	const date = template.time.slice(8, 10);
+	const month = template.time.slice(5, 7);
 
 	// TODO:
 	const targetDate: any = new Date(template.time);
@@ -161,6 +155,31 @@ export default function WeddingTwo() {
 			document.body.style.overflow = "auto";
 		}, 4000);
 	};
+
+	// TODO: learn this
+	function helper(
+		time: number,
+		one: string,
+		two: string,
+		five: string,
+	): string {
+		const lastDigit = time % 10;
+		const lastTwoDigits = time % 100;
+
+		if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
+			return five;
+		}
+
+		if (lastDigit === 1) {
+			return one;
+		}
+
+		if (lastDigit >= 2 && lastDigit <= 4) {
+			return two;
+		}
+
+		return five;
+	}
 
 	return (
 		<>
@@ -290,19 +309,27 @@ export default function WeddingTwo() {
 						<div className="silver-date" id="date">
 							<div className="animated-element">
 								<span className="font-l">{days}</span>
-								<span className="font-s">днів</span>
+								<span className="font-s">
+									{helper(days, "день", "дні", "днів")}
+								</span>
 							</div>
 							<div className="animated-element">
 								<span className="font-l">{hours}</span>
-								<span className="font-s">годин(а)</span>
+								<span className="font-s">
+									{helper(hours, "година", "години", "годин")}
+								</span>
 							</div>
 							<div className="animated-element">
 								<span className="font-l">{minutes}</span>
-								<span className="font-s">хвилин(а)</span>
+								<span className="font-s">
+									{helper(minutes, "хвилина", "хвилини", "хвилин")}
+								</span>
 							</div>
 							<div className="animated-element">
 								<span className="font-l">{seconds}</span>
-								<span className="font-s">секунд(а)</span>
+								<span className="font-s">
+									{helper(seconds, "секунда", "секунди", "секунд")}
+								</span>
 							</div>
 						</div>
 					</ContainerInner>
@@ -316,9 +343,6 @@ export default function WeddingTwo() {
 							<p className="animated-element font-m font-accent">
 								Адреси святкування
 							</p>
-							<p className="animated-element font-s">
-								{template.location_time}
-							</p>
 						</div>
 						{template.addresses.map((address, index) => {
 							return (
@@ -331,8 +355,11 @@ export default function WeddingTwo() {
 										}}
 										className="animated-element font-m font-accent"
 									>
-										{/* <span>{address.title}</span> */}
-										{/* <span>{address.time}</span> */}
+										{/* FIXME: */}
+										<span>{(address as any).title || ""}</span>
+										<span>
+											{(address as any).time || ""}({template.location_time})
+										</span>
 									</p>
 									<p className="animated-element font-s">
 										{address.address_title}
