@@ -12,6 +12,7 @@ const ChristeningGirl = () => {
 	const params = useParams();
 	const id = Array.isArray(params?.id) ? params.id[0] : params?.id;
 
+	// FIXME: template if no then real
 	const template = templatesData.find((template) => template.id === id);
 
 	if (!template) {
@@ -200,6 +201,30 @@ const ChristeningGirl = () => {
 	const color = template.color;
 	document.documentElement.style.setProperty("--color", color ?? "#000");
 
+	const helper = (
+		time: number,
+		one: string,
+		two: string,
+		five: string,
+	): string => {
+		const lastDigit = time % 10;
+		const lastTwoDigits = time % 100;
+
+		if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
+			return five;
+		}
+
+		if (lastDigit === 1) {
+			return one;
+		}
+
+		if (lastDigit >= 2 && lastDigit <= 4) {
+			return two;
+		}
+
+		return five;
+	};
+
 	return (
 		<>
 			<ScrollToTop />
@@ -261,7 +286,6 @@ const ChristeningGirl = () => {
 								className="christening-girl__iimg"
 								src={template.gallery[0]}
 								alt=""
-								loading="lazy"
 							/>
 							<img
 								className="christening-girl__gallery-float-img"
@@ -334,16 +358,20 @@ const ChristeningGirl = () => {
 							<p
 								style={{ marginBottom: 25 }}
 								className=" christening-girl__font-m christening-girl__animate"
-							>
-								{template.location_time}
-							</p>
+							></p>
 							<div className="christening-girl__addresses-chr">
 								{template.addresses.map((address, index) => {
 									return (
 										<div key={index} className="christening-girl__address-chr">
 											<p className="christening-girl__address__title-chr christening-girl__animate christening-girl__txt-decoration">
-												{/* <span>{address.title}</span> */}
-												{/* <span>{address.time}</span> */}
+												{"title" in address && address.title && (
+													<span>{address.title}</span>
+												)}
+												{"time" in address && address.time && (
+													<span>
+														{address.time}({template.location_time})
+													</span>
+												)}
 											</p>
 											<p className="christening-girl__address__info-chr christening-girl__animate">
 												{address.address_title}
@@ -402,19 +430,19 @@ const ChristeningGirl = () => {
 							>
 								<div>
 									<p>{days}</p>
-									<p>днів</p>
+									<p>{helper(days, "день", "дні", "днів")}</p>
 								</div>
 								<div>
 									<p>{hours}</p>
-									<p>годин(а)</p>
+									<p>{helper(hours, "година", "години", "годин")}</p>
 								</div>
 								<div>
 									<p>{minutes}</p>
-									<p>хвилин(а)</p>
+									<p>{helper(minutes, "хвилина", "хвилини", "хвилин")}</p>
 								</div>
 								<div>
 									<p>{seconds}</p>
-									<p>секунд(а)</p>
+									<p>{helper(seconds, "секунда", "секунди", "секунд")}</p>
 								</div>
 							</div>
 						</div>

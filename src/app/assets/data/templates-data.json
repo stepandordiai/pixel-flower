@@ -144,16 +144,13 @@
 		"isTemplate": true
 	},
 	{
-		"id": "chrestiny-ukraine",
-		"time": "2025-09-21T13:00:00",
+		"id": "christening-maria",
+		"time": "2026-09-21T13:00:00",
 		"monthName": "Вересень",
 		"monthDeclined": "Вересня",
 		"child_name": "Марії",
 		"mother_name": "Мирослава",
 		"father_name": "Михайло",
-		"year": 2025,
-
-		"date": 21,
 		"location_time": "Київський час",
 		"addresses": [
 			{
@@ -175,7 +172,11 @@
 				"img": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrsYdaE2E-57nNnt-uHaol8iCMhF99zwQf1eO1o79mAvKy3ZwNth28OioXeKz7AupL49vHATp5Cq-utCyZGSLQAQvwNMQulQMogStoDAGFf5B2W-aOJHhx-SGmKt0JJrQkihXUm=s1360-w1360-h1020-rw"
 			}
 		],
-		"gallery": ["/child/01.jpg", "/child/02.jpg", "/child/03.jpg"],
+		"gallery": [
+			"/christening-girl/girl-1-c.jpg",
+			"/christening-girl/girl-2-c.jpg",
+			"/christening-girl/girl-3-c.jpg"
+		],
 		"option": "Bronze",
 		"type": "templates.christening",
 		"type_code": "christening-girl",
@@ -185,7 +186,7 @@
 		"song": "/music/Lullaby.mp3"
 	},
 	{
-		"id": "chrestiny-ukraine",
+		"id": "christening-maria",
 		"time": "2025-09-21T13:00:00",
 		"child_name": "Марії",
 		"mother_name": "Мирослава",
