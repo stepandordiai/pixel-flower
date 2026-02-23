@@ -53,7 +53,6 @@
 	padding: 7.5px;
 	border: 1px solid #000;
 	border-radius: 20px;
-	// background: var(--accent-clr-pink);
 }
 
 .template__type--bronze {
@@ -112,20 +111,10 @@
 	text-align: center;
 }
 
-.filters-container {
-	padding: 10px;
-	border-radius: 25px;
-	border: 1px solid #000;
-	display: flex;
-	flex-wrap: wrap;
-	gap: 10px;
-}
-
 .filter-container {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-	background: var(--accent-clr-green);
 	padding: 10px;
 	border-radius: 20px;
 	border: 1px solid #000;

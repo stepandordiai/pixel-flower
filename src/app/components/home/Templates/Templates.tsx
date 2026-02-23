@@ -18,79 +18,33 @@ export default function Templates() {
 	const [option, setOption] = useState(t("templates.all"));
 	const [type, setType] = useState(t("templates.all"));
 
-	// TODO: learn this
 	const filteredTemplates = templatesData.filter((template) => {
-		// Filtering option or type "all"
-		if (
-			(option === t("templates.all") &&
-				t(template.type) === type &&
-				template.isTemplate) ||
-			(type === t("templates.all") &&
-				template.option === option &&
-				template.isTemplate)
-		) {
-			return template;
-			// Filtering option and type "all"
-		} else if (
-			option === t("templates.all") &&
-			type === t("templates.all") &&
-			template.isTemplate
-		) {
-			return template;
-			// Filtering option and type
-		} else
-			return (
-				template.option === option &&
-				t(template.type) === type &&
-				template.isTemplate
-			);
+		if (!template.isTemplate) return false;
+		if (type === t("templates.all")) return true;
+		return t(template.type) === type;
 	});
 
 	return (
 		<div className="templates" id="templates">
 			<h2 className="templates__title">{t("templatesTitle")}</h2>
-			<div className="filters-container">
-				<div className="filter-container">
-					<p style={{ fontWeight: 600 }}>
-						{t("templates.chooseAnInvitationPackage")}
-					</p>
-					<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
-						{[t("templates.all"), "Bronze", "Silver", "Gold"].map(
-							(templateOption) => {
-								return (
-									<button
-										key={templateOption}
-										onClick={() => setOption(templateOption)}
-										className={classNames("templates__btn", {
-											"templates__btn--active": templateOption === option,
-										})}
-									>
-										{templateOption}
-									</button>
-								);
-							},
-						)}
-					</div>
-				</div>
-				<div className="filter-container">
-					<p style={{ fontWeight: 600 }}>
-						{t("templates.chooseTheInvitationType")}
-					</p>
-					<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
-						{["templates.all", ...uniqueTemplateTypes].map((templateType) => {
-							return (
-								<button
-									key={templateType}
-									onClick={() => setType(t(templateType))}
-									className={classNames("templates__btn", {
-										"templates__btn--active": t(templateType) === type,
-									})}
-								>
-									{t(templateType)}
-								</button>
-							);
-						})}
-					</div>
+			<div className="filter-container">
+				<p style={{ fontWeight: 500 }}>
+					{t("templates.chooseTheInvitationType")}
+				</p>
+				<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
+					{["templates.all", ...uniqueTemplateTypes].map((templateType) => {
+						return (
+							<button
+								key={templateType}
+								onClick={() => setType(t(templateType))}
+								className={classNames("templates__btn", {
+									"templates__btn--active": t(templateType) === type,
+								})}
+							>
+								{t(templateType)}
+							</button>
+						);
+					})}
 				</div>
 			</div>
 			{filteredTemplates.length === 0 ? (
@@ -101,15 +55,6 @@ export default function Templates() {
 				<div className="templates-grid">
 					{filteredTemplates.map((template, index) => (
 						<div key={template.id} className="template">
-							<div
-								className={classNames("template__type", {
-									"template__type--bronze": template.option === "Bronze",
-									"template__type--silver": template.option === "Silver",
-									"template__type--gold": template.option === "Gold",
-								})}
-							>
-								{template.option}
-							</div>
 							<Link
 								href={`/${template.type_code}/${template.id}${template.hasGuestRoute ? "/guest" : ""}`}
 								className="template__img-container"
