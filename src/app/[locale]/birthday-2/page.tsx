@@ -1,51 +1,22 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import templatesData from "./../../../assets/data/templates-data.json";
-import { useParams, notFound } from "next/navigation";
+import templates from "@/app/assets/data/templates.json";
 import Container from "@/app/components/Container/Container";
-import ScrollToTop from "@/app/utils/ScrollToTop";
-import "./ChristeningBoy.scss";
+import "./BirthdayTwo.scss";
 
-const ChristeningBoy = () => {
-	const params = useParams();
+const template = templates.find((template) => template.id === "birthday-2")!;
 
-	const template = templatesData.find((template) => template.id === params?.id);
-
-	if (!template) {
-		return notFound();
-	}
-
-	const [isPlaying, setIsPlaying] = useState(false);
-
-	const handlePlayAudio = () => {
-		setIsPlaying((prev) => !prev);
-	};
-
-	useEffect(() => {
-		const audio = document.querySelector(".audio") as HTMLAudioElement;
-
-		if (!isPlaying) {
-			audio.pause();
-		} else {
-			audio.play();
-		}
-	}, [isPlaying]);
-
-	const date = template.time.slice(8, 10).startsWith("0")
-		? template.time.slice(9, 10)
-		: template.time.slice(8, 10);
-	const month = template.time.slice(5, 7).startsWith("0")
-		? template.time.slice(6, 7)
-		: template.time.slice(5, 7);
+export default function BirthdayTwoTemplate() {
+	const fakeDate = new Date();
+	fakeDate.setDate(fakeDate.getDate() + 3);
 
 	// TODO:
-	const targetDate: any = new Date(template.time);
+	const targetDate: any = new Date(fakeDate);
 	const [days, setDays] = useState(0);
 	const [hours, setHours] = useState(0);
 	const [minutes, setMinutes] = useState(0);
 	const [seconds, setSeconds] = useState(0);
-	const [showHeader, setShowHeader] = useState(false);
 
 	useEffect(() => {
 		let interval = setInterval(() => {
@@ -62,7 +33,6 @@ const ChristeningBoy = () => {
 				setHours(0);
 				setMinutes(0);
 				setSeconds(0);
-				setShowHeader(true);
 			}
 		}, 1000);
 	}, []);
@@ -152,7 +122,6 @@ const ChristeningBoy = () => {
 		el.classList.add("loading--hide");
 		const el2 = document.querySelector(".home-chr") as HTMLElement;
 		el2.style.display = "flex";
-		setIsPlaying(true);
 		setTimeout(() => {
 			const el3 = document.querySelector(".home__top-chr") as HTMLElement;
 
@@ -189,8 +158,6 @@ const ChristeningBoy = () => {
 
 	return (
 		<>
-			<ScrollToTop />
-			{/* {showHeader && !template.isTemplate && <Header />} */}
 			<div onClick={handleLoading} className="loading-chr">
 				<img src="/christening-boy/01.webp" alt="" />
 				<img src="/christening-boy/01.webp" alt="" />
@@ -213,10 +180,11 @@ const ChristeningBoy = () => {
 								alt=""
 							/>
 							<div className="home__top-date-chr">
-								{template.date} {template.monthDeclined} {template.year} року
+								{fakeDate.getDate()} {template.monthDeclined}{" "}
+								{fakeDate.getFullYear()} року
 							</div>
 							<p className="home__top-title-chr">
-								Таїнство хрещення {template.child_name}
+								День народження {template.child_name}
 							</p>
 						</div>
 						<div className="rainbow">
@@ -266,19 +234,19 @@ const ChristeningBoy = () => {
 						/>
 						<p className="pepe-chr animated-element1">
 							<span>Дорогі гості,</span>
-							<br />з великою радістю та любов’ю запрошуємо Вас розділити з нами
-							важливу подію
+							<br />
+							зі щирою любов’ю запрошуємо Вас приєднатися до святкування, що має
+							для нас велике значення.
 							<br />
 							<br />
-							{/* {template.t} {template.child_name} */}
+							{template.text} {template.child_name}
 						</p>
 					</div>
 
 					<div className="calendar-wrapper-chr animated-element1">
-						<p className="calendar-top-christening">{`${template.monthName} ${template.time.slice(
-							0,
-							4,
-						)}`}</p>
+						<p className="calendar-top-christening">
+							{template.monthName} {template.time.slice(0, 4)}
+						</p>
 						<div className="calendar-christening">
 							<div>Пн</div>
 							<div>Вт</div>
@@ -291,10 +259,12 @@ const ChristeningBoy = () => {
 								return (
 									<div
 										key={index}
-										className={day == Number(date) ? "target-time-chr" : ""}
+										className={
+											day == fakeDate.getDate() ? "target-time-chr" : ""
+										}
 									>
 										{day}
-										{day == Number(date) && (
+										{day == fakeDate.getDate() && (
 											<div className="balloon-container">
 												<img src="/christening-boy/07.png" alt="" />
 											</div>
@@ -305,8 +275,8 @@ const ChristeningBoy = () => {
 						</div>
 					</div>
 					<p className="pepe-chr animated-element1">
-						Ми не уявляємо цей радісний день без Вас - близьких і дорогих нам
-						людей!
+						Ваше тепло і присутність роблять цей день незабутнім - ми щиро
+						хочемо розділити його саме з Вами!
 					</p>
 					<div style={{ padding: 10 }} className="wrapper">
 						<img
@@ -316,7 +286,7 @@ const ChristeningBoy = () => {
 						/>
 						<div className="addresses-container">
 							<p className="addresses__title-chr animated-element1">
-								Адреси святкування
+								Адреса святкування
 							</p>
 							<p
 								style={{ marginBottom: 25 }}
@@ -450,36 +420,6 @@ const ChristeningBoy = () => {
 					</div>
 				</Container>
 			</main>
-			<button onClick={handlePlayAudio} className="floating-btn-2">
-				{!isPlaying ? (
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="50%"
-						height="50%"
-						fill="currentColor"
-						className="bi bi-play-fill"
-						viewBox="0 0 16 16"
-					>
-						<title>Play</title>
-						<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
-					</svg>
-				) : (
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="50%"
-						height="50%"
-						fill="currentColor"
-						className="bi bi-pause-fill"
-						viewBox="0 0 16 16"
-					>
-						<title>Pause</title>
-						<path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5" />
-					</svg>
-				)}
-			</button>
-			<audio className="audio" autoPlay src={template.song}></audio>
 		</>
 	);
-};
-
-export default ChristeningBoy;
+}

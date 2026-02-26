@@ -1,0 +1,30 @@
+[
+	{
+		"id": "andrii-and-natali",
+		"time": "2026-05-14T16:00:00",
+		"monthName": "Вересень",
+		"monthDeclined": "Вересня",
+		"hisName": "Андрій",
+		"herName": "Наталія",
+		"location_time": "Київський час",
+		"addresses": [
+			{
+				"title": "Бенкет",
+				"time": "17:00",
+				"address_title": "Готельно-ресторанний комплекс \"Царська Долина\"",
+				"address": "с. Нересниця , вул. Солоний, 38",
+				"address_url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d21941.462315408433!2d23.8097244!3d48.1308062!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47379e6b7b7d5dd1%3A0x6ff58cb84c0dfffb!2sTsars%CA%B9ka%20Dolyna!5e1!3m2!1sen!2scz!4v1756309347115!5m2!1sen!2scz",
+				"address_destination_url": "https://maps.app.goo.gl/VLLkSM1oYpmA2UY86"
+			}
+		],
+		"envelope_img": "/wedding-two/envelope-1.png",
+		"gallery": [
+			"/wedding-one/01.JPG",
+			"/wedding-one/02.JPG",
+			"/wedding-one/03.JPG",
+			"/wedding-one/04.JPG",
+			"/wedding-one/05.JPG"
+		],
+		"song": "/music/LadyGaga.mp3"
+	}
+]

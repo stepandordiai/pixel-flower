@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import templatesData from "./../../../assets/data/templates-data.json";
+import templates from "@/app/assets/data/templates.json";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,27 +14,18 @@ import "swiper/css/effect-fade";
 // import required modules
 import { Autoplay, EffectFade } from "swiper/modules";
 
-import { useParams } from "next/navigation";
 import Container from "@/app/components/Container/Container";
 import ContainerInner from "@/app/components/ContainerInner/ContainerInner.";
-import { notFound } from "next/navigation";
-import ScrollToTop from "@/app/utils/ScrollToTop";
 import "./WeddingTwo.scss";
 
-export default function WeddingTwo() {
-	const params = useParams();
+const template = templates.find((template) => template.id === "wedding-2")!;
 
-	const template = templatesData.find((template) => template.id === params?.id);
-
-	if (!template) {
-		return notFound();
-	}
-
-	const date = template.time.slice(8, 10);
-	const month = template.time.slice(5, 7);
+export default function WeddingTwoTemplate() {
+	const fakeDate = new Date();
+	fakeDate.setDate(fakeDate.getDate() + 3);
 
 	// TODO:
-	const targetDate: any = new Date(template.time);
+	const targetDate: any = new Date(fakeDate);
 	const [days, setDays] = useState(0);
 	const [hours, setHours] = useState(0);
 	const [minutes, setMinutes] = useState(0);
@@ -101,16 +92,16 @@ export default function WeddingTwo() {
 	const days2 = [];
 
 	const firstDay = new Date(
-		Number(template.time.slice(0, 4)),
-		Number(month) - 1,
+		Number(fakeDate.getFullYear()),
+		Number(fakeDate.getMonth() + 1) - 1,
 		1,
 	);
 
 	let startWeekday = firstDay.getDay(); // 0 = Sunday, 1 = Monday, ...
 
 	const febDayNumbers = getDaysOfMonth(
-		Number(template.time.slice(0, 4)),
-		Number(month) - 1,
+		Number(fakeDate.getFullYear()),
+		Number(fakeDate.getMonth() + 1) - 1,
 	).map((d) => d.getDate());
 
 	startWeekday = (startWeekday + 6) % 7; // now Monday=0, Tuesday=1, ...
@@ -183,7 +174,6 @@ export default function WeddingTwo() {
 
 	return (
 		<>
-			<ScrollToTop />
 			<div className="loading">
 				<div onClick={handleEnvelope} className="envelope">
 					<img
@@ -262,8 +252,8 @@ export default function WeddingTwo() {
 							</p>
 						</div>
 						<p className="animated-element font-m font-accent">
-							Неділя, {date} {template.monthDeclined},{" "}
-							{template.time.slice(0, 4)}
+							Неділя, {fakeDate.getDate()} {template.monthDeclined},{" "}
+							{fakeDate.getFullYear()}
 						</p>
 						<div className="silver-calendar-wrapper animated-element font-s">
 							<div className="silver-calendar">
@@ -278,10 +268,12 @@ export default function WeddingTwo() {
 									return (
 										<div
 											key={index}
-											className={day == Number(date) ? "target-time" : ""}
+											className={
+												day == Number(fakeDate.getDate()) ? "target-time" : ""
+											}
 										>
 											{day}
-											{day == Number(date) && (
+											{day == Number(fakeDate.getDate()) && (
 												<img
 													className="calendar-heart"
 													src="/wedding-one/heart.png"

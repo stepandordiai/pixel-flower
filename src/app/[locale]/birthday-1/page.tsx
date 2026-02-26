@@ -1,34 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import templatesData from "./../../../assets/data/templates-data.json";
-
-import { useParams } from "next/navigation";
+import templates from "@/app/assets/data/templates.json";
 import Container from "@/app/components/Container/Container";
 import ContainerInner from "@/app/components/ContainerInner/ContainerInner.";
-import { notFound } from "next/navigation";
 import AnimatedTxt from "@/app/components/AnimatedTxt/AnimatedTxt";
-import ScrollToTop from "@/app/utils/ScrollToTop";
 import "./BirthdayOne.scss";
 
-export default function BirthdayOne() {
-	const params = useParams();
+const template = templates.find((template) => template.id === "birthday-1")!;
 
-	const template = templatesData.find((template) => template.id === params?.id);
-
-	if (!template) {
-		return notFound();
-	}
-
-	const date: any = template.time.slice(8, 10).startsWith("0")
-		? template.time.slice(9, 10)
-		: template.time.slice(8, 10);
-	const month = template.time.slice(5, 7).startsWith("0")
-		? template.time.slice(6, 7)
-		: template.time.slice(5, 7);
+export default function BirthdayOneTemplate() {
+	const fakeDate = new Date();
+	fakeDate.setDate(fakeDate.getDate() + 3);
 
 	// TODO:
-	const targetDate: any = new Date(template.time);
+	const targetDate: any = new Date(fakeDate);
 	const [days, setDays] = useState(0);
 	const [hours, setHours] = useState(0);
 	const [minutes, setMinutes] = useState(0);
@@ -93,7 +79,7 @@ export default function BirthdayOne() {
 
 	const firstDay = new Date(
 		Number(template.time.slice(0, 4)),
-		Number(month) - 1,
+		Number(fakeDate.getMonth()) - 1,
 		1,
 	);
 
@@ -101,7 +87,7 @@ export default function BirthdayOne() {
 
 	const febDayNumbers = getDaysOfMonth(
 		Number(template.time.slice(0, 4)),
-		Number(month) - 1,
+		Number(fakeDate.getMonth()) - 1,
 	).map((d) => d.getDate());
 
 	startWeekday = (startWeekday + 6) % 7; // now Monday=0, Tuesday=1, ...
@@ -128,7 +114,6 @@ export default function BirthdayOne() {
 
 	return (
 		<>
-			<ScrollToTop />
 			<main className="birthday-one__envelope-silver">
 				<Container>
 					<section className="birthday-one__hero">
@@ -139,7 +124,7 @@ export default function BirthdayOne() {
 						/>
 						<p className="birthday-one__hero-date">
 							<AnimatedTxt>
-								{`${date} - ${month} - ${template.time.slice(0, 4)}`}
+								{`${fakeDate.getDate()} - ${fakeDate.getMonth()} - ${fakeDate.getFullYear()}`}
 							</AnimatedTxt>
 						</p>
 						<div className="birthday-one__top-title font-accent">
@@ -173,8 +158,8 @@ export default function BirthdayOne() {
 							</div>
 							<p className="birthday-one__font-m birthday-one__font-accent">
 								<AnimatedTxt>
-									Неділя, {date} {template.monthDeclined},{" "}
-									{template.time.slice(0, 4)}
+									Неділя, {fakeDate.getDate()} {template.monthDeclined},{" "}
+									{fakeDate.getFullYear()}
 								</AnimatedTxt>
 							</p>
 							<div className="birthday-one__silver-calendar-wrapper birthday-one__font-s">
@@ -200,16 +185,18 @@ export default function BirthdayOne() {
 									<div>
 										<AnimatedTxt>Нд</AnimatedTxt>
 									</div>
-									{/* {days2.map((day, index) => {
+									{days2.map((day, index) => {
 										return (
 											<div
 												key={index}
 												className={
-													day == date ? "birthday-one__target-time" : ""
+													day == fakeDate.getDate()
+														? "birthday-one__target-time"
+														: ""
 												}
 											>
 												<AnimatedTxt>{day}</AnimatedTxt>
-												{day == date && (
+												{day == fakeDate.getDate() && (
 													<img
 														className="birthday-one__calendar-img "
 														src="/birthday-one/5.webp"
@@ -218,7 +205,7 @@ export default function BirthdayOne() {
 												)}
 											</div>
 										);
-									})} */}
+									})}
 								</div>
 							</div>
 							<p className="birthday-one__font-m birthday-one__font-accent">

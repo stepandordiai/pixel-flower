@@ -1,26 +1,17 @@
 "use client";
 
-import { useParams, notFound } from "next/navigation";
-import templatesData from "./../../../assets/data/templates-data.json";
+import templates from "@/app/assets/data/templates.json";
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCards } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-cards";
-
-import ScrollToTop from "@/app/utils/ScrollToTop";
 import styles from "./WeddingOne.module.scss";
 
-export default function WeddingOne() {
-	const params = useParams();
+const template = templates.find((template) => template.id === "wedding-1")!;
 
-	const template = templatesData.find((template) => template.id === params?.id);
-
-	if (!template) {
-		return notFound();
-	}
-
+export default function WeddingOneTemplate() {
 	const date: string = template.time.slice(8, 10);
 	const month: string = template.time.slice(5, 7);
 

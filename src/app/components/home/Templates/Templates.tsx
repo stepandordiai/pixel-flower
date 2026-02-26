@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import templatesData from "./../../../assets/data/templates-data.json";
+import templates from "./../../../assets/data/templates.json";
 import { useState } from "react";
 import classNames from "classnames";
 import ArrowRightIcon from "@/app/icons/ArrowRightIcon";
@@ -9,17 +9,15 @@ import { Link } from "@/i18n/navigation";
 import "./Templates.scss";
 
 const uniqueTemplateTypes = [
-	...new Set(templatesData.map((template) => template.type)),
+	...new Set(templates.map((template) => template.type)),
 ];
 
 export default function Templates() {
 	const t = useTranslations();
 
-	const [option, setOption] = useState(t("templates.all"));
 	const [type, setType] = useState(t("templates.all"));
 
-	const filteredTemplates = templatesData.filter((template) => {
-		if (!template.isTemplate) return false;
+	const filteredTemplates = templates.filter((template) => {
 		if (type === t("templates.all")) return true;
 		return t(template.type) === type;
 	});
@@ -56,7 +54,8 @@ export default function Templates() {
 					{filteredTemplates.map((template, index) => (
 						<div key={template.id} className="template">
 							<Link
-								href={`/${template.type_code}/${template.id}${template.hasGuestRoute ? "/guest" : ""}`}
+								// href={`/${template.type_code}/${template.id}${template.hasGuestRoute ? "/guest" : ""}`}
+								href={`/${template.id}`}
 								className="template__img-container"
 								style={{
 									display: "flex",

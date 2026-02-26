@@ -15,7 +15,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "sass": "^1.97.3",
-    "swiper": "^12.1.0"
+    "swiper": "^12.1.2"
   },
   "devDependencies": {
     "@types/node": "^20",

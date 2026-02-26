@@ -1,0 +1,38 @@
+[
+	{
+		"id": "christening-maria",
+		"time": "2026-09-21T13:00:00",
+		"monthName": "Вересень",
+		"monthDeclined": "Вересня",
+		"child_name": "Марії",
+		"mother_name": "Мирослава",
+		"father_name": "Михайло",
+		"location_time": "Київський час",
+		"addresses": [
+			{
+				"title": "Хрещення",
+				"time": "13:00",
+				"address_title": "Церква \"Kostel svatého Havla\"",
+				"address": "K Havlínu, 156 00 Zbraslav",
+				"address_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2565.950656959962!2d14.386725799999999!3d49.974783900000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b9737513b2943%3A0x2a6a534b4212dcee!2sKostel%20svat%C3%A9ho%20Havla!5e0!3m2!1sen!2scz!4v1757583443010!5m2!1sen!2scz",
+				"address_destination_url": "https://maps.app.goo.gl/AJmMJSLf9kwTXDDy9",
+				"img": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nru6Vso7SU3I6eflwIqHB3YXSs40xGhMnXJM58zdwNiUDQFJ5lkQIs2SPc-V218kuBduXJdhXWsaNokeIDHnniJbyuzx5JDZGFlzEk5UnczqB4xHh4m32pBfaeYEDTYqiv4s5nQ=s1360-w1360-h1020-rw"
+			},
+			{
+				"title": "Бенкет",
+				"time": "15:00",
+				"address_title": "Ресторан \"TAMI PIZZERIA\"",
+				"address": "Nupacká 163, 251 01 Nupaky-Říčany u Prahy",
+				"address_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2564.842230878555!2d14.602272999999997!3d49.9955673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b8e8ee273c08d%3A0x39ec3b99c582b93c!2sTAMI%20PIZZERIA!5e0!3m2!1sen!2scz!4v1757583608661!5m2!1sen!2scz",
+				"address_destination_url": "https://maps.app.goo.gl/qMHDVYWifA1AoLzh6",
+				"img": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrsYdaE2E-57nNnt-uHaol8iCMhF99zwQf1eO1o79mAvKy3ZwNth28OioXeKz7AupL49vHATp5Cq-utCyZGSLQAQvwNMQulQMogStoDAGFf5B2W-aOJHhx-SGmKt0JJrQkihXUm=s1360-w1360-h1020-rw"
+			}
+		],
+		"gallery": [
+			"/christening-girl/girl-1-c.jpg",
+			"/christening-girl/girl-2-c.jpg",
+			"/christening-girl/girl-3-c.jpg"
+		],
+		"song": "/music/Lullaby.mp3"
+	}
+]

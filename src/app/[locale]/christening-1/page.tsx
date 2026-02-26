@@ -1,24 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import templatesData from "./../../../assets/data/templates-data.json";
-import { useParams } from "next/navigation";
+import templates from "@/app/assets/data/templates.json";
 import Container from "@/app/components/Container/Container";
-import { notFound } from "next/navigation";
-import ScrollToTop from "@/app/utils/ScrollToTop";
 import "./ChristeningGirl.scss";
 
-const ChristeningGirl = () => {
-	const params = useParams();
-	const id = Array.isArray(params?.id) ? params.id[0] : params?.id;
+const template = templates.find((template) => template.id === "christening-1")!;
 
-	// FIXME: template if no then real
-	const template = templatesData.find((template) => template.id === id);
-
-	if (!template) {
-		return notFound();
-	}
-
+export default function ChristeningOneTemplate() {
 	const [isPlaying, setIsPlaying] = useState(false);
 
 	const handlePlayAudio = () => {
@@ -37,15 +26,11 @@ const ChristeningGirl = () => {
 		}
 	}, [isPlaying]);
 
-	const date = template.time.slice(8, 10).startsWith("0")
-		? template.time.slice(9, 10)
-		: template.time.slice(8, 10);
-	const month = template.time.slice(5, 7).startsWith("0")
-		? template.time.slice(6, 7)
-		: template.time.slice(5, 7);
+	const fakeDate = new Date();
+	fakeDate.setDate(fakeDate.getDate() + 3);
 
 	// TODO:
-	const targetDate = new Date(template.time);
+	const targetDate = new Date(fakeDate);
 	const [days, setDays] = useState(0);
 	const [hours, setHours] = useState(0);
 	const [minutes, setMinutes] = useState(0);
@@ -227,7 +212,6 @@ const ChristeningGirl = () => {
 
 	return (
 		<>
-			<ScrollToTop />
 			<div onClick={handleLoading} className="christening-girl__loading">
 				<img src="/christening-girl/01.webp" alt="" />
 				<img src="/christening-girl/01.webp" alt="" />
@@ -248,7 +232,8 @@ const ChristeningGirl = () => {
 								alt=""
 							/>
 							<div className="christening-girl__hero-date">
-								{template.date} {template.monthDeclined} {template.year} року
+								{fakeDate.getDate()} {template.monthDeclined}{" "}
+								{fakeDate.getFullYear()} року
 							</div>
 							<p className="christening-girl__hero-title">
 								Таїнство хрещення {template.child_name}
@@ -325,13 +310,13 @@ const ChristeningGirl = () => {
 									<div
 										key={index}
 										className={
-											day == Number(date)
+											day == Number(fakeDate.getDate())
 												? "christening-girl__calendar-target-time"
 												: ""
 										}
 									>
 										{day}
-										{day == Number(date) && (
+										{day == Number(fakeDate.getDate()) && (
 											<div className="christening-girl__calendar-img-container">
 												<img src="/christening-girl/07.png" alt="" />
 											</div>
@@ -531,6 +516,4 @@ const ChristeningGirl = () => {
 			></audio>
 		</>
 	);
-};
-
-export default ChristeningGirl;
+}

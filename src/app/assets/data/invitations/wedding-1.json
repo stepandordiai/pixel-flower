@@ -1,0 +1,36 @@
+[
+	{
+		"id": "andrii-and-natali",
+		"time": "2025-08-28T16:00:00",
+		"monthName": "Серпень",
+		"monthDeclined": "Серпня",
+		"hisName": "Андрій",
+		"herName": "Наталія",
+		"location_time": "Празький час",
+		"addresses": [
+			{
+				"title": "Вінчання",
+				"time": "13:00",
+				"address_title": "Православний монастир св. Кирила і Мефодія",
+				"address": "Hořovičky 79, 270 04 Hořovičky",
+				"address_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2632.8214000197636!2d13.530101612005327!3d50.156151508391744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470a41402926cbe7%3A0xbb620047900bbb55!2sPravoslavn%C3%BD%20Monast%C3%BDr%20sv.%20Cyrila%20a%20Metod%C4%9Bje!5e1!3m2!1sen!2scz!4v1755459539998!5m2!1sen!2scz",
+				"address_destination_url": "https://maps.app.goo.gl/M459wEdgqjRBhLEe7"
+			},
+			{
+				"title": "Бенкет",
+				"time": "16:00",
+				"address_title": "Ресторан \"Dergi Praha\"",
+				"address": "Revoluční 25, 110 00 Staré Město",
+				"address_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5273.010388171266!2d14.422204873322281!3d50.08922209402551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b95452691e2cf%3A0x27150a1da02a743b!2sDergi%20Praha!5e1!3m2!1sen!2scz!4v1755497626955!5m2!1sen!2scz",
+				"address_destination_url": "https://maps.app.goo.gl/nHWv2Fre1u7tGAru7"
+			}
+		],
+		"gallery": [
+			"/wedding-one/01.JPG",
+			"/wedding-one/02.JPG",
+			"/wedding-one/03.JPG",
+			"/wedding-one/04.JPG",
+			"/wedding-one/05.JPG"
+		]
+	}
+]

@@ -1,0 +1,38 @@
+[
+	{
+		"id": "stepan-and-andriana",
+		"time": "2026-05-03T17:00:00",
+		"monthName": "Травень",
+		"monthDeclined": "Травня",
+		"hisName": "Stepan",
+		"herName": "Andriana",
+		"location_time": "Празький час",
+		"addresses": [
+			{
+				"title": "Вінчання",
+				"time": "13:00",
+				"address_title": "Православний монастир св. Кирила і Мефодія",
+				"address": "Hořovičky 79, 270 04 Hořovičky",
+				"address_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2632.8214000197636!2d13.530101612005327!3d50.156151508391744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470a41402926cbe7%3A0xbb620047900bbb55!2sPravoslavn%C3%BD%20Monast%C3%BDr%20sv.%20Cyrila%20a%20Metod%C4%9Bje!5e1!3m2!1sen!2scz!4v1755459539998!5m2!1sen!2scz",
+				"address_destination_url": "https://maps.app.goo.gl/M459wEdgqjRBhLEe7"
+			},
+			{
+				"title": "Бенкет",
+				"time": "17:00",
+				"address_title": "Весільний зал \"CITADELA HALL\"",
+				"address": "Palouky 616, 253 01 Hostivice",
+				"address_url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d659.2402704821819!2d14.2812774!3d50.0809347!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470bbf0079a90af5%3A0xfb25762f2daa2efd!2sCitadel%20Hall!5e1!3m2!1sen!2scz!4v1771190741066!5m2!1sen!2scz",
+				"address_destination_url": "https://maps.app.goo.gl/G1n675tDBPmuVD2q9"
+			}
+		],
+		"envelope_img": "/wedding-two/envelope-1.png",
+		"gallery": [
+			"/wedding-one/01.JPG",
+			"/wedding-one/02.JPG",
+			"/wedding-one/03.JPG",
+			"/wedding-one/04.JPG",
+			"/wedding-one/05.JPG"
+		],
+		"song": "/music/LadyGaga.mp3"
+	}
+]

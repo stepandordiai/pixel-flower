@@ -1,11 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import styles from "./WeddingThree.module.scss";
+import styles from "../../WeddingThree.module.scss";
 import { Alex_Brush, Montserrat } from "next/font/google";
-import ScrollToTop from "@/app/utils/ScrollToTop";
-// import { useRef, useEffect } from "react";
-import templatesData from "@/app/assets/data/templates-data.json";
+import invitations from "@/app/assets/data/invitations/wedding-3.json";
 import { useParams, notFound } from "next/navigation";
 import Image from "next/image";
 import { useRef } from "react";
@@ -27,10 +25,12 @@ const guests = [
 	{ slug: "bilusyak", name: "Білусяк" },
 ];
 
-const WeddingThree = () => {
+export default function WeddingThree() {
 	const params = useParams();
 
-	const template = templatesData.find((template) => template.id === params?.id);
+	const template = invitations.find(
+		(invitation) => invitation.id === params?.id,
+	);
 	const guest = guests.find((g) => g.slug === params?.guest);
 
 	if (!template) {
@@ -224,7 +224,6 @@ const WeddingThree = () => {
 				src="/wedding-three/paper.jpg"
 				alt=""
 			/> */}
-			<ScrollToTop />
 			<main className={styles.main}>
 				<section className={styles.hero}>
 					<img src="/wedding-three/01.jpg" alt="" />
@@ -375,6 +374,4 @@ const WeddingThree = () => {
 			</main>
 		</>
 	);
-};
-
-export default WeddingThree;
+}
