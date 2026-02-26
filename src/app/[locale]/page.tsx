@@ -14,10 +14,62 @@ import "./Home.scss";
 import ContactUs from "../components/home/ContactUs/ContactUs";
 
 const sliderImgData = [
-	["/hero-img/01.png", "/hero-img/02.png", "/hero-img/03.png"],
-	["/hero-img/04.png", "/hero-img/05.png", "/hero-img/06.png"],
-	["/hero-img/07.png", "/hero-img/08.png", "/hero-img/09.png"],
-	["/hero-img/10.png", "/hero-img/11.png", "/hero-img/12.png"],
+	[
+		{
+			label: "Скріншот сайту-запрошення на весілля",
+			path: "/hero-img/wedding-1-ss-01-c.png",
+		},
+		{
+			label: "Скріншот сайту-запрошення на весілля",
+			path: "/hero-img/wedding-1-ss-02-c.png",
+		},
+		{
+			label: "Скріншот сайту-запрошення на весілля",
+			path: "/hero-img/wedding-2-ss-01-c.png",
+		},
+	],
+	[
+		{
+			label: "Скріншот сайту-запрошення на весілля",
+			path: "/hero-img/wedding-2-ss-02-c.png",
+		},
+		{
+			label: "Скріншот сайту-запрошення на хрестини",
+			path: "/hero-img/christening-1-ss-01-c.png",
+		},
+		{
+			label: "Скріншот сайту-запрошення на хрестини",
+			path: "/hero-img/christening-1-ss-02-c.png",
+		},
+	],
+	[
+		{
+			label: "Скріншот сайту-запрошення на хрестини",
+			path: "/hero-img/christening-2-ss-01-c.png",
+		},
+		{
+			label: "Скріншот сайту-запрошення на хрестини",
+			path: "/hero-img/christening-2-ss-02-c.png",
+		},
+		{
+			label: "Скріншот сайту-запрошення на день народження",
+			path: "/hero-img/birthday-1-ss-01-c.png",
+		},
+	],
+	[
+		{
+			label: "Скріншот сайту-запрошення на день народження",
+			path: "/hero-img/birthday-1-ss-02-c.png",
+		},
+		{
+			label: "Скріншот сайту-запрошення на день народження",
+			path: "/hero-img/birthday-2-ss-01-c.png",
+		},
+		{
+			label: "Скріншот сайту-запрошення на день народження",
+			path: "/hero-img/birthday-2-ss-02-c.png",
+		},
+	],
 ];
 
 export async function generateMetadata({
@@ -98,9 +150,9 @@ export default async function Home() {
 														// 	"home-top__img--show": showLoadedImg[i],
 														// })}
 														className="home-top__img home-top__img--show"
-														src={img}
+														src={img.path}
 														height={250}
-														alt="Img"
+														alt={img.label}
 													/>
 												</div>
 											);
