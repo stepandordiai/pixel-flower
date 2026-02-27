@@ -1,0 +1,100 @@
+.our-features {
+	width: 100%;
+}
+
+.our-features__title {
+	text-align: center;
+	font-size: clamp(1.5rem, 4vw, 2rem);
+	font-weight: 500;
+	margin-bottom: 25px;
+}
+
+.our-features-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+}
+
+.our-features-grid__card {
+	height: 300px;
+	border-radius: 25px;
+	display: flex;
+	justify-content: space-between;
+	border: 1px solid #000;
+
+	&:nth-child(1) {
+		.our-features__video-container {
+			background: linear-gradient(-90deg, var(--accent-clr-yellow), white);
+		}
+	}
+	&:nth-child(2) {
+		.our-features__video-container {
+			background: linear-gradient(-90deg, var(--accent-clr-green), white);
+		}
+	}
+	&:nth-child(3) {
+		.our-features__video-container {
+			background: linear-gradient(-90deg, var(--accent-clr-dark-green), white);
+		}
+	}
+	&:nth-child(4) {
+		.our-features__video-container {
+			background: linear-gradient(-90deg, var(--accent-clr-pink), white);
+		}
+	}
+	&:nth-child(5) {
+		.our-features__video-container {
+			background: linear-gradient(-90deg, var(--accent-clr-dark-pink), white);
+		}
+	}
+	&:nth-child(6) {
+		.our-features__video-container {
+			background: linear-gradient(-90deg, var(--accent-clr-yellow), white);
+		}
+	}
+	&:nth-child(7) {
+		.our-features__video-container {
+			background: linear-gradient(-90deg, var(--accent-clr-green), white);
+		}
+	}
+	&:nth-child(8) {
+		.our-features__video-container {
+			background: linear-gradient(-90deg, var(--accent-clr-dark-green), white);
+		}
+	}
+	&:nth-child(9) {
+		.our-features__video-container {
+			background: linear-gradient(-90deg, var(--accent-clr-pink), white);
+		}
+	}
+	&:nth-child(10) {
+		.our-features__video-container {
+			background: linear-gradient(-90deg, var(--accent-clr-dark-pink), white);
+		}
+	}
+	&:nth-child(11) {
+		.our-features__video-container {
+			background: linear-gradient(-90deg, var(--accent-clr-yellow), white);
+		}
+	}
+}
+
+.our-features__video-container {
+	padding: 12.5px;
+	border-radius: 25px;
+	width: 50%;
+	flex-shrink: 0;
+	display: flex;
+
+	video {
+		border-radius: 20px;
+		height: 100%;
+		margin-left: auto;
+	}
+}
+
+@media screen and (width < 900px) {
+	.our-features-grid {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}

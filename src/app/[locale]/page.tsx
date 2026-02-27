@@ -10,8 +10,9 @@ import ArrowRightIcon from "../icons/ArrowRightIcon";
 import { Link } from "@/i18n/navigation";
 import ScrollToTop from "../utils/ScrollToTop";
 import type { Metadata } from "next";
-import "./Home.scss";
 import ContactUs from "../components/home/ContactUs/ContactUs";
+import OurFeatures from "../components/home/OurFeatures/OurFeatures";
+import "./Home.scss";
 
 const sliderImgData = [
 	[
@@ -193,6 +194,7 @@ export default async function Home() {
 					<Templates />
 					<Packages />
 					<WhyUs />
+					<OurFeatures />
 					<QA />
 					<ContactUs />
 					<Socials />
