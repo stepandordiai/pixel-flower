@@ -22,7 +22,7 @@
 			},
 			{
 				"name": "packagesAndPricing.option5",
-				"isIncluded": false
+				"isIncluded": true
 			},
 			{
 				"name": "packagesAndPricing.option6",
@@ -50,6 +50,16 @@
 			},
 			{
 				"name": "packagesAndPricing.option12",
+				"isIncluded": true,
+				"isDiscounted": true,
+				"discount": "packagesAndPricing.discount"
+			},
+			{
+				"name": "packagesAndPricing.option13",
+				"isIncluded": false
+			},
+			{
+				"name": "packagesAndPricing.option14",
 				"isIncluded": false
 			}
 		]
@@ -97,14 +107,24 @@
 			},
 			{
 				"name": "packagesAndPricing.option10",
-				"isIncluded": false
+				"isIncluded": true
 			},
 			{
 				"name": "packagesAndPricing.option11",
-				"isIncluded": false
+				"isIncluded": true
 			},
 			{
 				"name": "packagesAndPricing.option12",
+				"isIncluded": true,
+				"isDiscounted": true,
+				"discount": "packagesAndPricing.discount"
+			},
+			{
+				"name": "packagesAndPricing.option13",
+				"isIncluded": false
+			},
+			{
+				"name": "packagesAndPricing.option14",
 				"isIncluded": false
 			}
 		]
@@ -160,6 +180,14 @@
 			},
 			{
 				"name": "packagesAndPricing.option12",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option13",
+				"isIncluded": true
+			},
+			{
+				"name": "packagesAndPricing.option14",
 				"isIncluded": true
 			}
 		]
