@@ -1,15 +1,15 @@
+import { getTranslations } from "next-intl/server";
 import contactsData from "@/app/assets/data/contacts-data";
 import ArrowRightBtn from "../../ArrowRightBtn/ArrowRightBtn";
 import styles from "./ContactUs.module.scss";
 
-const ContactUs = () => {
+const ContactUs = async () => {
+	const t = await getTranslations();
+
 	return (
 		<section className={styles.section}>
-			<h2 className={styles["section__title"]}>Зв'яжіться з нами</h2>
-			<p className={styles["section__desc"]}>
-				Зв’яжіться з нами зручним для вас способом — із радістю допоможемо
-				створити ідеальне запрошення.
-			</p>
+			<h2 className={styles["section__title"]}>{t("contactUs.title")}</h2>
+			<p className={styles["section__desc"]}>{t("contactUs.desc")}</p>
 			<div className={styles["contact-us-container"]}>
 				{contactsData.map((el, i) => {
 					return (

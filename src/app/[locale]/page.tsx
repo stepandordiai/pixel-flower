@@ -163,10 +163,7 @@ export default async function Home() {
 						})}
 					</div>
 					<div className="home-top-container">
-						<h1 className="home-top__title">
-							Створюйте особливі спогади з першого кліку. Онлайн-запрошення на
-							ваше свято.
-						</h1>
+						<h1 className="home-top__title">{t("home.title")}</h1>
 						<div className="home-hero__link-container">
 							<Link className="home-top__link" href="#templates">
 								<span>{t("home.chooseATemplate")}</span>
@@ -179,7 +176,7 @@ export default async function Home() {
 								</div>
 							</Link>
 							<Link className="home-top__link" href="#packages">
-								<span>Замовити запрошення</span>
+								<span>{t("home.orderInvitation")}</span>
 								<div className="home-top-icon-wrapper">
 									<div className="home-top-icon-wrapper-inner">
 										{[...Array(2)].map((_, i) => {

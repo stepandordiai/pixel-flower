@@ -12,9 +12,9 @@
 	"backToHome": "Zpět na hlavní stránku",
 
 	"home": {
-		"title": "Studio kreativních webových pozvánek",
+		"title": "Vytvářejte výjimečné vzpomínky od prvního kliknutí. Online pozvánky na vaši oslavu.",
 		"chooseATemplate": "Vybrat šablonu",
-		"findOutThePrice": "Zjistit cenu"
+		"orderInvitation": "Objednat pozvánku"
 	},
 
 	"howItWorks": {
@@ -45,6 +45,9 @@
 	},
 
 	"packagesAndPricing": {
+		"title1": "Balíček \"Bronze\"",
+		"title2": "Balíček \"Silver\"",
+		"title3": "Balíček \"Gold\"",
 		"bronzePrice": "599Kč",
 		"silverPrice": "899Kč",
 		"goldPrice": "1699Kč",
@@ -88,17 +91,22 @@
 	},
 
 	"questionsAndAnswers": {
-		"question1": "Jak dlouho trvá tvorba webu?",
-		"question2": "Je možné provést změny po dokončení webu?",
-		"question3": "Mohu si pozvánku zobrazit i na jiném zařízení než na telefonu?",
-		"question4": "Co dělat v případě zrušení události?",
-		"question5": "Zůstane mi webová pozvánka i po skončení události?",
-		"question6": "Pro jaké typy událostí vytváříte pozvánky?",
-		"answer1": "Doba vyhotovení závisí na zvoleném balíčku: u variant Bronze a Silver jsou to 1–3 pracovní dny, zatímco vývoj balíčku Gold s individuálním designem trvá přibližně 5–10 pracovních dnů.",
-		"answer2": "Bez problému – veškeré informace snadno a rychle aktualizujeme bez jakýchkoliv dalších poplatků.",
-		"answer3": "Ano! Naše webové pozvánky se pohodlně zobrazují na jakémkoliv zařízení – chytrém telefonu, tabletu i počítači.",
+		"question1": "Jak dlouho trvá tvorba webu",
+		"question2": "Je možné provést změny po dokončení webu",
+		"question3": "Mohu si pozvánku zobrazit i na jiném zařízení než na telefonu",
+		"question4": "Co dělat v případě zrušení události",
+		"question5": "Zůstane mi webová pozvánka i po skončení události",
+		"question6": "Pro jaké typy událostí vytváříte pozvánky",
+		"answer1": "Doba vyhotovení závisí na zvoleném balíčku: u variant Bronze a Silver jsou to 1-3 pracovní dny, zatímco vývoj balíčku Gold s individuálním designem trvá přibližně 5-10 pracovních dnů.",
+		"answer2": "Bez problému - veškeré informace snadno a rychle aktualizujeme bez jakýchkoliv dalších poplatků.",
+		"answer3": "Ano! Naše webové pozvánky se pohodlně zobrazují na jakémkoliv zařízení - chytrém telefonu, tabletu i počítači.",
 		"answer4": "V případě zrušení objednávky během fáze vývoje se hradí 25 % z ceny zvoleného balíčku. Pokud je web již hotový, hradí se plná částka za daný balíček.",
 		"answer5": "Pokud jste si zvolili balíček Gold, webová pozvánka zůstane dostupná po neomezenou dobu (dokud je hrazena doména). U ostatních balíčků zůstává přístup zachován, ale po čase může být provoz webu ukončen.",
 		"answer6": "Vytváříme digitální pozvánky pro události jakéhokoliv formátu: od elegantních svateb, výročí a křtin až po firemní akce, dětské oslavy či tematické večírky, přičemž design vždy přizpůsobíme jedinečnému konceptu vaší události."
+	},
+
+	"contactUs": {
+		"title": "Kontaktujte nás",
+		"desc": "Spojte se s námi způsobem, který vám vyhovuje - rádi vám pomůžeme vytvořit tu pravou pozvánku."
 	}
 }

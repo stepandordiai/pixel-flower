@@ -1,6 +1,6 @@
 [
 	{
-		"name": "Пакет \"Bronze\"",
+		"name": "packagesAndPricing.title1",
 		"price": "packagesAndPricing.bronzePrice",
 		"priceDiscount": "packagesAndPricing.bronzePriceDiscount",
 		"options": [
@@ -55,7 +55,7 @@
 		]
 	},
 	{
-		"name": "Пакет \"Silver\"",
+		"name": "packagesAndPricing.title2",
 		"price": "packagesAndPricing.silverPrice",
 		"priceDiscount": "packagesAndPricing.silverPriceDiscount",
 		"options": [
@@ -110,7 +110,7 @@
 		]
 	},
 	{
-		"name": "Пакет \"Gold\"",
+		"name": "packagesAndPricing.title3",
 		"price": "packagesAndPricing.goldPrice",
 		"priceDiscount": "packagesAndPricing.goldPriceDiscount",
 		"options": [

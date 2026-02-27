@@ -45,58 +45,51 @@ export default function Templates() {
 					})}
 				</div>
 			</div>
-			{filteredTemplates.length === 0 ? (
-				<div className="no-data">
-					Шаблони такого пакету та типу поки-що відсутні 😣
-				</div>
-			) : (
-				<div className="templates-grid">
-					{filteredTemplates.map((template, index) => (
-						<div key={template.id} className="template">
-							<Link
-								// href={`/${template.type_code}/${template.id}${template.hasGuestRoute ? "/guest" : ""}`}
-								href={`/${template.id}`}
-								className="template__img-container"
-								style={{
-									display: "flex",
-									justifyContent: "center",
-									alignItems: "center",
-									padding: 25,
-								}}
-							>
-								{template.ss ? (
-									<img key={index} src={template.ss} alt="" />
-								) : (
-									<span style={{ fontSize: "1.5rem" }}>
-										{t("templates.comingSoon")}
+			<div className="templates-grid">
+				{filteredTemplates.map((template, index) => (
+					<div key={template.id} className="template">
+						<Link
+							href={`/${template.id}`}
+							className="template__img-container"
+							style={{
+								display: "flex",
+								justifyContent: "center",
+								alignItems: "center",
+								padding: 25,
+							}}
+						>
+							{template.ss ? (
+								<img key={index} src={template.ss} alt="" />
+							) : (
+								<span style={{ fontSize: "1.5rem" }}>
+									{t("templates.comingSoon")}
+								</span>
+							)}
+							<div className="template__link">
+								<span>{t("templates.viewTheTemplate")}</span>
+								<span className="template__link-img-container">
+									<span className="template__link-img-container-inner">
+										{[...Array(2)].map((_, i) => {
+											return <ArrowRightIcon key={i} size={24} />;
+										})}
 									</span>
-								)}
-								<div className="template__link">
-									<span>{t("templates.viewTheTemplate")}</span>
-									<span className="template__link-img-container">
-										<span className="template__link-img-container-inner">
-											{[...Array(2)].map((_, i) => {
-												return <ArrowRightIcon key={i} size={24} />;
-											})}
-										</span>
-									</span>
-								</div>
-							</Link>
-							<div
-								style={{
-									display: "flex",
-									justifyContent: "space-between",
-									alignItems: "center",
-								}}
-							>
-								<p style={{ fontSize: "18px", fontWeight: 500 }}>
-									{t(template.type)}
-								</p>
+								</span>
 							</div>
+						</Link>
+						<div
+							style={{
+								display: "flex",
+								justifyContent: "space-between",
+								alignItems: "center",
+							}}
+						>
+							<p style={{ fontSize: "18px", fontWeight: 500 }}>
+								{t(template.type)}
+							</p>
 						</div>
-					))}
-				</div>
-			)}
+					</div>
+				))}
+			</div>
 		</div>
 	);
 }
