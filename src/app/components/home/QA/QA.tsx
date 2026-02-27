@@ -22,6 +22,10 @@ const questionsAnswersData = [
 		question: "questionsAndAnswers.question5",
 		answer: "questionsAndAnswers.answer5",
 	},
+	{
+		question: "questionsAndAnswers.question6",
+		answer: "questionsAndAnswers.answer6",
+	},
 ];
 
 const QA = async () => {

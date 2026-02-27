@@ -65,11 +65,21 @@
 			font-weight: 700;
 		}
 	}
+
 	&:nth-child(5) {
 		border: 1px solid var(--accent-clr-dark-pink);
 
 		span {
 			color: var(--accent-clr-dark-pink);
+			font-weight: 700;
+		}
+	}
+
+	&:nth-child(6) {
+		border: 1px solid var(--accent-clr-yellow);
+
+		span {
+			color: var(--accent-clr-yellow);
 			font-weight: 700;
 		}
 	}

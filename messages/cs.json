@@ -88,15 +88,17 @@
 	},
 
 	"questionsAndAnswers": {
-		"question1": "Jak dlouho trvá vytvoření webu",
-		"question2": "Co když po dokončení potřebuji upravit informace",
-		"question3": "Mohu si pozvánku zobrazit i na jiném zařízení než na telefonu",
-		"question4": "Co když potřebujeme oslavu zrušit",
-		"question5": "Zůstane mi webová pozvánka k dispozici i po oslavě",
-		"answer1": "Doba vytvoření závisí na balíčku: Bronze a Silver jsou hotové za 1–3 pracovní dny, zatímco Gold s individuálním designem trvá přibližně 5–10 pracovních dnů.",
-		"answer2": "Možnosti úprav se liší podle balíčku: u Bronze jsou změny zpoplatněny (99 ₴ za jednu), u Silver máte 3 úpravy zdarma a každá další stojí 99 ₴, a u Gold je k dispozici bezplatná podpora 24/7 až do konce svátečního období.",
-		"answer3": "Ano! Naše webové pozvánky se pohodlně zobrazí na jakémkoli zařízení — na mobilu, tabletu i počítači.",
-		"answer4": "Při zrušení objednávky během vývoje se účtuje 25 % z ceny vybraného balíčku, a pokud je web už hotový, hradí se plná cena balíčku.",
-		"answer5": "Pokud si vyberete balíček Gold, webová pozvánka vám zůstane k dispozici neomezeně dlouho, dokud je hrazená doména; u ostatních balíčků přístup zůstává, ale provoz webu může být časem ukončen."
+		"question1": "Jak dlouho trvá tvorba webu?",
+		"question2": "Je možné provést změny po dokončení webu?",
+		"question3": "Mohu si pozvánku zobrazit i na jiném zařízení než na telefonu?",
+		"question4": "Co dělat v případě zrušení události?",
+		"question5": "Zůstane mi webová pozvánka i po skončení události?",
+		"question6": "Pro jaké typy událostí vytváříte pozvánky?",
+		"answer1": "Doba vyhotovení závisí na zvoleném balíčku: u variant Bronze a Silver jsou to 1–3 pracovní dny, zatímco vývoj balíčku Gold s individuálním designem trvá přibližně 5–10 pracovních dnů.",
+		"answer2": "Bez problému – veškeré informace snadno a rychle aktualizujeme bez jakýchkoliv dalších poplatků.",
+		"answer3": "Ano! Naše webové pozvánky se pohodlně zobrazují na jakémkoliv zařízení – chytrém telefonu, tabletu i počítači.",
+		"answer4": "V případě zrušení objednávky během fáze vývoje se hradí 25 % z ceny zvoleného balíčku. Pokud je web již hotový, hradí se plná částka za daný balíček.",
+		"answer5": "Pokud jste si zvolili balíček Gold, webová pozvánka zůstane dostupná po neomezenou dobu (dokud je hrazena doména). U ostatních balíčků zůstává přístup zachován, ale po čase může být provoz webu ukončen.",
+		"answer6": "Vytváříme digitální pozvánky pro události jakéhokoliv formátu: od elegantních svateb, výročí a křtin až po firemní akce, dětské oslavy či tematické večírky, přičemž design vždy přizpůsobíme jedinečnému konceptu vaší události."
 	}
 }
