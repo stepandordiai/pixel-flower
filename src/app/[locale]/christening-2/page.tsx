@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import templates from "@/app/assets/data/templates.json";
 import Container from "@/app/components/Container/Container";
-import "./ChristeningBoy.scss";
+import "./ChristeningTwo.scss";
 
 const template = templates.find((template) => template.id === "christening-2")!;
 
@@ -170,8 +170,29 @@ export default function ChristeningTwoTemplate() {
 		}, 1000);
 	};
 
-	const color = template.color;
-	document.documentElement.style.setProperty("--color", color ?? "#000");
+	const helper = (
+		time: number,
+		one: string,
+		two: string,
+		five: string,
+	): string => {
+		const lastTwoDigits = time % 100;
+		const lastDigit = time % 10;
+
+		if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
+			return five;
+		}
+
+		if (lastDigit >= 2 && lastDigit <= 4) {
+			return two;
+		}
+
+		if (lastDigit === 1) {
+			return one;
+		}
+
+		return five;
+	};
 
 	return (
 		<>
@@ -197,7 +218,8 @@ export default function ChristeningTwoTemplate() {
 								alt=""
 							/>
 							<div className="home__top-date-chr">
-								{/* {template.date} {template.monthDeclined} {template.year} року */}
+								{fakeDate.getDate()} {template.monthDeclined}{" "}
+								{fakeDate.getFullYear()} року
 							</div>
 							<p className="home__top-title-chr">
 								Таїнство хрещення {template.child_name}
@@ -254,7 +276,7 @@ export default function ChristeningTwoTemplate() {
 							важливу подію
 							<br />
 							<br />
-							{/* {template.t} {template.child_name} */}
+							Хрещення нашого сина Михайла
 						</p>
 					</div>
 
@@ -304,33 +326,36 @@ export default function ChristeningTwoTemplate() {
 							<p className="addresses__title-chr animated-element1">
 								Адреси святкування
 							</p>
-							<p
-								style={{ marginBottom: 25 }}
-								className="page-desc-chr animated-element1"
-							>
-								Празький час
-							</p>
 							<div className="addresses-chr">
 								{template.addresses.map((address, index) => {
 									return (
 										<div key={index} className="address-chr">
 											<p className="address__title-chr animated-element1">
-												{/* <span>{address.title}</span> */}
-												{/* <span>{address.time}</span> */}
+												{/* TODO: ? */}
+												<span>{"title" in address ? address.title : ""}</span>
+												<span>
+													{"time" in address ? address.time : ""} (
+													{template.location_time})
+												</span>
 											</p>
-											<p className="address__info-chr animated-element1">
+											<a
+												style={{ color: "#000" }}
+												className="animated-element1"
+												href={address.address_destination_url}
+												target="_blank"
+											>
 												{address.address_title}
-											</p>
+											</a>
 											<p
 												style={{ marginBottom: 10 }}
-												className="address__info-chr animated-element1"
+												className="animated-element1"
 											>
 												{address.address}
 											</p>
 											<iframe
-												className="map animated-element1"
+												className="address-map animated-element1"
 												src={address.address_url}
-												loading="lazy"
+												// loading="lazy"
 											></iframe>
 											<a
 												className="address__link-chr animated-element1"
@@ -369,19 +394,19 @@ export default function ChristeningTwoTemplate() {
 							<div className="date-chr animated-element1" id="date">
 								<div>
 									<p>{days}</p>
-									<p>днів</p>
+									<p>{helper(days, "день", "дні", "днів")}</p>
 								</div>
 								<div>
 									<p>{hours}</p>
-									<p>годин(а)</p>
+									<p>{helper(hours, "година", "години", "годин")}</p>
 								</div>
 								<div>
 									<p>{minutes}</p>
-									<p>хвилин(а)</p>
+									<p>{helper(minutes, "хвилина", "хвилини", "хвилин")}</p>
 								</div>
 								<div>
 									<p>{seconds}</p>
-									<p>секунд(а)</p>
+									<p>{helper(seconds, "секунда", "секунди", "секунд")}</p>
 								</div>
 							</div>
 						</div>

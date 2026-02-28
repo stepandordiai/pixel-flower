@@ -113,7 +113,7 @@
 		"father_name": "Іван",
 		"text": "Таїнство Хрещення нашого синочка",
 		"color": "#b8f3fe80",
-		"place": "Київ",
+		"location_time": "Київський час",
 		"addresses": [
 			{
 				"title": "Хрещення",
