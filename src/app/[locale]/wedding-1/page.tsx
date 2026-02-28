@@ -85,7 +85,7 @@ export default function WeddingOneTemplate() {
 						<span>&bull;</span>
 						<p>{fakeDate.getMonth() + 1}</p>
 						<span>&bull;</span>
-						<p>{template.time.slice(0, 4)}</p>
+						<p>{fakeDate.getFullYear()}</p>
 					</div>
 					<h1 className={styles["home__top-title"]}>
 						<span>{template.hisName}</span>
