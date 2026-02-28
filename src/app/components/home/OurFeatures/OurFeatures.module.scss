@@ -86,7 +86,8 @@
 	flex-shrink: 0;
 	display: flex;
 
-	video {
+	video,
+	img {
 		border-radius: 20px;
 		height: 100%;
 		margin-left: auto;
