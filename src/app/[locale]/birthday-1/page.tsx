@@ -5,8 +5,8 @@ import templates from "@/app/assets/data/templates.json";
 import Container from "@/app/components/Container/Container";
 import ContainerInner from "@/app/components/ContainerInner/ContainerInner.";
 import AnimatedTxt from "@/app/components/AnimatedTxt/AnimatedTxt";
-import "./BirthdayOne.scss";
 import Image from "next/image";
+import "./BirthdayOne.scss";
 
 const template = templates.find((template) => template.id === "birthday-1")!;
 

@@ -7,6 +7,30 @@ import "./BirthdayTwo.scss";
 
 const template = templates.find((template) => template.id === "birthday-2")!;
 
+const countdownHelper = (
+	time: number,
+	one: string,
+	two: string,
+	five: string,
+): string => {
+	const lastDigit = time % 10;
+	const lastTwoDigits = time % 100;
+
+	if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
+		return five;
+	}
+
+	if (lastDigit === 1) {
+		return one;
+	}
+
+	if (lastDigit >= 2 && lastDigit <= 4) {
+		return two;
+	}
+
+	return five;
+};
+
 export default function BirthdayTwoTemplate() {
 	const fakeDate = new Date();
 	fakeDate.setDate(fakeDate.getDate() + 3);
@@ -114,14 +138,17 @@ export default function BirthdayTwoTemplate() {
 
 	useEffect(() => {
 		document.body.style.overflow = "hidden";
+
+		return () => {
+			document.body.style.overflow = "";
+		};
 	}, []);
 
 	const handleLoading = () => {
-		document.body.style.overflow = "auto";
+		document.body.style.overflow = "";
 		const el = document.querySelector(".loading-chr") as HTMLElement;
 		el.classList.add("loading--hide");
-		const el2 = document.querySelector(".home-chr") as HTMLElement;
-		el2.style.display = "flex";
+
 		setTimeout(() => {
 			const el3 = document.querySelector(".home__top-chr") as HTMLElement;
 
@@ -153,9 +180,6 @@ export default function BirthdayTwoTemplate() {
 		}, 1000);
 	};
 
-	const color = template.color;
-	document.documentElement.style.setProperty("--color", color ?? "#000");
-
 	return (
 		<>
 			<div onClick={handleLoading} className="loading-chr">
@@ -170,7 +194,7 @@ export default function BirthdayTwoTemplate() {
 					Торкніться екрана, щоб відкрити запрошення!
 				</div>
 			</div>
-			<main className="home-chr" style={{ display: "none" }}>
+			<main className="birthday-2">
 				<Container>
 					<div className="home__top-chr">
 						<div className="home__top-inner-chr">
@@ -215,12 +239,7 @@ export default function BirthdayTwoTemplate() {
 					</div>
 					<div className="wrapper">
 						<div className="swiper-cont animated-element1">
-							<img
-								className="iimg"
-								src={template.gallery[0]}
-								alt=""
-								loading="lazy"
-							/>
+							<img className="iimg" src={template.gallery[0]} alt="" />
 							<img
 								className="gallery-float-img"
 								src="/christening-boy/06.webp"
@@ -239,7 +258,7 @@ export default function BirthdayTwoTemplate() {
 							для нас велике значення.
 							<br />
 							<br />
-							{template.text} {template.child_name}
+							День народження нашого сина {template.child_name}
 						</p>
 					</div>
 
@@ -288,33 +307,39 @@ export default function BirthdayTwoTemplate() {
 							<p className="addresses__title-chr animated-element1">
 								Адреса святкування
 							</p>
-							<p
-								style={{ marginBottom: 25 }}
-								className="page-desc-chr animated-element1"
-							>
-								Празький час
-							</p>
 							<div className="addresses-chr">
 								{template.addresses.map((address, index) => {
 									return (
 										<div key={index} className="address-chr">
-											<p className="address__title-chr animated-element1">
-												{/* <span>{address.title}</span> */}
-												{/* <span>{address.time}</span> */}
+											<p
+												style={{
+													fontSize: "18px",
+													fontWeight: 500,
+													display: "flex",
+													justifyContent: "space-between",
+												}}
+												className="animated-element1"
+											>
+												<span>{address.title}</span>
+												<span>
+													{address.time} ({template.location_time})
+												</span>
 											</p>
 											<p className="address__info-chr animated-element1">
 												{address.address_title}
 											</p>
-											<p
-												style={{ marginBottom: 10 }}
+											<a
+												style={{ marginBottom: 10, color: "#000" }}
 												className="address__info-chr animated-element1"
+												href={address.address_destination_url}
+												target="_blank"
 											>
 												{address.address}
-											</p>
+											</a>
 											<iframe
-												className="map animated-element1"
+												className="birthday-1-address-map animated-element1"
 												src={address.address_url}
-												loading="lazy"
+												// loading="lazy"
 											></iframe>
 											<a
 												className="address__link-chr animated-element1"
@@ -332,12 +357,7 @@ export default function BirthdayTwoTemplate() {
 
 					<div style={{ padding: "10px" }} className="wrapper">
 						<div className="swiper-cont-2 animated-element1">
-							<img
-								className="iimg"
-								src={template.gallery[1]}
-								alt=""
-								loading="lazy"
-							/>
+							<img className="iimg" src={template.gallery[1]} alt="" />
 							<img
 								className="gallery-float-img-2"
 								src="/christening-boy/06.webp"
@@ -353,19 +373,23 @@ export default function BirthdayTwoTemplate() {
 							<div className="date-chr animated-element1" id="date">
 								<div>
 									<p>{days}</p>
-									<p>днів</p>
+									<p>{countdownHelper(days, "день", "дні", "днів")}</p>
 								</div>
 								<div>
 									<p>{hours}</p>
-									<p>годин(а)</p>
+									<p>{countdownHelper(hours, "година", "години", "годин")}</p>
 								</div>
 								<div>
 									<p>{minutes}</p>
-									<p>хвилин(а)</p>
+									<p>
+										{countdownHelper(minutes, "хвилина", "хвилини", "хвилин")}
+									</p>
 								</div>
 								<div>
 									<p>{seconds}</p>
-									<p>секунд(а)</p>
+									<p>
+										{countdownHelper(seconds, "секунда", "секунди", "секунд")}
+									</p>
 								</div>
 							</div>
 						</div>
@@ -383,12 +407,7 @@ export default function BirthdayTwoTemplate() {
 						</p>
 						<div style={{ padding: 10 }}>
 							<div className="swiper-cont-2 animated-element1">
-								<img
-									className="iimg"
-									src={template.gallery[2]}
-									alt=""
-									loading="lazy"
-								/>
+								<img className="iimg" src={template.gallery[2]} alt="" />
 								<img
 									className="gallery-float-img-2"
 									src="/christening-boy/05.webp"
