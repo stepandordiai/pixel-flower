@@ -148,11 +148,12 @@
 		"time": "2025-12-13T16:00:00",
 		"monthName": "Грудень",
 		"monthDeclined": "Грудня",
-		"hisName": "Микола",
-		"herName": "Марія",
+		"name": "Diana",
 		"location_time": "Київський час",
 		"addresses": [
 			{
+				"title": "Святковий бенкет",
+				"time": "18:30",
 				"address_title": "Караоке-рестобар «SVOI»",
 				"address": "Ivana Chendeya St, 12, Uzhhorod, Zakarpattia Oblast, Ukraine, 88000",
 				"address_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2712.9298662164806!2d22.294475800000004!3d48.6217115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473919f735496c0f%3A0xb3e71dc8e8b36d6e!2z0JrQsNGA0LDQvtC60LUt0YDQtdGB0YLQvtCx0LDRgCDCq1NWT0nCuw!5e1!3m2!1sen!2scz!4v1763672070827!5m2!1sen!2scz",

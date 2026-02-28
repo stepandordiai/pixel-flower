@@ -299,17 +299,10 @@
 }
 
 .birthday-one__colors-container {
-	max-width: 500px;
-	margin: 0 auto;
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: repeat(1, 300px);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	gap: 10px;
-
-	div {
-		border-radius: 40px;
-		border: 2.5px dashed #000;
-	}
 }
 
 @media screen and (width <= 808px) {

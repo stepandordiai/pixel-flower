@@ -6,8 +6,33 @@ import Container from "@/app/components/Container/Container";
 import ContainerInner from "@/app/components/ContainerInner/ContainerInner.";
 import AnimatedTxt from "@/app/components/AnimatedTxt/AnimatedTxt";
 import "./BirthdayOne.scss";
+import Image from "next/image";
 
 const template = templates.find((template) => template.id === "birthday-1")!;
+
+const countdownHelper = (
+	time: number,
+	one: string,
+	two: string,
+	five: string,
+): string => {
+	const lastDigit = time % 10;
+	const lastTwoDigits = time % 100;
+
+	if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
+		return five;
+	}
+
+	if (lastDigit === 1) {
+		return one;
+	}
+
+	if (lastDigit >= 2 && lastDigit <= 4) {
+		return two;
+	}
+
+	return five;
+};
 
 export default function BirthdayOneTemplate() {
 	const fakeDate = new Date();
@@ -124,7 +149,7 @@ export default function BirthdayOneTemplate() {
 						/>
 						<p className="birthday-one__hero-date">
 							<AnimatedTxt>
-								{`${fakeDate.getDate()} - ${fakeDate.getMonth()} - ${fakeDate.getFullYear()}`}
+								{`${fakeDate.getDate()} / ${fakeDate.getMonth()} / ${fakeDate.getFullYear()}`}
 							</AnimatedTxt>
 						</p>
 						<div className="birthday-one__top-title font-accent">
@@ -134,7 +159,7 @@ export default function BirthdayOneTemplate() {
 							<AnimatedTxt>at 19:00</AnimatedTxt>
 						</p>
 						<p style={{ fontSize: "1.5rem" }}>
-							<AnimatedTxt>Diana is turning 18!</AnimatedTxt>
+							<AnimatedTxt>{template.name} is turning 18!</AnimatedTxt>
 						</p>
 						<div className="birthday-one__scroll">
 							Прокрутіть вниз, щоб дізнатися більше
@@ -223,63 +248,77 @@ export default function BirthdayOneTemplate() {
 								<AnimatedTxt>
 									<div>
 										<span className="birthday-one__font-l">{days}</span>
-										<span className="birthday-one__font-s"> днів</span>
+										<span className="birthday-one__font-s">
+											{" "}
+											{countdownHelper(days, "день", "дні", "днів")}
+										</span>
 									</div>
 								</AnimatedTxt>
 								<AnimatedTxt>
 									<div>
 										<span className="birthday-one__font-l">{hours}</span>
-										<span className="birthday-one__font-s"> годин(а)</span>
+										<span className="birthday-one__font-s">
+											{" "}
+											{countdownHelper(hours, "година", "години", "годин")}
+										</span>
 									</div>
 								</AnimatedTxt>
 								<AnimatedTxt>
 									<div>
 										<span className="birthday-one__font-l">{minutes}</span>
-										<span className="birthday-one__font-s"> хвилин(а)</span>
+										<span className="birthday-one__font-s">
+											{" "}
+											{countdownHelper(minutes, "хвилина", "хвилини", "хвилин")}
+										</span>
 									</div>
 								</AnimatedTxt>
 								<AnimatedTxt>
 									<div>
 										<span className="birthday-one__font-l">{seconds}</span>
-										<span className="birthday-one__font-s"> секунд(а)</span>
+										<span className="birthday-one__font-s">
+											{" "}
+											{countdownHelper(seconds, "секунда", "секунди", "секунд")}
+										</span>
 									</div>
 								</AnimatedTxt>
 							</div>
 						</ContainerInner>
 						<ContainerInner>
 							<img src="/birthday-one/8.webp" width={100} height={100} alt="" />
-							<div>
-								<p className="font-m font-accent">
-									<AnimatedTxt>Місце проведення</AnimatedTxt>
-								</p>
-								<p className=" font-s">
-									<AnimatedTxt>{template.location_time}</AnimatedTxt>
-								</p>
-							</div>
+							<p className="font-m font-accent">
+								<AnimatedTxt>Місце проведення</AnimatedTxt>
+							</p>
 							{template.addresses.map((address, index) => {
 								return (
 									<div key={index} className="birthday-one__container-inner">
-										{/* <p
-										style={{
-											width: "100%",
-											display: "flex",
-											justifyContent: "space-between",
-										}}
-										className="birthday-one__animated-element font-m font-accent"
-									>
-										<span>{address.title}</span>
-										<span>{address.time}</span>
-									</p> */}
+										<p
+											style={{
+												width: "100%",
+												display: "flex",
+												justifyContent: "space-between",
+											}}
+											className="birthday-one__animated-element font-m font-accent"
+										>
+											<span>{address.title}</span>
+											<span>
+												{address.time} ({template.location_time})
+											</span>
+										</p>
 										<p className="font-s">
 											<AnimatedTxt>{address.address_title}</AnimatedTxt>
 										</p>
-										<p className="font-s">
+										<a
+											style={{ color: "#000" }}
+											className="font-s"
+											href={address.address_destination_url}
+											target="_blank"
+										>
 											<AnimatedTxt>{address.address}</AnimatedTxt>
-										</p>
+										</a>
 										<iframe
 											style={{ width: "100%", height: 400 }}
 											src={address.address_url}
-											loading="lazy"
+											// loading="lazy"
 										></iframe>
 										<a
 											className="birthday-one__silver-address__link font-s"
@@ -292,24 +331,48 @@ export default function BirthdayOneTemplate() {
 								);
 							})}
 						</ContainerInner>
-						{template.dress_code && (
-							<ContainerInner>
-								<p className="birthday-one__font-m font-accent">
-									<AnimatedTxt>Дрес-код</AnimatedTxt>
-								</p>
-								<p className="birthday-one__font-s">
-									<AnimatedTxt>
-										Мені буде дуже приємно, якщо ви підтримаєте мій дрес-код.
-									</AnimatedTxt>
-								</p>
-								<div className="birthday-one__colors-container">
-									<img src="/birthday-one/10.webp" alt="" />
-									<img src="/birthday-one/11.webp" alt="" />
-									<img src="/birthday-one/12.webp" alt="" />
-									<img src="/birthday-one/13.webp" alt="" />
-								</div>
-							</ContainerInner>
-						)}
+						<ContainerInner>
+							<p
+								style={{ marginBottom: "10px" }}
+								className="birthday-one__font-m font-accent"
+							>
+								<AnimatedTxt>Дрес-код</AnimatedTxt>
+							</p>
+							<p
+								style={{ marginBottom: "20px" }}
+								className="birthday-one__font-s"
+							>
+								<AnimatedTxt>
+									Мені буде дуже приємно, якщо ви підтримаєте мій дрес-код.
+								</AnimatedTxt>
+							</p>
+							<div className="birthday-one__colors-container">
+								<Image
+									src="/birthday-one/10.webp"
+									width={100}
+									height={100}
+									alt=""
+								/>
+								<Image
+									src="/birthday-one/11.webp"
+									width={100}
+									height={100}
+									alt=""
+								/>
+								<Image
+									src="/birthday-one/12.webp"
+									width={100}
+									height={100}
+									alt=""
+								/>
+								<Image
+									src="/birthday-one/13.webp"
+									width={100}
+									height={100}
+									alt=""
+								/>
+							</div>
+						</ContainerInner>
 						<ContainerInner>
 							<p className="font-m font-accent">
 								<AnimatedTxt>Буду дуже рада бачити вас!</AnimatedTxt>
