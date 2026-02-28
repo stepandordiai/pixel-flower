@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import packagesData from "./../../../assets/data/packages-data.json";
+import packages from "./../../../assets/data/packages.json";
 import socialsData from "./../../../assets/data/socialsData";
 import contactsData from "./../../../assets/data/contacts-data";
 import ArrowRightIcon from "@/app/icons/ArrowRightIcon";
@@ -82,7 +82,7 @@ const Packages = () => {
 			<section className="packages-container" id="packages">
 				<p className="packages__title">{t("packagesAndPricingTitle")}</p>
 				<div className="packages">
-					{packagesData.map((pack) => {
+					{packages.map((pack) => {
 						return (
 							<div key={pack.name} className="package">
 								<p className="package__title">{t(pack.name)}</p>
