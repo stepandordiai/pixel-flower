@@ -5,7 +5,7 @@ import invitations from "@/app/assets/data/invitations/christening-1.json";
 import { useParams } from "next/navigation";
 import Container from "@/app/components/Container/Container";
 import { notFound } from "next/navigation";
-import "../ChristeningGirl.scss";
+import "../ChristeningOne.scss";
 
 export default function ChristeningOne() {
 	const params = useParams();
