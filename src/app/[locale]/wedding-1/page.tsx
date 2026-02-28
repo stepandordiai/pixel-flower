@@ -11,9 +11,20 @@ import styles from "./WeddingOne.module.scss";
 
 const template = templates.find((template) => template.id === "wedding-1")!;
 
+// TODO: learn this
+const getMonthName = (date: Date) => {
+	const nominative = date.toLocaleDateString("uk-UA", { month: "long" });
+
+	const genitive = date
+		.toLocaleDateString("uk-UA", { day: "numeric", month: "long" })
+		.replace(/^\d+\s*/, "");
+
+	return { nominative, genitive };
+};
+
 export default function WeddingOneTemplate() {
-	const date: string = template.time.slice(8, 10);
-	const month: string = template.time.slice(5, 7);
+	const fakeDate = new Date();
+	fakeDate.setDate(fakeDate.getDate() + 3);
 
 	// TODO:
 	function getDaysOfMonth(year: any, month: any) {
@@ -44,6 +55,8 @@ export default function WeddingOneTemplate() {
 
 	days2.push(...febDayNumbers);
 
+	const { nominative, genitive } = getMonthName(fakeDate);
+
 	return (
 		<main className={styles.main}>
 			<div className={styles.hero}>
@@ -68,9 +81,9 @@ export default function WeddingOneTemplate() {
 					</div>
 					<div className={styles["hero__divider"]}></div>
 					<div className={styles["home__top-date"]}>
-						<p>{date}</p>
+						<p>{fakeDate.getDate()}</p>
 						<span>&bull;</span>
-						<p>{month}</p>
+						<p>{fakeDate.getMonth() + 1}</p>
 						<span>&bull;</span>
 						<p>{template.time.slice(0, 4)}</p>
 					</div>
@@ -90,10 +103,7 @@ export default function WeddingOneTemplate() {
 				</p>
 			</div>
 			<div className={styles.calendar}>
-				<p className="calendar-top">{`${template.monthName} ${template.time.slice(
-					0,
-					4,
-				)}`}</p>
+				<p className="calendar-top">{`${nominative.charAt(0).toUpperCase() + nominative.slice(1)} ${fakeDate.getFullYear()}`}</p>
 				<div className={styles["calendar-inner"]}>
 					<div>Пн</div>
 					<div>Вт</div>
@@ -106,10 +116,10 @@ export default function WeddingOneTemplate() {
 						return (
 							<div
 								key={index}
-								className={String(day) == date ? "target-time" : ""}
+								className={day === fakeDate.getDate() ? "target-time" : ""}
 							>
 								{day}
-								{String(day) == date && (
+								{day === fakeDate.getDate() && (
 									<img
 										className="calendar-heart"
 										src="/wedding-one/heart.png"
@@ -145,7 +155,7 @@ export default function WeddingOneTemplate() {
 								<iframe
 									className="map"
 									src={address.address_url}
-									loading="lazy"
+									// loading="lazy"
 								></iframe>
 								<a
 									className="address__link"
