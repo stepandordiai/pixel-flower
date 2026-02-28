@@ -20,6 +20,21 @@ import "./WeddingTwo.scss";
 
 const template = templates.find((template) => template.id === "wedding-2")!;
 
+// TODO: learn this
+const getMonthName = (date: Date) => {
+	const nominative = date.toLocaleDateString("uk-UA", { month: "long" });
+
+	const genitive = date
+		.toLocaleDateString("uk-UA", { day: "numeric", month: "long" })
+		.replace(/^\d+\s*/, "");
+
+	return { nominative, genitive };
+};
+
+// TODO: learn this
+const getWeekdayName = (date: Date) =>
+	date.toLocaleDateString("uk-UA", { weekday: "long" });
+
 export default function WeddingTwoTemplate() {
 	const fakeDate = new Date();
 	fakeDate.setDate(fakeDate.getDate() + 3);
@@ -172,6 +187,8 @@ export default function WeddingTwoTemplate() {
 		return five;
 	}
 
+	const { nominative, genitive } = getMonthName(fakeDate);
+
 	return (
 		<>
 			<div className="loading">
@@ -252,7 +269,10 @@ export default function WeddingTwoTemplate() {
 							</p>
 						</div>
 						<p className="animated-element font-m font-accent">
-							Неділя, {fakeDate.getDate()} {template.monthDeclined},{" "}
+							{getWeekdayName(fakeDate).charAt(0).toUpperCase() +
+								getWeekdayName(fakeDate).slice(1)}
+							, {fakeDate.getDate()}{" "}
+							{genitive.charAt(0).toUpperCase() + genitive.slice(1)},{" "}
 							{fakeDate.getFullYear()}
 						</p>
 						<div className="silver-calendar-wrapper animated-element font-s">
