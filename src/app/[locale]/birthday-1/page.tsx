@@ -45,6 +45,9 @@ const getMonthName = (date: Date) => {
 	return { nominative, genitive };
 };
 
+const getWeekdayName = (date: Date) =>
+	date.toLocaleDateString("uk-UA", { weekday: "long" });
+
 export default function BirthdayOneTemplate() {
 	const fakeDate = new Date();
 	fakeDate.setDate(fakeDate.getDate() + 3);
@@ -197,7 +200,9 @@ export default function BirthdayOneTemplate() {
 							</div>
 							<p className="birthday-one__font-m birthday-one__font-accent">
 								<AnimatedTxt>
-									Неділя, {fakeDate.getDate()}{" "}
+									{getWeekdayName(fakeDate).charAt(0).toUpperCase() +
+										getWeekdayName(fakeDate).slice(1)}
+									, {fakeDate.getDate()}{" "}
 									{genitive.charAt(0).toUpperCase() + genitive.slice(1)},{" "}
 									{fakeDate.getFullYear()}
 								</AnimatedTxt>
