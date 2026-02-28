@@ -31,6 +31,17 @@ const countdownHelper = (
 	return five;
 };
 
+// TODO: learn this
+const getMonthName = (date: Date) => {
+	const nominative = date.toLocaleDateString("uk-UA", { month: "long" });
+
+	const genitive = date
+		.toLocaleDateString("uk-UA", { day: "numeric", month: "long" })
+		.replace(/^\d+\s*/, "");
+
+	return { nominative, genitive };
+};
+
 export default function BirthdayTwoTemplate() {
 	const fakeDate = new Date();
 	fakeDate.setDate(fakeDate.getDate() + 3);
@@ -180,6 +191,9 @@ export default function BirthdayTwoTemplate() {
 		}, 1000);
 	};
 
+	// TODO: learn this
+	const { nominative, genitive } = getMonthName(fakeDate);
+
 	return (
 		<>
 			<div onClick={handleLoading} className="loading-chr">
@@ -204,7 +218,8 @@ export default function BirthdayTwoTemplate() {
 								alt=""
 							/>
 							<div className="home__top-date-chr">
-								{fakeDate.getDate()} {template.monthDeclined}{" "}
+								{fakeDate.getDate()}{" "}
+								{genitive.charAt(0).toUpperCase() + genitive.slice(1)}{" "}
 								{fakeDate.getFullYear()} року
 							</div>
 							<p className="home__top-title-chr">
@@ -264,7 +279,8 @@ export default function BirthdayTwoTemplate() {
 
 					<div className="calendar-wrapper-chr animated-element1">
 						<p className="calendar-top-christening">
-							{template.monthName} {template.time.slice(0, 4)}
+							{nominative.charAt(0).toUpperCase() + nominative.slice(1)}{" "}
+							{fakeDate.getFullYear()}
 						</p>
 						<div className="calendar-christening">
 							<div>Пн</div>

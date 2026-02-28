@@ -1,9 +1,6 @@
 [
 	{
 		"id": "wedding-1",
-		"time": "2025-08-28T16:00:00",
-		"monthName": "Серпень",
-		"monthDeclined": "Серпня",
 		"hisName": "Андрій",
 		"herName": "Наталія",
 		"location_time": "Празький час",
@@ -37,9 +34,6 @@
 	},
 	{
 		"id": "wedding-2",
-		"time": "2026-05-14T16:00:00",
-		"monthName": "Вересень",
-		"monthDeclined": "Вересня",
 		"hisName": "Андрій",
 		"herName": "Наталія",
 		"location_time": "Київський час",
@@ -67,9 +61,6 @@
 	},
 	{
 		"id": "christening-1",
-		"time": "2026-09-21T13:00:00",
-		"monthName": "Вересень",
-		"monthDeclined": "Вересня",
 		"child_name": "Марії",
 		"mother_name": "Мирослава",
 		"father_name": "Михайло",
@@ -105,9 +96,6 @@
 	},
 	{
 		"id": "christening-2",
-		"time": "2025-10-28T14:00:00",
-		"monthName": "Вересень",
-		"monthDeclined": "Вересня",
 		"child_name": "Михайла",
 		"mother_name": "Аліна",
 		"father_name": "Іван",
@@ -145,9 +133,6 @@
 	},
 	{
 		"id": "birthday-1",
-		"time": "2025-12-13T16:00:00",
-		"monthName": "Грудень",
-		"monthDeclined": "Грудня",
 		"name": "Diana",
 		"location_time": "Київський час",
 		"addresses": [
@@ -172,9 +157,6 @@
 	},
 	{
 		"id": "birthday-2",
-		"time": "2026-01-28T14:00:00",
-		"monthName": "Січень",
-		"monthDeclined": "Січня",
 		"child_name": "Максима",
 		"mother_name": "Ганна",
 		"father_name": "Михайло",
@@ -200,9 +182,6 @@
 	},
 	{
 		"id": "wedding-3",
-		"time": "2026-05-03T17:00:00",
-		"monthName": "Травень",
-		"monthDeclined": "Травня",
 		"hisName": "Stepan",
 		"herName": "Andriana",
 		"location_time": "Празький час",
@@ -237,9 +216,8 @@
 	},
 	{
 		"id": "wedding-4",
-		"time": "2025-09-14T16:00:00",
-		"hisName": "Андрій",
-		"herName": "Наталія",
+		"hisName": "Богдан",
+		"herName": "Анжеліка",
 		"location_time": "Київський час",
 		"addresses": [
 			{
