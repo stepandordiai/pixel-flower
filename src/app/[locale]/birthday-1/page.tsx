@@ -34,6 +34,17 @@ const countdownHelper = (
 	return five;
 };
 
+// TODO: learn this
+const getMonthName = (date: Date) => {
+	const nominative = date.toLocaleDateString("uk-UA", { month: "long" });
+
+	const genitive = date
+		.toLocaleDateString("uk-UA", { day: "numeric", month: "long" })
+		.replace(/^\d+\s*/, "");
+
+	return { nominative, genitive };
+};
+
 export default function BirthdayOneTemplate() {
 	const fakeDate = new Date();
 	fakeDate.setDate(fakeDate.getDate() + 3);
@@ -137,6 +148,9 @@ export default function BirthdayOneTemplate() {
 		});
 	}, []);
 
+	// TODO: learn this
+	const { nominative, genitive } = getMonthName(fakeDate);
+
 	return (
 		<>
 			<main className="birthday-one__envelope-silver">
@@ -149,7 +163,7 @@ export default function BirthdayOneTemplate() {
 						/>
 						<p className="birthday-one__hero-date">
 							<AnimatedTxt>
-								{`${fakeDate.getDate()} / ${fakeDate.getMonth()} / ${fakeDate.getFullYear()}`}
+								{`${fakeDate.getDate()} / ${fakeDate.getMonth() + 1} / ${fakeDate.getFullYear()}`}
 							</AnimatedTxt>
 						</p>
 						<div className="birthday-one__top-title font-accent">
@@ -183,7 +197,8 @@ export default function BirthdayOneTemplate() {
 							</div>
 							<p className="birthday-one__font-m birthday-one__font-accent">
 								<AnimatedTxt>
-									Неділя, {fakeDate.getDate()} {template.monthDeclined},{" "}
+									Неділя, {fakeDate.getDate()}{" "}
+									{genitive.charAt(0).toUpperCase() + genitive.slice(1)},{" "}
 									{fakeDate.getFullYear()}
 								</AnimatedTxt>
 							</p>
