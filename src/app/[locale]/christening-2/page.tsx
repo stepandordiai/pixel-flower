@@ -7,6 +7,41 @@ import "./ChristeningTwo.scss";
 
 const template = templates.find((template) => template.id === "christening-2")!;
 
+const helper = (
+	time: number,
+	one: string,
+	two: string,
+	five: string,
+): string => {
+	const lastTwoDigits = time % 100;
+	const lastDigit = time % 10;
+
+	if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
+		return five;
+	}
+
+	if (lastDigit >= 2 && lastDigit <= 4) {
+		return two;
+	}
+
+	if (lastDigit === 1) {
+		return one;
+	}
+
+	return five;
+};
+
+// TODO: learn this
+const getMonthName = (date: Date) => {
+	const nominative = date.toLocaleDateString("uk-UA", { month: "long" });
+
+	const genitive = date
+		.toLocaleDateString("uk-UA", { day: "numeric", month: "long" })
+		.replace(/^\d+\s*/, "");
+
+	return { nominative, genitive };
+};
+
 export default function ChristeningTwoTemplate() {
 	const [isPlaying, setIsPlaying] = useState(false);
 
@@ -170,29 +205,7 @@ export default function ChristeningTwoTemplate() {
 		}, 1000);
 	};
 
-	const helper = (
-		time: number,
-		one: string,
-		two: string,
-		five: string,
-	): string => {
-		const lastTwoDigits = time % 100;
-		const lastDigit = time % 10;
-
-		if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
-			return five;
-		}
-
-		if (lastDigit >= 2 && lastDigit <= 4) {
-			return two;
-		}
-
-		if (lastDigit === 1) {
-			return one;
-		}
-
-		return five;
-	};
+	const { nominative, genitive } = getMonthName(fakeDate);
 
 	return (
 		<>
@@ -218,7 +231,8 @@ export default function ChristeningTwoTemplate() {
 								alt=""
 							/>
 							<div className="home__top-date-chr">
-								{fakeDate.getDate()} {template.monthDeclined}{" "}
+								{fakeDate.getDate()}{" "}
+								{genitive.charAt(0).toUpperCase() + genitive.slice(1)}{" "}
 								{fakeDate.getFullYear()} року
 							</div>
 							<p className="home__top-title-chr">
@@ -281,10 +295,7 @@ export default function ChristeningTwoTemplate() {
 					</div>
 
 					<div className="calendar-wrapper-chr animated-element1">
-						<p className="calendar-top-christening">{`${template.monthName} ${template.time.slice(
-							0,
-							4,
-						)}`}</p>
+						<p className="calendar-top-christening">{`${nominative.charAt(0).toUpperCase() + nominative.slice(1)} ${fakeDate.getFullYear()}`}</p>
 						<div className="calendar-christening">
 							<div>Пн</div>
 							<div>Вт</div>
@@ -338,20 +349,17 @@ export default function ChristeningTwoTemplate() {
 													{template.location_time})
 												</span>
 											</p>
+											<p className="animated-element1">
+												{address.address_title}
+											</p>
 											<a
-												style={{ color: "#000" }}
+												style={{ marginBottom: 10, color: "#000" }}
 												className="animated-element1"
 												href={address.address_destination_url}
 												target="_blank"
 											>
-												{address.address_title}
-											</a>
-											<p
-												style={{ marginBottom: 10 }}
-												className="animated-element1"
-											>
 												{address.address}
-											</p>
+											</a>
 											<iframe
 												className="address-map animated-element1"
 												src={address.address_url}
