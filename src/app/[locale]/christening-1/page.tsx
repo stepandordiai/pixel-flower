@@ -3,9 +3,44 @@
 import { useEffect, useState } from "react";
 import templates from "@/app/assets/data/templates.json";
 import Container from "@/app/components/Container/Container";
-import "./ChristeningGirl.scss";
+import "./ChristeningOne.scss";
 
 const template = templates.find((template) => template.id === "christening-1")!;
+
+const helper = (
+	time: number,
+	one: string,
+	two: string,
+	five: string,
+): string => {
+	const lastDigit = time % 10;
+	const lastTwoDigits = time % 100;
+
+	if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
+		return five;
+	}
+
+	if (lastDigit === 1) {
+		return one;
+	}
+
+	if (lastDigit >= 2 && lastDigit <= 4) {
+		return two;
+	}
+
+	return five;
+};
+
+// TODO: learn this
+const getMonthName = (date: Date) => {
+	const nominative = date.toLocaleDateString("uk-UA", { month: "long" });
+
+	const genitive = date
+		.toLocaleDateString("uk-UA", { day: "numeric", month: "long" })
+		.replace(/^\d+\s*/, "");
+
+	return { nominative, genitive };
+};
 
 export default function ChristeningOneTemplate() {
 	const [isPlaying, setIsPlaying] = useState(false);
@@ -87,18 +122,22 @@ export default function ChristeningOneTemplate() {
 
 	useEffect(() => {
 		const scroll = document.querySelector(
-			".christening-girl__scroll-chr",
+			".christening-girl__hero-scroll",
 		) as HTMLElement;
 		const images = document.querySelectorAll(
 			".christening-girl__gallery-masonry img",
 		);
 
-		window.addEventListener("scroll", () => {
+		const handleScrollTxt = () => {
 			if (document.documentElement.scrollTop > 0) {
 				scroll.classList.add("christening-girl__scroll-chr--hide");
 			} else {
 				scroll.classList.remove("christening-girl__scroll-chr--hide");
 			}
+		};
+
+		window.addEventListener("scroll", () => {
+			handleScrollTxt();
 
 			images.forEach((img) => {
 				const imgRect = img.getBoundingClientRect();
@@ -107,6 +146,8 @@ export default function ChristeningOneTemplate() {
 				}
 			});
 		});
+
+		return () => window.removeEventListener("scroll", handleScrollTxt);
 	}, []);
 
 	useEffect(() => {
@@ -139,16 +180,18 @@ export default function ChristeningOneTemplate() {
 
 	useEffect(() => {
 		document.body.style.overflow = "hidden";
+
+		return () => {
+			document.body.style.overflow = "";
+		};
 	}, []);
 
 	const handleLoading = () => {
-		document.body.style.overflow = "auto";
+		document.body.style.overflow = "";
 		const el = document.querySelector(
 			".christening-girl__loading",
 		) as HTMLElement;
 		el.classList.add("christening-girl__loading--hide");
-		const el2 = document.querySelector(".christening-girl") as HTMLElement;
-		el2.style.display = "flex";
 		setIsPlaying(true);
 		setTimeout(() => {
 			const hero = document.querySelector(
@@ -183,32 +226,7 @@ export default function ChristeningOneTemplate() {
 		}, 1000);
 	};
 
-	const color = template.color;
-	document.documentElement.style.setProperty("--color", color ?? "#000");
-
-	const helper = (
-		time: number,
-		one: string,
-		two: string,
-		five: string,
-	): string => {
-		const lastDigit = time % 10;
-		const lastTwoDigits = time % 100;
-
-		if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
-			return five;
-		}
-
-		if (lastDigit === 1) {
-			return one;
-		}
-
-		if (lastDigit >= 2 && lastDigit <= 4) {
-			return two;
-		}
-
-		return five;
-	};
+	const { nominative, genitive } = getMonthName(fakeDate);
 
 	return (
 		<>
@@ -222,7 +240,7 @@ export default function ChristeningOneTemplate() {
 				<img src="/christening-girl/01.webp" alt="" />
 				<div>Торкніться екрана, щоб відкрити запрошення!</div>
 			</div>
-			<main className="christening-girl" style={{ display: "none" }}>
+			<main className="christening-girl">
 				<Container>
 					<div className="christening-girl__hero">
 						<div className="christening-girl__home__top-inner-chr">
@@ -232,7 +250,8 @@ export default function ChristeningOneTemplate() {
 								alt=""
 							/>
 							<div className="christening-girl__hero-date">
-								{fakeDate.getDate()} {template.monthDeclined}{" "}
+								{fakeDate.getDate()}{" "}
+								{genitive.charAt(0).toUpperCase() + genitive.slice(1)}{" "}
 								{fakeDate.getFullYear()} року
 							</div>
 							<p className="christening-girl__hero-title">
@@ -289,14 +308,11 @@ export default function ChristeningOneTemplate() {
 							важливу подію
 							<br />
 							<br />
-							{template.type} {template.child_name}
+							Хрещення нашої дочки {template.child_name}
 						</p>
 					</div>
 					<div className="christening-girl__calendar-wrapper christening-girl__animate">
-						<p className="christening-girl__calendar-top">{`${template.monthName} ${template.time.slice(
-							0,
-							4,
-						)}`}</p>
+						<p className="christening-girl__calendar-top">{`${nominative.charAt(0).toUpperCase() + nominative.slice(1)} ${fakeDate.getFullYear()}`}</p>
 						<div className="christening-girl__calendar">
 							<div>Пн</div>
 							<div>Вт</div>
@@ -361,16 +377,18 @@ export default function ChristeningOneTemplate() {
 											<p className="christening-girl__address__info-chr christening-girl__animate">
 												{address.address_title}
 											</p>
-											<p
-												style={{ marginBottom: 10 }}
+											<a
+												style={{ marginBottom: 10, color: "#000" }}
 												className="christening-girl__address__info-chr christening-girl__animate"
+												href={address.address_destination_url}
+												target="_blank"
 											>
 												{address.address}
-											</p>
+											</a>
 											<iframe
 												className="christening-girl__map christening-girl__animate"
 												src={address.address_url}
-												loading="lazy"
+												// loading="lazy"
 											></iframe>
 											<a
 												className="christening-girl__address__link-chr christening-girl__animate"

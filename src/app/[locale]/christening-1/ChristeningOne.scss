@@ -99,6 +99,7 @@
 	overflow: hidden;
 	background: #fff !important;
 	padding-bottom: 100px;
+	--color: #ffd0dc;
 }
 
 .christening-girl__hero {
@@ -379,9 +380,6 @@
 	gap: 25px;
 }
 
-.christening-girl__font-s {
-}
-
 .christening-girl__font-m {
 	font-size: clamp(1.25rem, 2vw, 2.25rem);
 }
@@ -395,9 +393,11 @@
 	width: 50%;
 	display: flex;
 	flex-direction: column;
+	gap: 20px;
 
 	&:nth-child(even) {
 		margin-left: auto;
+
 		&:not(:nth-last-child(1)) {
 			&::before {
 				content: "";
@@ -405,7 +405,6 @@
 				bottom: 0;
 				left: 0;
 				transform: translateX(-100%) rotate(20deg);
-				// background-image: url(./../../../public/Vector-1.svg);
 				background-size: contain;
 				background-position: left;
 				background-repeat: no-repeat;
@@ -456,6 +455,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-weight: 500;
 }
 
 .christening-girl__wrapper {
@@ -567,6 +567,9 @@
 .christening-girl__date-container-chr {
 	width: 100%;
 	padding: 0 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }
 
 .christening-girl__countdown {
@@ -592,9 +595,7 @@
 }
 
 .christening-girl__txt-decoration {
-	text-decoration-line: underline;
-	text-decoration-color: rgb(255, 208, 220);
-	text-decoration-thickness: 5px;
+	text-decoration: underline var(--color) 2px wavy;
 	text-decoration-skip-ink: none;
 }
 
