@@ -117,7 +117,7 @@ export default function BirthdayOneTemplate() {
 	const days2 = [];
 
 	const firstDay = new Date(
-		Number(template.time.slice(0, 4)),
+		Number(fakeDate.getFullYear()),
 		Number(fakeDate.getMonth()) - 1,
 		1,
 	);
@@ -125,7 +125,7 @@ export default function BirthdayOneTemplate() {
 	let startWeekday = firstDay.getDay(); // 0 = Sunday, 1 = Monday, ...
 
 	const febDayNumbers = getDaysOfMonth(
-		Number(template.time.slice(0, 4)),
+		Number(fakeDate.getFullYear()),
 		Number(fakeDate.getMonth()) - 1,
 	).map((d) => d.getDate());
 
