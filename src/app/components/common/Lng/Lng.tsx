@@ -4,9 +4,10 @@ import { useTranslations, useLocale } from "next-intl";
 import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import classNames from "classnames";
+import GlobeIcon from "@/app/icons/GlobeIcon";
 import "./Lng.scss";
 
-const lngData = [
+const languages = [
 	{ code: "uk", name: "UA" },
 	{ code: "cs", name: "CZ" },
 ];
@@ -19,6 +20,7 @@ const Lng = () => {
 	const t = useTranslations();
 
 	const [lngBannerVisible, setLngBannerVisible] = useState(false);
+	const [lngVisible, setLngVisible] = useState(false);
 
 	useEffect(() => {
 		// TODO: learn this
@@ -35,7 +37,8 @@ const Lng = () => {
 		return () => clearTimeout(timeout);
 	}, []);
 
-	const currentLng = lngData.find((lng) => lng.code === locale) || lngData[0];
+	const currentLng =
+		languages.find((lng) => lng.code === locale) || languages[0];
 
 	const handleLngOption = (lngCode: string) => {
 		const newPathname = pathname.replace(`/${locale}`, `/${lngCode}`);
@@ -62,7 +65,7 @@ const Lng = () => {
 					}}
 				>
 					<div style={{ display: "flex", gap: 5 }}>
-						{lngData.map((lng) => {
+						{languages.map((lng) => {
 							return (
 								<button
 									key={lng.code}
@@ -84,23 +87,37 @@ const Lng = () => {
 					</button>
 				</div>
 			</div>
-			<div style={{ display: "flex", gap: 5 }}>
-				{lngData.map((lng) => {
-					return (
-						<button
-							key={lng.code}
-							onClick={() => {
-								handleLngOption(lng.code);
-								setLngBannerVisible(false);
-							}}
-							className={classNames("lng__btn", {
-								"lng__btn--active": lng.code === currentLng.code,
-							})}
-						>
-							{lng.name}
-						</button>
-					);
-				})}
+			<div className="lng">
+				<button
+					onClick={() => setLngVisible((prev) => !prev)}
+					className="lng-btn"
+				>
+					<GlobeIcon size={24} />
+				</button>
+				<div
+					className={classNames("lng-inner-parent", {
+						"lng-inner-parent--visible": lngVisible,
+					})}
+				>
+					<div className="lng-inner-child">
+						{languages.map((lng) => {
+							return (
+								<button
+									key={lng.code}
+									onClick={() => {
+										handleLngOption(lng.code);
+										setLngBannerVisible(false);
+									}}
+									className={classNames("lng__btn", {
+										"lng__btn--active": lng.code === currentLng.code,
+									})}
+								>
+									{lng.name}
+								</button>
+							);
+						})}
+					</div>
+				</div>
 			</div>
 		</>
 	);

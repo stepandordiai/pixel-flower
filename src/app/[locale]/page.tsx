@@ -8,10 +8,10 @@ import WhyUs from "../components/home/WhyUs/WhyUs";
 import HowItWorks from "../components/home/HowItWorks/HowItWorks";
 import ArrowRightIcon from "../icons/ArrowRightIcon";
 import { Link } from "@/i18n/navigation";
-import ScrollToTop from "../utils/ScrollToTop";
 import type { Metadata } from "next";
 import ContactUs from "../components/home/ContactUs/ContactUs";
 import OurFeatures from "../components/home/OurFeatures/OurFeatures";
+import Lng from "../components/common/Lng/Lng";
 import "./Home.scss";
 
 const sliderImgData = [
@@ -113,8 +113,8 @@ export default async function Home() {
 
 	return (
 		<>
-			<ScrollToTop />
 			<Header />
+			<Lng />
 			<main className="home" id="home">
 				<section className="home-hero">
 					<div className="home-top__sliders">

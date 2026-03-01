@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import Lng from "../../common/Lng/Lng";
 import "./Footer.scss";
 
 const scrollToTop = () => {
@@ -49,7 +48,6 @@ const Footer = () => {
 					</div>
 				</div>
 			</button>
-			<Lng />
 			<p>&copy; {new Date().getFullYear()} pixel flower</p>
 			<p className="footer__author">
 				Website created by{" "}
