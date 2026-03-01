@@ -21,6 +21,38 @@ const montserrat = Montserrat({
 
 const template = templates.find((template) => template.id === "wedding-3")!;
 
+// TODO: learn this
+function helper(time: number, one: string, two: string, five: string): string {
+	const abs = Math.abs(time);
+	const lastDigit = abs % 10;
+	const lastTwoDigits = abs % 100;
+
+	if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
+		return five;
+	}
+
+	if (lastDigit === 1) {
+		return one;
+	}
+
+	if (lastDigit >= 2 && lastDigit <= 4) {
+		return two;
+	}
+
+	return five;
+}
+
+// TODO: learn this
+const getMonthName = (date: Date) => {
+	const nominative = date.toLocaleDateString("uk-UA", { month: "long" });
+
+	const genitive = date
+		.toLocaleDateString("uk-UA", { day: "numeric", month: "long" })
+		.replace(/^\d+\s*/, "");
+
+	return { nominative, genitive };
+};
+
 export default function WeddingThreeTemplate() {
 	const fakeDate = new Date();
 	fakeDate.setDate(fakeDate.getDate() + 3);
@@ -164,31 +196,7 @@ export default function WeddingThreeTemplate() {
 		return () => clearInterval(interval);
 	}, []);
 
-	// TODO: learn this
-	function helper(
-		time: number,
-		one: string,
-		two: string,
-		five: string,
-	): string {
-		const abs = Math.abs(time);
-		const lastDigit = abs % 10;
-		const lastTwoDigits = abs % 100;
-
-		if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
-			return five;
-		}
-
-		if (lastDigit === 1) {
-			return one;
-		}
-
-		if (lastDigit >= 2 && lastDigit <= 4) {
-			return two;
-		}
-
-		return five;
-	}
+	const { nominative, genitive } = getMonthName(fakeDate);
 
 	return (
 		<>
@@ -209,8 +217,8 @@ export default function WeddingThreeTemplate() {
 					<img src="/wedding-three/01.jpg" alt="" />
 					<div className={styles["hero-container"]}>
 						<p style={{ fontSize: "18px" }}>
-							{template.time.slice(8, 10)} / {template.time.slice(5, 7)} /{" "}
-							{template.time.slice(0, 4)}
+							{fakeDate.getDate()} / {fakeDate.getMonth() + 1} /{" "}
+							{fakeDate.getFullYear()}
 						</p>
 						<div className={styles["hero__img-wrapper"]}>
 							<img src="/wedding-three/heart.png" alt="" />
@@ -232,7 +240,7 @@ export default function WeddingThreeTemplate() {
 					<div className={styles.calendar}>
 						<p
 							className={styles["calendar-top"]}
-						>{`${template.monthName} ${template.time.slice(0, 4)}`}</p>
+						>{`${nominative.charAt(0).toUpperCase() + nominative.slice(1)} ${fakeDate.getFullYear()}`}</p>
 						<div className={styles["calendar-inner"]}>
 							<div>Пн</div>
 							<div>Вт</div>
