@@ -12,6 +12,7 @@ import type { Metadata } from "next";
 import ContactUs from "../components/home/ContactUs/ContactUs";
 import OurFeatures from "../components/home/OurFeatures/OurFeatures";
 import Lng from "../components/common/Lng/Lng";
+import TelIcon from "../icons/TelIcon";
 import "./Home.scss";
 
 const sliderImgData = [
@@ -99,22 +100,15 @@ export async function generateMetadata({
 }
 
 export default async function Home() {
-	// TODO: ?
 	const t = await getTranslations();
-
-	// const [showLoadedImg, setShowLoadedImg] = useState<Record<number, boolean>>(
-	// 	{},
-	// );
-
-	// FIXME:
-	// useEffect(() => {
-	// 	document.body.style.overflow = "auto";
-	// }, []);
 
 	return (
 		<>
 			<Header />
 			<Lng />
+			<a className="float-tel" href="tel:+420722001016">
+				<TelIcon size={24} />
+			</a>
 			<main className="home" id="home">
 				<section className="home-hero">
 					<div className="home-top__sliders">
