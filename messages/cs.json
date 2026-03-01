@@ -11,6 +11,12 @@
 	"pageNotFound": "Stránka nenalezena",
 	"backToHome": "Zpět na hlavní stránku",
 
+	"menu": {
+		"whyUs": "Proč my",
+		"ourFeatures": "Vlastnosti pozvánek",
+		"contact": "Kontakt"
+	},
+
 	"home": {
 		"title": "Vytvářejte výjimečné vzpomínky od prvního kliknutí. Online pozvánky na vaši oslavu.",
 		"chooseATemplate": "Vybrat šablonu",

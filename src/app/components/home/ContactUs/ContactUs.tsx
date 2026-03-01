@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import contactsData from "@/app/assets/data/contacts-data";
+import contacts from "@/app/assets/data/contacts";
 import ArrowRightBtn from "../../ArrowRightBtn/ArrowRightBtn";
 import styles from "./ContactUs.module.scss";
 
@@ -7,11 +7,11 @@ const ContactUs = async () => {
 	const t = await getTranslations();
 
 	return (
-		<section className={styles.section}>
+		<section className={styles.section} id="contact">
 			<h2 className={styles["section__title"]}>{t("contactUs.title")}</h2>
 			<p className={styles["section__desc"]}>{t("contactUs.desc")}</p>
 			<div className={styles["contact-us-container"]}>
-				{contactsData.map((el, i) => {
+				{contacts.map((el, i) => {
 					return (
 						<ArrowRightBtn
 							key={i}

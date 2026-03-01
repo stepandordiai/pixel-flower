@@ -1,5 +1,5 @@
 .header {
-	font-family: "Montserrat Alternates", sans-serif;
+	// font-family: "Montserrat Alternates", sans-serif;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -26,17 +26,24 @@
 	top: 10px;
 	right: 25px;
 	z-index: 2;
-	min-height: 50px;
-	min-width: 50px;
-	background: var(--accent-clr-yellow);
+	height: 50px;
+	width: 50px;
+	background: rgba(255, 255, 255, 0.474);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
 	outline: 1px solid #000;
 	outline-offset: -1px;
-	box-sizing: border-box !important;
 	border-radius: 25px;
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
+	transition: all 0.5s;
+}
+
+.menu--open {
+	width: min(calc(100% - 20px), 500px);
+	height: min(calc(100% - 20px), 500px);
 }
 
 @media screen and (width < 808px) {
@@ -46,21 +53,14 @@
 }
 
 .menu-dd {
-	overflow: hidden;
-	display: grid;
-	grid-template-rows: 0fr;
-	grid-template-columns: 0fr;
-	transition: all 0.5s;
-}
-
-.menu-dd--active {
-	grid-template-rows: 1fr;
-	grid-template-columns: 1fr;
+	width: 100%;
 	padding: 10px;
-}
-
-.menu-dd-inner {
-	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
+	justify-content: space-between;
+	height: 100%;
+	overflow: auto;
 }
 
 .menu-dd-nav {
@@ -70,6 +70,8 @@
 }
 
 .menu-dd-nav__link {
+	font-size: 18px;
+	font-weight: 500;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -102,7 +104,8 @@
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	column-gap: 10px;
+	gap: 10px;
+	flex-wrap: wrap;
 	margin-top: 10px;
 
 	a {
@@ -118,6 +121,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-shrink: 0;
 }
 
 .burger-btn {

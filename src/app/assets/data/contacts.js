@@ -4,7 +4,7 @@ import ViberIcon from "../../icons/ViberIcon";
 import TelIcon from "../../icons/TelIcon";
 import EnvelopeIcon from "@/app/icons/EnvelopeIcon";
 
-const contactsData = [
+const contacts = [
 	{
 		icon: TelegramIcon,
 		title: "Telegram",
@@ -32,4 +32,4 @@ const contactsData = [
 	},
 ];
 
-export default contactsData;
+export default contacts;

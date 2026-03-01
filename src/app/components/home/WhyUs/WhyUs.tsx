@@ -36,7 +36,7 @@ const WhyUs = async () => {
 	const t = await getTranslations();
 
 	return (
-		<section className={styles.section}>
+		<section className={styles.section} id="why-us">
 			<h2 className={styles["why-us__title"]}>{t("whyUs.title")}</h2>
 			<ul className={styles["why-us-list"]}>
 				{whyUsData.map(({ title, desc }, i) => {

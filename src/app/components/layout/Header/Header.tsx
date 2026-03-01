@@ -3,17 +3,21 @@
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import socialsData from "./../../../assets/data/socialsData";
+import contacts from "@/app/assets/data/contacts";
 import classNames from "classnames";
 import ArrowRightIcon from "@/app/icons/ArrowRightIcon";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import "./Header.scss";
 
-const linksData = [
+const links = [
 	{ name: "homeTitle", path: "/#home" },
 	{ name: "templatesTitle", path: "/#templates" },
 	{ name: "packagesAndPricingTitle", path: "/#packages" },
+	{ name: "menu.whyUs", path: "/#why-us" },
+	{ name: "menu.ourFeatures", path: "/#our-features" },
 	{ name: "questionsAndAnswersTitle", path: "/#qa" },
+	{ name: "menu.contact", path: "/#contact" },
 ];
 
 const Header = () => {
@@ -48,7 +52,11 @@ const Header = () => {
 					<span>pixel flower</span>
 				</Link>
 			</header>
-			<div className="menu">
+			<div
+				className={classNames("menu", {
+					"menu--open": isMenuOpen,
+				})}
+			>
 				{/* menu-btn */}
 				<button
 					onClick={toggleMenu}
@@ -74,50 +82,65 @@ const Header = () => {
 						></span>
 					</span>
 				</button>
-				<div
-					className={classNames("menu-dd", {
-						"menu-dd--active": isMenuOpen,
-					})}
-					id="menu"
-					aria-hidden={!isMenuOpen}
-				>
-					<div className="menu-dd-inner">
-						<nav className="menu-dd-nav">
-							{linksData.map((link, index) => {
-								return (
-									<Link
-										key={index}
-										onClick={() => setIsMenuOpen(false)}
-										className="menu-dd-nav__link"
-										href={link.path}
-									>
-										<span>{t(link.name)}</span>
-										<div className="menu-icon-container">
-											<div className="menu-icon-wrapper">
-												{/* TODO: learn this */}
-												{[...Array(2)].map((_, i) => {
-													return <ArrowRightIcon key={i} size={24} />;
-												})}
-											</div>
+				<div className="menu-dd" id="menu" aria-hidden={!isMenuOpen}>
+					<nav className="menu-dd-nav">
+						{links.map((link, index) => {
+							return (
+								<Link
+									key={index}
+									onClick={() => setIsMenuOpen(false)}
+									className="menu-dd-nav__link"
+									href={link.path}
+								>
+									<span>{t(link.name)}</span>
+									<div className="menu-icon-container">
+										<div className="menu-icon-wrapper">
+											{/* TODO: learn this */}
+											{[...Array(2)].map((_, i) => {
+												return <ArrowRightIcon key={i} size={24} />;
+											})}
 										</div>
-									</Link>
-								);
-							})}
-						</nav>
-						<div className="menu-dd-socials">
-							{socialsData.map((social, index) => {
-								const Icon = social.icon;
-								return (
-									<a
-										key={index}
-										href={social.socialUrl}
-										target="_blank"
-										title={social.title}
-									>
-										<Icon size={24} />
-									</a>
-								);
-							})}
+									</div>
+								</Link>
+							);
+						})}
+					</nav>
+					<div style={{ display: "flex", flexDirection: "column", rowGap: 10 }}>
+						<div>
+							<p style={{ fontWeight: 500 }}>Месенджери</p>
+							<div className="menu-dd-socials">
+								{contacts.map((social, index) => {
+									const Icon = social.icon;
+									return (
+										<a
+											key={index}
+											href={social.socialUrl}
+											target="_blank"
+											title={social.title}
+										>
+											<Icon size={24} />
+										</a>
+									);
+								})}
+							</div>
+						</div>
+						<div>
+							<p style={{ fontWeight: 500 }}>Соцмережі</p>
+							<div className="menu-dd-socials">
+								{socialsData.map((social, index) => {
+									const Icon = social.icon;
+									return (
+										<a
+											key={index}
+											href={social.socialUrl}
+											target="_blank"
+											title={social.title}
+										>
+											<Icon size={24} />
+										</a>
+									);
+								})}
+							</div>
 						</div>
 					</div>
 				</div>

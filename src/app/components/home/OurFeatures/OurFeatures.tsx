@@ -42,7 +42,7 @@ const ourFeatures = [
 
 const OurFeatures = () => {
 	return (
-		<section className={styles["our-features"]}>
+		<section className={styles["our-features"]} id="our-features">
 			<h2 className={styles["our-features__title"]}>
 				Ваше запрошення - більше, ніж просто сайт
 			</h2>
