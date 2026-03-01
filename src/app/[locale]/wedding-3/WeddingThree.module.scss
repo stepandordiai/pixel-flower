@@ -2,6 +2,65 @@
 	background: #000 !important;
 }
 
+.wedding-3__music-btn {
+	position: fixed;
+	bottom: 80px;
+	right: 20px;
+	z-index: 2;
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	background: rgba(255, 255, 255, 0.5) !important;
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+	border: 1px solid #000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.equalizer {
+	display: flex;
+	align-items: center;
+	gap: 2px;
+	height: 16px;
+}
+.equalizer span {
+	width: 3px;
+	height: 3px;
+	background: currentColor;
+	border-radius: 1px;
+	animation: eq 0.8s ease-in-out infinite alternate;
+}
+.equalizer span:nth-child(1) {
+	animation-duration: 0.6s;
+}
+.equalizer span:nth-child(2) {
+	animation-duration: 0.9s;
+	animation-delay: 0.1s;
+}
+.equalizer span:nth-child(3) {
+	animation-duration: 0.7s;
+	animation-delay: 0.2s;
+}
+.equalizer span:nth-child(4) {
+	animation-duration: 1s;
+	animation-delay: 0.05s;
+}
+
+.equalizer.paused span {
+	animation-play-state: paused;
+}
+
+@keyframes eq {
+	from {
+		height: 3px;
+	}
+	to {
+		height: 16px;
+	}
+}
+
 .paper-left {
 	position: fixed;
 	z-index: 999;
@@ -204,8 +263,9 @@
 }
 
 .address__map {
-	width: 100% !important;
+	width: min(100%, 400px);
 	height: 300px;
+	border-radius: 50px;
 }
 
 .link {

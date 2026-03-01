@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import styles from "./WeddingThree.module.scss";
 import { Alex_Brush, Montserrat } from "next/font/google";
 import templates from "@/app/assets/data/templates.json";
 import Image from "next/image";
 import { useRef } from "react";
+import classNames from "classnames";
+import Lng from "@/app/components/common/Lng/Lng";
+import styles from "./WeddingThree.module.scss";
 
 const alexBrush = Alex_Brush({
 	weight: ["400"],
@@ -54,6 +56,9 @@ const getMonthName = (date: Date) => {
 };
 
 export default function WeddingThreeTemplate() {
+	const [playing, setPlaying] = useState(false);
+	const audioRef = useRef<HTMLAudioElement>(null);
+
 	const fakeDate = new Date();
 	fakeDate.setDate(fakeDate.getDate() + 3);
 
@@ -91,62 +96,6 @@ export default function WeddingThreeTemplate() {
 
 		return () => document.body.classList.remove(styles.black);
 	}, []);
-	// const leftRef = useRef<HTMLImageElement>(null);
-	// const rightRef = useRef<HTMLImageElement>(null);
-
-	// useEffect(() => {
-	// 	let current = 0;
-	// 	let target = 0;
-	// 	let stopped = false;
-
-	// 	const maxRotation = 180;
-	// 	const speed = 0.2; // 10% smoothing
-
-	// 	const onScroll = () => {
-	// 		if (stopped) return;
-
-	// 		const maxScroll = window.innerHeight * 1.5;
-	// 		target = Math.min(window.scrollY / maxScroll, 1);
-	// 	};
-
-	// 	const animate = () => {
-	// 		if (stopped) return;
-
-	// 		current += (target - current) * speed;
-
-	// 		// Clamp hard stop
-	// 		if (current >= 0.999) {
-	// 			current = 1;
-	// 			stopped = true;
-
-	// 			// final transform (safety)
-	// 			leftRef.current!.style.transform = `rotateY(-180deg)`;
-	// 			rightRef.current!.style.transform = `rotateY(180deg)`;
-
-	// 			window.removeEventListener("scroll", onScroll);
-	// 			return;
-	// 		}
-
-	// 		const rotation = current * maxRotation;
-
-	// 		if (leftRef.current) {
-	// 			leftRef.current.style.transform = `rotateY(${-rotation}deg)`;
-	// 		}
-
-	// 		if (rightRef.current) {
-	// 			rightRef.current.style.transform = `rotateY(${rotation}deg)`;
-	// 		}
-
-	// 		requestAnimationFrame(animate);
-	// 	};
-
-	// 	window.addEventListener("scroll", onScroll);
-	// 	animate();
-
-	// 	return () => {
-	// 		window.removeEventListener("scroll", onScroll);
-	// 	};
-	// }, []);
 
 	const [animate, setAnimate] = useState(false);
 	const pathRef = useRef<SVGPathElement>(null);
@@ -198,20 +147,37 @@ export default function WeddingThreeTemplate() {
 
 	const { nominative, genitive } = getMonthName(fakeDate);
 
+	const togglePlay = () => {
+		if (playing) {
+			audioRef.current?.pause();
+		} else {
+			audioRef.current?.play();
+		}
+
+		setPlaying((prev) => !prev);
+	};
+
 	return (
 		<>
-			{/* <img
-				// ref={leftRef}
-				className={styles["paper-left"]}
-				src="/wedding-three/paper.jpg"
-				alt=""
-			/>
-			<img
-				// ref={rightRef}
-				className={styles["paper-right"]}
-				src="/wedding-three/paper.jpg"
-				alt=""
-			/> */}
+			<Lng />
+			<button onClick={togglePlay} className={styles["wedding-3__music-btn"]}>
+				<div
+					className={classNames(styles.equalizer, {
+						[styles["paused"]]: !playing,
+					})}
+				>
+					<span />
+					<span />
+					<span />
+					<span />
+				</div>
+			</button>
+			<audio
+				ref={audioRef}
+				src="/wedding-three/music.mp3"
+				loop
+				preload="auto"
+			></audio>
 			<main className={styles.main}>
 				<section className={styles.hero}>
 					<img src="/wedding-three/01.jpg" alt="" />
