@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, CSSProperties } from "react";
 import { Alex_Brush, Montserrat } from "next/font/google";
 import templates from "@/app/assets/data/templates.json";
 import { useRef } from "react";
@@ -89,12 +89,6 @@ export default function WeddingThreeTemplate() {
 
 	days2.push(...febDayNumbers);
 
-	useEffect(() => {
-		document.body.classList.add(styles.black);
-
-		return () => document.body.classList.remove(styles.black);
-	}, []);
-
 	const [animate, setAnimate] = useState(false);
 	const pathRef = useRef<SVGPathElement>(null);
 
@@ -159,10 +153,86 @@ export default function WeddingThreeTemplate() {
 	// 	".logo",
 	// ) as SVGGeometryElement | null;
 	// console.log(ringOuter?.getTotalLength());
+	const [pearlsActive, setPearlsActive] = useState(false);
+	const [preview, setPreview] = useState(true);
+
+	const handlePreview = () => {
+		setPearlsActive(true);
+		audioRef.current?.play();
+		setPlaying(true);
+		setTimeout(() => {
+			setPreview(false);
+		}, 1000); // let pearls animate before hiding
+	};
+
+	interface Pearl {
+		id: number;
+		left: string;
+		top: string;
+		size: string;
+		delay: string;
+		filter: string;
+		floatX: string;
+		floatY: string;
+		floatDuration: string;
+	}
+
+	const [pearls, setPearls] = useState<Pearl[]>([]);
+
+	useEffect(() => {
+		setPearls(
+			Array.from({ length: 30 }, (_, i) => ({
+				id: i,
+				left: `${Math.random() * 100}%`,
+				top: `${Math.random() * 85}%`,
+				size: `${Math.random() * 100 + 20}px`,
+				delay: `${Math.random() * 0.3}s`,
+				filter: `${Math.random() * 2}px`,
+				floatX: `${(Math.random() - 0.5) * 22}px`, // ← random drift direction
+				floatY: `${(Math.random() - 0.5) * 22}px`,
+				floatDuration: `${2 + Math.random() * 2}s`, // ← 2–4s each
+			})),
+		);
+	}, []);
 
 	return (
 		<>
-			{/* <Lng /> */}
+			<div
+				onClick={handlePreview}
+				className={classNames(styles.preview, {
+					[styles["preview--hidden"]]: !preview,
+				})}
+			>
+				<p
+					className={classNames(styles["preview-text"], {
+						[styles["preview-text--hidden"]]: pearlsActive,
+					})}
+				>
+					Торкніться, щоб перлини розкрили запрошення
+				</p>
+				{pearls.map((p) => (
+					<span
+						key={p.id}
+						className={classNames(styles.pearl, {
+							[styles["pearl--rising"]]: pearlsActive,
+						})}
+						style={
+							{
+								left: p.left,
+								top: p.top,
+								width: p.size,
+								height: p.size,
+								transitionDelay: p.delay,
+								filter: `blur(${p.filter})`,
+								"--float-x": p.floatX,
+								"--float-y": p.floatY,
+								"--float-duration": p.floatDuration,
+								// TODO: learn this
+							} as CSSProperties
+						}
+					/>
+				))}
+			</div>
 			<button onClick={togglePlay} className={styles["wedding-3__music-btn"]}>
 				<div
 					className={classNames(styles.equalizer, {
@@ -189,7 +259,11 @@ export default function WeddingThreeTemplate() {
 							{fakeDate.getDate()} / {fakeDate.getMonth() + 1} /{" "}
 							{fakeDate.getFullYear()}
 						</p>
-						<div className={styles["hero__img-wrapper"]}>
+						<div
+							className={classNames(styles["hero__img-wrapper"], {
+								[styles["hero__img-wrapper--active"]]: pearlsActive,
+							})}
+						>
 							<img src="/wedding-three/heart.png" alt="" />
 						</div>
 						{/* <p className={styles["hero__heading"]}>
@@ -211,7 +285,7 @@ export default function WeddingThreeTemplate() {
 .logo {
   stroke-dasharray: 594;
   stroke-dashoffset: 594;
-  animation: drawK 20s ease forwards;
+  animation: ${pearlsActive ? "drawK 20s 1.5s ease forwards" : "none"};
 }
 			`}</style>
 							<path

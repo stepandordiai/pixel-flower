@@ -44,6 +44,76 @@
 	background: #000 !important;
 }
 
+.preview {
+	position: fixed;
+	inset: 0;
+	z-index: 9999;
+	background: #fff;
+	transition: background-color 2s;
+}
+
+.preview--hidden {
+	background: #ffffff00;
+	pointer-events: none;
+}
+
+.preview-text {
+	position: absolute;
+	left: 50%;
+	bottom: 10px;
+	transform: translate(-50%, 0);
+	z-index: 2;
+	width: max-content;
+	text-align: center;
+	font-size: 12px;
+	animation: animatePreviewText 2s linear infinite;
+}
+
+.preview-text--hidden {
+	display: none;
+}
+
+@keyframes animatePreviewText {
+	50% {
+		opacity: 0.5;
+	}
+}
+
+.pearl {
+	position: absolute;
+	border-radius: 50%;
+	background: var(--pearl-gradient-light);
+	transform: translateY(0);
+	opacity: 1;
+	pointer-events: none;
+	animation: float var(--float-duration) ease-in-out infinite alternate;
+}
+
+@keyframes float {
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(var(--float-x), var(--float-y));
+	}
+}
+
+.pearl--rising {
+	animation: rise 5s ease forwards;
+}
+
+@keyframes rise {
+	0% {
+		opacity: 1; // ← start visible
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(-1000px);
+	}
+}
+
 .wedding-3__music-btn {
 	position: fixed;
 	bottom: 80px;
@@ -181,7 +251,6 @@
 		top: 50%;
 		transform: translate(calc(-100% - 10px), -50%) scaleX(0);
 		transform-origin: right;
-		animation: animateLeftLine 2s ease forwards;
 	}
 
 	@keyframes animateLeftLine {
@@ -200,7 +269,6 @@
 		top: 50%;
 		transform: translate(calc(100% + 10px), -50%) scaleX(0);
 		transform-origin: left;
-		animation: animateRightLine 2s ease forwards;
 	}
 
 	@keyframes animateRightLine {
@@ -214,13 +282,26 @@
 		width: 32px;
 		height: 32px;
 		opacity: 0;
-		animation: animateHeroHeart 1s ease forwards;
 	}
 
 	@keyframes animateHeroHeart {
 		to {
 			opacity: 1;
 		}
+	}
+}
+
+.hero__img-wrapper--active {
+	&::before {
+		animation: animateLeftLine 2s 1.5s ease forwards;
+	}
+
+	&::after {
+		animation: animateRightLine 2s 1.5s ease forwards;
+	}
+
+	img {
+		animation: animateHeroHeart 1s 1.5s ease forwards;
 	}
 }
 
