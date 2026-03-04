@@ -43,8 +43,8 @@ const Header = () => {
 				<Link className="header__logo" href="/">
 					<Image
 						src="/logo/pixel-flower-logo.svg"
-						width={35}
-						height={35}
+						width={32}
+						height={32}
 						alt="pixel flower logo"
 						// TODO: learn this
 						priority

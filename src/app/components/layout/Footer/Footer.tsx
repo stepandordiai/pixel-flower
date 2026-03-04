@@ -14,13 +14,14 @@ const Footer = () => {
 
 	return (
 		<footer className="footer">
-			<Link href="/">
+			<Link className="footer__logo" href="/">
 				<Image
 					src="/logo/pixel-flower-logo.svg"
-					width={128}
-					height={128}
+					width={32}
+					height={32}
 					alt="Go to home page"
 				/>
+				<span>pixel flower</span>
 			</Link>
 			<button onClick={scrollToTop} className="footer__btn">
 				<span>{t("scrollToTop")}</span>
