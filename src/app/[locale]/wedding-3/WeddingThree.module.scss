@@ -48,13 +48,110 @@
 	position: fixed;
 	inset: 0;
 	z-index: 9999;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 50px;
 	background: #fff;
-	transition: background-color 2s;
+	transition: opacity 2s;
 }
 
 .preview--hidden {
-	background: #ffffff00;
+	opacity: 0;
 	pointer-events: none;
+}
+
+.envelope {
+	position: relative;
+	z-index: 1;
+	max-width: 500px;
+	height: max-content;
+	cursor: pointer;
+	animation: animateEnvelopeInner 1s infinite;
+}
+
+.envelope--disabled {
+	animation: none;
+}
+
+@keyframes animateEnvelopeInner {
+	25% {
+		transform: rotate(10deg);
+	}
+	50% {
+		transform: rotate(-5deg);
+	}
+	75% {
+		transform: rotate(2.5deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+.env-base {
+	width: 100%;
+	height: 100%;
+}
+
+.env-left {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	z-index: 1;
+}
+
+.env-right {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	z-index: 1;
+}
+
+.env-top {
+	position: absolute;
+	left: 0;
+	top: 0;
+	transform-origin: top;
+	z-index: 1;
+}
+
+.env-top--active {
+	animation: animateEnvTop 2s forwards;
+}
+
+@keyframes animateEnvTop {
+	to {
+		transform: rotateX(180deg);
+		z-index: 0;
+	}
+}
+
+.card {
+	position: absolute;
+	bottom: 0;
+	left: 10px;
+	height: 100%;
+	width: calc(100% - 20px);
+}
+
+.card--active {
+	animation: animateCard 1s 2s forwards;
+}
+
+@keyframes animateCard {
+	to {
+		transform: translateY(-100px);
+	}
+}
+
+.env-bottom {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
 }
 
 .preview-text {

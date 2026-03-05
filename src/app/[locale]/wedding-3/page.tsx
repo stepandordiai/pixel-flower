@@ -155,14 +155,16 @@ export default function WeddingThreeTemplate() {
 	// console.log(ringOuter?.getTotalLength());
 	const [pearlsActive, setPearlsActive] = useState(false);
 	const [preview, setPreview] = useState(true);
+	const [envelopeClicked, setEnvelopeClicked] = useState(false);
 
 	const handlePreview = () => {
-		setPearlsActive(true);
+		setEnvelopeClicked(true);
 		audioRef.current?.play();
-		setPlaying(true);
 		setTimeout(() => {
+			setPearlsActive(true);
+			setPlaying(true);
 			setPreview(false);
-		}, 1000); // let pearls animate before hiding
+		}, 4000); // let pearls animate before hiding
 	};
 
 	interface Pearl {
@@ -198,11 +200,51 @@ export default function WeddingThreeTemplate() {
 	return (
 		<>
 			<div
-				onClick={handlePreview}
 				className={classNames(styles.preview, {
 					[styles["preview--hidden"]]: !preview,
 				})}
 			>
+				<div
+					onClick={handlePreview}
+					className={classNames(styles.envelope, {
+						[styles["envelope--disabled"]]: envelopeClicked,
+					})}
+				>
+					<img
+						className={styles["env-base"]}
+						src="/wedding-two/envelope-base.svg"
+						alt=""
+					/>
+					<img
+						className={styles["env-bottom"]}
+						src="/wedding-two/envelope-bottom.svg"
+						alt=""
+					/>
+					<img
+						className={styles["env-left"]}
+						src="/wedding-two/envelope-left.svg"
+						alt=""
+					/>
+					<img
+						className={styles["env-right"]}
+						src="/wedding-two/envelope-right.svg"
+						alt=""
+					/>
+					<img
+						className={classNames(styles["env-top"], {
+							[styles["env-top--active"]]: envelopeClicked,
+						})}
+						src="/wedding-two/envelope-top.svg"
+						alt=""
+					/>
+					<img
+						className={classNames(styles.card, {
+							[styles["card--active"]]: envelopeClicked,
+						})}
+						src={template.envelope_img}
+						alt=""
+					/>
+				</div>
 				<p
 					className={classNames(styles["preview-text"], {
 						[styles["preview-text--hidden"]]: pearlsActive,
@@ -249,6 +291,7 @@ export default function WeddingThreeTemplate() {
 				ref={audioRef}
 				src="/wedding-three/music.mp3"
 				loop
+				// TODO: learn this
 				preload="auto"
 			></audio>
 			<main className={`${styles.main} ${alexBrush.variable}`}>
@@ -349,7 +392,7 @@ export default function WeddingThreeTemplate() {
 						дорогими та близькими людьми.
 					</p>
 				</section>
-				<div className={styles["wavy-divider"]}>
+				{/* <div className={styles["wavy-divider"]}>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 0 1200 100"
@@ -366,7 +409,7 @@ export default function WeddingThreeTemplate() {
 							strokeLinejoin="round"
 						/>
 					</svg>
-				</div>
+				</div> */}
 				<section className={styles.section}>
 					<p style={{ fontSize: "1.5rem", fontWeight: "500" }}>
 						Адреси святкування
@@ -380,7 +423,7 @@ export default function WeddingThreeTemplate() {
 									>
 										<span>{address.title}</span>
 										<span>
-											{address.time}({template.location_time})
+											{address.time} ({template.location_time})
 										</span>
 									</p>
 									<p>{address.address_title}</p>
