@@ -64,34 +64,52 @@
 .envelope {
 	position: relative;
 	z-index: 1;
-	max-width: 500px;
-	height: max-content;
+	max-width: 400px;
 	cursor: pointer;
-	animation: animateEnvelopeInner 1s infinite;
+	animation: animateEnvelopeInner 2s ease-in-out infinite;
 }
 
 .envelope--disabled {
-	animation: none;
+	animation: animateEnvelopeDown 1s forwards;
 }
 
 @keyframes animateEnvelopeInner {
-	25% {
-		transform: rotate(10deg);
+	0% {
+		transform: translateY(0) rotate(0deg) scale(1);
 	}
-	50% {
-		transform: rotate(-5deg);
+	15% {
+		transform: translateY(-8px) rotate(-4deg) scale(1.02);
+	}
+	30% {
+		transform: translateY(-12px) rotate(4deg) scale(1.03);
+	}
+	45% {
+		transform: translateY(-6px) rotate(-2deg) scale(1.01);
+	}
+	60% {
+		transform: translateY(-10px) rotate(2deg) scale(1.02);
 	}
 	75% {
-		transform: rotate(2.5deg);
+		transform: translateY(-4px) rotate(-1deg) scale(1);
+	}
+	90% {
+		transform: translateY(-6px) rotate(1deg) scale(1.01);
 	}
 	100% {
-		transform: rotate(0deg);
+		transform: translateY(0) rotate(0deg) scale(1);
+	}
+}
+
+@keyframes animateEnvelopeDown {
+	to {
+		transform: translateY(200px);
 	}
 }
 
 .env-base {
 	width: 100%;
 	height: 100%;
+	display: block;
 }
 
 .env-left {
@@ -99,7 +117,7 @@
 	top: 0;
 	left: 0;
 	height: 100%;
-	z-index: 1;
+	z-index: 3;
 }
 
 .env-right {
@@ -107,19 +125,20 @@
 	right: 0;
 	top: 0;
 	height: 100%;
-	z-index: 1;
+	z-index: 3;
 }
 
 .env-top {
 	position: absolute;
 	left: 0;
 	top: 0;
+	width: 100%;
 	transform-origin: top;
-	z-index: 1;
-}
+	z-index: 6;
 
-.env-top--active {
-	animation: animateEnvTop 2s forwards;
+	&--active {
+		animation: animateEnvTop 2s forwards;
+	}
 }
 
 @keyframes animateEnvTop {
@@ -131,10 +150,15 @@
 
 .card {
 	position: absolute;
-	bottom: 0;
+	top: 0;
+	transform: translateY(10px);
 	left: 10px;
-	height: 100%;
+	right: 10px;
 	width: calc(100% - 20px);
+	z-index: 2;
+	object-fit: contain;
+	-webkit-clip-path: inset(0 0 75% 0);
+	clip-path: inset(0 0 75% 0);
 }
 
 .card--active {
@@ -143,7 +167,9 @@
 
 @keyframes animateCard {
 	to {
-		transform: translateY(-100px);
+		-webkit-clip-path: inset(0 0 0% 0);
+		clip-path: inset(0 0 0% 0); // ← fully reveal card
+		transform: translateY(-75%);
 	}
 }
 
@@ -151,28 +177,28 @@
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	z-index: 1;
+	z-index: 3;
 }
 
-.preview-text {
+.preview-hint {
 	position: absolute;
 	left: 50%;
 	bottom: 10px;
 	transform: translate(-50%, 0);
-	z-index: 2;
-	width: max-content;
+	width: 100%;
+	padding: 0 50px;
 	text-align: center;
-	font-size: 12px;
+	font-size: 14px;
 	animation: animatePreviewText 2s linear infinite;
-}
 
-.preview-text--hidden {
-	display: none;
+	&--hidden {
+		display: none;
+	}
 }
 
 @keyframes animatePreviewText {
 	50% {
-		opacity: 0.5;
+		opacity: 0.1;
 	}
 }
 
