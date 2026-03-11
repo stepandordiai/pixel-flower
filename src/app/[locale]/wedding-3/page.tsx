@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Wedding3ClientTemplate from "./Wedding3Client";
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://www.pixelflower.studio"),
 	openGraph: {
 		title: "Запрошення на весілля",
 		images: "/wedding-three/og-img.jpg",

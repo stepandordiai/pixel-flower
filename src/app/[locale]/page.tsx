@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Header from "../components/layout/Header/Header";
 import Templates from "../components/home/Templates/Templates";
@@ -8,7 +9,6 @@ import WhyUs from "../components/home/WhyUs/WhyUs";
 import HowItWorks from "../components/home/HowItWorks/HowItWorks";
 import ArrowRightIcon from "../icons/ArrowRightIcon";
 import { Link } from "@/i18n/navigation";
-import type { Metadata } from "next";
 import ContactUs from "../components/home/ContactUs/ContactUs";
 import OurFeatures from "../components/home/OurFeatures/OurFeatures";
 import Lng from "../components/common/Lng/Lng";
@@ -83,17 +83,16 @@ export async function generateMetadata({
 
 	// TODO: ?
 	const t = await getTranslations({ locale });
-	const baseUrl = "https://www.pixelflower.studio";
 
 	return {
 		title: `${t("homeMetaTitle")} | pixel flower`,
 		description: t("homeMetaDesc"),
 		alternates: {
-			canonical: `${baseUrl}/${locale}`,
+			canonical: `/${locale}`,
 			languages: {
-				uk: `${baseUrl}/uk`,
-				cs: `${baseUrl}/cs`,
-				"x-default": `${baseUrl}/uk`,
+				uk: "/uk",
+				cs: "/cs",
+				"x-default": "/uk",
 			},
 		},
 	};
