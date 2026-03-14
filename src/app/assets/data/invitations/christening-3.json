@@ -1,0 +1,26 @@
+[
+	{
+		"id": "christening-marsel",
+		"time": "2026-04-17T13:00:00",
+		"name": "Марсельчик",
+		"location_time": "Місцевий час",
+		"addresses": [
+			{
+				"title": "Хрещення",
+				"time": "13:00",
+				"address_title": "Pravoslavný chrám sv. Kateřiny Alexandrijské",
+				"address": "Viničná 2, 128 00 Nové Město",
+				"address_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.669846206428!2d14.42233091200082!3d50.07374441429723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b948b147f2d6d%3A0xff1fa8794036cd0f!2sChurch%20of%20St%20Katherine%20of%20Alexandria!5e0!3m2!1sen!2scz!4v1773527532717!5m2!1sen!2scz",
+				"address_destination_url": "https://maps.app.goo.gl/M2SoiGC1X6ApLY458"
+			},
+			{
+				"title": "Бенкет",
+				"time": "15:00",
+				"address_title": "BONJOUR Bistro & Bakery",
+				"address": "Mochovská 535/38, 198 00 Praha 14-Hloubětín",
+				"address_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2558.883058099545!2d14.5376912!3d50.1071958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470bedf0627e6e11%3A0x4564b9e6bba5d999!2sBONJOUR%20Bistro%20%26%20Bakery!5e0!3m2!1sen!2scz!4v1773527728969!5m2!1sen!2scz",
+				"address_destination_url": "https://maps.app.goo.gl/xDUiPSQqVi3Dmwt46"
+			}
+		]
+	}
+]

@@ -1,0 +1,100 @@
+.preview {
+	position: fixed;
+	inset: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	z-index: 1000;
+	background: #fff;
+	transition: opacity 1s 1s;
+
+	span {
+		position: absolute;
+		bottom: 10px;
+		font-size: 14px;
+	}
+
+	&--hidden {
+		opacity: 0;
+		pointer-events: none;
+	}
+}
+
+.preview__baloon {
+	width: min(100%, 300px);
+	animation: floatSway 8s ease-in-out infinite;
+	will-change: transform;
+
+	&--active {
+		animation: floatUp 2s forwards;
+	}
+}
+
+@keyframes floatSway {
+	0% {
+		transform: translateY(0px) translateX(0px) rotate(-1deg);
+	}
+	20% {
+		transform: translateY(-20px) translateX(8px) rotate(1deg);
+	}
+	40% {
+		transform: translateY(-30px) translateX(-6px) rotate(-0.5deg);
+	}
+	60% {
+		transform: translateY(-18px) translateX(10px) rotate(1.5deg);
+	}
+	80% {
+		transform: translateY(-10px) translateX(-8px) rotate(-1deg);
+	}
+	100% {
+		transform: translateY(0px) translateX(0px) rotate(-1deg);
+	}
+}
+
+@keyframes floatUp {
+	to {
+		transform: translateY(-200px);
+		opacity: 0;
+	}
+}
+
+.hero {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	min-height: 100svh;
+	width: 100%;
+	padding-top: 150px;
+	background-image: url("/christening-3/02.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: top;
+}
+
+.section__title {
+	font-size: 1.5rem;
+	font-weight: 500;
+	text-align: center;
+}
+
+.countdown {
+	display: flex;
+	gap: 10px;
+	div {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background: rgb(212, 236, 255);
+		padding: 20px;
+		border-radius: 10px;
+
+		span:nth-of-type(1) {
+			font-size: 18px;
+			font-weight: 600;
+		}
+	}
+}
