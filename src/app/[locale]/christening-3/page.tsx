@@ -1,12 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
+// import templates from "@/app/assets/data/templates.json";
+// import templates from "@/app/assets/data/templates/christening-3.json";
 import templates from "@/app/assets/data/templates.json";
 import Container from "@/app/components/Container/Container";
-import styles from "./Christening3.module.scss";
 import "./../christening-2/ChristeningTwo.scss";
+import styles from "./Christening3.module.scss";
 
-const template = templates.find((template) => template.id === "christening-2")!;
+import classNames from "classnames";
+import ParallaxImage from "@/app/components/ParallaxImage/ParallaxImage";
 
 const helper = (
 	time: number,
@@ -32,6 +35,8 @@ const helper = (
 	return five;
 };
 
+const template = templates.find((t) => t.id === "christening-3")!;
+
 // TODO: learn this
 const getMonthName = (date: Date) => {
 	const nominative = date.toLocaleDateString("uk-UA", { month: "long" });
@@ -44,21 +49,13 @@ const getMonthName = (date: Date) => {
 };
 
 export default function Christening3Template() {
-	const [isPlaying, setIsPlaying] = useState(false);
+	// const params = useParams();
 
-	const handlePlayAudio = () => {
-		setIsPlaying((prev) => !prev);
-	};
+	// const template = templates.find((t) => t.id === params.id);
 
-	useEffect(() => {
-		const audio = document.querySelector(".audio") as HTMLAudioElement;
-
-		if (!isPlaying) {
-			audio.pause();
-		} else {
-			audio.play();
-		}
-	}, [isPlaying]);
+	// if (!template) {
+	// 	return notFound();
+	// }
 
 	const fakeDate = new Date();
 	fakeDate.setDate(fakeDate.getDate() + 3);
@@ -119,26 +116,6 @@ export default function Christening3Template() {
 	days2.push(...febDayNumbers);
 
 	useEffect(() => {
-		const scroll = document.querySelector(".scroll-chr") as HTMLElement;
-		const images = document.querySelectorAll(".gallery-masonry img");
-
-		window.addEventListener("scroll", () => {
-			if (document.documentElement.scrollTop > 0) {
-				scroll.classList.add("scroll-chr--hide");
-			} else {
-				scroll.classList.remove("scroll-chr--hide");
-			}
-
-			images.forEach((img) => {
-				const imgRect = img.getBoundingClientRect();
-				if (imgRect.top < window.innerHeight - 100) {
-					img.classList.add("img--active");
-				}
-			});
-		});
-	}, []);
-
-	useEffect(() => {
 		const animatedElements = document.querySelectorAll(".animated-element1");
 
 		animatedElements.forEach((el) => {
@@ -164,140 +141,89 @@ export default function Christening3Template() {
 		};
 	}, []);
 
-	useEffect(() => {
-		document.body.style.overflow = "hidden";
-	}, []);
+	const [previewHidden, setPreviewHidden] = useState(false);
 
 	const handleLoading = () => {
-		document.body.style.overflow = "auto";
-		const el = document.querySelector(".loading-chr") as HTMLElement;
-		el.classList.add("loading--hide");
-		const el2 = document.querySelector(".home-chr") as HTMLElement;
-		el2.style.display = "flex";
-		setIsPlaying(true);
-		setTimeout(() => {
-			const el3 = document.querySelector(".home__top-chr") as HTMLElement;
+		document.documentElement.style.overflow = "";
 
-			el3.classList.add("home__top-chr--active");
-
-			const rainbow = document.querySelectorAll(".rainbow");
-
-			rainbow.forEach((el) => {
-				const rainbows = el.querySelectorAll(".pp");
-				document.addEventListener("scroll", () => {
-					const elRect = el.getBoundingClientRect();
-					rainbows.forEach((el, index) => {
-						if (elRect.top < window.innerHeight) {
-							setTimeout(() => {
-								el.classList.add("rainbow-el--active");
-							}, 100 * index);
-						}
-					});
-				});
-				const elRect = el.getBoundingClientRect();
-				rainbows.forEach((el, index) => {
-					if (elRect.top < window.innerHeight) {
-						setTimeout(() => {
-							el.classList.add("rainbow-el--active");
-						}, 100 * index);
-					}
-				});
-			});
-		}, 1000);
+		setPreviewHidden(true);
+		setTimeout(() => {}, 2000);
 	};
+
+	useEffect(() => {
+		document.documentElement.style.overflow = "hidden";
+
+		return () => {
+			document.documentElement.style.overflow = "";
+		};
+	}, []);
 
 	const { nominative, genitive } = getMonthName(fakeDate);
 
 	return (
 		<>
-			<div onClick={handleLoading} className="loading-chr">
-				<img src="/christening-boy/01.webp" alt="" />
-				<img src="/christening-boy/01.webp" alt="" />
-				<img src="/christening-boy/01.webp" alt="" />
-				<img src="/christening-boy/01.webp" alt="" />
-				<img src="/christening-boy/01.webp" alt="" />
-				<img src="/christening-boy/01.webp" alt="" />
-				<img src="/christening-boy/01.webp" alt="" />
-				<div className="loading-txt">
-					Торкніться екрана, щоб відкрити запрошення!
-				</div>
+			<div
+				onClick={handleLoading}
+				className={classNames(styles.preview, {
+					[styles["preview--hidden"]]: previewHidden,
+				})}
+			>
+				<img
+					className={classNames(styles["preview__baloon"], {
+						[styles["preview__baloon--active"]]: previewHidden,
+					})}
+					src="/christening-3/01.png"
+					alt=""
+				/>
+				<span>Торкніться екрана, щоб відкрити запрошення!</span>
 			</div>
-			<main className="home-chr" style={{ display: "none" }}>
-				<Container>
-					<div className="home__top-chr">
-						<div className="home__top-inner-chr">
-							<img
-								className="floated-img"
-								src="/christening-boy/02.webp"
-								alt=""
-							/>
-							<div className="home__top-date-chr">
-								{fakeDate.getDate()}{" "}
-								{genitive.charAt(0).toUpperCase() + genitive.slice(1)}{" "}
-								{fakeDate.getFullYear()} року
-							</div>
-							<p className="home__top-title-chr">
-								Таїнство хрещення {template.child_name}
-							</p>
-						</div>
-						<div className="rainbow">
-							<div className="pp"></div>
-							<div className="pp"></div>
-							<div className="pp"></div>
-							<div className="pp"></div>
-							<div className="pp"></div>
-							<div className="pp"></div>
-							<div className="pp"></div>
-							<div className="pp"></div>
-							<div className="pp"></div>
-						</div>
-						<img
-							className="floated-img-1"
-							src="/christening-boy/01.webp"
-							alt=""
-						/>
-						<img
-							className="floated-img-2"
-							src="/christening-boy/01.webp"
-							alt=""
-						/>
-
-						<div className="scroll-chr">
-							Прокрутіть вниз, щоб дізнатися більше
-						</div>
+			<main className={styles.main}>
+				<section className={styles.hero}>
+					<div className={styles["hero__date"]}>
+						{fakeDate.getDate()}{" "}
+						{genitive.charAt(0).toUpperCase() + genitive.slice(1)}{" "}
+						{fakeDate.getFullYear()} року
 					</div>
-					<div className="wrapper">
-						<div className="swiper-cont animated-element1">
-							<img
-								className="iimg"
-								src={template.gallery[0]}
-								alt=""
-								loading="lazy"
-							/>
-							<img
-								className="gallery-float-img"
-								src="/christening-boy/06.webp"
-								alt=""
-							/>
-						</div>
-						<img
-							className="floated-img-3 animated-element1"
-							src="/christening-boy/03.webp"
-							alt=""
-						/>
-						<p className="pepe-chr animated-element1">
-							<span>Дорогі гості,</span>
-							<br />з великою радістю та любов’ю запрошуємо Вас розділити з нами
-							важливу подію
-							<br />
-							<br />
-							Хрещення нашого сина Михайла
-						</p>
-					</div>
-
-					<div className="calendar-wrapper-chr animated-element1">
-						<p className="calendar-top-christening">{`${nominative.charAt(0).toUpperCase() + nominative.slice(1)} ${fakeDate.getFullYear()}`}</p>
-						<div className="calendar-christening">
+					<p
+						style={{
+							fontSize: "1.5rem",
+							fontWeight: 500,
+							textAlign: "center",
+							padding: "0 20px",
+						}}
+					>
+						Таїнство хрещення {template.name}a
+					</p>
+					<img src="/christening-3/03.png" width={300} alt="" />
+				</section>
+				<section className={styles.section}>
+					<img
+						className="animated-element1"
+						src="/christening-3/04.png"
+						width={250}
+						height={250}
+						alt=""
+					/>
+					<p className={styles["section__title"]}>Дорогі гості!</p>
+					<p className={styles.txt}>
+						Я ще зовсім маленький, але в моєму житті скоро станеться дуже
+						важлива подія — мої хрестини. 🕊️
+					</p>
+					<div className={styles["calendar-section"]}>
+						<p
+							style={{
+								position: "absolute",
+								top: 0,
+								left: "50%",
+								transform: "translate(-50%, -50%)",
+								fontSize: "18px",
+								fontWeight: 600,
+								background: "#fff",
+								padding: "0 20px",
+								width: "max-content",
+							}}
+						>{`${nominative.charAt(0).toUpperCase() + nominative.slice(1)} ${fakeDate.getFullYear()}`}</p>
+						<div className={styles.calendar}>
 							<div>Пн</div>
 							<div>Вт</div>
 							<div>Ср</div>
@@ -310,194 +236,135 @@ export default function Christening3Template() {
 									<div
 										key={index}
 										className={
-											day == Number(fakeDate.getDate()) ? "target-time-chr" : ""
+											day == Number(fakeDate.getDate())
+												? styles["calendar__date"]
+												: ""
 										}
 									>
 										{day}
 										{day == Number(fakeDate.getDate()) && (
-											<div className="balloon-container">
-												<img src="/christening-boy/07.png" alt="" />
-											</div>
+											<img
+												className={styles["calendar__img"]}
+												src="/christening-3/05.png"
+												alt=""
+											/>
 										)}
 									</div>
 								);
 							})}
 						</div>
 					</div>
-					<p className="pepe-chr animated-element1">
-						Ми не уявляємо цей радісний день без Вас - близьких і дорогих нам
-						людей!
+					<p className={styles.txt}>
+						Я буду дуже радий, якщо Ви прийдете розділити цей світлий день разом
+						зі мною та моєю сім’єю.
 					</p>
-					<div style={{ padding: 10 }} className="wrapper">
-						<img
-							className="floated-img-3 animated-element1"
-							src="/christening-boy/03.webp"
-							alt=""
-						/>
-						<div className="addresses-container">
-							<p className="addresses__title-chr animated-element1">
-								Адреси святкування
-							</p>
-							<div className="addresses-chr">
-								{template.addresses.map((address, index) => {
-									return (
-										<div key={index} className="address-chr">
-											<p className="address__title-chr animated-element1">
-												{/* TODO: ? */}
-												<span>{"title" in address ? address.title : ""}</span>
-												<span>
-													{"time" in address ? address.time : ""} (
-													{template.location_time})
-												</span>
-											</p>
-											<p className="animated-element1">
-												{address.address_title}
-											</p>
-											<a
-												style={{ marginBottom: 10, color: "#000" }}
-												className="animated-element1"
-												href={address.address_destination_url}
-												target="_blank"
-											>
-												{address.address}
-											</a>
-											<iframe
-												className="address-map animated-element1"
-												src={address.address_url}
-												// loading="lazy"
-											></iframe>
-											<a
-												className="address__link-chr animated-element1"
-												href={address.address_destination_url}
-												target="_blank"
-											>
-												Отримати маршрут
-											</a>
-										</div>
-									);
-								})}
-							</div>
-						</div>
+				</section>
+				<section className={styles.section}>
+					<img
+						className="animated-element1"
+						src="/christening-3/04.png"
+						width={250}
+						height={250}
+						alt=""
+					/>
+					<p className={styles["section__title"]}>Адреси святкування</p>
+					<div className={styles.addresses}>
+						{template.addresses.map((address, index) => {
+							return (
+								<div key={index} className={styles.address}>
+									<p
+										style={{
+											display: "flex",
+											justifyContent: "space-between",
+											fontSize: "18px",
+											fontWeight: 500,
+										}}
+										className={styles.txt}
+									>
+										{/* TODO: ? */}
+										<span>{"title" in address ? address.title : ""}</span>
+										<span>{"time" in address ? address.time : ""} м.ч.</span>
+									</p>
+									<p className="animated-element1">{address.address_title}</p>
+									<a
+										className={styles.link}
+										href={address.address_destination_url}
+										target="_blank"
+									>
+										{address.address}
+									</a>
+									<iframe
+										className="address-map animated-element1"
+										src={address.address_url}
+										// loading="lazy"
+									></iframe>
+									<a
+										className={styles.btn}
+										href={address.address_destination_url}
+										target="_blank"
+									>
+										Отримати маршрут
+									</a>
+								</div>
+							);
+						})}
 					</div>
-
-					<div style={{ padding: "10px" }} className="wrapper">
-						<div className="swiper-cont-2 animated-element1">
-							<img
-								className="iimg"
-								src={template.gallery[1]}
-								alt=""
-								loading="lazy"
-							/>
-							<img
-								className="gallery-float-img-2"
-								src="/christening-boy/06.webp"
-								alt=""
-							/>
-						</div>
-					</div>
-					<div className="wrapper">
-						<div className="date-container-chr">
-							<p className="page-title-chr animated-element1">
-								Святкування почнеться через:
-							</p>
-							<div className="date-chr animated-element1" id="date">
-								<div>
-									<p>{days}</p>
-									<p>{helper(days, "день", "дні", "днів")}</p>
-								</div>
-								<div>
-									<p>{hours}</p>
-									<p>{helper(hours, "година", "години", "годин")}</p>
-								</div>
-								<div>
-									<p>{minutes}</p>
-									<p>{helper(minutes, "хвилина", "хвилини", "хвилин")}</p>
-								</div>
-								<div>
-									<p>{seconds}</p>
-									<p>{helper(seconds, "секунда", "секунди", "секунд")}</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div className="wrapper">
-						<img
-							className="floated-img-3 animated-element1"
-							src="/christening-boy/04.webp"
-							alt=""
-						/>
-						<p className="page-title-chr animated-element1">
-							З любов’ю,
-							<br />
-							{template.father_name} та {template.mother_name}
-						</p>
-						<div style={{ padding: 10 }}>
-							<div className="swiper-cont-2 animated-element1">
-								<img
-									className="iimg"
-									src={template.gallery[2]}
-									alt=""
-									loading="lazy"
-								/>
-								<img
-									className="gallery-float-img-2"
-									src="/christening-boy/05.webp"
-									alt=""
-								/>
-							</div>
-						</div>
-
+				</section>
+				<section className={styles.section}>
+					<img
+						className="animated-element1"
+						src="/christening-3/04.png"
+						width={250}
+						height={250}
+						alt=""
+					/>
+					<p className={styles["section__title"]}>Хрещення почнеться через:</p>
+					<div className={styles.countdown} id="date">
 						<div>
-							<div className="rainbow-bottom animated-element1">
-								<div className="rainbow">
-									<div className="pp"></div>
-									<div className="pp"></div>
-									<div className="pp"></div>
-									<div className="pp"></div>
-									<div className="pp"></div>
-									<div className="pp"></div>
-									<div className="pp"></div>
-									<div className="pp"></div>
-									<div className="pp"></div>
-								</div>
-							</div>
-							<img
-								className="rainbow-img-3 animated-element1"
-								src="/christening-boy/01.webp"
-								alt=""
-							/>
+							<span>{days}</span>
+							<span>{helper(days, "день", "дні", "днів")}</span>
+						</div>
+						<div>
+							<span>{hours}</span>
+							<span>{helper(hours, "година", "години", "годин")}</span>
+						</div>
+						<div>
+							<span>{minutes}</span>
+							<span>{helper(minutes, "хвилина", "хвилини", "хвилин")}</span>
+						</div>
+						<div>
+							<span>{seconds}</span>
+							<span>{helper(seconds, "секунда", "секунди", "секунд")}</span>
 						</div>
 					</div>
-				</Container>
+				</section>
+				<section className={styles.section}>
+					<img
+						className="animated-element1"
+						src="/christening-3/06.png"
+						width={250}
+						height={250}
+						alt=""
+					/>
+					<p className={styles.txt}>
+						З нетерпінням чекаю на зустріч!
+						<br />
+						Ваш {template.name} !
+					</p>
+				</section>
 			</main>
-			<button onClick={handlePlayAudio} className="floating-btn-2">
-				{!isPlaying ? (
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="50%"
-						height="50%"
-						fill="currentColor"
-						className="bi bi-play-fill"
-						viewBox="0 0 16 16"
-					>
-						<title>Play</title>
-						<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
-					</svg>
-				) : (
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="50%"
-						height="50%"
-						fill="currentColor"
-						className="bi bi-pause-fill"
-						viewBox="0 0 16 16"
-					>
-						<title>Pause</title>
-						<path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5" />
-					</svg>
-				)}
-			</button>
-			<audio className="audio" autoPlay src={template.song}></audio>
+			<ParallaxImage
+				src="/christening-3/01.png"
+				alt="lol"
+				threshold={900}
+				left={20}
+			/>
+			<ParallaxImage
+				src="/christening-3/01.png"
+				alt="lol"
+				threshold={2100}
+				right={20}
+			/>
 		</>
 	);
 }
