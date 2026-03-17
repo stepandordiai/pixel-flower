@@ -189,7 +189,7 @@ export default function Christening3Client() {
 							padding: "0 20px",
 						}}
 					>
-						Таїнство хрещення {invitation.name}a
+						Таїнство хрещення {invitation.genitiveName}
 					</p>
 					<img src="/christening-3/03.png" width={300} alt="" />
 				</section>
@@ -201,12 +201,14 @@ export default function Christening3Client() {
 						height={250}
 						alt=""
 					/>
-					<p className={styles["section__title"]}>Дорогі гості!</p>
-					<p className={styles.txt}>
+					<p className={`${styles["section__title"]} animated-element1`}>
+						Дорогі гості!
+					</p>
+					<p className={`${styles.txt} animated-element1`}>
 						Я ще зовсім маленький, але в моєму житті скоро станеться дуже
 						важлива подія — мої хрестини. 🕊️
 					</p>
-					<div className={styles["calendar-section"]}>
+					<div className={`${styles["calendar-section"]} animated-element1`}>
 						<p
 							style={{
 								position: "absolute",
@@ -251,7 +253,7 @@ export default function Christening3Client() {
 							})}
 						</div>
 					</div>
-					<p className={styles.txt}>
+					<p className={`${styles.txt} animated-element1`}>
 						Я буду дуже радий, якщо Ви прийдете розділити цей світлий день разом
 						зі мною та моєю сім’єю.
 					</p>
@@ -264,7 +266,9 @@ export default function Christening3Client() {
 						height={250}
 						alt=""
 					/>
-					<p className={styles["section__title"]}>Адреси святкування</p>
+					<p className={`${styles["section__title"]} animated-element1`}>
+						Адреси святкування
+					</p>
 					<div className={styles.addresses}>
 						{invitation.addresses.map((address, index) => {
 							return (
@@ -276,7 +280,7 @@ export default function Christening3Client() {
 											fontSize: "18px",
 											fontWeight: 500,
 										}}
-										className={styles.txt}
+										className={`${styles.txt} animated-element1`}
 									>
 										{/* TODO: ? */}
 										<span>{"title" in address ? address.title : ""}</span>
@@ -284,7 +288,7 @@ export default function Christening3Client() {
 									</p>
 									<p className="animated-element1">{address.address_title}</p>
 									<a
-										className={styles.link}
+										className={`${styles.link} animated-element1`}
 										href={address.address_destination_url}
 										target="_blank"
 									>
@@ -296,7 +300,7 @@ export default function Christening3Client() {
 										// loading="lazy"
 									></iframe>
 									<a
-										className={styles.btn}
+										className={`${styles.btn} animated-element1`}
 										href={address.address_destination_url}
 										target="_blank"
 									>
@@ -315,8 +319,10 @@ export default function Christening3Client() {
 						height={250}
 						alt=""
 					/>
-					<p className={styles["section__title"]}>Хрещення почнеться через:</p>
-					<div className={styles.countdown} id="date">
+					<p className={`${styles["section__title"]} animated-element1`}>
+						Хрещення почнеться через:
+					</p>
+					<div className={`${styles.countdown} animated-element1`} id="date">
 						<div>
 							<span>{days}</span>
 							<span>{helper(days, "день", "дні", "днів")}</span>
@@ -343,10 +349,10 @@ export default function Christening3Client() {
 						height={250}
 						alt=""
 					/>
-					<p className={styles.txt}>
+					<p className={`${styles.txt} animated-element1`}>
 						З нетерпінням чекаю на зустріч!
 						<br />
-						Ваш {invitation.name}!
+						Ваш {invitation.nominativeName}!
 					</p>
 				</section>
 			</main>

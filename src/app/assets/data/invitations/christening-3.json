@@ -2,7 +2,8 @@
 	{
 		"id": "marsel",
 		"time": "2026-04-17T13:00:00",
-		"name": "Марсельчик",
+		"nominativeName": "Марсельчик",
+		"genitiveName": "Марсельчика",
 		"addresses": [
 			{
 				"title": "Хрещення",
