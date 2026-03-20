@@ -12,6 +12,7 @@ import { Link } from "@/i18n/navigation";
 import ContactUs from "../components/home/ContactUs/ContactUs";
 import OurFeatures from "../components/home/OurFeatures/OurFeatures";
 import Lng from "../components/common/Lng/Lng";
+import Testimonials from "../components/home/Testimonials/Testimonials";
 import TelIcon from "../icons/TelIcon";
 import "./Home.scss";
 
@@ -188,6 +189,7 @@ export default async function Home() {
 					<Packages />
 					<WhyUs />
 					<OurFeatures />
+					<Testimonials />
 					<QA />
 					<ContactUs />
 					<Socials />

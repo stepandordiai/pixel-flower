@@ -1,0 +1,39 @@
+.section {
+	width: 100%;
+	text-align: center;
+	scroll-margin-top: 70px;
+}
+
+.section__title {
+	font-size: clamp(1.5rem, 4vw, 2rem);
+	font-weight: 500;
+	text-align: center;
+	margin-bottom: 25px;
+}
+
+.mySwiper {
+	overflow: visible !important;
+	padding-bottom: 100px;
+}
+
+:global(.swiper-slide) {
+	cursor: grab;
+
+	&:active {
+		cursor: grabbing;
+	}
+}
+
+:global(.swiper-pagination-bullet) {
+	width: 40px;
+	height: 40px;
+	opacity: 0.25 !important;
+	color: transparent !important;
+	background: transparent !important;
+	transition: all 1s;
+}
+
+:global(.swiper-pagination-bullet-active) {
+	opacity: 1 !important;
+	transform: translateY(-10px);
+}
