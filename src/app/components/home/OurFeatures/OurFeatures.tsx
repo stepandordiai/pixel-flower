@@ -1,4 +1,10 @@
+"use client";
+
+import { useRef, useState } from "react";
 import styles from "./OurFeatures.module.scss";
+import PauseIcon from "@/app/icons/PauseIcon";
+import PlayIcon from "@/app/icons/PlayIcon";
+import Lng from "../../common/Lng/Lng";
 
 const ourFeatures = [
 	{
@@ -9,6 +15,7 @@ const ourFeatures = [
 	{
 		title: "Галерея ваших фото",
 		desc: "Це не просто фото — це ваша історія, яку можна переглядати знову і знову.",
+		videoSrc: "/video5.mp4",
 	},
 	{
 		title: "Персоналізація гостей",
@@ -33,14 +40,32 @@ const ourFeatures = [
 	{
 		title: "Фонова музика",
 		desc: "Передає атмосферу вашого свята",
+		music: "/wedding-three/music.mp3",
 	},
 	{
 		title: "Підтримка кількох мов",
 		desc: "Зручно для гостей з різних країн",
+		lng: true,
 	},
 ];
 
 const OurFeatures = () => {
+	const audioRef = useRef<HTMLAudioElement>(null);
+
+	const [playing, setPlaying] = useState(false);
+
+	const handleAudio = () => {
+		if (!audioRef.current) return;
+
+		if (playing) {
+			audioRef.current.pause();
+		} else {
+			audioRef.current.play();
+		}
+
+		setPlaying((prev) => !prev);
+	};
+
 	return (
 		<section className={styles["our-features"]} id="our-features">
 			<h2 className={styles["our-features__title"]}>
@@ -63,6 +88,36 @@ const OurFeatures = () => {
 									</video>
 								)}
 								{card.imageSrc && <img src={card.imageSrc} alt="" />}
+								{card.music && (
+									<>
+										<button
+											style={{
+												width: "50px",
+												height: "50px",
+												background: "white",
+												border: "1px solid black",
+												borderRadius: "50%",
+											}}
+											onClick={handleAudio}
+										>
+											{playing ? (
+												<PauseIcon size={24} />
+											) : (
+												<PlayIcon size={24} />
+											)}
+										</button>
+										<audio ref={audioRef} src={card.music}></audio>
+									</>
+								)}
+								{card.lng && (
+									<Lng
+										styles={{
+											position: "absolute",
+											right: "12.5px",
+											bottom: "12.5px",
+										}}
+									/>
+								)}
 							</div>
 						</div>
 					);

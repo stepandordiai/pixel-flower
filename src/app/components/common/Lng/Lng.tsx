@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations, useLocale } from "next-intl";
-import { useState, useEffect } from "react";
+import { useState, useEffect, CSSProperties } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import classNames from "classnames";
 import GlobeIcon from "@/app/icons/GlobeIcon";
@@ -12,7 +12,11 @@ const languages = [
 	{ code: "cs", name: "CZ" },
 ];
 
-const Lng = () => {
+type LngProps = {
+	styles?: CSSProperties;
+};
+
+const Lng = ({ styles }: LngProps) => {
 	const locale = useLocale();
 	const router = useRouter();
 	const pathname = usePathname();
@@ -87,7 +91,7 @@ const Lng = () => {
 					</button>
 				</div>
 			</div>
-			<div className="lng">
+			<div style={styles} className="lng">
 				<button
 					onClick={() => setLngVisible((prev) => !prev)}
 					className="lng-btn"
