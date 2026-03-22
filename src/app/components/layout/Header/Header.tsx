@@ -16,6 +16,7 @@ const links = [
 	{ name: "packagesAndPricingTitle", path: "/#packages" },
 	{ name: "menu.whyUs", path: "/#why-us" },
 	{ name: "menu.ourFeatures", path: "/#our-features" },
+	{ name: "menu.testimonials", path: "/#testimonials" },
 	{ name: "questionsAndAnswersTitle", path: "/#qa" },
 	{ name: "menu.contact", path: "/#contact" },
 ];
@@ -82,7 +83,13 @@ const Header = () => {
 						></span>
 					</span>
 				</button>
-				<div className="menu-dd" id="menu" aria-hidden={!isMenuOpen}>
+				<div
+					className={classNames("menu-dd", {
+						"menu-dd--visible": isMenuOpen,
+					})}
+					id="menu"
+					aria-hidden={!isMenuOpen}
+				>
 					<nav className="menu-dd-nav">
 						{links.map((link, index) => {
 							return (
@@ -107,7 +114,7 @@ const Header = () => {
 					</nav>
 					<div style={{ display: "flex", flexDirection: "column", rowGap: 10 }}>
 						<div>
-							<p style={{ fontWeight: 500 }}>Месенджери</p>
+							<p style={{ fontWeight: 500 }}>{t("menu.messengers")}</p>
 							<div className="menu-dd-socials">
 								{contacts.map((social, index) => {
 									const Icon = social.icon;
@@ -125,7 +132,7 @@ const Header = () => {
 							</div>
 						</div>
 						<div>
-							<p style={{ fontWeight: 500 }}>Соцмережі</p>
+							<p style={{ fontWeight: 500 }}>{t("menu.socials")}</p>
 							<div className="menu-dd-socials">
 								{socialsData.map((social, index) => {
 									const Icon = social.icon;

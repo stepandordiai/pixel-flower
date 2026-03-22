@@ -14,7 +14,10 @@
 	"menu": {
 		"whyUs": "Чому ми",
 		"ourFeatures": "Особливості запрошень",
-		"contact": "Контакт"
+		"testimonials": "Відгуки наших клієнтів",
+		"contact": "Контакт",
+		"messengers": "Месенджери",
+		"socials": "Соцмережі"
 	},
 
 	"home": {

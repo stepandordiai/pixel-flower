@@ -14,7 +14,10 @@
 	"menu": {
 		"whyUs": "Proč my",
 		"ourFeatures": "Vlastnosti pozvánek",
-		"contact": "Kontakt"
+		"testimonials": "Co o nás říkají klienti",
+		"contact": "Kontakt",
+		"messengers": "Messengery",
+		"socials": "Sociální sítě"
 	},
 
 	"home": {

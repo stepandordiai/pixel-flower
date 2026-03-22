@@ -35,7 +35,7 @@ const testimonials = [
 
 const Testimonials = () => {
 	return (
-		<section className={styles.section}>
+		<section className={styles.section} id="testimonials">
 			<h2 className={styles["section__title"]}>Відгуки наших клієнтів</h2>
 			<Swiper
 				spaceBetween={100}
