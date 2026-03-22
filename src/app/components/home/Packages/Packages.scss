@@ -75,8 +75,9 @@
 	}
 }
 
-.packages-container {
+.section {
 	scroll-margin-top: 70px;
+	padding: 0 100px;
 }
 
 .packages__title {
@@ -201,6 +202,12 @@
 
 	.package__info {
 		padding: 10px;
+	}
+}
+
+@media screen and (width < 808px) {
+	.section {
+		padding: 0 10px;
 	}
 }
 

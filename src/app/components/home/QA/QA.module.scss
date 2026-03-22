@@ -4,6 +4,7 @@
 	flex-direction: row-reverse;
 	align-items: flex-start;
 	gap: 25px;
+	padding: 0 100px;
 }
 
 .qa__title {
@@ -109,5 +110,11 @@
 
 	.qa__title {
 		position: static;
+	}
+}
+
+@media screen and (width < 808px) {
+	.section {
+		padding: 0 10px;
 	}
 }

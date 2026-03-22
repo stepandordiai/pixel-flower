@@ -1,3 +1,7 @@
+.section {
+	padding: 0 100px;
+}
+
 .how-it-works__title {
 	font-size: clamp(1.5rem, 4vw, 2rem);
 	text-align: center;
@@ -38,6 +42,12 @@
 @media screen and (width < 1000px) {
 	.how-it-works-container {
 		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (width < 808px) {
+	.section {
+		padding: 0 10px;
 	}
 }
 

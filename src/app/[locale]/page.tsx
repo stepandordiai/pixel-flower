@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Header from "../components/layout/Header/Header";
-import Templates from "../components/home/Templates/Templates";
 import QA from "../components/home/QA/QA";
 import Packages from "../components/home/Packages/Packages";
 import Socials from "../components/home/Socials/Socials";
@@ -13,6 +12,7 @@ import ContactUs from "../components/home/ContactUs/ContactUs";
 import OurFeatures from "../components/home/OurFeatures/OurFeatures";
 import Lng from "../components/common/Lng/Lng";
 import Testimonials from "../components/home/Testimonials/Testimonials";
+import Templates from "../components/home/Templates/Templates";
 import TelIcon from "../icons/TelIcon";
 import "./Home.scss";
 
@@ -160,7 +160,7 @@ export default async function Home() {
 					<div className="home-top-container">
 						<h1 className="home-top__title">{t("home.title")}</h1>
 						<div className="home-hero__link-container">
-							<Link className="home-top__link" href="#templates">
+							<Link className="home-top__link" href="/templates">
 								<span>{t("home.chooseATemplate")}</span>
 								<div className="home-top-icon-wrapper">
 									<div className="home-top-icon-wrapper-inner">

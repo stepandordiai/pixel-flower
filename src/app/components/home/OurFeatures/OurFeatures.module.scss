@@ -1,5 +1,6 @@
 .our-features {
 	scroll-margin-top: 70px;
+	padding: 0 100px;
 }
 
 .our-features__title {
@@ -106,5 +107,11 @@
 @media screen and (width < 900px) {
 	.our-features-grid {
 		grid-template-columns: repeat(1, 1fr);
+	}
+}
+
+@media screen and (width < 808px) {
+	.our-features {
+		padding: 0 10px;
 	}
 }

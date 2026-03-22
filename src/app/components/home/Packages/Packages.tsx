@@ -79,7 +79,7 @@ const Packages = () => {
 					</span>
 				</button>
 			</div>
-			<section className="packages-container" id="packages">
+			<section className="section" id="packages">
 				<p className="packages__title">{t("packagesAndPricingTitle")}</p>
 				<div className="packages">
 					{packages.map((pack) => {

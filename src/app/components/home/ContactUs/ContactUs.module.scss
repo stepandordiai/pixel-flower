@@ -4,6 +4,7 @@
 	gap: 10px;
 	text-align: center;
 	scroll-margin-top: 70px;
+	padding: 0 100px;
 }
 
 .section__title {
@@ -21,4 +22,10 @@
 	justify-content: center;
 	gap: 10px;
 	flex-wrap: wrap;
+}
+
+@media screen and (width< 808px) {
+	.section {
+		padding: 0 10px;
+	}
 }

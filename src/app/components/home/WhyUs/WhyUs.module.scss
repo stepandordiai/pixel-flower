@@ -1,10 +1,10 @@
 .section {
-	scroll-margin-top: 70px;
 	width: 100%;
 	display: flex;
 	align-items: flex-start;
 	gap: 25px;
 	scroll-margin-top: 70px;
+	padding: 0 100px;
 }
 
 .why-us__title {
@@ -76,5 +76,11 @@
 
 	.why-us__title {
 		position: static;
+	}
+}
+
+@media screen and (width < 808px) {
+	.section {
+		padding: 0 10px;
 	}
 }

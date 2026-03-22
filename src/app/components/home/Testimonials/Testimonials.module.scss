@@ -2,6 +2,8 @@
 	width: 100%;
 	text-align: center;
 	scroll-margin-top: 70px;
+	overflow: hidden;
+	padding: 0 100px;
 }
 
 .section__title {
@@ -36,4 +38,10 @@
 :global(.swiper-pagination-bullet-active) {
 	opacity: 1 !important;
 	transform: translateY(-10px);
+}
+
+@media screen and (width < 808px) {
+	.section {
+		padding: 0 10px;
+	}
 }

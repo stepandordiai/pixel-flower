@@ -23,7 +23,9 @@
 	"home": {
 		"title": "Створюйте особливі спогади з першого кліку. Онлайн-запрошення на ваше свято.",
 		"chooseATemplate": "Обрати шаблон",
-		"orderInvitation": "Замовити запрошення"
+		"orderInvitation": "Замовити запрошення",
+		"templatesTitle": "Трендові запрошення",
+		"allTemplates": "Всі шаблони"
 	},
 
 	"howItWorks": {

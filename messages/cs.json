@@ -23,7 +23,9 @@
 	"home": {
 		"title": "Vytvářejte výjimečné vzpomínky od prvního kliknutí. Online pozvánky na vaši oslavu.",
 		"chooseATemplate": "Vybrat šablonu",
-		"orderInvitation": "Objednat pozvánku"
+		"orderInvitation": "Objednat pozvánku",
+		"templatesTitle": "Oblíbené pozvánky",
+		"allTemplates": "Všechny šablony"
 	},
 
 	"howItWorks": {
