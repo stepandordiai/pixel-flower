@@ -239,7 +239,7 @@
 
 .wedding-3__music-btn {
 	position: fixed;
-	bottom: 80px;
+	bottom: 20px;
 	right: 20px;
 	z-index: 2;
 	width: 50px;
@@ -322,13 +322,14 @@
 	}
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Great+Vibes&family=Marck+Script&family=Pacifico&family=Pattaya&display=swap");
+
 .main {
-	font-family: "Montserrat", sans-serif;
+	font-family: var(--font-great-vibes);
 	display: flex;
 	flex-direction: column;
 	gap: 50px;
 	background: #fff;
-	padding: 0 20px;
 }
 
 .hero {
@@ -339,6 +340,7 @@
 	justify-content: center;
 	align-items: center;
 	gap: 20px;
+	padding: 0 20px;
 
 	img {
 		// position: absolute;
@@ -439,6 +441,17 @@
 	align-items: center;
 	text-align: center;
 	gap: 50px;
+	padding: 0 20px;
+}
+
+.txt {
+	font-size: 20px;
+	font-family: var(--font-marck-script);
+}
+
+.section__title {
+	font-size: 2rem;
+	text-align: center;
 }
 
 .section__date {
@@ -448,11 +461,12 @@
 
 .calendar {
 	position: relative;
+	font-family: var(--font-marck-script);
+	font-size: 20px;
 }
 
 .calendar-top {
 	position: absolute;
-	background: #fff;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	padding: 0 10px;
@@ -463,33 +477,23 @@
 	display: grid;
 	grid-template-columns: repeat(7, minmax(0, 50px));
 	gap: 5px;
-	// padding: 25px;
 
 	div {
 		aspect-ratio: 1/1;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background: #fff;
-		border: 1px solid #ddd;
 		border-radius: 50%;
 	}
 
 	div:nth-of-type(-n + 7) {
 		margin-bottom: 5px;
-		font-weight: 600;
 	}
 }
 
 .target-time {
 	background: var(--pearl-gradient-light) !important;
-
 	font-weight: 700;
-
-	// box-shadow:
-	// 	0 6px 14px rgba(0, 0, 0, 0.15),
-	// 	0 0 0 2px #d6d1c7,
-	// 	inset 0 2px 6px rgba(255, 255, 255, 0.9);
 }
 
 @keyframes shimmer {
@@ -506,7 +510,6 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-
 	animation: heartbeat 1.5s infinite ease-in-out;
 	transform-origin: center;
 }
@@ -532,6 +535,8 @@
 	display: flex;
 	flex-direction: column;
 	gap: 25px;
+	font-family: var(--font-marck-script);
+	font-size: 20px;
 }
 
 .address {
@@ -622,22 +627,45 @@
 .countdown {
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
+	gap: 20px;
+	font-family: var(--font-marck-script);
+	font-size: 20px;
+	// background: rgb(255, 243, 250);
+	width: 100%;
+	padding: 20px;
+	border-radius: 20px;
 
 	div {
-		background: var(--pearl-gradient-light);
-		width: 150px;
-		aspect-ratio: 1/1;
-		border-radius: 50%;
-		border: 1px solid #ddd;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
 
 		span:nth-child(1) {
-			font-size: 27px;
+			font-size: 2rem;
 			font-weight: 600;
 		}
+	}
+}
+
+.countdown-circle {
+	position: relative;
+	z-index: 2;
+	width: 100px;
+	aspect-ratio: 1/1;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&::before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		width: calc(100% - 4px);
+		aspect-ratio: 1/1;
+		background: #ffffff;
+
+		border-radius: inherit;
 	}
 }
