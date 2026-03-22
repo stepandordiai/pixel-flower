@@ -394,7 +394,7 @@ export default function WeddingTwoTemplate() {
 							);
 						})}
 					</ContainerInner>
-					{template.dress_code && (
+					{/* {template.dress_code && (
 						<ContainerInner>
 							<p className="font-m font-accent animated-element">Дрес-код</p>
 							<p className="font-s animated-element">
@@ -408,7 +408,7 @@ export default function WeddingTwoTemplate() {
 								<div style={{ background: "#7B3F00" }}></div>
 							</div>
 						</ContainerInner>
-					)}
+					)} */}
 					<ContainerInner>
 						<img
 							className="animated-element"
@@ -427,7 +427,7 @@ export default function WeddingTwoTemplate() {
 							modules={[EffectFade, Autoplay]}
 							className="silver-swiper animated-element"
 						>
-							{template.gallery.map((img, index) => {
+							{template.gallery?.map((img, index) => {
 								return (
 									<SwiperSlide key={index} className="slide">
 										<img src={img} alt="" loading="lazy" />

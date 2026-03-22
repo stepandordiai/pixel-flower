@@ -254,7 +254,7 @@ export default function BirthdayTwoTemplate() {
 					</div>
 					<div className="wrapper">
 						<div className="swiper-cont animated-element1">
-							<img className="iimg" src={template.gallery[0]} alt="" />
+							<img className="iimg" src={template.gallery?.[0]} alt="" />
 							<img
 								className="gallery-float-img"
 								src="/christening-boy/06.webp"
@@ -373,7 +373,7 @@ export default function BirthdayTwoTemplate() {
 
 					<div style={{ padding: "10px" }} className="wrapper">
 						<div className="swiper-cont-2 animated-element1">
-							<img className="iimg" src={template.gallery[1]} alt="" />
+							<img className="iimg" src={template.gallery?.[1]} alt="" />
 							<img
 								className="gallery-float-img-2"
 								src="/christening-boy/06.webp"
@@ -423,7 +423,7 @@ export default function BirthdayTwoTemplate() {
 						</p>
 						<div style={{ padding: 10 }}>
 							<div className="swiper-cont-2 animated-element1">
-								<img className="iimg" src={template.gallery[2]} alt="" />
+								<img className="iimg" src={template.gallery?.[2]} alt="" />
 								<img
 									className="gallery-float-img-2"
 									src="/christening-boy/05.webp"

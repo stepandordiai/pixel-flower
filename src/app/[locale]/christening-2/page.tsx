@@ -269,7 +269,7 @@ export default function ChristeningTwoTemplate() {
 						<div className="swiper-cont animated-element1">
 							<img
 								className="iimg"
-								src={template.gallery[0]}
+								src={template.gallery?.[0]}
 								alt=""
 								loading="lazy"
 							/>
@@ -383,7 +383,7 @@ export default function ChristeningTwoTemplate() {
 						<div className="swiper-cont-2 animated-element1">
 							<img
 								className="iimg"
-								src={template.gallery[1]}
+								src={template.gallery?.[1]}
 								alt=""
 								loading="lazy"
 							/>
@@ -434,7 +434,7 @@ export default function ChristeningTwoTemplate() {
 							<div className="swiper-cont-2 animated-element1">
 								<img
 									className="iimg"
-									src={template.gallery[2]}
+									src={template.gallery?.[2]}
 									alt=""
 									loading="lazy"
 								/>

@@ -288,7 +288,7 @@ export default function ChristeningOneTemplate() {
 						<div className="christening-girl__swiper-cont christening-girl__animate">
 							<img
 								className="christening-girl__iimg"
-								src={template.gallery[0]}
+								src={template.gallery?.[0]}
 								alt=""
 							/>
 							<img
@@ -411,7 +411,7 @@ export default function ChristeningOneTemplate() {
 						<div className="christening-girl__swiper-cont-2 christening-girl__animate">
 							<img
 								className="christening-girl__iimg"
-								src={template.gallery[1]}
+								src={template.gallery?.[1]}
 								alt=""
 								loading="lazy"
 							/>
@@ -465,7 +465,7 @@ export default function ChristeningOneTemplate() {
 							<div className="christening-girl__swiper-cont-2 christening-girl__animate">
 								<img
 									className="christening-girl__iimg"
-									src={template.gallery[2]}
+									src={template.gallery?.[2]}
 									alt=""
 									loading="lazy"
 								/>

@@ -86,7 +86,7 @@ export async function generateMetadata({
 	const t = await getTranslations({ locale });
 
 	return {
-		title: `${t("homeMetaTitle")} | pixel flower`,
+		title: `${t("homeMetaTitle")} - pixel flower`,
 		description: t("homeMetaDesc"),
 		alternates: {
 			canonical: `/${locale}`,

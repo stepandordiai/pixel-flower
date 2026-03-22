@@ -177,7 +177,7 @@ export default function WeddingOneTemplate() {
 					modules={[EffectCards]}
 					className="mySwiper"
 				>
-					{template.gallery.map((img, index) => {
+					{template.gallery?.map((img, index) => {
 						return (
 							<SwiperSlide key={index} className="slide">
 								<img src={img} alt="" />
