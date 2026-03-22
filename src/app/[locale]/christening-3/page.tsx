@@ -1,15 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-// import templates from "@/app/assets/data/templates.json";
-// import templates from "@/app/assets/data/templates/christening-3.json";
 import templates from "@/app/assets/data/templates.json";
-import Container from "@/app/components/Container/Container";
 import "./../christening-2/ChristeningTwo.scss";
-import styles from "./Christening3.module.scss";
-
 import classNames from "classnames";
 import ParallaxImage from "@/app/components/ParallaxImage/ParallaxImage";
+import styles from "./Christening3.module.scss";
 
 const helper = (
 	time: number,
@@ -49,14 +45,6 @@ const getMonthName = (date: Date) => {
 };
 
 export default function Christening3Template() {
-	// const params = useParams();
-
-	// const template = templates.find((t) => t.id === params.id);
-
-	// if (!template) {
-	// 	return notFound();
-	// }
-
 	const fakeDate = new Date();
 	fakeDate.setDate(fakeDate.getDate() + 3);
 
@@ -102,10 +90,13 @@ export default function Christening3Template() {
 
 	const days2 = [];
 
-	const firstDay = new Date(2025, 8, 1); // August 1, 2025
+	const firstDay = new Date(fakeDate.getFullYear(), fakeDate.getMonth(), 1); // August 1, 2025
 	let startWeekday = firstDay.getDay(); // 0 = Sunday, 1 = Monday, ...
 
-	const febDayNumbers = getDaysOfMonth(2025, 8).map((d) => d.getDate());
+	const febDayNumbers = getDaysOfMonth(
+		fakeDate.getFullYear(),
+		fakeDate.getMonth(),
+	).map((d) => d.getDate());
 
 	startWeekday = (startWeekday + 6) % 7; // now Monday=0, Tuesday=1, ...
 
@@ -144,10 +135,10 @@ export default function Christening3Template() {
 	const [previewHidden, setPreviewHidden] = useState(false);
 
 	const handleLoading = () => {
-		document.documentElement.style.overflow = "";
-
 		setPreviewHidden(true);
-		setTimeout(() => {}, 2000);
+		setTimeout(() => {
+			document.documentElement.style.overflow = "";
+		}, 2000);
 	};
 
 	useEffect(() => {
@@ -192,7 +183,7 @@ export default function Christening3Template() {
 							padding: "0 20px",
 						}}
 					>
-						Таїнство хрещення {template.name}a
+						Таїнство хрещення {template.genitiveName}
 					</p>
 					<img src="/christening-3/03.png" width={300} alt="" />
 				</section>
@@ -204,12 +195,14 @@ export default function Christening3Template() {
 						height={250}
 						alt=""
 					/>
-					<p className={styles["section__title"]}>Дорогі гості!</p>
-					<p className={styles.txt}>
+					<p className={`${styles["section__title"]} animated-element1`}>
+						Дорогі гості!
+					</p>
+					<p className={`${styles.txt} animated-element1`}>
 						Я ще зовсім маленький, але в моєму житті скоро станеться дуже
 						важлива подія — мої хрестини. 🕊️
 					</p>
-					<div className={styles["calendar-section"]}>
+					<div className={`${styles["calendar-section"]} animated-element1`}>
 						<p
 							style={{
 								position: "absolute",
@@ -254,7 +247,7 @@ export default function Christening3Template() {
 							})}
 						</div>
 					</div>
-					<p className={styles.txt}>
+					<p className={`${styles.txt} animated-element1`}>
 						Я буду дуже радий, якщо Ви прийдете розділити цей світлий день разом
 						зі мною та моєю сім’єю.
 					</p>
@@ -267,7 +260,9 @@ export default function Christening3Template() {
 						height={250}
 						alt=""
 					/>
-					<p className={styles["section__title"]}>Адреси святкування</p>
+					<p className={`${styles["section__title"]} animated-element1`}>
+						Адреси святкування
+					</p>
 					<div className={styles.addresses}>
 						{template.addresses.map((address, index) => {
 							return (
@@ -279,7 +274,7 @@ export default function Christening3Template() {
 											fontSize: "18px",
 											fontWeight: 500,
 										}}
-										className={styles.txt}
+										className={`${styles.txt} animated-element1`}
 									>
 										{/* TODO: ? */}
 										<span>{"title" in address ? address.title : ""}</span>
@@ -287,7 +282,7 @@ export default function Christening3Template() {
 									</p>
 									<p className="animated-element1">{address.address_title}</p>
 									<a
-										className={styles.link}
+										className={`${styles.link} animated-element1`}
 										href={address.address_destination_url}
 										target="_blank"
 									>
@@ -299,7 +294,7 @@ export default function Christening3Template() {
 										// loading="lazy"
 									></iframe>
 									<a
-										className={styles.btn}
+										className={`${styles.btn} animated-element1`}
 										href={address.address_destination_url}
 										target="_blank"
 									>
@@ -318,8 +313,10 @@ export default function Christening3Template() {
 						height={250}
 						alt=""
 					/>
-					<p className={styles["section__title"]}>Хрещення почнеться через:</p>
-					<div className={styles.countdown} id="date">
+					<p className={`${styles["section__title"]} animated-element1`}>
+						Хрещення почнеться через:
+					</p>
+					<div className={`${styles.countdown} animated-element1`} id="date">
 						<div>
 							<span>{days}</span>
 							<span>{helper(days, "день", "дні", "днів")}</span>
@@ -346,10 +343,10 @@ export default function Christening3Template() {
 						height={250}
 						alt=""
 					/>
-					<p className={styles.txt}>
+					<p className={`${styles.txt} animated-element1`}>
 						З нетерпінням чекаю на зустріч!
 						<br />
-						Ваш {template.name} !
+						Ваш {template.nominativeName}!
 					</p>
 				</section>
 			</main>
