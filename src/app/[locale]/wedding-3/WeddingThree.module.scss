@@ -333,29 +333,27 @@
 }
 
 .hero {
-	font-family: "Alex Brush", cursive;
-	height: 100svh;
+	position: relative;
+	min-height: 100svh;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
 	gap: 20px;
 	padding: 0 20px;
+	overflow: hidden;
 
 	img {
-		// position: absolute;
-		// top: 15%;
-		// left: 50%;
-		// transform: translate(-50%, 0);
-		width: 300px;
+		position: absolute;
+		z-index: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 }
 
 .hero-container {
-	// position: absolute;
-	// bottom: 0;
-	// left: 50%;
-	// transform: translate(-50%, -100px);
+	padding-top: 100px;
+	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -371,7 +369,7 @@
 		position: absolute;
 		height: 2px;
 		width: 100px;
-		background: #000;
+		background: #fff;
 		left: 0;
 		top: 50%;
 		transform: translate(calc(-100% - 10px), -50%) scaleX(0);
@@ -389,7 +387,7 @@
 		position: absolute;
 		height: 2px;
 		width: 100px;
-		background: #000;
+		background: #fff;
 		right: 0;
 		top: 50%;
 		transform: translate(calc(100% + 10px), -50%) scaleX(0);
@@ -446,7 +444,7 @@
 
 .txt {
 	font-size: 20px;
-	font-family: var(--font-marck-script);
+	font-family: var(--font-cormorant-infant);
 }
 
 .section__title {
@@ -461,7 +459,7 @@
 
 .calendar {
 	position: relative;
-	font-family: var(--font-marck-script);
+	font-family: var(--font-cormorant-infant);
 	font-size: 20px;
 }
 
@@ -535,7 +533,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 25px;
-	font-family: var(--font-marck-script);
+	font-family: var(--font-cormorant-infant);
 	font-size: 20px;
 }
 
@@ -628,7 +626,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
-	font-family: var(--font-marck-script);
+	font-family: var(--font-cormorant-infant);
 	font-size: 20px;
 	// background: rgb(255, 243, 250);
 	width: 100%;
