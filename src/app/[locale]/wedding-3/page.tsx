@@ -4,7 +4,7 @@ import Wedding3ClientTemplate from "./Wedding3Client";
 export const metadata: Metadata = {
 	openGraph: {
 		title: "Запрошення на весілля",
-		images: "/wedding-three/og-img.jpg",
+		images: "/wedding-three/og-img.png",
 		url: "/uk/wedding-3",
 		type: "website",
 	},
