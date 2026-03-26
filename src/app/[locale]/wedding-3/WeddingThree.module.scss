@@ -1,23 +1,6 @@
 :root {
-	--pearl-base: #f5f0ee;
-	--pearl-sheen: #e8ddd8;
-	--pearl-deep: #d4c5be;
-	--pearl-shadow: #b8a8a0;
-	--pearl-glow: rgba(255, 255, 255, 0.85);
-	--pearl-iridescent: rgba(200, 210, 230, 0.4);
-	--pearl-rose: rgba(220, 185, 180, 0.5);
-	--pearl-text: #5a4a44;
-	--pearl-accent: #8a7068;
-	--pearl-dark: #3d2f2a;
-
-	/* Gradients */
-	--pearl-gradient-light: linear-gradient(145deg, #fdfcf9, #e7e3db);
-	--pearl-gradient-dark: linear-gradient(
-		150deg,
-		rgba(240, 230, 225, 0.07) 0%,
-		rgba(200, 185, 180, 0.04) 50%,
-		rgba(220, 215, 235, 0.06) 100%
-	);
+	--accent-clr: rgb(255, 203, 220);
+	--secondary-clr: rgb(255, 238, 244);
 }
 
 /* Shimmer animation */
@@ -202,39 +185,11 @@
 	}
 }
 
-.pearl {
-	position: absolute;
-	border-radius: 50%;
-	background: var(--pearl-gradient-light);
-	transform: translateY(0);
-	opacity: 1;
-	pointer-events: none;
-	animation: float var(--float-duration) ease-in-out infinite alternate;
-}
-
-@keyframes float {
-	0% {
-		transform: translate(0, 0);
-	}
-	100% {
-		transform: translate(var(--float-x), var(--float-y));
-	}
-}
-
-.pearl--rising {
-	animation: rise 5s ease forwards;
-}
-
-@keyframes rise {
-	0% {
-		opacity: 1; // ← start visible
-	}
-	50% {
-		opacity: 0;
-	}
-	100% {
-		transform: translateY(-1000px);
-	}
+// TODO: learn this
+@property --percentage {
+	syntax: "<percentage>";
+	inherits: true;
+	initial-value: 0%;
 }
 
 .wedding-3__music-btn {
@@ -245,40 +200,30 @@
 	width: 50px;
 	height: 50px;
 	border-radius: 25px;
-	background: linear-gradient(145deg, #fdfcf9, #e7e3db);
+	background: white;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border: 1px solid #ddd;
-	overflow: hidden;
-	transition: 0.3s;
 	color: #000;
-}
-
-.wedding-3__music-btn::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: -75%;
-	width: 50%;
-	height: 100%;
-	background: linear-gradient(
-		120deg,
-		rgba(255, 255, 255, 0) 0%,
-		rgba(255, 255, 255, 0.8) 50%,
-		rgba(255, 255, 255, 0) 100%
+	background: conic-gradient(
+		var(--accent-clr) var(--percentage),
+		var(--secondary-clr) 0%
 	);
-	transform: skewX(-20deg);
-}
+	transition: --percentage 0.5s;
 
-.wedding-3__music-btn:hover::before {
-	animation: shine 0.8s forwards;
-}
+	&::before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		width: calc(100% - 6px);
+		aspect-ratio: 1/1;
+		background: #fff;
+		border-radius: inherit;
+	}
 
-.wedding-3__music-btn:hover {
-	box-shadow:
-		0 0 15px rgba(255, 255, 255, 0.8),
-		inset 0 0 5px rgba(255, 255, 255, 0.6);
+	&:hover {
+		--percentage: 100% !important;
+	}
 }
 
 .equalizer {
@@ -322,10 +267,8 @@
 	}
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Great+Vibes&family=Marck+Script&family=Pacifico&family=Pattaya&display=swap");
-
 .main {
-	font-family: var(--font-great-vibes);
+	font-family: var(--font-cormorant-infant);
 	display: flex;
 	flex-direction: column;
 	gap: 50px;
@@ -454,7 +397,7 @@
 
 .section__date {
 	font-size: 20px;
-	font-weight: 600;
+	font-weight: 300;
 }
 
 .calendar {
@@ -468,7 +411,6 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	padding: 0 10px;
-	font-weight: 600;
 }
 
 .calendar-inner {
@@ -477,6 +419,8 @@
 	gap: 5px;
 
 	div {
+		position: relative;
+		border: 3px solid var(--secondary-clr);
 		aspect-ratio: 1/1;
 		display: flex;
 		justify-content: center;
@@ -490,8 +434,8 @@
 }
 
 .target-time {
-	background: var(--pearl-gradient-light) !important;
 	font-weight: 700;
+	border: none !important;
 }
 
 @keyframes shimmer {
@@ -539,6 +483,9 @@
 
 .address {
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }
 
 .address__map {
@@ -549,76 +496,16 @@
 
 .link {
 	display: block;
-	position: relative;
-	background: linear-gradient(145deg, #fdfcf9, #e7e3db);
 	border-radius: 20px;
 	padding: 10px;
-	border: 1px solid #ddd;
-	overflow: hidden;
 	color: #000;
-	transition: 0.3s;
-}
+	font-weight: 500;
+	background: #fff;
+	border: 3px solid var(--secondary-clr);
+	transition: border 0.5s;
 
-.link::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: -75%;
-	width: 50%;
-	height: 100%;
-	background: linear-gradient(
-		120deg,
-		rgba(255, 255, 255, 0) 0%,
-		rgba(255, 255, 255, 0.8) 50%,
-		rgba(255, 255, 255, 0) 100%
-	);
-	transform: skewX(-20deg);
-}
-
-.link:hover::before {
-	animation: shine 0.8s forwards;
-}
-
-.link:hover {
-	box-shadow:
-		0 0 15px rgba(255, 255, 255, 0.8),
-		inset 0 0 5px rgba(255, 255, 255, 0.6);
-}
-
-@keyframes shine {
-	100% {
-		left: 125%;
-	}
-}
-
-// FIXME:
-.wavy-divider {
-	width: 100%;
-	box-sizing: border-box;
-	padding: 0 20px;
-	line-height: 0;
-	color: #ffb7c5;
-}
-
-.wavy-divider svg {
-	display: block;
-	width: 100%;
-	height: auto;
-	overflow: visible;
-}
-
-.wavy-divider__path {
-	stroke-dasharray: 2400;
-	stroke-dashoffset: 2400;
-}
-
-.animate {
-	animation: drawWave 5s ease-out forwards;
-}
-
-@keyframes drawWave {
-	to {
-		stroke-dashoffset: 0;
+	&:hover {
+		border: 3px solid var(--accent-clr);
 	}
 }
 
@@ -626,9 +513,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
-	font-family: var(--font-cormorant-infant);
 	font-size: 20px;
-	// background: rgb(255, 243, 250);
 	width: 100%;
 	padding: 20px;
 	border-radius: 20px;
@@ -641,7 +526,7 @@
 
 		span:nth-child(1) {
 			font-size: 2rem;
-			font-weight: 600;
+			font-weight: 700;
 		}
 	}
 }
@@ -655,15 +540,18 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background: conic-gradient(
+		var(--accent-clr) var(--procent),
+		rgba(255, 203, 220, 0.3) 0%
+	);
 
 	&::before {
 		content: "";
 		position: absolute;
 		z-index: -1;
-		width: calc(100% - 4px);
+		width: calc(100% - 6px);
 		aspect-ratio: 1/1;
 		background: #ffffff;
-
 		border-radius: inherit;
 	}
 }

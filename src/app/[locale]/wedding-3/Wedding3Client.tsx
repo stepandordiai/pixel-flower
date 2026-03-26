@@ -1,17 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Great_Vibes, Cormorant_Infant } from "next/font/google";
+import { CSSProperties, useEffect, useState } from "react";
+import { Cormorant_Infant } from "next/font/google";
 import templates from "@/app/assets/data/templates.json";
 import { useRef } from "react";
 import classNames from "classnames";
 import styles from "./WeddingThree.module.scss";
-
-const greatVibes = Great_Vibes({
-	weight: ["400"],
-	variable: "--font-great-vibes",
-	subsets: ["latin", "cyrillic"],
-});
 
 const cormorantInfant = Cormorant_Infant({
 	weight: ["500"],
@@ -179,36 +173,6 @@ export default function Wedding3ClientTemplate() {
 		};
 	}, []);
 
-	interface Pearl {
-		id: number;
-		left: string;
-		top: string;
-		size: string;
-		delay: string;
-		filter: string;
-		floatX: string;
-		floatY: string;
-		floatDuration: string;
-	}
-
-	const [pearls, setPearls] = useState<Pearl[]>([]);
-
-	useEffect(() => {
-		setPearls(
-			Array.from({ length: 30 }, (_, i) => ({
-				id: i,
-				left: `${Math.random() * 100}%`,
-				top: `${Math.random() * 85}%`,
-				size: `${Math.random() * 100 + 20}px`,
-				delay: `${Math.random() * 0.3}s`,
-				filter: `${Math.random() * 2}px`,
-				floatX: `${(Math.random() - 0.5) * 22}px`, // ← random drift direction
-				floatY: `${(Math.random() - 0.5) * 22}px`,
-				floatDuration: `${2 + Math.random() * 2}s`, // ← 2–4s each
-			})),
-		);
-	}, []);
-
 	const imgRef = useRef<HTMLImageElement>(null);
 
 	useEffect(() => {
@@ -298,27 +262,23 @@ export default function Wedding3ClientTemplate() {
 				// TODO: learn this
 				preload="auto"
 			></audio>
-			<main
-				className={`${styles.main} ${greatVibes.variable} ${cormorantInfant.variable}`}
-			>
+			<main className={`${styles.main}  ${cormorantInfant.variable}`}>
 				<section className={styles.hero}>
 					<img
 						ref={imgRef}
 						src="/wedding-three/04.JPG"
 						alt=""
 						style={{
-							// position: "absolute",
-							// top: 0,
-							// left: 0,
-							// width: "100%",
-							// height: "110%", // slightly taller so it doesn't gap at the bottom
-							// objectFit: "cover",
 							willChange: "transform",
 						}}
 					/>
 					<div className={styles["hero-container"]}>
-						<p style={{ color: "#fff" }} className={styles.txt}>
-							{fakeDate.getDate()} / {fakeDate.getMonth() + 1} /{" "}
+						<p style={{ color: "#fff", fontSize: "2rem" }}>Wedding day</p>
+						<p
+							style={{ color: "#fff", fontSize: "2rem", fontWeight: 700 }}
+							className={styles.txt}
+						>
+							{fakeDate.getDate()} | {fakeDate.getMonth() + 1} |{" "}
 							{fakeDate.getFullYear()}
 						</p>
 						<div
@@ -328,12 +288,8 @@ export default function Wedding3ClientTemplate() {
 						>
 							<img src="/wedding-three/heart.png" alt="" />
 						</div>
-						{/* <p className={styles["hero__heading"]}>
-							{template.hisName} & {template.herName}
-						</p> */}
 						<svg
 							width="700"
-							// height="auto"
 							viewBox="0 0 90 11"
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg"
@@ -363,9 +319,9 @@ export default function Wedding3ClientTemplate() {
 					<img src="/wedding-three/02.png" width={256} height={256} alt="" />
 					<p className={styles["section__title"]}>Дорога сім'я Копилець</p>
 					<p className={styles.txt}>
-						Ми щиро запрошуємо вас розділити з нами радість і тепло нашого
-						свята, присвяченого створенню нашої сім’ї, щоб разом відчути любов,
-						ніжність і щастя цього особливого моменту
+						З глибокою радістю та трепетом у серці запрошуємо вас розділити з
+						нами один із найважливіших днів нашого життя. День, коли любов стане
+						обіцянкою — щирою, вічною та незмінною.
 					</p>
 					<p className={styles["section__date"]}>
 						{`${fakeDate.getDate()} ${genitive.charAt(0).toUpperCase() + genitive.slice(1)} ${fakeDate.getFullYear()}`}
@@ -391,41 +347,54 @@ export default function Wedding3ClientTemplate() {
 										}
 									>
 										{day}
-										{/* {day == fakeDate.getDate() && (
-											<Image
-												className={styles["calendar-heart"]}
-												src="/wedding-one/heart.png"
-												width={40}
-												height={40}
-												alt="Heart"
-											/>
-										)} */}
+										{day == fakeDate.getDate() && (
+											<svg
+												style={{
+													position: "absolute",
+													transform: "translateY(2px)",
+													width: "100%",
+													height: "100%",
+													color: "var(--accent-clr)",
+												}}
+												xmlns="http://www.w3.org/2000/svg"
+												fill="currentColor"
+												className="bi bi-heart"
+												viewBox="0 0 16 16"
+											>
+												<path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+											</svg>
+										)}
 									</div>
 								);
 							})}
 						</div>
 					</div>
 					<p className={styles.txt}>
-						Ми дуже хочемо розділити цей радісний день саме з вами — нашими
-						дорогими та близькими людьми.
+						Будемо щасливі бачити вас серед тих, хто розділить з нами цю
+						незабутню мить.
 					</p>
 				</section>
 				<section className={styles.section}>
+					<img src="/wedding-three/05.png" width={256} alt="" />
 					<p className={styles["section__title"]}>Адреси святкування</p>
 					<div className={styles.addresses}>
 						{template.addresses.map((address, i) => {
 							return (
 								<div key={i} className={styles.address}>
-									<p
-										style={{ display: "flex", justifyContent: "space-between" }}
-									>
-										<span>{address.title}</span>
+									<p style={{ display: "flex", flexDirection: "column" }}>
+										<span style={{ fontSize: "2rem" }}>{address.title}</span>
 										<span>
 											{address.time} ({template.location_time})
 										</span>
 									</p>
 									<p>{address.address_title}</p>
-									<p>{address.address}</p>
+									<a
+										style={{ color: "#000" }}
+										href={address.address}
+										target="_blank"
+									>
+										{address.address}
+									</a>
 									<iframe
 										className={styles["address__map"]}
 										src={address.address_url}
@@ -450,9 +419,11 @@ export default function Wedding3ClientTemplate() {
 					<div className={styles.countdown} id="date">
 						<div className="animated-element">
 							<span
-								style={{
-									background: `conic-gradient(black ${((days / 365) * 100).toFixed(1)}%, rgb(220, 220, 220) 0%)`,
-								}}
+								style={
+									{
+										"--procent": `${((days / 365) * 100).toFixed(1)}%`,
+									} as CSSProperties
+								}
 								className={styles["countdown-circle"]}
 							>
 								{days}
@@ -463,9 +434,11 @@ export default function Wedding3ClientTemplate() {
 						</div>
 						<div className="animated-element">
 							<span
-								style={{
-									background: `conic-gradient(black ${((hours / 24) * 100).toFixed(1)}%, rgb(220, 220, 220) 0%)`,
-								}}
+								style={
+									{
+										"--procent": `${((hours / 24) * 100).toFixed(1)}%`,
+									} as CSSProperties
+								}
 								className={styles["countdown-circle"]}
 							>
 								{hours}
@@ -476,9 +449,11 @@ export default function Wedding3ClientTemplate() {
 						</div>
 						<div className="animated-element">
 							<span
-								style={{
-									background: `conic-gradient(black ${((minutes / 60) * 100).toFixed(1)}%, rgb(220, 220, 220) 0%)`,
-								}}
+								style={
+									{
+										"--procent": `${((minutes / 60) * 100).toFixed(1)}%`,
+									} as CSSProperties
+								}
 								className={styles["countdown-circle"]}
 							>
 								{minutes}
@@ -489,9 +464,14 @@ export default function Wedding3ClientTemplate() {
 						</div>
 						<div className="animated-element">
 							<span
-								style={{
-									background: `conic-gradient(black ${((seconds / 60) * 100).toFixed(1)}%, rgb(220, 220, 220) 0%)`,
-								}}
+								style={
+									{
+										"--procent": `${((seconds / 60) * 100).toFixed(1)}%`,
+									} as CSSProperties
+								}
+								// style={{
+								// 	background: `conic-gradient(rgb(255, 213, 231) ${((seconds / 60) * 100).toFixed(1)}%, rgba(255, 213, 231, 0.5) 0%)`,
+								// }}
 								className={styles["countdown-circle"]}
 							>
 								{seconds}
@@ -505,7 +485,9 @@ export default function Wedding3ClientTemplate() {
 				<section className={styles.section}>
 					<img src="/wedding-three/03.png" width={256} alt="" />
 					<p className={styles.txt}>
-						Чекаємо на вас з нетерепінням з любовю Степан та Андріана
+						Чекаємо на вас з нетерепінням і любов'ю
+						<br />
+						Степан та Андріана
 					</p>
 				</section>
 			</main>
