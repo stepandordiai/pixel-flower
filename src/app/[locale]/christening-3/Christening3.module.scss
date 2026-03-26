@@ -139,13 +139,12 @@
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);
 	grid-template-rows: repeat(6, 1fr);
-	aspect-ratio: 1/1;
 
 	div {
 		display: flex;
-		aspect-ratio: 1/1;
 		justify-content: center;
 		align-items: center;
+		aspect-ratio: 1/1;
 		font-weight: 300;
 		border-radius: 10px;
 		border-bottom: 2px solid var(--accent-clr);
