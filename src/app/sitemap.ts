@@ -1,20 +1,27 @@
+import { routing } from "@/i18n/routing";
 import type { MetadataRoute } from "next";
 
 const BASE_URL = "https://www.pixelflower.studio";
-const locales = ["uk", "cs"] as const;
+const pages = ["", "/templates"];
+
+const languages = (page = "") =>
+	Object.fromEntries(
+		routing.locales.map((l) => [l, `${BASE_URL}/${l}${page}`]),
+	);
 
 export default function sitemap(): MetadataRoute.Sitemap {
-	return locales.map((locale) => ({
-		url: `${BASE_URL}/${locale}`,
-		lastModified: new Date(),
-		changeFrequency: "monthly" as const,
-		priority: 1,
-		alternates: {
-			languages: {
-				uk: `${BASE_URL}/uk`,
-				cs: `${BASE_URL}/cs`,
-				"x-default": `${BASE_URL}/uk`,
+	return routing.locales.flatMap((l) =>
+		pages.map((page) => ({
+			url: `${BASE_URL}/${l}${page}`,
+			lastModified: new Date(),
+			changeFrequency: "monthly" as const,
+			priority: 1,
+			alternates: {
+				languages: {
+					...languages(page),
+					"x-default": `${BASE_URL}/${routing.defaultLocale}${page}`,
+				},
 			},
-		},
-	}));
+		})),
+	);
 }

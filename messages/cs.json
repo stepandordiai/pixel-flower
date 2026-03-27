@@ -6,8 +6,6 @@
 	"followUs": "Sledujte nás!",
 	"scrollToTop": "Zpět nahoru",
 	"close": "zavřít",
-	"homeMetaDesc": "Moderní online pozvánkové weby pro svatby a události. Individuální design, rychlé spuštění a pohodlí pro hosty.",
-	"homeMetaTitle": "Pozvánky online | Svatební a další webové pozvánky",
 	"pageNotFound": "Stránka nenalezena",
 	"backToHome": "Zpět na hlavní stránku",
 
@@ -21,6 +19,11 @@
 	},
 
 	"home": {
+		"meta": {
+			"title": "Pozvánky online | Svatební a další webové pozvánky",
+			"desc": "Moderní online pozvánkové weby pro svatby a události. Individuální design, rychlé spuštění a pohodlí pro hosty."
+		},
+
 		"title": "Vytvářejte výjimečné vzpomínky od prvního kliknutí. Online pozvánky na vaši oslavu.",
 		"chooseATemplate": "Vybrat šablonu",
 		"orderInvitation": "Objednat pozvánku",
@@ -45,6 +48,11 @@
 	},
 
 	"templates": {
+		"meta": {
+			"title": "Šablony pozvánek | Vyberte si design nebo objednejte vlastní",
+			"desc": "Prohlédněte si stylové šablony pozvánek nebo si objednejte jedinečný design na míru pro vaši událost. Online formát, rychlé a pohodlné pro hosty."
+		},
+
 		"chooseAnInvitationPackage": "Vyberte si balíček pozvánky",
 		"all": "Vše",
 		"chooseTheInvitationType": "Vyberte typ pozvánky",
