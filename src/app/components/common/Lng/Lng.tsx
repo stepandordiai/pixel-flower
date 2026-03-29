@@ -2,7 +2,7 @@
 
 import { useTranslations, useLocale } from "next-intl";
 import { useState, useEffect, CSSProperties } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter, usePathname } from "@/i18n/navigation";
 import classNames from "classnames";
 import GlobeIcon from "@/app/icons/GlobeIcon";
 import "./Lng.scss";
@@ -45,8 +45,9 @@ const Lng = ({ styles }: LngProps) => {
 		languages.find((lng) => lng.code === locale) || languages[0];
 
 	const handleLngOption = (lngCode: string) => {
-		const newPathname = pathname.replace(`/${locale}`, `/${lngCode}`);
-		router.replace(newPathname);
+		// const newPathname = pathname.replace(`/${locale}`, `/${lngCode}`);
+		// TODO: learn this
+		router.replace(pathname, { locale: lngCode });
 		localStorage.setItem("preferredLng", lngCode);
 	};
 
