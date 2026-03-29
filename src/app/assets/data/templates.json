@@ -48,14 +48,7 @@
 				"address_destination_url": "https://maps.app.goo.gl/G1n675tDBPmuVD2q9"
 			}
 		],
-		"envelope_img": "/wedding-three/envelope.png",
-		"gallery": [
-			"/wedding-one/01.JPG",
-			"/wedding-one/02.JPG",
-			"/wedding-one/03.JPG",
-			"/wedding-one/04.JPG",
-			"/wedding-one/05.JPG"
-		],
+		"envelope_img": "/wedding-three/envelope-c.png",
 		"type": "templates.wedding",
 		"song": "/wedding-three/music.mp3"
 	},

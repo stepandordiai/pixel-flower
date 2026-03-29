@@ -1,7 +1,7 @@
 "use client";
 
 import { CSSProperties, useEffect, useState } from "react";
-import { Cormorant_Infant } from "next/font/google";
+import { Cormorant_Infant, Alex_Brush } from "next/font/google";
 import templates from "@/app/assets/data/templates.json";
 import { useRef } from "react";
 import classNames from "classnames";
@@ -11,6 +11,12 @@ const cormorantInfant = Cormorant_Infant({
 	weight: ["500"],
 	variable: "--font-cormorant-infant",
 	subsets: ["latin", "cyrillic"],
+});
+
+const alexBrush = Alex_Brush({
+	weight: ["400"],
+	variable: "--font-cormorant-infant",
+	subsets: ["latin"],
 });
 
 const template = templates.find((template) => template.id === "wedding-3")!;
@@ -91,16 +97,19 @@ export default function Wedding3ClientTemplate() {
 			(entries) => {
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
-						setAnimate(true);
+						// TODO: learn this
+						entry.target.classList.add(styles["animate--active"]);
+						observer.unobserve(entry.target);
 					}
 				});
 			},
-			{ threshold: 0 },
+			{ threshold: 0.5 },
 		);
 
-		if (pathRef.current) {
-			observer.observe(pathRef.current);
-		}
+		document.querySelectorAll(`.${styles.animate}`).forEach((el) => {
+			observer.observe(el);
+		});
+
 		return () => observer.disconnect();
 	}, []);
 
@@ -149,7 +158,6 @@ export default function Wedding3ClientTemplate() {
 	// 	".logo",
 	// ) as SVGGeometryElement | null;
 	// console.log(ringOuter?.getTotalLength());
-	const [pearlsActive, setPearlsActive] = useState(false);
 	const [preview, setPreview] = useState(true);
 	const [envelopeClicked, setEnvelopeClicked] = useState(false);
 
@@ -158,7 +166,6 @@ export default function Wedding3ClientTemplate() {
 		audioRef.current?.play();
 
 		setTimeout(() => {
-			setPearlsActive(true);
 			setPlaying(true);
 			setPreview(false);
 			document.documentElement.style.overflow = "";
@@ -265,28 +272,42 @@ export default function Wedding3ClientTemplate() {
 			<main className={`${styles.main}  ${cormorantInfant.variable}`}>
 				<section className={styles.hero}>
 					<img
+						className={styles["hero__img"]}
 						ref={imgRef}
-						src="/wedding-three/04.JPG"
+						src="/wedding-three/01-c.jpeg"
 						alt=""
 						style={{
 							willChange: "transform",
 						}}
 					/>
-					<div className={styles["hero-container"]}>
-						<p style={{ color: "#fff", fontSize: "2rem" }}>Wedding day</p>
+					<div className={`${styles["hero-container"]}`}>
 						<p
-							style={{ color: "#fff", fontSize: "2rem", fontWeight: 700 }}
-							className={styles.txt}
-						>
-							{fakeDate.getDate()} | {fakeDate.getMonth() + 1} |{" "}
-							{fakeDate.getFullYear()}
-						</p>
-						<div
-							className={classNames(styles["hero__img-wrapper"], {
-								[styles["hero__img-wrapper--active"]]: pearlsActive,
+							style={{ color: "#fff", opacity: 0 }}
+							className={classNames(styles.txt, {
+								[styles["active"]]: !preview,
 							})}
 						>
-							<img src="/wedding-three/heart.png" alt="" />
+							{`${fakeDate.getDate()}/${fakeDate.getMonth() + 1}/${fakeDate.getFullYear()}`}
+						</p>
+						<p
+							className={classNames(
+								styles["setion__title"],
+								alexBrush.className,
+								{
+									[styles["active"]]: !preview,
+								},
+							)}
+							style={{ color: "#fff", fontSize: "3rem", opacity: 0 }}
+						>
+							Wedding day
+						</p>
+
+						<div
+							className={classNames(styles["hero__img-wrapper"], {
+								[styles["hero__img-wrapper--active"]]: !preview,
+							})}
+						>
+							<img src="/wedding-three/heart-c.png" alt="" />
 						</div>
 						<svg
 							width="700"
@@ -303,7 +324,7 @@ export default function Wedding3ClientTemplate() {
 								.logo {
 								stroke-dasharray: 594;
 								stroke-dashoffset: 594;
-								animation: ${pearlsActive ? "drawK 20s 1.5s ease forwards" : "none"};
+								animation: ${!preview ? "drawK 20s 1s ease forwards" : "none"};
 								}
 							`}</style>
 							<path
@@ -316,20 +337,25 @@ export default function Wedding3ClientTemplate() {
 					</div>
 				</section>
 				<section className={styles.section}>
-					<img src="/wedding-three/02.png" width={256} height={256} alt="" />
-					<p className={styles["section__title"]}>Дорога сім'я Копилець</p>
-					<p className={styles.txt}>
+					<img
+						className={styles.animate}
+						src="/wedding-three/02-c.png"
+						width={256}
+						height={256}
+						alt=""
+					/>
+					<p className={`${styles["section__title"]} ${styles.animate}`}>
+						Дорога сім'я Копилець
+					</p>
+					<p className={`${styles.txt} ${styles.animate}`}>
 						З глибокою радістю та трепетом у серці запрошуємо вас розділити з
 						нами один із найважливіших днів нашого життя. День, коли любов стане
 						обіцянкою — щирою, вічною та незмінною.
 					</p>
-					<p className={styles["section__date"]}>
+					<p style={{ fontSize: "24px" }} className={styles.animate}>
 						{`${fakeDate.getDate()} ${genitive.charAt(0).toUpperCase() + genitive.slice(1)} ${fakeDate.getFullYear()}`}
 					</p>
-					<div className={styles.calendar}>
-						{/* <p
-							className={styles["calendar-top"]}
-						>{`${nominative.charAt(0).toUpperCase() + nominative.slice(1)} ${fakeDate.getFullYear()}`}</p> */}
+					<div className={`${styles.calendar} ${styles.animate}`}>
 						<div className={styles["calendar-inner"]}>
 							<div>Пн</div>
 							<div>Вт</div>
@@ -369,26 +395,91 @@ export default function Wedding3ClientTemplate() {
 							})}
 						</div>
 					</div>
-					<p className={styles.txt}>
+					<p className={`${styles.txt} ${styles.animate}`}>
 						Будемо щасливі бачити вас серед тих, хто розділить з нами цю
 						незабутню мить.
 					</p>
 				</section>
 				<section className={styles.section}>
-					<img src="/wedding-three/05.png" width={256} alt="" />
-					<p className={styles["section__title"]}>Адреси святкування</p>
+					<img
+						className={styles.animate}
+						src="/wedding-three/03-c.png"
+						width={256}
+						alt=""
+					/>
+					<p className={`${styles["section__title"]} ${styles.animate}`}>
+						Адреси святкування
+					</p>
 					<div className={styles.addresses}>
 						{template.addresses.map((address, i) => {
 							return (
 								<div key={i} className={styles.address}>
-									<p style={{ display: "flex", flexDirection: "column" }}>
-										<span style={{ fontSize: "2rem" }}>{address.title}</span>
-										<span>
-											{address.time} ({template.location_time})
+									<p
+										style={{ display: "flex", flexDirection: "column" }}
+										className={styles.animate}
+									>
+										<span className={styles.txt} style={{ fontSize: "2rem" }}>
+											{address.title}
+										</span>
+										<span style={{ fontSize: "24px" }} className={styles.txt}>
+											{`${address.time} (${template.location_time})`}
 										</span>
 									</p>
-									<p>{address.address_title}</p>
+									<span
+										className={styles.animate}
+										style={{
+											border: "3px solid var(--accent-clr)",
+											alignSelf: "center",
+											width: "50px",
+											height: "50px",
+											borderRadius: "50%",
+											display: "flex",
+											justifyContent: "center",
+											alignItems: "center",
+										}}
+									>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="20"
+											height="20"
+											fill="currentColor"
+											className="bi bi-building"
+											viewBox="0 0 16 16"
+										>
+											<path d="M4 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z" />
+											<path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3z" />
+										</svg>
+									</span>
+									<p className={`${styles.txt} ${styles.animate}`}>
+										{address.address_title}
+									</p>
+									<span
+										style={{
+											border: "3px solid var(--accent-clr)",
+											alignSelf: "center",
+											width: "50px",
+											height: "50px",
+											borderRadius: "50%",
+											display: "flex",
+											justifyContent: "center",
+											alignItems: "center",
+										}}
+										className={styles.animate}
+									>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="20"
+											height="20"
+											fill="currentColor"
+											className="bi bi-geo-alt"
+											viewBox="0 0 16 16"
+										>
+											<path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+											<path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+										</svg>
+									</span>
 									<a
+										className={`${styles.txt} ${styles.animate}`}
 										style={{ color: "#000" }}
 										href={address.address}
 										target="_blank"
@@ -413,7 +504,13 @@ export default function Wedding3ClientTemplate() {
 					</div>
 				</section>
 				<section className={styles.section}>
-					<p className={styles["section__title"]}>
+					<img
+						className={styles.animate}
+						src="/wedding-three/04-c.png"
+						width={256}
+						alt=""
+					/>
+					<p className={`${styles["section__title"]} ${styles.animate}`}>
 						До нашого весілля залишилось
 					</p>
 					<div className={styles.countdown} id="date">
@@ -424,11 +521,11 @@ export default function Wedding3ClientTemplate() {
 										"--procent": `${((days / 365) * 100).toFixed(1)}%`,
 									} as CSSProperties
 								}
-								className={styles["countdown-circle"]}
+								className={`${styles["countdown-circle"]} ${styles.animate}`}
 							>
 								{days}
 							</span>
-							<span className="font-s">
+							<span className={`${styles.txt} ${styles.animate}`}>
 								{helper(hours, "день", "дні", "днів")}
 							</span>
 						</div>
@@ -439,26 +536,26 @@ export default function Wedding3ClientTemplate() {
 										"--procent": `${((hours / 24) * 100).toFixed(1)}%`,
 									} as CSSProperties
 								}
-								className={styles["countdown-circle"]}
+								className={`${styles["countdown-circle"]} ${styles.animate}`}
 							>
 								{hours}
 							</span>
-							<span className="font-s">
+							<span className={`${styles.txt} ${styles.animate}`}>
 								{helper(hours, "година", "години", "годин")}
 							</span>
 						</div>
-						<div className="animated-element">
+						<div>
 							<span
 								style={
 									{
 										"--procent": `${((minutes / 60) * 100).toFixed(1)}%`,
 									} as CSSProperties
 								}
-								className={styles["countdown-circle"]}
+								className={`${styles["countdown-circle"]} ${styles.animate}`}
 							>
 								{minutes}
 							</span>
-							<span className="font-s">
+							<span className={`${styles.txt} ${styles.animate}`}>
 								{helper(minutes, "хвилина", "хвилини", "хвилин")}
 							</span>
 						</div>
@@ -469,25 +566,27 @@ export default function Wedding3ClientTemplate() {
 										"--procent": `${((seconds / 60) * 100).toFixed(1)}%`,
 									} as CSSProperties
 								}
-								// style={{
-								// 	background: `conic-gradient(rgb(255, 213, 231) ${((seconds / 60) * 100).toFixed(1)}%, rgba(255, 213, 231, 0.5) 0%)`,
-								// }}
-								className={styles["countdown-circle"]}
+								className={`${styles["countdown-circle"]} ${styles.animate}`}
 							>
 								{seconds}
 							</span>
-							<span className="font-s">
+							<span className={`${styles.txt} ${styles.animate}`}>
 								{helper(seconds, "секунда", "секунди", "секунд")}
 							</span>
 						</div>
 					</div>
 				</section>
 				<section className={styles.section}>
-					<img src="/wedding-three/03.png" width={256} alt="" />
-					<p className={styles.txt}>
+					<img
+						className={styles.animate}
+						src="/wedding-three/05-c.png"
+						width={256}
+						alt=""
+					/>
+					<p className={`${styles.txt} ${styles.animate}`}>
 						Чекаємо на вас з нетерепінням і любов'ю
 						<br />
-						Степан та Андріана
+						<span style={{ fontSize: "2rem" }}>Степан та Андріана</span>
 					</p>
 				</section>
 			</main>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Wedding3ClientTemplate from "./Wedding3Client";
+import Wedding3ClientTemplate from "./Wedding3ClientTemplate";
 
 export const metadata: Metadata = {
 	openGraph: {

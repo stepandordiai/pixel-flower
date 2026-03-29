@@ -1,6 +1,7 @@
 :root {
-	--accent-clr: rgb(255, 203, 220);
-	--secondary-clr: rgb(255, 238, 244);
+	--accent-clr: #ffcbdc;
+	--secondary-clr: #ffeef4;
+	--bg-clr: #fffafc;
 }
 
 /* Shimmer animation */
@@ -35,7 +36,7 @@
 	justify-content: center;
 	align-items: center;
 	padding: 50px;
-	background: #fff;
+	background: var(--bg-clr);
 	transition: opacity 2s;
 }
 
@@ -160,7 +161,7 @@
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	z-index: 3;
+	z-index: 5;
 }
 
 .preview-hint {
@@ -267,12 +268,29 @@
 	}
 }
 
+.animate {
+	opacity: 0;
+}
+
+.animate--active {
+	opacity: 1 !important;
+	transition: opacity 1s;
+}
+
+@keyframes animateChar {
+	to {
+		opacity: 1;
+		filter: blur(0);
+	}
+}
+
 .main {
 	font-family: var(--font-cormorant-infant);
 	display: flex;
 	flex-direction: column;
 	gap: 50px;
-	background: #fff;
+	background: var(--bg-clr);
+	padding-bottom: 50px;
 }
 
 .hero {
@@ -284,18 +302,30 @@
 	gap: 20px;
 	padding: 0 20px;
 	overflow: hidden;
+	background: rgb(57, 57, 57);
+}
 
-	img {
-		position: absolute;
-		z-index: 0;
-		width: 100%;
-		height: 100%;
+.hero__img {
+	position: absolute;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.active {
+	opacity: 1 !important;
+	transition: opacity 1s 1s;
+}
+
+@media screen and (width < 900px) {
+	.hero__img {
 		object-fit: cover;
 	}
 }
 
 .hero-container {
-	padding-top: 100px;
+	padding-top: 50px;
 	position: relative;
 	display: flex;
 	justify-content: center;
@@ -345,8 +375,8 @@
 
 	img {
 		position: relative;
-		width: 32px;
-		height: 32px;
+		width: 50px;
+		height: 50px;
 		opacity: 0;
 	}
 
@@ -359,15 +389,15 @@
 
 .hero__img-wrapper--active {
 	&::before {
-		animation: animateLeftLine 2s 1.5s ease forwards;
+		animation: animateLeftLine 2s 1s ease forwards;
 	}
 
 	&::after {
-		animation: animateRightLine 2s 1.5s ease forwards;
+		animation: animateRightLine 2s 1s ease forwards;
 	}
 
 	img {
-		animation: animateHeroHeart 1s 1.5s ease forwards;
+		animation: animateHeroHeart 1s 1s ease forwards;
 	}
 }
 
@@ -387,7 +417,6 @@
 
 .txt {
 	font-size: 20px;
-	font-family: var(--font-cormorant-infant);
 }
 
 .section__title {
@@ -395,14 +424,8 @@
 	text-align: center;
 }
 
-.section__date {
-	font-size: 20px;
-	font-weight: 300;
-}
-
 .calendar {
 	position: relative;
-	font-family: var(--font-cormorant-infant);
 	font-size: 20px;
 }
 
@@ -491,7 +514,7 @@
 .address__map {
 	width: 100%;
 	height: 300px;
-	border-radius: 50px;
+	border-radius: 20px;
 }
 
 .link {
@@ -523,11 +546,6 @@
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
-
-		span:nth-child(1) {
-			font-size: 2rem;
-			font-weight: 700;
-		}
 	}
 }
 
@@ -544,6 +562,8 @@
 		var(--accent-clr) var(--procent),
 		rgba(255, 203, 220, 0.3) 0%
 	);
+	font-size: 2rem;
+	font-weight: 700;
 
 	&::before {
 		content: "";
