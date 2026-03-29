@@ -83,18 +83,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { locale } = await params;
 	const t = await getTranslations({ locale, namespace: "home.meta" });
-	const languages = Object.fromEntries(
-		routing.locales.map((l) => [l, `/${l}`]),
-	);
 
 	return {
 		title: `${t("title")} - pixel flower`,
 		description: t("desc"),
 		alternates: {
-			canonical: `/${locale}`,
+			canonical: locale === routing.defaultLocale ? "/" : `/${locale}`,
 			languages: {
-				...languages,
-				"x-default": `/${routing.defaultLocale}`,
+				cs: "/cs",
+				"x-default": "/",
 			},
 		},
 	};

@@ -27,9 +27,16 @@ export async function generateMetadata({
 		openGraph: {
 			title: "pixel flower",
 			description: "Студія сайт-запрошень для весіль і подій",
-			url: `/${locale}`,
+			url: locale === routing.defaultLocale ? "/" : `/${locale}`,
 			type: "website",
-			images: "/pixel-flower-og-c.png",
+			locale: locale,
+			images: [
+				{
+					url: "/pixel-flower-og-c.png",
+					width: 1200,
+					height: 630,
+				},
+			],
 		},
 	};
 }

@@ -11,18 +11,16 @@ export async function generateMetadata({
 	const { locale } = await params;
 	const t = await getTranslations({ locale, namespace: "templates.meta" });
 	const page = "templates";
-	const languages = Object.fromEntries(
-		routing.locales.map((l) => [l, `/${l}/${page}`]),
-	);
 
 	return {
 		title: t("title"),
 		description: t("desc"),
 		alternates: {
-			canonical: `/${locale}/${page}`,
+			canonical:
+				locale === routing.defaultLocale ? `/${page}` : `/${locale}/${page}`,
 			languages: {
-				...languages,
-				"x-default": `/${routing.defaultLocale}/${page}`,
+				cs: `/cs/${page}`,
+				"x-default": `/${page}`,
 			},
 		},
 	};

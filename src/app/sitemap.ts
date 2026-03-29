@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		alternates: {
 			languages: {
 				cs: `${BASE_URL}/cs${page}`,
+				"x-default": "/",
 			},
 		},
 	}));
