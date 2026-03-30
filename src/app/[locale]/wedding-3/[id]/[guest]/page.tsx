@@ -22,7 +22,7 @@ export async function generateMetadata({
 		title: `Запрошення на весілля`,
 		openGraph: {
 			title: `Запрошення на весілля`,
-			images: "/wedding-three/og-c.png",
+			images: invitation.ogImg,
 			url:
 				locale === routing.defaultLocale
 					? "/wedding-3/${invitation.id}"
