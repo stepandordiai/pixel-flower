@@ -2,7 +2,7 @@
 
 import { CSSProperties, useEffect, useState } from "react";
 import { Cormorant_Infant, Alex_Brush } from "next/font/google";
-import templates from "@/app/assets/data/templates.json";
+import templates from "@/data/templates.json";
 import { useRef } from "react";
 import classNames from "classnames";
 import styles from "./WeddingThree.module.scss";
@@ -139,8 +139,6 @@ export default function Wedding3ClientTemplate() {
 
 		return () => clearInterval(interval);
 	}, []);
-
-	console.log(((1 / 365) * 360).toFixed(1));
 
 	const { nominative, genitive } = getMonthName(fakeDate);
 

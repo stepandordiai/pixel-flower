@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import contacts from "@/app/assets/data/contacts";
+import contacts from "@/data/contacts";
 import ArrowRightBtn from "../../ArrowRightBtn/ArrowRightBtn";
 import styles from "./ContactUs.module.scss";
 

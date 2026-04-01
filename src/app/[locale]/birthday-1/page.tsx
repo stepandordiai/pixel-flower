@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import templates from "@/app/assets/data/templates.json";
-import Container from "@/app/components/Container/Container";
-import ContainerInner from "@/app/components/ContainerInner/ContainerInner.";
-import AnimatedTxt from "@/app/components/AnimatedTxt/AnimatedTxt";
+import templates from "@/data/templates.json";
+import Container from "@/components/Container/Container";
+import ContainerInner from "@/components/ContainerInner/ContainerInner.";
+import AnimatedTxt from "@/components/AnimatedTxt/AnimatedTxt";
 import Image from "next/image";
 import "./BirthdayOne.scss";
 

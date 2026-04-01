@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import invitations from "@/app/assets/data/invitations/wedding-2.json";
+import invitations from "@/data/invitations/wedding-2.json";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,8 +15,8 @@ import "swiper/css/effect-fade";
 import { Autoplay, EffectFade } from "swiper/modules";
 
 import { useParams } from "next/navigation";
-import Container from "@/app/components/Container/Container";
-import ContainerInner from "@/app/components/ContainerInner/ContainerInner.";
+import Container from "@/components/Container/Container";
+import ContainerInner from "@/components/ContainerInner/ContainerInner.";
 import { notFound } from "next/navigation";
 import "../WeddingTwo.scss";
 

@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import templates from "@/app/assets/data/templates.json";
+import templates from "@/data/templates.json";
 import "./../christening-2/ChristeningTwo.scss";
 import classNames from "classnames";
-import ParallaxImage from "@/app/components/ParallaxImage/ParallaxImage";
+import ParallaxImage from "@/components/ParallaxImage/ParallaxImage";
 import styles from "./Christening3.module.scss";
 
 const helper = (

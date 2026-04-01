@@ -1,4 +1,4 @@
-import useParallax from "@/app/hooks/useParallax";
+import useParallax from "@/hooks/useParallax";
 
 export default function ParallaxImage({
 	src,

@@ -1,10 +1,10 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import packages from "./../../../assets/data/packages.json";
-import socialsData from "./../../../assets/data/socialsData";
-import contacts from "../../../assets/data/contacts";
-import ArrowRightIcon from "@/app/icons/ArrowRightIcon";
+import packages from "@/data/packages.json";
+import socialsData from "@/data/socialsData";
+import contacts from "@/data/contacts";
+import ArrowRightIcon from "@/components/icons/ArrowRightIcon";
 import { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import "./Packages.scss";

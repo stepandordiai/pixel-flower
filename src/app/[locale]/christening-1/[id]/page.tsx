@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import invitations from "@/app/assets/data/invitations/christening-1.json";
+import invitations from "@/data/invitations/christening-1.json";
 import { useParams } from "next/navigation";
-import Container from "@/app/components/Container/Container";
+import Container from "@/components/Container/Container";
 import { notFound } from "next/navigation";
 import "../ChristeningOne.scss";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import templates from "@/app/assets/data/templates.json";
+import templates from "@/data/templates.json";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,8 +14,8 @@ import "swiper/css/effect-fade";
 // import required modules
 import { Autoplay, EffectFade } from "swiper/modules";
 
-import Container from "@/app/components/Container/Container";
-import ContainerInner from "@/app/components/ContainerInner/ContainerInner.";
+import Container from "@/components/Container/Container";
+import ContainerInner from "@/components/ContainerInner/ContainerInner.";
 import "./WeddingTwo.scss";
 
 const template = templates.find((template) => template.id === "wedding-2")!;

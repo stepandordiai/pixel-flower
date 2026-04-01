@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
-import invitations from "@/app/assets/data/invitations/wedding-3.json";
+import invitations from "@/data/invitations/wedding-3.json";
 import Wedding3Client from "./Wedding3Client";
 
 export async function generateMetadata({

@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import templates from "@/app/assets/data/templates.json";
-import Container from "@/app/components/Container/Container";
+import templates from "@/data/templates.json";
+import Container from "@/components/Container/Container";
 import "./ChristeningTwo.scss";
 
 const template = templates.find((template) => template.id === "christening-2")!;

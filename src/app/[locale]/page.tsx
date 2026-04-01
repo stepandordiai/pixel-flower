@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import Header from "../components/layout/Header/Header";
-import QA from "../components/home/QA/QA";
-import Packages from "../components/home/Packages/Packages";
-import Socials from "../components/home/Socials/Socials";
-import WhyUs from "../components/home/WhyUs/WhyUs";
-import HowItWorks from "../components/home/HowItWorks/HowItWorks";
-import ArrowRightIcon from "../icons/ArrowRightIcon";
+import Header from "@/components/layout/Header/Header";
+import QA from "@/components/home/QA/QA";
+import Packages from "@/components/home/Packages/Packages";
+import Socials from "@/components/home/Socials/Socials";
+import WhyUs from "@/components/home/WhyUs/WhyUs";
+import HowItWorks from "@/components/home/HowItWorks/HowItWorks";
+import ArrowRightIcon from "@/components/icons/ArrowRightIcon";
 import { Link } from "@/i18n/navigation";
-import ContactUs from "../components/home/ContactUs/ContactUs";
-import OurFeatures from "../components/home/OurFeatures/OurFeatures";
-import Lng from "../components/common/Lng/Lng";
-import Testimonials from "../components/home/Testimonials/Testimonials";
-import Templates from "../components/home/Templates/Templates";
-import TelIcon from "../icons/TelIcon";
+import ContactUs from "@/components/home/ContactUs/ContactUs";
+import OurFeatures from "@/components/home/OurFeatures/OurFeatures";
+import Lng from "@/components/common/Lng/Lng";
+import Testimonials from "@/components/home/Testimonials/Testimonials";
+import Templates from "@/components/home/Templates/Templates";
+import TelIcon from "@/components/icons/TelIcon";
 import "./Home.scss";
 
 const sliderImgData = [

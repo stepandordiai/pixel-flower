@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams, notFound } from "next/navigation";
-import invitations from "@/app/assets/data/invitations/wedding-1.json";
+import invitations from "@/data/invitations/wedding-1.json";
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";

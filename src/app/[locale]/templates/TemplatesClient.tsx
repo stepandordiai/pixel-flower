@@ -1,13 +1,13 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import templates from "@/app/assets/data/templates.json";
+import templates from "@/data/templates.json";
 import { useState } from "react";
 import classNames from "classnames";
-import ArrowRightIcon from "@/app/icons/ArrowRightIcon";
+import ArrowRightIcon from "@/components/icons/ArrowRightIcon";
 import { Link } from "@/i18n/navigation";
 import styles from "./Templates.module.scss";
-import Header from "@/app/components/layout/Header/Header";
+import Header from "@/components/layout/Header/Header";
 
 const uniqueTemplateTypes = [
 	...new Set(templates.map((template) => template.type)),

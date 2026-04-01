@@ -1,6 +1,6 @@
 "use client";
 
-import invitations from "@/app/assets/data/invitations/wedding-3.json";
+import invitations from "@/data/invitations/wedding-3.json";
 import { notFound, useParams } from "next/navigation";
 import classNames from "classnames";
 import { CSSProperties, useEffect, useState, useRef } from "react";

@@ -1,8 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import templates from "./../../../assets/data/templates.json";
-import ArrowRightIcon from "@/app/icons/ArrowRightIcon";
+import templates from "@/data/templates.json";
+import ArrowRightIcon from "@/components/icons/ArrowRightIcon";
 import { Link } from "@/i18n/navigation";
 import styles from "./Templates.module.scss";
 

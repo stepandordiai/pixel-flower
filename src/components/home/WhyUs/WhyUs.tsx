@@ -1,5 +1,5 @@
-import styles from "./WhyUs.module.scss";
 import { getTranslations } from "next-intl/server";
+import styles from "./WhyUs.module.scss";
 
 const whyUsData = [
 	{

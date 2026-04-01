@@ -1,5 +1,5 @@
 import styles from "./ArrowRightBtn.module.scss";
-import ArrowRightIcon from "@/app/icons/ArrowRightIcon";
+import ArrowRightIcon from "@/components/icons/ArrowRightIcon";
 
 type ArrowRightBtnProps = {
 	url: string;

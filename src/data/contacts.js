@@ -1,8 +1,8 @@
-import TelegramIcon from "../../icons/TelegramIcon";
-import WhatsappIcon from "../../icons/WhatsappIcon";
-import ViberIcon from "../../icons/ViberIcon";
-import TelIcon from "../../icons/TelIcon";
-import EnvelopeIcon from "@/app/icons/EnvelopeIcon";
+import TelegramIcon from "@/components/icons/TelegramIcon";
+import WhatsappIcon from "@/components/icons/WhatsappIcon";
+import ViberIcon from "@/components/icons/ViberIcon";
+import TelIcon from "@/components/icons/TelIcon";
+import EnvelopeIcon from "@/components/icons/EnvelopeIcon";
 
 const contacts = [
 	{

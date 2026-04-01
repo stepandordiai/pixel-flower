@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import invitations from "@/app/assets/data/invitations/christening-3.json";
+import invitations from "@/data/invitations/christening-3.json";
 import Christening3Client from "./Christening3Client";
 
 export async function generateMetadata({

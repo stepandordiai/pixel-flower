@@ -2,10 +2,10 @@
 
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
-import socialsData from "./../../../assets/data/socialsData";
-import contacts from "@/app/assets/data/contacts";
+import socialsData from "@/data/socialsData";
+import contacts from "@/data/contacts";
 import classNames from "classnames";
-import ArrowRightIcon from "@/app/icons/ArrowRightIcon";
+import ArrowRightIcon from "@/components/icons/ArrowRightIcon";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import "./Header.scss";

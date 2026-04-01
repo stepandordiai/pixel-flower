@@ -1,9 +1,9 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import socialsData from "./../../../assets/data/socialsData";
+import socialsData from "@/data/socialsData";
 import styles from "./Socials.module.scss";
-import ArrowRightIcon from "../../../icons/ArrowRightIcon";
+import ArrowRightIcon from "@/components/icons/ArrowRightIcon";
 
 const Socials = () => {
 	const t = useTranslations();

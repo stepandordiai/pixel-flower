@@ -2,8 +2,8 @@
 
 import { useRef, useState } from "react";
 import styles from "./OurFeatures.module.scss";
-import PauseIcon from "@/app/icons/PauseIcon";
-import PlayIcon from "@/app/icons/PlayIcon";
+import PauseIcon from "@/components/icons/PauseIcon";
+import PlayIcon from "@/components/icons/PlayIcon";
 import Lng from "../../common/Lng/Lng";
 
 const ourFeatures = [

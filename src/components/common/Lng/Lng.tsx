@@ -4,7 +4,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { useState, useEffect, CSSProperties } from "react";
 import { useRouter, usePathname } from "@/i18n/navigation";
 import classNames from "classnames";
-import GlobeIcon from "@/app/icons/GlobeIcon";
+import GlobeIcon from "@/components/icons/GlobeIcon";
 import "./Lng.scss";
 
 const languages = [

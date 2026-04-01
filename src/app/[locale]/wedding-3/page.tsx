@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import templates from "@/app/assets/data/templates.json";
+import templates from "@/data/templates.json";
 import Wedding3ClientTemplate from "./Wedding3ClientTemplate";
 import { routing } from "@/i18n/routing";
 

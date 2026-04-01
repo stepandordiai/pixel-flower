@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import invitations from "@/app/assets/data/invitations/christening-3.json";
+import invitations from "@/data/invitations/christening-3.json";
 import { notFound, useParams } from "next/navigation";
-import ParallaxImage from "@/app/components/ParallaxImage/ParallaxImage";
+import ParallaxImage from "@/components/ParallaxImage/ParallaxImage";
 import classNames from "classnames";
 import "../../christening-2/ChristeningTwo.scss";
 import styles from "../Christening3.module.scss";

@@ -1,6 +1,6 @@
 "use client";
 
-import templates from "@/app/assets/data/templates.json";
+import templates from "@/data/templates.json";
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
