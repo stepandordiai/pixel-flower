@@ -6,6 +6,7 @@ import classNames from "classnames";
 import { CSSProperties, useEffect, useState, useRef } from "react";
 import { Cormorant_Infant, Alex_Brush } from "next/font/google";
 import styles from "../../WeddingThree.module.scss";
+import HandIcon from "@/components/icons/HandIcon";
 
 const cormorantInfant = Cormorant_Infant({
 	weight: ["500"],
@@ -25,13 +26,22 @@ const guests = [
 	{ slug: "michael-evgenia", name: "Дорогі\nМихайло та Євгенія" },
 	{ slug: "vasyl-kamila", name: "Дорогі\nВасиль та Каміла" },
 	{ slug: "denis-roksolana", name: "Дорогі\nДенис та Роксолана" },
-	{ slug: "nika", name: "Дорога Ніка" },
+	{ slug: "vasyl-nika", name: "Дорогі\nВасиль та Ніка" },
 	{ slug: "adriana", name: "Дорога Адріана" },
 	{ slug: "andrii-natalia", name: "Дорогі\nАндрій та Наталія" },
 	{ slug: "vasyl", name: "Дорогий Василь" },
 	{ slug: "viktor-natalia", name: "Дорогі\nВіктор та Наталія" },
 	{ slug: "vasyl-natalia", name: "Дорогі\nВасиль та Наталія" },
 	{ slug: "alik-andriana", name: "Дорогі\nАлік та Андріана" },
+	{ slug: "pavluk-family", name: "Дорога сім'я Павлюк" },
+	{ slug: "bentsa-family", name: "Дорога сім'я Бенца" },
+	{ slug: "gabor-family", name: "Дорога сім'я Габор" },
+	{ slug: "karasov-family", name: "Дорога сім'я Карасьових" },
+	{ slug: "kopilets-family", name: "Дорога сім'я Копилець" },
+	{ slug: "bohdana", name: "Дорога Богданка" },
+	{ slug: "tokar-family", name: "Дорога сім'я Токар" },
+	{ slug: "storozenko-family", name: "Дорога сім'я Стороженко" },
+	{ slug: "godmother", name: "Дорога Маточко" },
 ];
 
 // TODO: learn this
@@ -268,14 +278,32 @@ export default function Wedding3Client() {
 			</div>
 			<button onClick={togglePlay} className={styles["wedding-3__music-btn"]}>
 				<div
-					className={classNames(styles.equalizer, {
-						[styles["paused"]]: !playing,
+					className={classNames(styles["music-btn-hint"], {
+						[styles["music-btn-hint--active"]]: !preview,
 					})}
 				>
-					<span />
-					<span />
-					<span />
-					<span />
+					<p
+						style={{
+							fontSize: "12px",
+							whiteSpace: "nowrap",
+							minWidth: 0,
+							overflow: "hidden",
+						}}
+					>
+						З любов’ю - натисніть, щоб слухати
+					</p>
+				</div>
+				<div className={styles["equalizer-wrapper"]}>
+					<div
+						className={classNames(styles.equalizer, {
+							[styles["paused"]]: !playing,
+						})}
+					>
+						<span />
+						<span />
+						<span />
+						<span />
+					</div>
 				</div>
 			</button>
 			<audio
@@ -287,15 +315,9 @@ export default function Wedding3Client() {
 			></audio>
 			<main className={`${styles.main}  ${cormorantInfant.variable}`}>
 				<section className={styles.hero}>
-					<img
-						className={styles["hero__img"]}
-						ref={imgRef}
-						src="/wedding-three/01-c.jpeg"
-						alt=""
-						style={{
-							willChange: "transform",
-						}}
-					/>
+					<div className={styles["hero-hint"]}>
+						<HandIcon size={32} />
+					</div>
 					<div className={`${styles["hero-container"]}`}>
 						<p
 							style={{ color: "#fff", opacity: 0 }}
@@ -303,7 +325,7 @@ export default function Wedding3Client() {
 								[styles["active"]]: !preview,
 							})}
 						>
-							{`${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`}
+							{`${date.getDate().toString().padStart(2, "0")}/${(date.getMonth() + 1).toString().padStart(2, "0")}/${date.getFullYear()}`}
 						</p>
 						<p
 							className={classNames(
@@ -351,6 +373,15 @@ export default function Wedding3Client() {
 							/>
 						</svg>
 					</div>
+					<img
+						className={styles["hero__img"]}
+						ref={imgRef}
+						src="/wedding-three/01-c.jpeg"
+						alt=""
+						style={{
+							willChange: "transform",
+						}}
+					/>
 				</section>
 				<section className={styles.section}>
 					<img

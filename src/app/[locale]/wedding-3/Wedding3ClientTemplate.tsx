@@ -5,6 +5,7 @@ import { Cormorant_Infant, Alex_Brush } from "next/font/google";
 import templates from "@/data/templates.json";
 import { useRef } from "react";
 import classNames from "classnames";
+import HandIcon from "@/components/icons/HandIcon";
 import styles from "./WeddingThree.module.scss";
 
 const cormorantInfant = Cormorant_Infant({
@@ -250,14 +251,32 @@ export default function Wedding3ClientTemplate() {
 			</div>
 			<button onClick={togglePlay} className={styles["wedding-3__music-btn"]}>
 				<div
-					className={classNames(styles.equalizer, {
-						[styles["paused"]]: !playing,
+					className={classNames(styles["music-btn-hint"], {
+						[styles["music-btn-hint--active"]]: !preview,
 					})}
 				>
-					<span />
-					<span />
-					<span />
-					<span />
+					<p
+						style={{
+							fontSize: "12px",
+							whiteSpace: "nowrap",
+							minWidth: 0,
+							overflow: "hidden",
+						}}
+					>
+						З любов’ю - натисніть, щоб слухати
+					</p>
+				</div>
+				<div className={styles["equalizer-wrapper"]}>
+					<div
+						className={classNames(styles.equalizer, {
+							[styles["paused"]]: !playing,
+						})}
+					>
+						<span />
+						<span />
+						<span />
+						<span />
+					</div>
 				</div>
 			</button>
 			<audio
@@ -269,15 +288,10 @@ export default function Wedding3ClientTemplate() {
 			></audio>
 			<main className={`${styles.main}  ${cormorantInfant.variable}`}>
 				<section className={styles.hero}>
-					<img
-						className={styles["hero__img"]}
-						ref={imgRef}
-						src="/wedding-three/01-c.jpeg"
-						alt=""
-						style={{
-							willChange: "transform",
-						}}
-					/>
+					<div className={styles["hero-hint"]}>
+						<HandIcon size={32} />
+					</div>
+
 					<div className={`${styles["hero-container"]}`}>
 						<p
 							style={{ color: "#fff", opacity: 0 }}
@@ -299,7 +313,6 @@ export default function Wedding3ClientTemplate() {
 						>
 							Wedding day
 						</p>
-
 						<div
 							className={classNames(styles["hero__img-wrapper"], {
 								[styles["hero__img-wrapper--active"]]: !preview,
@@ -333,6 +346,15 @@ export default function Wedding3ClientTemplate() {
 							/>
 						</svg>
 					</div>
+					<img
+						className={styles["hero__img"]}
+						ref={imgRef}
+						src="/wedding-three/01-c.jpeg"
+						alt=""
+						style={{
+							willChange: "transform",
+						}}
+					/>
 				</section>
 				<section className={styles.section}>
 					<img
