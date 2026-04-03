@@ -130,5 +130,44 @@
 	"contactUs": {
 		"title": "Kontaktujte nás",
 		"desc": "Spojte se s námi způsobem, který vám vyhovuje - rádi vám pomůžeme vytvořit tu pravou pozvánku."
+	},
+	"wedding3": {
+		"previewHint": "Klepněte na obálku a otevřete pozvánku.",
+		"text": "S hlubokou radostí a chvěním v srdci vás zveme, abyste s námi sdíleli jeden z nejdůležitějších dnů našeho života. Den, kdy se láska stane slibem — upřímným, věčným a neměnným.",
+		"mon": "Po",
+		"tue": "Út",
+		"wed": "St",
+		"thu": "Čt",
+		"fri": "Pá",
+		"sat": "So",
+		"sun": "Ne",
+		"text2": "Budeme velmi rádi, když s námi budete sdílet tento nezapomenutelný okamžik.",
+		"addressesTitle": "Adresy konání",
+		"wedding": "Církevní obřad",
+		"feast": "Hostina",
+		"getDirection": "Zobrazit trasu",
+		"countdownTitle": "Do naší svatby zbývá",
+		"days": {
+			"1": "den",
+			"2": "dny",
+			"5": "dnů"
+		},
+		"hours": {
+			"1": "hodina",
+			"2": "hodiny",
+			"5": "hodin"
+		},
+		"minutes": {
+			"1": "minuta",
+			"2": "minuty",
+			"5": "minut"
+		},
+		"seconds": {
+			"1": "sekunda",
+			"2": "sekundy",
+			"5": "sekund"
+		},
+		"text3": "S láskou a nedočkavostí se na vás těšíme",
+		"text4": "Stepan a Andriana"
 	}
 }

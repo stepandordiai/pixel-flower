@@ -1,12 +1,14 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import invitations from "@/data/invitations/wedding-3.json";
 import { notFound, useParams } from "next/navigation";
 import classNames from "classnames";
 import { CSSProperties, useEffect, useState, useRef } from "react";
 import { Cormorant_Infant, Alex_Brush } from "next/font/google";
-import styles from "../../WeddingThree.module.scss";
 import HandIcon from "@/components/icons/HandIcon";
+import styles from "../../WeddingThree.module.scss";
+import { useLocale } from "next-intl";
 
 const cormorantInfant = Cormorant_Infant({
 	weight: ["500"],
@@ -42,6 +44,7 @@ const guests = [
 	{ slug: "tokar-family", name: "Дорога сім'я Токар" },
 	{ slug: "storozenko-family", name: "Дорога сім'я Стороженко" },
 	{ slug: "godmother", name: "Дорога Маточко" },
+	{ slug: "janko", name: "Milí Kristián a Michaela" },
 ];
 
 // TODO: learn this
@@ -65,19 +68,10 @@ function helper(time: number, one: string, two: string, five: string): string {
 	return five;
 }
 
-// TODO: learn this
-const getMonthName = (date: Date) => {
-	const nominative = date.toLocaleDateString("uk-UA", { month: "long" });
-
-	const genitive = date
-		.toLocaleDateString("uk-UA", { day: "numeric", month: "long" })
-		.replace(/^\d+\s*/, "");
-
-	return { nominative, genitive };
-};
-
 export default function Wedding3Client() {
+	const t = useTranslations("wedding3");
 	const params = useParams();
+	const locale = useLocale();
 
 	const invitation = invitations.find((i) => i.id === params.id)!;
 
@@ -86,6 +80,23 @@ export default function Wedding3Client() {
 	if (!invitation) {
 		return notFound();
 	}
+
+	// TODO: learn this
+	const getMonthName = (date: Date) => {
+		const nominative = date.toLocaleDateString(
+			`${locale === "uk" ? "uk-UA" : "cs-CZ"}`,
+			{ month: "long" },
+		);
+
+		const genitive = date
+			.toLocaleDateString(`${locale === "uk" ? "uk-UA" : "cs-CZ"}`, {
+				day: "numeric",
+				month: "long",
+			})
+			.replace(/^\d+\s*/, "");
+
+		return { nominative, genitive };
+	};
 
 	const [playing, setPlaying] = useState(false);
 	const audioRef = useRef<HTMLAudioElement>(null);
@@ -273,7 +284,7 @@ export default function Wedding3Client() {
 						[styles["preview-hint--hidden"]]: envelopeClicked,
 					})}
 				>
-					Торкніться конверта, щоб відкрити запрошення.
+					{t("previewHint")}
 				</p>
 			</div>
 			<button onClick={togglePlay} className={styles["wedding-3__music-btn"]}>
@@ -397,23 +408,19 @@ export default function Wedding3Client() {
 					>
 						{guest ? `${guest.name}` : "Дорогі гості"}
 					</p>
-					<p className={`${styles.txt} ${styles.animate}`}>
-						З глибокою радістю та трепетом у серці запрошуємо вас розділити з
-						нами один із найважливіших днів нашого життя. День, коли любов стане
-						обіцянкою — щирою, вічною та незмінною.
-					</p>
+					<p className={`${styles.txt} ${styles.animate}`}>{t("text")}</p>
 					<p style={{ fontSize: "24px" }} className={styles.animate}>
 						{`${date.getDate()} ${genitive.charAt(0).toUpperCase() + genitive.slice(1)} ${date.getFullYear()}`}
 					</p>
 					<div className={`${styles.calendar} ${styles.animate}`}>
 						<div className={styles["calendar-inner"]}>
-							<div>Пн</div>
-							<div>Вт</div>
-							<div>Ср</div>
-							<div>Чт</div>
-							<div>Пт</div>
-							<div>Сб</div>
-							<div>Нд</div>
+							<div>{t("mon")}</div>
+							<div>{t("tue")}</div>
+							<div>{t("wed")}</div>
+							<div>{t("thu")}</div>
+							<div>{t("fri")}</div>
+							<div>{t("sat")}</div>
+							<div>{t("sun")}</div>
 							{days2.map((day, index) => {
 								return (
 									<div
@@ -445,10 +452,7 @@ export default function Wedding3Client() {
 							})}
 						</div>
 					</div>
-					<p className={`${styles.txt} ${styles.animate}`}>
-						Будемо щасливі бачити вас серед тих, хто розділить з нами цю
-						незабутню мить.
-					</p>
+					<p className={`${styles.txt} ${styles.animate}`}>{t("text2")}</p>
 				</section>
 				<section className={styles.section}>
 					<img
@@ -458,7 +462,7 @@ export default function Wedding3Client() {
 						alt=""
 					/>
 					<p className={`${styles["section__title"]} ${styles.animate}`}>
-						Адреси святкування
+						{t("addressesTitle")}
 					</p>
 					<div className={styles.addresses}>
 						{invitation.addresses.map((address, i) => {
@@ -469,7 +473,7 @@ export default function Wedding3Client() {
 										className={styles.animate}
 									>
 										<span className={styles.txt} style={{ fontSize: "2rem" }}>
-											{address.title}
+											{t(address.title)}
 										</span>
 										<span style={{ fontSize: "24px" }} className={styles.txt}>
 											{`${address.time} (${invitation.location_time})`}
@@ -546,7 +550,7 @@ export default function Wedding3Client() {
 										href={address.address_destination_url}
 										target="_blank"
 									>
-										Отримати маршрут
+										{t("getDirection")}
 									</a>
 								</div>
 							);
@@ -561,7 +565,7 @@ export default function Wedding3Client() {
 						alt=""
 					/>
 					<p className={`${styles["section__title"]} ${styles.animate}`}>
-						До нашого весілля залишилось
+						{t("countdownTitle")}
 					</p>
 					<div className={styles.countdown} id="date">
 						<div className="animated-element">
@@ -576,7 +580,7 @@ export default function Wedding3Client() {
 								{days}
 							</span>
 							<span className={`${styles.txt} ${styles.animate}`}>
-								{helper(hours, "день", "дні", "днів")}
+								{helper(days, t("days.1"), t("days.2"), t("days.5"))}
 							</span>
 						</div>
 						<div className="animated-element">
@@ -591,7 +595,7 @@ export default function Wedding3Client() {
 								{hours}
 							</span>
 							<span className={`${styles.txt} ${styles.animate}`}>
-								{helper(hours, "година", "години", "годин")}
+								{helper(hours, t("hours.1"), t("hours.2"), t("hours.5"))}
 							</span>
 						</div>
 						<div>
@@ -606,7 +610,12 @@ export default function Wedding3Client() {
 								{minutes}
 							</span>
 							<span className={`${styles.txt} ${styles.animate}`}>
-								{helper(minutes, "хвилина", "хвилини", "хвилин")}
+								{helper(
+									minutes,
+									t("minutes.1"),
+									t("minutes.2"),
+									t("minutes.5"),
+								)}
 							</span>
 						</div>
 						<div className="animated-element">
@@ -621,7 +630,12 @@ export default function Wedding3Client() {
 								{seconds}
 							</span>
 							<span className={`${styles.txt} ${styles.animate}`}>
-								{helper(seconds, "секунда", "секунди", "секунд")}
+								{helper(
+									seconds,
+									t("seconds.1"),
+									t("seconds.2"),
+									t("seconds.5"),
+								)}
 							</span>
 						</div>
 					</div>
@@ -634,9 +648,9 @@ export default function Wedding3Client() {
 						alt=""
 					/>
 					<p className={`${styles.txt} ${styles.animate}`}>
-						Чекаємо на вас з нетерепінням і любов'ю
+						{t("text3")}
 						<br />
-						<span style={{ fontSize: "2rem" }}>Степан та Андріана</span>
+						<span style={{ fontSize: "2rem" }}>{t("text4")}</span>
 					</p>
 				</section>
 			</main>
