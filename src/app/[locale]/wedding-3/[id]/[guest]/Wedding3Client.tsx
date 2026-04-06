@@ -45,6 +45,8 @@ const guests = [
 	{ slug: "storozenko-family", name: "Дорога сім'я Стороженко" },
 	{ slug: "godmother", name: "Дорога Маточко" },
 	{ slug: "janko", name: "Milí Kristián a Michaela" },
+	{ slug: "bilanich-family", name: "Дорога сім'я Біланич" },
+	{ slug: "shelemba-family", name: "Дорога сім'я Шелемба" },
 ];
 
 // TODO: learn this

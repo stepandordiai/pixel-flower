@@ -6,5 +6,5 @@ Studio website presenting a service that creates custom mini websites for weddin
 
 ## Tech stack
 
-- React (JavaScript)
+- Next.js (TypeScript)
 - SCSS
