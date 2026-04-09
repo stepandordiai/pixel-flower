@@ -7,8 +7,8 @@ import classNames from "classnames";
 import { CSSProperties, useEffect, useState, useRef } from "react";
 import { Cormorant_Infant, Alex_Brush } from "next/font/google";
 import HandIcon from "@/components/icons/HandIcon";
-import styles from "../../WeddingThree.module.scss";
 import { useLocale } from "next-intl";
+import styles from "../../WeddingThree.module.scss";
 
 const cormorantInfant = Cormorant_Infant({
 	weight: ["500"],
@@ -47,6 +47,7 @@ const guests = [
 	{ slug: "janko", name: "Milí Kristián a Michaela" },
 	{ slug: "bilanich-family", name: "Дорога сім'я Біланич" },
 	{ slug: "shelemba-family", name: "Дорога сім'я Шелемба" },
+	{ slug: "tsirik-family", name: "Дорога сім'я Цірик" },
 ];
 
 // TODO: learn this
