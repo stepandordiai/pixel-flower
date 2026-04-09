@@ -52,7 +52,11 @@ const Footer = () => {
 			<p>&copy; {new Date().getFullYear()} pixel flower</p>
 			<p className="footer__author">
 				Website created by{" "}
-				<a href="https://www.heeeyooo.studio/" target="_blank">
+				<a
+					href="https://www.heeeyooo.com"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
 					heeeyooo studio
 				</a>
 			</p>
