@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
+import { BASE_URL } from "@/lib/constants";
 
-const BASE_URL = "https://www.pixelflower.studio";
 const pages = ["", "/templates"];
 
 export default function sitemap(): MetadataRoute.Sitemap {

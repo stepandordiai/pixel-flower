@@ -6,6 +6,7 @@ import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import ScrollToTop from "@/utils/ScrollToTop";
+import { BASE_URL } from "@/lib/constants";
 import "@/scss/globals.scss";
 
 const montserratAlternates = Montserrat_Alternates({
@@ -22,7 +23,7 @@ export async function generateMetadata({
 	const { locale } = await params;
 
 	return {
-		metadataBase: new URL("https://www.pixelflower.studio"),
+		metadataBase: new URL(BASE_URL),
 		// TODO: learn this
 		openGraph: {
 			title: "pixel flower",
@@ -69,7 +70,7 @@ export default async function LocaleLayout({
 							"@type": "OnlineBusiness",
 							name: "pixel flower",
 							description: "Студія сайт-запрошень для весіль і подій",
-							url: `https://www.pixelflower.studio/${locale}`,
+							url: `${BASE_URL}/${locale}`,
 						}),
 					}}
 				/>
