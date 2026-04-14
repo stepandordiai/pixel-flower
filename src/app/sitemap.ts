@@ -1,18 +1,30 @@
 import type { MetadataRoute } from "next";
 import { BASE_URL } from "@/lib/constants";
+import { routing } from "@/i18n/routing";
 
-const pages = ["", "/templates"];
+const pages = [
+	{
+		path: "",
+		changeFrequency: "weekly",
+		priority: 1,
+	},
+	{
+		path: "/templates",
+		changeFrequency: "monthly",
+		priority: 0.9,
+	},
+] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
 	return pages.map((page) => ({
-		url: `${BASE_URL}${page}`,
+		url: `${BASE_URL}${page.path}`,
 		lastModified: new Date(),
-		changeFrequency: "monthly" as const,
-		priority: !page ? 1 : 0.9,
+		changeFrequency: page.changeFrequency,
+		priority: page.priority,
 		alternates: {
 			languages: {
-				cs: `${BASE_URL}/cs${page}`,
-				"x-default": "/",
+				cs: `${BASE_URL}/cs${page.path}`,
+				"x-default": `${BASE_URL}/${routing.defaultLocale}${page.path}`,
 			},
 		},
 	}));
