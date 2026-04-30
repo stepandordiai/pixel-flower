@@ -8,7 +8,7 @@ import { CSSProperties, useEffect, useState, useRef } from "react";
 import { Cormorant_Infant, Alex_Brush } from "next/font/google";
 import HandIcon from "@/components/icons/HandIcon";
 import { useLocale } from "next-intl";
-import styles from "styles.module.scss";
+import styles from "./../../styles.module.scss";
 
 const cormorantInfant = Cormorant_Infant({
 	weight: ["500"],
