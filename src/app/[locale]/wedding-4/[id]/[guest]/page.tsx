@@ -1,0 +1,37 @@
+import type { Metadata } from "next";
+import { routing } from "@/i18n/routing";
+import invitations from "@/data/invitations/wedding-3.json";
+import Wedding4Client from "./Wedding4Client";
+
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ id: string; locale: string }>;
+}): Promise<Metadata> {
+	const { id, locale } = await params;
+
+	const invitation = invitations.find((i) => i.id === id);
+
+	if (!invitation) {
+		return {
+			title: "404",
+		};
+	}
+
+	return {
+		title: `Запрошення на весілля`,
+		openGraph: {
+			title: `Запрошення на весілля`,
+			images: invitation.ogImg,
+			url:
+				locale === routing.defaultLocale
+					? "/wedding-3/${invitation.id}"
+					: `/${locale}/wedding-3/${invitation.id}`,
+			type: "website",
+		},
+	};
+}
+
+export default function Wedding4() {
+	return <Wedding4Client />;
+}
