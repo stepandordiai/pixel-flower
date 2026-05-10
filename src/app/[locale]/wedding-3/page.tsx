@@ -18,7 +18,7 @@ export async function generateMetadata({
 			images: template.ogImg,
 			url:
 				locale === routing.defaultLocale
-					? "/wedding-3/${invitation.id}"
+					? `/wedding-3/${template.id}`
 					: `/${locale}/wedding-3/${template.id}`,
 			type: "website",
 		},

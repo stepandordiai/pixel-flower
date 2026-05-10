@@ -619,3 +619,20 @@
 		border-radius: inherit;
 	}
 }
+
+.swiper {
+	width: min(100%, 400px);
+
+	:global(.swiper-slide) {
+		overflow: hidden !important;
+		border-radius: 20px !important;
+	}
+
+	:global(.swiper-slide img) {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+		border-radius: 20px;
+	}
+}

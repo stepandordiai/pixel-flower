@@ -6,9 +6,11 @@ import Wedding3Client from "./Wedding3Client";
 export async function generateMetadata({
 	params,
 }: {
-	params: Promise<{ id: string; locale: string }>;
+	params: Promise<{ id: string; locale: string; guest: string }>;
 }): Promise<Metadata> {
-	const { id, locale } = await params;
+	const { id, guest, locale } = await params;
+
+	console.log(guest);
 
 	const invitation = invitations.find((i) => i.id === id);
 
@@ -25,8 +27,8 @@ export async function generateMetadata({
 			images: invitation.ogImg,
 			url:
 				locale === routing.defaultLocale
-					? "/wedding-3/${invitation.id}"
-					: `/${locale}/wedding-3/${invitation.id}`,
+					? `/wedding-3/${invitation.id}/${guest}`
+					: `/${locale}/wedding-3/${invitation.id}/${guest}`,
 			type: "website",
 		},
 	};
