@@ -30,7 +30,9 @@
 			"/wedding-4/04.jpg"
 		],
 		"type": "templates.wedding",
-		"song": "/wedding-4/song.mp3"
+		"song": "/wedding-4/song.mp3",
+		"ss": "/templates/wedding-4.png",
+		"isFavorite": true
 	},
 	{
 		"id": "wedding-3",
@@ -59,7 +61,8 @@
 		"ogImg": "/wedding-three/og-stepan-and-andriana-c.png",
 		"type": "templates.wedding",
 		"song": "/wedding-three/music.mp3",
-		"ss": "/templates/wedding-4.png"
+		"ss": "/templates/wedding-3.png",
+		"isFavorite": true
 	},
 	{
 		"id": "christening-3",
