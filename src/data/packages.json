@@ -50,9 +50,7 @@
 			},
 			{
 				"name": "packagesAndPricing.option12",
-				"isIncluded": true,
-				"isDiscounted": true,
-				"discount": "packagesAndPricing.discount"
+				"isIncluded": true
 			},
 			{
 				"name": "packagesAndPricing.option13",
@@ -115,9 +113,7 @@
 			},
 			{
 				"name": "packagesAndPricing.option12",
-				"isIncluded": true,
-				"isDiscounted": true,
-				"discount": "packagesAndPricing.discount"
+				"isIncluded": true
 			},
 			{
 				"name": "packagesAndPricing.option13",
