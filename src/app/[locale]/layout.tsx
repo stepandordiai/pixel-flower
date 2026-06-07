@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import ScrollToTop from "@/utils/ScrollToTop";
 import { BASE_URL } from "@/lib/constants";
+import LngBanner from "@/components/LngBanner/LngBanner";
 import "@/scss/globals.scss";
 
 const montserratAlternates = Montserrat_Alternates({
@@ -78,6 +79,7 @@ export default async function LocaleLayout({
 			<body className={montserratAlternates.variable}>
 				<ScrollToTop />
 				<NextIntlClientProvider locale={locale}>
+					<LngBanner />
 					{children}
 					<Footer />
 				</NextIntlClientProvider>

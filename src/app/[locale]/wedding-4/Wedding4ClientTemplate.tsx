@@ -310,7 +310,7 @@ export default function Wedding3ClientTemplate() {
 							alt=""
 						/>
 					</section>
-					<img className={styles.animate} src="/wedding-4/06.png" alt="" />
+					<img className={styles.animate} src="/wedding-4/06-c.png" alt="" />
 					<section className={styles.section}>
 						<p className={`${styles["section__title"]} ${styles.animate}`}>
 							Дорога сім'я Копилець
@@ -371,7 +371,7 @@ export default function Wedding3ClientTemplate() {
 					</section>
 				</div>
 
-				<img className={styles.animate} src="/wedding-4/06.png" alt="" />
+				<img className={styles.animate} src="/wedding-4/06-c.png" alt="" />
 				<section className={styles.section}>
 					<p className={`${styles["section__title"]} ${styles.animate}`}>
 						Адреси святкування
@@ -484,7 +484,7 @@ export default function Wedding3ClientTemplate() {
 						})}
 					</div>
 				</section>
-				<img className={styles.animate} src="/wedding-4/06.png" alt="" />
+				<img className={styles.animate} src="/wedding-4/06-c.png" alt="" />
 				<section className={styles.section}>
 					<p className={`${styles["section__title"]} ${styles.animate}`}>
 						До нашого весілля залишилось

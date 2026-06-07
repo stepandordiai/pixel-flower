@@ -1,18 +1,11 @@
 "use client";
 
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-
-// import required modules
-import { Autoplay, Pagination } from "swiper/modules";
 import { testimonials } from "./testimonials";
+import Image from "next/image";
+import StarIcon from "@/components/icons/StarIcon";
 import styles from "./Testimonials.module.scss";
 
-const Testimonials = () => {
+export default function Testimonials() {
 	const reviewSchema = {
 		"@context": "https://schema.org",
 		"@type": "Organization",
@@ -52,46 +45,34 @@ const Testimonials = () => {
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
 			/>
 			<section className={styles.section} id="testimonials">
-				<h2 className={styles["section__title"]}>Відгуки наших клієнтів</h2>
-				<Swiper
-					spaceBetween={100}
-					pagination={{
-						clickable: true,
-						renderBullet: (index, className) => {
-							return `<img src="${testimonials[index].img}" class="${className}" alt="testimonial ${index}" />`;
-						},
-					}}
-					autoplay={{
-						delay: 5000,
-						disableOnInteraction: false,
-					}}
-					speed={1000}
-					loop={true}
-					modules={[Pagination, Autoplay]}
-					className={styles["mySwiper"]}
-				>
+				<h2 className={styles["section__title"]}>Відгуки наших клієнтів 💌</h2>
+				<div className={styles["testimonials-grid"]}>
 					{testimonials.map((t, i) => (
-						<SwiperSlide key={i}>
-							{/* TODO: learn this */}
-							<figure>
-								<blockquote
-									style={{
-										paddingBottom: 25,
-										fontSize: "clamp(18px, 4vw, 24px)",
-									}}
-								>
-									<p>{t.label}</p>
-								</blockquote>
-								<figcaption style={{ fontWeight: 500 }}>
-									<cite>{t.client}</cite>
-								</figcaption>
-							</figure>
-						</SwiperSlide>
+						<figure className={styles["testimonial"]} key={i}>
+							<Image
+								className={styles["testimonial-img"]}
+								src={t.img}
+								width={50}
+								height={50}
+								alt={t.client}
+							/>
+							<figcaption style={{ fontWeight: 500 }}>{t.client}</figcaption>
+							<div className={styles["testimonial-rating"]}>
+								{Array.from({ length: 5 }).map((_, index) => {
+									return (
+										<span key={index}>
+											<StarIcon />
+										</span>
+									);
+								})}
+							</div>
+							<blockquote>
+								<cite>"{t.label}"</cite>
+							</blockquote>
+						</figure>
 					))}
-				</Swiper>
+				</div>
 			</section>
 		</>
 	);
-};
-
-export default Testimonials;
+}

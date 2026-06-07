@@ -1,16 +1,12 @@
 "use client";
 
-import { useTranslations, useLocale } from "next-intl";
-import { useState, useEffect, CSSProperties } from "react";
+import { useLocale } from "next-intl";
+import { useState, CSSProperties } from "react";
 import { useRouter, usePathname } from "@/i18n/navigation";
 import classNames from "classnames";
 import GlobeIcon from "@/components/icons/GlobeIcon";
+import languages from "@/data/languages.json";
 import "./Lng.scss";
-
-const languages = [
-	{ code: "uk", name: "UA" },
-	{ code: "cs", name: "CZ" },
-];
 
 type LngProps = {
 	styles?: CSSProperties;
@@ -21,25 +17,7 @@ const Lng = ({ styles }: LngProps) => {
 	const router = useRouter();
 	const pathname = usePathname();
 
-	const t = useTranslations();
-
-	const [lngBannerVisible, setLngBannerVisible] = useState(false);
 	const [lngVisible, setLngVisible] = useState(false);
-
-	useEffect(() => {
-		// TODO: learn this
-		const shortPreferredLng = navigator.language;
-
-		const preferredLng = localStorage.getItem("preferredLng");
-
-		if (shortPreferredLng.split("-")[0] === "uk" || preferredLng) {
-			return;
-		}
-
-		const timeout = setTimeout(() => setLngBannerVisible(true), 1000);
-
-		return () => clearTimeout(timeout);
-	}, []);
 
 	const currentLng =
 		languages.find((lng) => lng.code === locale) || languages[0];
@@ -52,79 +30,37 @@ const Lng = ({ styles }: LngProps) => {
 	};
 
 	return (
-		<>
-			<div
-				className={`lng-banner ${
-					lngBannerVisible ? "lng-banner--visible" : ""
-				}`.trim()}
+		<div style={styles} className="lng">
+			<button
+				onClick={() => setLngVisible((prev) => !prev)}
+				className="lng-btn"
 			>
-				<div style={{ marginBottom: 10 }}>
-					<p>Будь ласка, оберіть бажану мову зі списку нижче.</p>
-					<p>Vyberte si prosím preferovaný jazyk ze seznamu níže.</p>
-				</div>
-				<div
-					style={{
-						display: "flex",
-						justifyContent: "space-between",
-						alignItems: "center",
-					}}
-				>
-					<div style={{ display: "flex", gap: 5 }}>
-						{languages.map((lng) => {
-							return (
-								<button
-									key={lng.code}
-									onClick={() => {
-										handleLngOption(lng.code);
-										setLngBannerVisible(false);
-									}}
-									className={classNames("lng__btn", {
-										"lng__btn--active": lng.code === currentLng.code,
-									})}
-								>
-									{lng.name}
-								</button>
-							);
-						})}
-					</div>
-					<button onClick={() => setLngBannerVisible(false)}>
-						{t("close")}
-					</button>
-				</div>
-			</div>
-			<div style={styles} className="lng">
-				<button
-					onClick={() => setLngVisible((prev) => !prev)}
-					className="lng-btn"
-				>
-					<GlobeIcon size={24} />
-				</button>
-				<div
-					className={classNames("lng-inner-parent", {
-						"lng-inner-parent--visible": lngVisible,
+				<GlobeIcon size={24} />
+			</button>
+			<div
+				className={classNames("lng-inner-parent", {
+					"lng-inner-parent--visible": lngVisible,
+				})}
+			>
+				<div className="lng-inner-child">
+					{languages.map((lng) => {
+						return (
+							<button
+								key={lng.code}
+								onClick={() => {
+									handleLngOption(lng.code);
+								}}
+								className={classNames("lng__btn", {
+									"lng__btn--active": lng.code === currentLng.code,
+								})}
+							>
+								{lng.name}
+							</button>
+						);
 					})}
-				>
-					<div className="lng-inner-child">
-						{languages.map((lng) => {
-							return (
-								<button
-									key={lng.code}
-									onClick={() => {
-										handleLngOption(lng.code);
-										setLngBannerVisible(false);
-									}}
-									className={classNames("lng__btn", {
-										"lng__btn--active": lng.code === currentLng.code,
-									})}
-								>
-									{lng.name}
-								</button>
-							);
-						})}
-					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 

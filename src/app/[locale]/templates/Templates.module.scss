@@ -4,7 +4,7 @@
 	gap: 25px;
 	width: min(100%, 1920px);
 	margin: 0 auto;
-	padding: 50px 100px;
+	padding: 70px 100px 50px;
 }
 
 .templates__title {
@@ -127,6 +127,6 @@
 
 @media screen and (width < 808px) {
 	.templates {
-		padding: 50px 10px;
+		padding: 70px 10px 50px;
 	}
 }
