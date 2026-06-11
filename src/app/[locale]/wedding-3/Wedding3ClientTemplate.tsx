@@ -6,6 +6,8 @@ import templates from "@/data/templates.json";
 import { useRef } from "react";
 import classNames from "classnames";
 import HandIcon from "@/components/icons/HandIcon";
+import { getMonthName } from "@/helpers/getMonthName";
+import { getPluralForm } from "@/helpers/getPluralForm";
 import styles from "./WeddingThree.module.scss";
 
 const cormorantInfant = Cormorant_Infant({
@@ -21,38 +23,6 @@ const alexBrush = Alex_Brush({
 });
 
 const template = templates.find((template) => template.id === "wedding-3")!;
-
-// TODO: learn this
-function helper(time: number, one: string, two: string, five: string): string {
-	const abs = Math.abs(time);
-	const lastDigit = abs % 10;
-	const lastTwoDigits = abs % 100;
-
-	if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
-		return five;
-	}
-
-	if (lastDigit === 1) {
-		return one;
-	}
-
-	if (lastDigit >= 2 && lastDigit <= 4) {
-		return two;
-	}
-
-	return five;
-}
-
-// TODO: learn this
-const getMonthName = (date: Date) => {
-	const nominative = date.toLocaleDateString("uk-UA", { month: "long" });
-
-	const genitive = date
-		.toLocaleDateString("uk-UA", { day: "numeric", month: "long" })
-		.replace(/^\d+\s*/, "");
-
-	return { nominative, genitive };
-};
 
 export default function Wedding3ClientTemplate() {
 	const [playing, setPlaying] = useState(false);
@@ -89,9 +59,6 @@ export default function Wedding3ClientTemplate() {
 	}
 
 	days2.push(...febDayNumbers);
-
-	const [animate, setAnimate] = useState(false);
-	const pathRef = useRef<SVGPathElement>(null);
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
@@ -141,7 +108,7 @@ export default function Wedding3ClientTemplate() {
 		return () => clearInterval(interval);
 	}, []);
 
-	const { nominative, genitive } = getMonthName(fakeDate);
+	const { genitive } = getMonthName(fakeDate);
 
 	const togglePlay = () => {
 		if (playing) {
@@ -153,10 +120,6 @@ export default function Wedding3ClientTemplate() {
 		setPlaying((prev) => !prev);
 	};
 
-	// const ringOuter = document.querySelector(
-	// 	".logo",
-	// ) as SVGGeometryElement | null;
-	// console.log(ringOuter?.getTotalLength());
 	const [preview, setPreview] = useState(true);
 	const [envelopeClicked, setEnvelopeClicked] = useState(false);
 
@@ -365,7 +328,7 @@ export default function Wedding3ClientTemplate() {
 						alt=""
 					/>
 					<p className={`${styles["section__title"]} ${styles.animate}`}>
-						Дорога сім'я Копилець
+						Дорогі гості
 					</p>
 					<p className={`${styles.txt} ${styles.animate}`}>
 						З глибокою радістю та трепетом у серці запрошуємо вас розділити з
@@ -546,7 +509,7 @@ export default function Wedding3ClientTemplate() {
 								{days}
 							</span>
 							<span className={`${styles.txt} ${styles.animate}`}>
-								{helper(hours, "день", "дні", "днів")}
+								{getPluralForm(hours, "день", "дні", "днів")}
 							</span>
 						</div>
 						<div className="animated-element">
@@ -561,7 +524,7 @@ export default function Wedding3ClientTemplate() {
 								{hours}
 							</span>
 							<span className={`${styles.txt} ${styles.animate}`}>
-								{helper(hours, "година", "години", "годин")}
+								{getPluralForm(hours, "година", "години", "годин")}
 							</span>
 						</div>
 						<div>
@@ -576,7 +539,7 @@ export default function Wedding3ClientTemplate() {
 								{minutes}
 							</span>
 							<span className={`${styles.txt} ${styles.animate}`}>
-								{helper(minutes, "хвилина", "хвилини", "хвилин")}
+								{getPluralForm(minutes, "хвилина", "хвилини", "хвилин")}
 							</span>
 						</div>
 						<div className="animated-element">
@@ -591,7 +554,7 @@ export default function Wedding3ClientTemplate() {
 								{seconds}
 							</span>
 							<span className={`${styles.txt} ${styles.animate}`}>
-								{helper(seconds, "секунда", "секунди", "секунд")}
+								{getPluralForm(seconds, "секунда", "секунди", "секунд")}
 							</span>
 						</div>
 					</div>

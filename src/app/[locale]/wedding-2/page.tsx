@@ -16,24 +16,11 @@ import { Autoplay, EffectFade } from "swiper/modules";
 
 import Container from "@/components/Container/Container";
 import ContainerInner from "@/components/ContainerInner/ContainerInner.";
+import { getMonthName } from "@/helpers/getMonthName";
+import { getWeekdayName } from "@/helpers/getWeekDayName";
 import "./WeddingTwo.scss";
 
 const template = templates.find((template) => template.id === "wedding-2")!;
-
-// TODO: learn this
-const getMonthName = (date: Date) => {
-	const nominative = date.toLocaleDateString("uk-UA", { month: "long" });
-
-	const genitive = date
-		.toLocaleDateString("uk-UA", { day: "numeric", month: "long" })
-		.replace(/^\d+\s*/, "");
-
-	return { nominative, genitive };
-};
-
-// TODO: learn this
-const getWeekdayName = (date: Date) =>
-	date.toLocaleDateString("uk-UA", { weekday: "long" });
 
 export default function WeddingTwoTemplate() {
 	const fakeDate = new Date();
@@ -187,7 +174,7 @@ export default function WeddingTwoTemplate() {
 		return five;
 	}
 
-	const { nominative, genitive } = getMonthName(fakeDate);
+	const { genitive } = getMonthName(fakeDate);
 
 	return (
 		<>
@@ -394,21 +381,6 @@ export default function WeddingTwoTemplate() {
 							);
 						})}
 					</ContainerInner>
-					{/* {template.dress_code && (
-						<ContainerInner>
-							<p className="font-m font-accent animated-element">Дрес-код</p>
-							<p className="font-s animated-element">
-								Нам буде дуже приємно, якщо ви додасте у свій образ відтінки з
-								нашої весільної палітри.
-							</p>
-							<div className="colors-container animated-element">
-								<div style={{ background: "#bab86c" }}></div>
-								<div style={{ background: "#ffffff" }}></div>
-								<div style={{ background: "#F5F5DC" }}></div>
-								<div style={{ background: "#7B3F00" }}></div>
-							</div>
-						</ContainerInner>
-					)} */}
 					<ContainerInner>
 						<img
 							className="animated-element"
