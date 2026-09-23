@@ -24,5 +24,31 @@
 		],
 		"song": "/wedding-4/song.mp3",
 		"ogImg": "/wedding-4/og-img-c.png"
+	},
+	{
+		"id": "illia-and-irina",
+		"time": "2026-10-23T16:30:00",
+		"hisName": "Ілля",
+		"herName": "Ірина",
+		"addresses": [
+			{
+				"title": "Церемонія",
+				"time": "14:30",
+				"address_title": "РАЦС «Новий ЗАГС»",
+				"address": "Берестейський проспект, 42А",
+				"address_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.306804311581!2d30.4489679770073!3d50.45401128710677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cd003992676f%3A0x9207257e5ea251c6!2z0J3QvtCy0LjQuSDQl9Cw0LPRgSDQptC10L3RgtGA0LDQu9GM0L3QuNC5!5e0!3m2!1sen!2scz!4v1789973124097!5m2!1sen!2scz",
+				"address_destination_url": "https://maps.app.goo.gl/yLbnyyvQaAvKQW8a7"
+			},
+			{
+				"title": "Бенкет",
+				"time": "16:30",
+				"address_title": "Ресторан «Havana»",
+				"address": "Набережне шосе, 28",
+				"address_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10166.846305123088!2d30.562540724577314!3d50.427845199999986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cf3688b6bfaf%3A0x799f9364beac2baf!2sHavana%20restaurant!5e0!3m2!1sen!2scz!4v1789973223468!5m2!1sen!2scz",
+				"address_destination_url": "https://maps.app.goo.gl/5ReJBz8aDQfvpCV48"
+			}
+		],
+		"song": "/wedding-4/song.mp3",
+		"ogImg": "/wedding-4/og-img-illia-and-irina.png"
 	}
 ]

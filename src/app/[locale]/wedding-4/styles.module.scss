@@ -162,6 +162,8 @@
 	background: var(--bg-clr) !important;
 	padding-bottom: 50px;
 	color: #fff;
+	width: min(100%, 700px);
+	margin: 0 auto;
 }
 
 .hero {
@@ -201,7 +203,7 @@
 .hero__title {
 	font-size: 4rem;
 	text-align: center;
-	font-family: var(--font-alex-brush);
+	// font-family: var(--font-alex-brush);
 }
 
 .hero__img {

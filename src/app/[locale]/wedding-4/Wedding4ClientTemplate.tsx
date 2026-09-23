@@ -247,12 +247,12 @@ export default function Wedding3ClientTemplate() {
 						>
 							Wedding day
 						</p>
-						<p className={styles["hero__title"]}>
-							Bohdan
+						<p className={`${styles["hero__title"]}`}>
+							Ілля
 							<br />
 							&
 							<br />
-							Anzhelika
+							Ірина
 						</p>
 						<p
 							style={{ fontSize: "1.5rem", fontWeight: 700 }}
