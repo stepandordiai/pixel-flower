@@ -2,7 +2,6 @@
 	{
 		"name": "packagesAndPricing.title1",
 		"price": "packagesAndPricing.bronzePrice",
-		"priceDiscount": "packagesAndPricing.bronzePriceDiscount",
 		"options": [
 			{
 				"name": "packagesAndPricing.option1",
@@ -65,7 +64,6 @@
 	{
 		"name": "packagesAndPricing.title2",
 		"price": "packagesAndPricing.silverPrice",
-		"priceDiscount": "packagesAndPricing.silverPriceDiscount",
 		"options": [
 			{
 				"name": "packagesAndPricing.option1",
@@ -128,7 +126,6 @@
 	{
 		"name": "packagesAndPricing.title3",
 		"price": "packagesAndPricing.goldPrice",
-		"priceDiscount": "packagesAndPricing.goldPriceDiscount",
 		"options": [
 			{
 				"name": "packagesAndPricing.option1",

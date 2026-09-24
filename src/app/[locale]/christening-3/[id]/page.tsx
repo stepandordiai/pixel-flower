@@ -19,6 +19,10 @@ export async function generateMetadata({
 
 	return {
 		title: `Запрошення на хрестини ${invitation.genitiveName}`,
+		robots: {
+			index: false,
+			follow: false,
+		},
 		openGraph: {
 			title: `Запрошення на хрестини ${invitation.genitiveName}`,
 			images: "/christening-3/og.png",

@@ -88,14 +88,7 @@ const Packages = () => {
 						return (
 							<div key={pack.name} className="package">
 								<p className="package__title">{t(pack.name)}</p>
-								<p className="package__price">
-									<span
-										style={{ textDecoration: "line-through", fontWeight: 400 }}
-									>
-										{t(pack.price)}
-									</span>{" "}
-									<span>{t(pack.priceDiscount)}</span>
-								</p>
+								<p className="package__price">{t(pack.price)}</p>
 								<button
 									// TODO: learn this
 									onClick={(e) => {
