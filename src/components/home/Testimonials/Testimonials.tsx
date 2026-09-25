@@ -1,8 +1,8 @@
 "use client";
 
-import { testimonials } from "./testimonials";
+import { testimonials } from "@/data/testimonials";
 import Image from "next/image";
-import StarIcon from "@/components/icons/StarIcon";
+import StarIcon from "./../../icons/StarIcon";
 import styles from "./Testimonials.module.scss";
 
 export default function Testimonials() {
@@ -29,15 +29,6 @@ export default function Testimonials() {
 		})),
 	};
 
-	// TODO: ?
-	// 	export async function generateMetadata() {
-	//   return {
-	//     other: {
-	//       "script:ld+json": JSON.stringify(reviewSchema),
-	//     },
-	//   };
-	// }
-
 	return (
 		<>
 			<script
@@ -58,7 +49,7 @@ export default function Testimonials() {
 							/>
 							<figcaption style={{ fontWeight: 500 }}>{t.client}</figcaption>
 							<div className={styles["testimonial-rating"]}>
-								{Array.from({ length: 5 }).map((_, index) => {
+								{Array.from({ length: t.rating }).map((_, index) => {
 									return (
 										<span key={index}>
 											<StarIcon />

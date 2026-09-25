@@ -15,6 +15,7 @@ import Lng from "@/components/common/Lng/Lng";
 import Testimonials from "@/components/home/Testimonials/Testimonials";
 import Templates from "@/components/home/Templates/Templates";
 import TelIcon from "@/components/icons/TelIcon";
+import { testimonials } from "@/data/testimonials";
 import "./Home.scss";
 
 const sliderImgData = [
@@ -97,11 +98,49 @@ export async function generateMetadata({
 	};
 }
 
+const averageRating =
+	testimonials.reduce((sum, review) => sum + review.rating, 0) /
+	testimonials.length;
+
+const organizationSchema = {
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	name: "pixel flower",
+
+	aggregateRating: {
+		"@type": "AggregateRating",
+		ratingValue: averageRating.toFixed(1),
+		bestRating: 5,
+		worstRating: 1,
+		reviewCount: testimonials.length,
+	},
+
+	review: testimonials.map((review) => ({
+		"@type": "Review",
+		author: {
+			"@type": "Person",
+			name: review.client,
+		},
+		reviewBody: review.label,
+		reviewRating: {
+			"@type": "Rating",
+			ratingValue: review.rating,
+			bestRating: 5,
+			worstRating: 1,
+		},
+	})),
+};
+
 export default async function Home() {
 	const t = await getTranslations();
 
 	return (
 		<>
+			{/* TODO: self-closing <script /> */}
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+			/>
 			<Header />
 			<Lng />
 			<a className="float-tel" href="tel:+420722001016">
@@ -117,7 +156,6 @@ export default async function Home() {
 									className="home-top__slider"
 									style={
 										{
-											// "--height": "250px",
 											"--quantity": "3",
 											"--state": sliderIndex % 2 === 0 ? "reverse" : "normal",
 										} as React.CSSProperties
@@ -133,15 +171,6 @@ export default async function Home() {
 													style={{ "--position": i + 1 } as React.CSSProperties}
 												>
 													<img
-														// onLoad={() => {
-														// 	setShowLoadedImg((prev) => ({
-														// 		...prev,
-														// 		[i]: true,
-														// 	}));
-														// }}
-														// className={classNames("home-top__img", {
-														// 	"home-top__img--show": showLoadedImg[i],
-														// })}
 														className="home-top__img home-top__img--show"
 														src={img.path}
 														height={250}
